@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <!-- BASIC -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TITLE (FOARTE IMPORTANT) -->
+  <title>Comuna Bustuchin Gorj | Cultură | Natură | Tradiții</title>
+
+  <!-- META DESCRIPTION -->
+  <meta name="description" content="Descoperă comuna Bustuchin din județul Gorj: tradiții, evenimente, natură și informații oficiale despre comunitate și dezvoltare locală.">
+
+  <!-- KEYWORDS (nu mai contează mult, dar nu strică) -->
+  <meta name="keywords" content="Bustuchin, Gorj, comuna Bustuchin, turism Bustuchin, primăria Bustuchin, tradiții Gorj">
+
+  <!-- AUTHOR -->
+  <meta name="author" content="Primăria Bustuchin">
+
+  <!-- ROBOTS -->
+  <meta name="robots" content="index, follow">
+
+  <!-- CANONICAL (FOARTE IMPORTANT) -->
+  <link rel="canonical" href="https://www.primaria-bustuchin.ro/">
+
+  <!-- OPEN GRAPH (Facebook) -->
+  <meta property="og:title" content="Comuna Bustuchin | Gorj">
+  <meta property="og:description" content="Natură, tradiții și oportunități în comuna Bustuchin.">
+  <meta property="og:image" content="https://www.primaria-bustuchin.ro/img/logo.png">
+  <meta property="og:url" content="https://www.primaria-bustuchin.ro/">
+  <meta property="og:type" content="website">
+
+  <!-- TWITTER (optional dar profi) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Comuna Bustuchin">
+  <meta name="twitter:description" content="Descoperă Bustuchin, Gorj">
+  <meta name="twitter:image" content="https://www.primaria-bustuchin.ro/img/logo.png">
+
+  <!-- FAVICON -->
+  <link rel="icon" href="img/logo.png" type="image/png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- PERFORMANCE -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Place",
+  "name": "Comuna Bustuchin",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bustuchin",
+    "addressRegion": "Gorj",
+    "addressCountry": "RO"
+  }
+}
+</script>
+</head>
+
+
+<body>
+
+<header class="navbar" id="navbar">
+  <div class="container">
+    <a href="#hero" class="logo-link">
+      <div class="logo">
+        <img
+          src="img/logo.png"
+          alt="Logo Bustuchin">
+        <span>
+          Comuna Bustuchin
+        </span>
+      </div>
+    </a>
+
+    <nav class="nav__links">
+
+      <a href="#hero">
+        <i class="fas fa-house"></i>
+        Acasă
+      </a>
+
+      <!-- ISTORIE -->
+
+      <div class="nav__dropdown">
+
+        <a href="#istorie" class="dropdown-trigger">
+          <span>
+            <i class="fas fa-scroll"></i>
+            Istorie &nbsp;
+          </span>
+          <i class="fas fa-chevron-down arrow"></i>
+        </a>
+
+        <div class="nav__dropdown-menu">
+          <a href="#originile">
+            <i class="fas fa-landmark"></i>
+            Originile localității
+          </a>
+          <a href="#evolutie">
+            <i class="fas fa-timeline"></i>
+            Evoluția comunei
+          </a>
+          <a href="#personalitati">
+            <i class="fas fa-user-group"></i>
+            Personalități locale
+          </a>
+          <a href="#arhiva-istorica">
+            <i class="fas fa-images"></i>
+            Arhivă istorică
+          </a>
+        </div>
+      </div>
+
+      <!-- SATE -->
+
+      <div class="nav__dropdown">
+
+        <a href="#sate" class="dropdown-trigger">
+            <span>
+            <i class="fas fa-map-location-dot"></i>
+            Satele comunei &nbsp;
+            </span>
+            <i class="fas fa-chevron-down arrow"></i>
+        </a>
+        <div class="nav__dropdown-menu">
+            <a href="#bustuchin">
+            <i class="fas fa-location-dot"></i>
+            Bustuchin
+            </a>
+            <a href="#cionti">
+            <i class="fas fa-house"></i>
+            Cionți
+            </a>
+            <a href="#motorgi">
+            <i class="fas fa-road"></i>
+            Motorgi
+            </a>
+            <a href="#namete">
+            <i class="fas fa-tree-city"></i>
+            Nămete
+            </a>
+            <a href="#poiana-seciuri">
+            <i class="fas fa-tree"></i>
+            Poiana-Seciuri
+            </a>
+            <a href="#poienita">
+            <i class="fas fa-mountain"></i>
+            Poienița
+            </a>
+            <a href="#pojaru">
+            <i class="fas fa-fire"></i>
+            Pojaru
+            </a>
+            <a href="#valeapojarului">
+            <i class="fas fa-church"></i>
+            Valea Pojarului
+            </a>
+  </div>
+</div>
+
+      <!-- PATRIMONIU -->
+
+      <div class="nav__dropdown">
+
+        <a href="#patrimoniu" class="dropdown-trigger">
+          <span>
+            <i class="fas fa-landmark-dome"></i>
+            Patrimoniu &nbsp;
+          </span>
+          <i class="fas fa-chevron-down arrow"></i>
+        </a>
+        <div class="nav__dropdown-menu">
+          <a href="#folclor">
+            <i class="fas fa-music"></i>
+            Folclor și muzică
+          </a>
+          <a href="#dansuri">
+            <i class="fas fa-people-group"></i>
+            Dansuri și tradiții
+          </a>
+          <a href="#port-popular">
+            <i class="fas fa-shirt"></i>
+            Port popular
+          </a>
+          <a href="#mestesuguri">
+            <i class="fas fa-hammer"></i>
+            Meșteșuguri
+          </a>
+        </div>
+      </div>
+
+      <!-- RELIGIE -->
+
+      <div class="nav__dropdown">
+
+        <a href="#religie" class="dropdown-trigger">
+          <span>
+            <i class="fas fa-church"></i>
+            Patrimoniu religios &nbsp;
+          </span>
+          <i class="fas fa-chevron-down arrow"></i>
+        </a>
+
+        <div class="nav__dropdown-menu">
+
+          <a href="#biserici">
+            <i class="fas fa-cross"></i>
+            Biserici
+          </a>
+          <a href="#troite">
+            <i class="fas fa-place-of-worship"></i>
+            Troițe
+          </a>
+          <a href="#traditii-religioase">
+            <i class="fas fa-candle-holder"></i>
+            Tradiții religioase
+          </a>
+          <a href="#pricesne">
+            <i class="fas fa-music"></i>
+            Pricesne și colinde
+          </a>
+        </div>
+      </div>
+
+      <!-- NATURA -->
+
+      <a href="#natura">
+        <i class="fas fa-mountain-sun"></i>
+        Natură & Turism
+      </a>
+
+      <!-- MULTIMEDIA -->
+
+      <a href="#multimedia">
+        <i class="fas fa-photo-film"></i>
+        Multimedia
+      </a>
+
+      <!-- EVENIMENTE -->
+
+      <a href="#evenimente">
+        <i class="fas fa-calendar-days"></i>
+        Evenimente
+      </a>
+
+      <!-- EDUCATIE -->
+
+      <a href="#educatie">
+        <i class="fas fa-school"></i>
+        Educație
+      </a>
+
+    </nav>
+
+    <!-- =====================================================
+         MOBILE MENU
+    ====================================================== -->
+
+    <div class="nav__toggle" id="menuToggle">
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </div>
+
+  </div>
+</header>
+
+
+<main>
+
+
+<section id="hero" class="section hero">
+
+  <!-- IMAGINE DEFAULT -->
+  <div class="hero-bg" id="heroBg">
+    <img src="img/primarie.webp" alt="Primăria Bustuchin" loading="eager">
+  </div>
+
+    <!-- VIDEO (inițial ascuns) -->
+  <div id="heroVideo" class="hero-video">
+    <iframe
+      id="heroIframe"
+      src=""
+      title="Bustuchin Video"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- OVERLAY -->
+  <div class="hero__overlay" id="heroOverlay">
+      <div class="hero__content" id="heroContent">
+        <h1>Bustuchin</h1>
+
+        <p>
+          Cultură | Natură | Tradiții
+        </p>
+
+      </div>
+
+      <div class="hero__actions">
+
+        <button id="playVideoBtn" class="button button--hero button--play">
+          <i class="fas fa-play"></i>
+          <span>Vezi prezentarea</span>
+        </button>
+
+        <button id="stopVideoBtn" class="button button--hero button--stop hidden">
+          <i class="fas fa-xmark"></i>
+          <span>Închide</span>
+        </button>
+
+      </div>
+  </div>
+</section>
+
+    
+
+
+
+</main>
+
+
+<footer class="footer">
+  <div class="footer-overlay"></div>
+  <div class="container footer-container">
+
+    <div class="footer__column footer__brand">
+        <div class="footer-logo">
+         <img
+              src="img/logo.png"
+              alt="Logo Bustuchin">
+        <div>
+
+          <h3>
+            Monografia Comunei Bustuchin
+          </h3>
+
+          <span>
+            Județul Gorj • România
+          </span>
+
+        </div>
+
+      </div>
+
+      <p class="footer-description">
+
+        Monografia digitală a comunei Bustuchin
+        păstrează vie memoria localității prin istorie,
+        tradiții, patrimoniu cultural, spiritualitate,
+        oameni și povești autentice transmise
+        generațiilor viitoare.
+
+      </p>
+
+      <!-- SOCIAL -->
+
+      <div class="footer-socials">
+
+        <a
+          href="https://www.facebook.com/primaria.bustuchin"
+          target="_blank"
+          aria-label="Facebook">
+
+          <i class="fab fa-facebook-f"></i>
+
+        </a>
+
+        <a
+          href="https://www.youtube.com/@ComunaBustuchin"
+          target="_blank"
+          aria-label="YouTube">
+
+          <i class="fab fa-youtube"></i>
+
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- =====================================================
+         MONOGRAFIE
+    ====================================================== -->
+
+    <div class="footer__column footer__brand">
+
+      <h4>
+        Monografie
+      </h4>
+
+      <a href="#istorie">
+
+        <i class="fas fa-scroll"></i>
+        Istoria comunei
+
+      </a>
+
+      <a href="#sate">
+
+        <i class="fas fa-map-location-dot"></i>
+        Satele comunei
+
+      </a>
+
+      <a href="#patrimoniu">
+
+        <i class="fas fa-landmark-dome"></i>
+        Patrimoniu cultural
+
+      </a>
+
+      <a href="#religie">
+
+        <i class="fas fa-church"></i>
+        Patrimoniu religios
+
+      </a>
+
+      <a href="#natura">
+
+        <i class="fas fa-mountain-sun"></i>
+        Natură și turism
+
+      </a>
+
+    </div>
+
+    <!-- =====================================================
+         MULTIMEDIA & ARHIVE
+    ====================================================== -->
+
+    <div class="footer__column">
+
+      <h4>
+        Multimedia & Arhive
+      </h4>
+
+      <a href="#multimedia">
+
+        <i class="fas fa-photo-film"></i>
+        Galerie multimedia
+
+      </a>
+
+      <a href="#arhiva-istorica">
+
+        <i class="fas fa-images"></i>
+        Arhivă istorică
+
+      </a>
+
+      <a href="#documente">
+
+        <i class="fas fa-folder-open"></i>
+        Documente și arhive
+
+      </a>
+
+      <a href="#interviuri">
+
+        <i class="fas fa-microphone-lines"></i>
+        Interviuri și mărturii
+
+      </a>
+
+      <a href="#evenimente">
+
+        <i class="fas fa-calendar-days"></i>
+        Evenimente locale
+
+      </a>
+
+    </div>
+
+    <!-- =====================================================
+         PORTALURI UTILE
+    ====================================================== -->
+
+    <div class="footer__column">
+
+      <h4>
+        Portaluri utile
+      </h4>
+
+      <a
+        href="https://primaria-bustuchin.ro"
+        target="_blank">
+
+        <i class="fas fa-building-columns"></i>
+        Site Oficial Primăria Bustuchin
+
+      </a>
+
+      <a
+        href="https://primaria-bustuchin.ro/avizier"
+        target="_blank">
+
+        <i class="fas fa-file-lines"></i>
+        Avizier Oficial
+
+      </a>
+
+      <a
+        href="https://primaria-bustuchin.ro/consiliul-local"
+        target="_blank">
+
+        <i class="fas fa-landmark"></i>
+        Consiliul Local
+
+      </a>
+
+      <a
+        href="https://primaria-bustuchin.ro/monitorul-oficial-local"
+        target="_blank">
+
+        <i class="fas fa-book"></i>
+        Monitor Oficial Local
+
+      </a>
+
+      <a
+        href="https://www.cjgorj.ro"
+        target="_blank">
+
+        <i class="fas fa-landmark"></i>
+        Consiliul Județean Gorj
+
+      </a>
+
+    </div>
+
+    <!-- =====================================================
+         CONTACT
+    ====================================================== -->
+
+    <div class="footer__column">
+
+      <h4>
+        Contact
+      </h4>
+
+      <p>
+
+        <a href="mailto:contact@primaria-bustuchin.ro">
+
+          <i class="fas fa-envelope"></i>
+          contact@primaria-bustuchin.ro
+
+        </a>
+
+      </p>
+
+      <p>
+
+        <a href="tel:+40253475125">
+
+          <i class="fas fa-phone"></i>
+          0253 475 125
+
+        </a>
+
+      </p>
+
+      <p>
+
+        <i class="fas fa-location-dot"></i>
+        Bustuchin, Gorj • România
+
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- =====================================================
+       FOOTER BOTTOM
+  ====================================================== -->
+
+  <div class="footer-bottom">
+
+    <p>
+      © 2026 Monografia Comunei Bustuchin •
+      Toate drepturile rezervate.
+    </p>
+
+    <p class="footer-credit">
+
+      Proiect cultural digital realizat de
+
+      <a
+        href="https://www.facebook.com/profile.php?id=61581191760121"
+        target="_blank">
+
+        Glăvan Gheorghe Mădălin
+
+      </a>
+
+    </p>
+
+  </div>
+
+</footer>
+
+<script src="script.js"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</body>
+</html>
