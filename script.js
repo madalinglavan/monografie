@@ -72,34 +72,39 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
+/* =========================================================
+   CLOSE MENU WHEN CLICK REAL NAV LINKS
+========================================================= */
 
-  /* =========================================================
-     CLOSE MENU WHEN CLICK LINK
-  ========================================================= */
+document
+  .querySelectorAll(".nav__dropdown-menu a, .nav__links > a")
+  .forEach(link => {
 
-  document
-    .querySelectorAll(".nav__links a")
-    .forEach(link => {
+    link.addEventListener("click", () => {
 
-      link.addEventListener("click", () => {
+      if(window.matchMedia("(hover: none)").matches){
 
-        if(
-          window.matchMedia("(hover: none)").matches &&
-          !link.classList.contains("dropdown-trigger")
-        ){
+        navLinks.classList.remove("active");
 
-          navLinks.classList.remove("active");
+        menuToggle.classList.remove("active");
 
-          menuToggle.classList.remove("active");
+        document.body.classList.remove("menu-open");
 
-          document.body.classList.remove("menu-open");
 
-        }
 
-      });
+        /* CLOSE DROPDOWNS */
+
+        dropdowns.forEach(dropdown => {
+
+          dropdown.classList.remove("active");
+
+        });
+
+      }
 
     });
 
+  });
 
 
   /* =========================================================
@@ -345,5 +350,42 @@ document.addEventListener("DOMContentLoaded", () => {
     heroObserver.observe(heroSection);
 
   }
+
+});
+
+
+
+
+
+
+
+
+/* =========================================================
+   REVEAL ON SCROLL
+========================================================= */
+
+const reveals =
+  document.querySelectorAll(".reveal");
+
+const revealObserver =
+  new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+      if(entry.isIntersecting){
+
+        entry.target.classList.add("active");
+
+      }
+
+    });
+
+  },{
+    threshold:0.15
+  });
+
+reveals.forEach(reveal => {
+
+  revealObserver.observe(reveal);
 
 });
