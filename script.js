@@ -389,3 +389,151 @@ reveals.forEach(reveal => {
   revealObserver.observe(reveal);
 
 });
+
+
+
+
+
+/* =========================================================
+   MEDIA CARDS
+========================================================= */
+
+const mediaCards =
+  document.querySelectorAll(".media-card");
+
+mediaCards.forEach(card => {
+
+  const preview =
+    card.querySelector(".media-card__preview");
+
+  const playButton =
+    card.querySelector(".media-card__play");
+
+  const iframe =
+    card.querySelector(".media-card__iframe");
+
+  const videoId =
+    card.dataset.video;
+
+
+
+  if(!preview || !iframe || !videoId) return;
+
+
+
+  preview.addEventListener("click", () => {
+
+    /* CLOSE OTHER VIDEOS */
+
+    mediaCards.forEach(otherCard => {
+
+      if(otherCard !== card){
+
+        otherCard.classList.remove("active");
+
+
+
+        const otherIframe =
+          otherCard.querySelector(".media-card__iframe");
+
+        if(otherIframe){
+
+          otherIframe.src = "";
+
+        }
+
+      }
+
+    });
+
+
+
+    /* OPEN CURRENT */
+
+    card.classList.add("active");
+
+
+
+    iframe.src =
+`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+
+  });
+
+});
+
+
+
+
+/* =========================================================
+   STATS COUNTER
+========================================================= */
+
+const statNumbers =
+  document.querySelectorAll(".stats__number");
+
+
+
+const statsObserver =
+  new IntersectionObserver((entries, observer) => {
+
+    entries.forEach(entry => {
+
+      if(entry.isIntersecting){
+
+        const stat =
+          entry.target;
+
+        const target =
+          +stat.dataset.target;
+
+        let current = 0;
+
+        const increment =
+          target / 80;
+
+
+
+        const updateCounter = () => {
+
+          current += increment;
+
+
+
+          if(current < target){
+
+            stat.textContent =
+              Math.floor(current);
+
+            requestAnimationFrame(updateCounter);
+
+          }else{
+
+            stat.textContent = target;
+
+          }
+
+        };
+
+
+
+        updateCounter();
+
+
+
+        observer.unobserve(stat);
+
+      }
+
+    });
+
+  },{
+    threshold:0.5
+  });
+
+
+
+statNumbers.forEach(stat => {
+
+  statsObserver.observe(stat);
+
+});
