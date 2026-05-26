@@ -406,9 +406,6 @@ mediaCards.forEach(card => {
   const preview =
     card.querySelector(".media-card__preview");
 
-  const playButton =
-    card.querySelector(".media-card__play");
-
   const iframe =
     card.querySelector(".media-card__iframe");
 
