@@ -460,7 +460,6 @@ mediaCards.forEach(card => {
 
 
 
-
 /* =========================================================
    STATS COUNTER
 ========================================================= */
@@ -470,8 +469,53 @@ const statNumbers =
 
 
 
+const animateStat = (stat) => {
+
+  const target =
+    +stat.dataset.target;
+
+  let current = 0;
+
+  const increment =
+    target / 80;
+
+
+
+  stat.textContent = 0;
+
+
+
+  const updateCounter = () => {
+
+    current += increment;
+
+
+
+    if(current < target){
+
+      stat.textContent =
+        Math.floor(current);
+
+      requestAnimationFrame(updateCounter);
+
+    }else{
+
+      stat.textContent = target;
+
+    }
+
+  };
+
+
+
+  updateCounter();
+
+};
+
+
+
 const statsObserver =
-  new IntersectionObserver((entries, observer) => {
+  new IntersectionObserver((entries) => {
 
     entries.forEach(entry => {
 
@@ -480,51 +524,37 @@ const statsObserver =
         const stat =
           entry.target;
 
-        const target =
-          +stat.dataset.target;
-
-        let current = 0;
-
-        const increment =
-          target / 80;
 
 
+        /* PREVENT MULTIPLE TRIGGERS */
 
-        const updateCounter = () => {
-
-          current += increment;
+        if(stat.classList.contains("counting"))
+          return;
 
 
 
-          if(current < target){
-
-            stat.textContent =
-              Math.floor(current);
-
-            requestAnimationFrame(updateCounter);
-
-          }else{
-
-            stat.textContent = target;
-
-          }
-
-        };
+        stat.classList.add("counting");
 
 
 
-        updateCounter();
+        animateStat(stat);
 
 
 
-        observer.unobserve(stat);
+        /* RESET AFTER ANIMATION */
+
+        setTimeout(() => {
+
+          stat.classList.remove("counting");
+
+        }, 1000);
 
       }
 
     });
 
   },{
-    threshold:0.5
+    threshold:0.45
   });
 
 
