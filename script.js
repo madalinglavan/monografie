@@ -564,3 +564,280 @@ statNumbers.forEach(stat => {
   statsObserver.observe(stat);
 
 });
+
+
+
+const WEATHER_API_KEY =
+"e26177d74d65c1ddff24333770484a70";
+
+const LAT = 44.805;
+const LON = 23.109;
+
+async function loadWeather(){
+
+  try{
+
+    const currentResponse =
+      await fetch(
+`https://api.openweathermap.org/data/2.5/weather?lat=${LAT}&lon=${LON}&units=metric&lang=ro&appid=${WEATHER_API_KEY}`
+      );
+
+    const current =
+      await currentResponse.json();
+
+
+
+    const currentContainer =
+      document.getElementById("weatherCurrent");
+
+
+
+    currentContainer.innerHTML = `
+
+      <div class="weather-current__main">
+
+        <img
+          class="weather-current__icon"
+          src="https://openweathermap.org/img/wn/${current.weather[0].icon}@4x.png"
+          alt="${current.weather[0].description}">
+
+        <div>
+
+          <div class="weather-current__temp">
+
+            ${Math.round(current.main.temp)}°C
+
+          </div>
+
+          <div class="weather-current__desc">
+
+            ${current.weather[0].description}
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="weather-current__details">
+
+        <div class="weather-detail">
+
+          <span class="weather-detail__label">
+            Se simte ca
+          </span>
+
+          <span class="weather-detail__value">
+            ${Math.round(current.main.feels_like)}°C
+          </span>
+
+        </div>
+
+
+
+        <div class="weather-detail">
+
+          <span class="weather-detail__label">
+            Umiditate
+          </span>
+
+          <span class="weather-detail__value">
+            ${current.main.humidity}%
+          </span>
+
+        </div>
+
+
+
+        <div class="weather-detail">
+
+          <span class="weather-detail__label">
+            Vânt
+          </span>
+
+          <span class="weather-detail__value">
+            ${Math.round(current.wind.speed * 3.6)} km/h
+          </span>
+
+        </div>
+
+
+
+        <div class="weather-detail">
+
+          <span class="weather-detail__label">
+            Presiune
+          </span>
+
+          <span class="weather-detail__value">
+            ${current.main.pressure} hPa
+          </span>
+
+        </div>
+
+      </div>
+
+    `;
+
+
+
+    const forecastResponse =
+      await fetch(
+`https://api.openweathermap.org/data/2.5/forecast?lat=${LAT}&lon=${LON}&units=metric&lang=ro&appid=${WEATHER_API_KEY}`
+      );
+
+    const forecastData =
+      await forecastResponse.json();
+
+
+
+    const grouped = {};
+
+
+
+    forecastData.list.forEach(item => {
+
+      const date =
+        item.dt_txt.split(" ")[0];
+
+
+
+      if(!grouped[date]){
+
+        grouped[date] = [];
+
+      }
+
+
+
+      grouped[date].push(item);
+
+    });
+
+
+
+    const weatherGrid =
+      document.getElementById("weatherGrid");
+
+
+
+    weatherGrid.innerHTML = "";
+
+
+
+    Object.entries(grouped)
+      .slice(1,4)
+      .forEach(([date, entries]) => {
+
+        const maxTemp =
+          Math.max(
+            ...entries.map(
+              e => e.main.temp_max
+            )
+          );
+
+        const minTemp =
+          Math.min(
+            ...entries.map(
+              e => e.main.temp_min
+            )
+          );
+
+        const rainChance =
+          Math.max(
+            ...entries.map(
+              e => (e.pop || 0) * 100
+            )
+          );
+
+        const wind =
+          Math.max(
+            ...entries.map(
+              e => e.wind.speed
+            )
+          );
+
+        const weather =
+          entries[0].weather[0];
+
+
+
+        const weekday =
+          new Date(date)
+          .toLocaleDateString(
+            "ro-RO",
+            {
+              weekday:"long"
+            }
+          );
+
+
+
+        weatherGrid.innerHTML += `
+
+          <div class="weather-card">
+
+            <img
+              class="weather-icon"
+              src="https://openweathermap.org/img/wn/${weather.icon}@2x.png"
+              alt="${weather.description}">
+
+            <h3 class="weather-day">
+
+              ${weekday}
+
+            </h3>
+
+            <div class="weather-desc">
+
+              ${weather.description}
+
+            </div>
+
+            <br>
+
+            <div class="weather-max">
+
+              ↑ ${Math.round(maxTemp)}°C
+
+            </div>
+
+            <div class="weather-min">
+
+              ↓ ${Math.round(minTemp)}°C
+
+            </div>
+
+            <br>
+
+            <div>
+
+              🌧️ ${Math.round(rainChance)}%
+
+            </div>
+
+            <div>
+
+              💨 ${Math.round(wind * 3.6)} km/h
+
+            </div>
+
+          </div>
+
+        `;
+
+      });
+
+  }
+
+  catch(error){
+
+    console.error(error);
+
+  }
+
+}
+
+loadWeather();
