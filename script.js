@@ -869,3 +869,62 @@ if(heritageSlides.length){
   }, 4000);
 
 }
+
+
+
+
+
+/* =========================================================
+   YOUTUBE LOAD ON CLICK
+========================================================= */
+
+document
+.querySelectorAll(".video-preview")
+.forEach(video => {
+
+  const original =
+    video.innerHTML;
+
+  video.addEventListener("click", () => {
+
+    if(
+      video.querySelector("iframe")
+    ) return;
+
+    const id =
+      video.dataset.video;
+
+    video.innerHTML = `
+      <iframe
+        src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+      </iframe>
+    `;
+
+  });
+
+  const observer =
+  new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+      if(
+        !entry.isIntersecting &&
+        video.querySelector("iframe")
+      ){
+
+        video.innerHTML =
+          original;
+
+      }
+
+    });
+
+  },{
+    threshold:.2
+  });
+
+  observer.observe(video);
+
+});
