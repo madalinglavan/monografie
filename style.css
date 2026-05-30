@@ -814,17 +814,17 @@ iframe{
 
 .stats{
   display:flex;
-  flex-wrap:wrap;
-  gap:22px;
-  margin-top:50px;
+  gap:2px;
+  margin-top:10px;
+  text-align: center;
 }
 
 /* ITEM */
 
 .stats__item{
   position:relative;
-  min-width:170px;
-  padding:28px;
+  min-width:150px;
+  padding:8px;
   border-radius:28px;
   overflow:hidden;
   background:
@@ -875,19 +875,17 @@ iframe{
 
 .stats__number{
   display:block;
-  font-size:2.3rem;
+  font-size:1.3rem;
   font-weight:700;
   line-height:1;
   color:#60a5fa;
-  margin-bottom:14px;
 }
 
 /* LABEL */
 
 .stats__label{
   color:var(--muted);
-  font-size:.95rem;
-  line-height:1.6;
+  font-size:.65rem;
 }
 
 /* =========================================================
