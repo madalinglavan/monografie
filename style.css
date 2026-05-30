@@ -621,17 +621,17 @@ iframe{
 }
 
 /* =========================================================
-   HISTORY SECTION
+   GEOGRAFIE SECTION
 ========================================================= */
 
-.section--history{
+.section--geografie{
   position:relative;
   overflow:hidden;
 }
 
 /* BACKGROUND EFFECT */
 
-.section--history::before{
+.section--geografie::before{
   content:"";
   position:absolute;
   inset:0;
@@ -909,7 +909,7 @@ iframe{
 }
 
 /* =========================================================
-   HISTORY IMAGE OVERLAY
+   GEOGRAFIE IMAGE OVERLAY
 ========================================================= */
 
 .section-block__media::after{
@@ -1131,6 +1131,34 @@ iframe{
 .weather-min{
   color:#60a5fa;
 }
+
+
+
+
+
+.patrimon-hero{
+
+  position:relative;
+
+  padding:180px 0 120px;
+
+  overflow:hidden;
+
+  background:
+  linear-gradient(
+    rgba(4,8,15,.85),
+    rgba(4,8,15,.95)
+  ),
+  url('../img/patrimoniu/toponimie-bg.webp')
+  center/cover;
+}
+
+
+
+
+
+
+
 @media(max-width:1024px){
 
   .container{
