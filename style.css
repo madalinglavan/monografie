@@ -1155,7 +1155,33 @@ iframe{
 
 
 
+.heritage-slider{
 
+ position:relative;
+  width:100%;
+  min-height:500px;
+}
+
+.heritage-slide{
+
+  position:absolute;
+
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  opacity:0;
+
+  transition:opacity .8s ease;
+}
+
+.heritage-slide.active{
+
+  opacity:1;
+}
 
 
 
