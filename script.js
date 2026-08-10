@@ -928,3 +928,128 @@ document
   observer.observe(video);
 
 });
+
+
+/* =========================================================
+   PAGE NAVIGATION TRANSITION
+========================================================= */
+
+function initPageNavigationTransition(){
+
+  const transition =
+    document.getElementById("pageTransition");
+
+  if(!transition) return;
+
+
+  const links =
+    document.querySelectorAll('a[href^="#"]');
+
+
+  links.forEach(link => {
+
+    link.addEventListener("click", event => {
+
+      const href =
+        link.getAttribute("href");
+
+
+      if(
+        !href ||
+        href === "#"
+      ){
+        return;
+      }
+
+
+      const target =
+        document.querySelector(href);
+
+
+      if(!target){
+        return;
+      }
+
+
+      event.preventDefault();
+
+
+      /* DISTANCE TO TARGET */
+
+      const targetPosition =
+        target.getBoundingClientRect().top
+        + window.scrollY;
+
+      const currentPosition =
+        window.scrollY;
+
+      const distance =
+        Math.abs(
+          targetPosition - currentPosition
+        );
+
+
+      /* DYNAMIC TRANSITION TIME */
+
+      const transitionDuration =
+        Math.min(
+          Math.max(distance / 3, 700),
+          1500
+        );
+
+
+      /* SHOW LOGO */
+
+      transition.classList.add("active");
+
+      transition.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+
+      /* START SCROLL */
+
+      setTimeout(() => {
+
+        target.scrollIntoView({
+          behavior:"smooth",
+          block:"start"
+        });
+
+      },200);
+
+
+      /* HIDE LOGO */
+
+      setTimeout(() => {
+
+        transition.classList.remove("active");
+
+        transition.setAttribute(
+          "aria-hidden",
+          "true"
+        );
+
+      },transitionDuration);
+
+
+      /* UPDATE URL */
+
+      history.pushState(
+        null,
+        "",
+        href
+      );
+
+    });
+
+  });
+
+}
+
+
+document.addEventListener(
+  "DOMContentLoaded",
+  initPageNavigationTransition
+);
