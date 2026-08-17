@@ -546,6 +546,7 @@ body.menu-open{
   flex-direction:column;
   gap:140px;
   
+  
 }
 
 .village{
@@ -554,6 +555,9 @@ body.menu-open{
   gap:80px;
   align-items:center;
   justify-content: center;
+  justify-items: center;
+  
+  
 }
 
 
