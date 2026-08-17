@@ -113,24 +113,18 @@
       <!-- =====================================================
           NAVIGATION
       ====================================================== -->
-      <nav class="nav__links">
-        
-
+      <nav class="nav__links">      
          <!-- =====================================================
             EVENIMENTE
           ====================================================== -->
-
           <div class="nav__dropdown">
-
             <button
               type="button"
               class="dropdown-trigger">
-
               <span>
                 <i class="fas fa-calendar-days"></i>
                 Evenimente&nbsp;
               </span>
-
               <i class="fas fa-chevron-down arrow"></i>
 
             </button>
@@ -162,6 +156,12 @@
 
                 <i class="fas fa-heart"></i>
                 Ziua Persoanelor Vârstnice
+
+              </a>
+              <a href="#ziua-copilului">
+
+                <i class="fas fa-heart"></i>
+                Ziua Copilului
 
               </a>
               <a href="#viteza-coasta">
@@ -430,7 +430,56 @@
           </div>
         </div>
 
+         <!-- =====================================================
+            TURISM
+          ====================================================== -->
+          <div class="nav__dropdown">
+            <button
+              type="button"
+              class="dropdown-trigger">
+              <span>
+                <i class="fas fa-calendar-days"></i>
+                Turism&nbsp;
+              </span>
+              <i class="fas fa-chevron-down arrow"></i>
 
+            </button>
+
+            <div class="nav__dropdown-menu">
+              <a href="#biserica-din-valea-pojarului">
+
+                <i class="fas fa-flag"></i>
+                Biserica din Valea Pojarului
+
+              </a>
+
+              <a href="#fantana-rece">
+
+                <i class="fas fa-flag"></i>
+                Fântana Rece
+
+              </a>
+
+              <a href="#dealul-muierii">
+
+                <i class="fas fa-music"></i>
+                Dealul Muierii
+
+              </a>
+
+
+            </div>
+
+          </div>
+
+          <!-- =====================================================
+            INFRASTRUCTURA
+        ====================================================== -->
+
+        <a href="#infrastructura">
+          <i class="fas fa-school"></i>
+          Infrastructură
+        </a>
         <!-- =====================================================
             EDUCAȚIE
         ====================================================== -->
@@ -486,15 +535,17 @@
     <!-- OVERLAY -->
     <div class="hero__overlay" id="heroOverlay">
         <div class="hero__content" id="heroContent">
-          <h1>BUSTUCHIN</h1>
+          <h2>MONOGRAFIA COMUNEI</h2>
+          <h1>BUSTUCHIN <br> <span>Județul Gorj</span> </h1>
+          
           <p>
-            Cultură | Natură | Tradiții
+            Cultură | Natură | Tradiții | Istorie
           </p>
         </div>
         <div class="hero__actions">
           <button id="playVideoBtn" class="button button--hero button--play">
             <i class="fas fa-play"></i>
-            <span>Vezi prezentarea</span>
+            <span>Prezentare</span>
           </button>
           <button id="stopVideoBtn" class="button button--hero button--stop hidden">
             <i class="fas fa-xmark"></i>
@@ -512,12 +563,12 @@
       <div class="container">
         <!-- HEADER -->
         <div class="section-header reveal">
-          <span class="section-kicker">
+          <span class="section-kicker-top">
             Bun venit în Bustuchin
           </span>
 
           <h2 class="section-title">
-            O comunitate cu rădăcini adânci în istoria și cultura Gorjului
+            O comunitate cu rădăcini adânci <br> în istoria și cultura Gorjului
           </h2>
 
           <p class="section-description">
@@ -610,10 +661,6 @@
         <!-- METEO -->
 
         <div class="section-header reveal intro-weather-header">
-
-          <span class="section-kicker">
-            Meteo Bustuchin
-          </span>
 
           <h3 class="intro-weather-title">
             Condițiile meteo actuale
@@ -739,7 +786,8 @@
                 <i class="fas fa-play"></i>
               </button>
 
-              <div class="stats">
+          </div>
+            <div class="stats">
                   <div class="stats__item">
                     <span
                       class="stats__number"
@@ -771,9 +819,6 @@
                     </span>
                   </div>
               </div>
-              
-          </div>
-            
 
         </div>
 
@@ -792,7 +837,9 @@
           <button class="play-btn">
             <i class="fas fa-play"></i>
           </button>
-              <!-- STATS -->
+              
+          </div>
+            <!-- STATS -->
             <div class="stats">
               <div class="stats__item">
                 <span
@@ -826,8 +873,6 @@
               </div>
 
             </div>
-          </div>
-
           <div class="section-block__content">
 
             <span class="section-block__badge">
@@ -990,7 +1035,8 @@
                 <button class="play-btn">
                   <i class="fas fa-play"></i>
                 </button>
-                      <!-- STATS -->
+            </div>
+ <!-- STATS -->
 
                   <div class="stats">
                     <div class="stats__item">
@@ -1024,9 +1070,6 @@
                       </span>
                     </div>
                   </div>
-
-            </div>
-
           </div>
 
           <!-- =====================================================
@@ -1045,7 +1088,9 @@
             <button class="play-btn">
               <i class="fas fa-play"></i>
             </button>
-            <!-- STATS -->
+            
+          </div>
+<!-- STATS -->
               <div class="stats">
                 <div class="stats__item">
                   <span
@@ -1078,8 +1123,6 @@
                   </span>
                 </div>
               </div>
-          </div>
-
             <div class="section-block__content">
               <span class="section-block__badge">
                 Respect și recunoștință
@@ -1132,13 +1175,161 @@
             </div>
           </div>
 
+                    <!-- =====================================================
+              ZIUA PERSOANELOR VÂRSTNICE
+          ====================================================== -->
+
+          <div id="ziua-copilului" class="subsection split-layout reveal">
+
+            <!-- VIDEO -->
+          
+
+            <div class="section-block__content">
+              <span class="section-block__badge">
+                Respect și recunoștință
+              </span>
+              <h3 class="section-block__title">
+                Ziua Copilului
+              </h3>
+              <p class="section-block__text">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                În fiecare an, la începutul lunii octombrie,
+                comuna Bustuchin marchează Ziua Internațională
+                a Persoanelor Vârstnice printr-un eveniment
+                dedicat celor care au contribuit de-a lungul
+                vieții la dezvoltarea comunității și la
+                păstrarea valorilor locale.
+              </p>
+              <p class="section-block__text">
+                Organizat în cadrul Clubului Persoanelor
+                Vârstnice, evenimentul reprezintă un prilej
+                de respect, apreciere și recunoștință față
+                de seniorii comunei. Este o zi în care
+                experiența, înțelepciunea și poveștile de
+                viață ale generațiilor trecute sunt celebrate
+                de întreaga comunitate.
+              </p>
+              <p class="section-block__text">
+                Manifestarea reunește persoane vârstnice,
+                familii, reprezentanți ai administrației
+                locale și membri ai comunității într-o
+                atmosferă caldă și prietenoasă. Evenimentul
+                contribuie la consolidarea legăturilor dintre
+                generații și la promovarea respectului față
+                de cei care au construit prezentul comunei.
+              </p>
+              <p class="section-block__text">
+                Programul include momente artistice,
+                recitaluri de muzică populară, activități
+                culturale și întâlniri comunitare care
+                transformă această zi într-o adevărată
+                sărbătoare a sufletului și a tradițiilor
+                locale.
+              </p>
+              <p class="section-block__text">
+                Ziua Persoanelor Vârstnice a devenit una
+                dintre cele mai apreciate manifestări sociale
+                organizate la Bustuchin, demonstrând grija și
+                respectul pe care comunitatea le acordă
+                seniorilor săi.
+              </p>
+
+              
+            </div>
+            <div
+            class="video-preview" data-video="ID_VIDEO_VARSTNICI">
+            <img
+              src="img/primarie.webp"
+              alt="Ziua Copilului"
+              loading="lazy">
+            <button class="play-btn">
+              <i class="fas fa-play"></i>
+            </button>
+          </div>
+          <!-- STATS -->
+              <div class="stats">
+                <div class="stats__item">
+                  <span
+                    class="stats__number"
+                    data-target="6">
+                    0
+                  </span>
+                  <span class="stats__label">
+                    Luna în care este organizat evenimentul
+                  </span>
+                </div>
+                <div class="stats__item">
+                  <span
+                    class="stats__number"
+                    data-target="3">
+                    0
+                  </span>
+                  <span class="stats__label">
+                    Generații reunite în spiritul comunității
+                  </span>
+                </div>
+                <div class="stats__item">
+                  <span
+                    class="stats__number"
+                    data-target="100">
+                    0
+                  </span>
+                  <span class="stats__label">
+                    Respect pentru juniorii comunei
+                  </span>
+                </div>
+              </div>
+          </div>
+
           <!-- =====================================================
                     VITEZĂ ÎN COASTĂ
                     CUPA BUSTUCHIN
             ====================================================== -->
 
             <div id="viteza-coasta" class="subsection split-layout reveal">
-
+<!-- VIDEO -->
+              <div class="video-preview" data-video="zMegpjMbqjM">
+                <img
+                  src="img/viteza.webp"
+                  alt="Viteză în Coastă - Cupa Bustuchin"
+                  loading="lazy">
+                <button class="play-btn">
+                  <i class="fas fa-play"></i>
+                </button>
+              </div>
+              <!-- STATS -->
+                <div class="stats">
+                  <div class="stats__item">
+                    <span
+                      class="stats__number"
+                      data-target="1">
+                      0
+                    </span>
+                    <span class="stats__label">
+                      Competiție anuală
+                    </span>
+                  </div>
+                  <div class="stats__item">
+                    <span
+                      class="stats__number"
+                      data-target="100">
+                      0
+                    </span>
+                    <span class="stats__label">
+                      Pasiune pentru motorsport
+                    </span>
+                  </div>
+                  <div class="stats__item">
+                    <span
+                      class="stats__number"
+                      data-target="1">
+                      0
+                    </span>
+                    <span class="stats__label">
+                      Traseu spectaculos în Gorj
+                    </span>
+                  </div>
+                </div>
               <!-- CONTENT -->
 
               <div class="section-block__content">
@@ -1199,49 +1390,7 @@
                 </p>
               </div>
 
-              <!-- VIDEO -->
-              <div class="video-preview" data-video="zMegpjMbqjM">
-                <img
-                  src="img/viteza.webp"
-                  alt="Viteză în Coastă - Cupa Bustuchin"
-                  loading="lazy">
-                <button class="play-btn">
-                  <i class="fas fa-play"></i>
-                </button>
-                <!-- STATS -->
-                <div class="stats">
-                  <div class="stats__item">
-                    <span
-                      class="stats__number"
-                      data-target="1">
-                      0
-                    </span>
-                    <span class="stats__label">
-                      Competiție anuală
-                    </span>
-                  </div>
-                  <div class="stats__item">
-                    <span
-                      class="stats__number"
-                      data-target="100">
-                      0
-                    </span>
-                    <span class="stats__label">
-                      Pasiune pentru motorsport
-                    </span>
-                  </div>
-                  <div class="stats__item">
-                    <span
-                      class="stats__number"
-                      data-target="1">
-                      0
-                    </span>
-                    <span class="stats__label">
-                      Traseu spectaculos în Gorj
-                    </span>
-                  </div>
-                </div>
-              </div>
+              
 
 
             </div>
@@ -3637,10 +3786,633 @@
 
       <div class="section-content">
 
+        <div id="biserici" class="biserici">
+
+            <!-- =====================================================
+                Biserica Pojaru
+            ====================================================== -->
+            
+            <div id="biserica-pojaru" class="subsection split-layout reveal">
+              <div class="section-block__content">
+                <span class="section-block__badge">
+                  Biserică
+                </span>
+
+                <h3 class="section-block__title">
+                  Biserica Pojaru
+                </h3>
+
+                <p class="section-block__text">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  Zilele Comunei Bustuchin reprezintă
+                  cel mai important eveniment comunitar
+                  organizat anual în localitate.
+                  Desfășurată în ultimul weekend al lunii iulie,
+                  manifestarea reunește locuitori,
+                  invitați și artiști din întreaga regiune,
+                  transformând comuna într-un centru al
+                  tradițiilor, culturii și spiritului gorjenesc.
+                </p>
+
+                <p class="section-block__text">
+                  Programul include spectacole folclorice,
+                  concerte, activități culturale,
+                  demonstrații sportive și momente dedicate
+                  promovării patrimoniului local.
+                  Evenimentul oferă oportunitatea întâlnirii
+                  dintre generații și contribuie la
+                  consolidarea identității comunității.
+                </p>
+
+                <p class="section-block__text">
+                  În cadrul Zilelor Comunei sunt organizate
+                  anual Festivalul Folcloric
+                  „Iustina Băluțeanu”,
+                  Festivalul Internațional
+                  „Prof. Dr. Ștefan Popescu”,
+                  competiții sportive și numeroase
+                  activități recreative pentru copii și adulți.
+                </p>
+
+                <p class="section-block__text">
+                  De-a lungul anilor, pe scena evenimentului
+                  au urcat interpreți consacrați ai muzicii
+                  populare românești, ansambluri folclorice
+                  și invitați speciali, contribuind la
+                  promovarea imaginii comunei Bustuchin
+                  în întreaga țară.
+                </p>
+
+              </div>
+
+              <div class="video-preview" data-video="twCeP65fJlA">
+                  <img
+                    src="img/zilele comunei Bustuchin.webp"
+                    alt="Zilele Comunei Bustuchin"
+                    loading="lazy">
+                  <button class="play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+
+                  <div class="stats">
+                      <div class="stats__item">
+                        <span
+                          class="stats__number"
+                          data-target="3">
+                          0
+                        </span>
+                        <span class="stats__label">
+                          Zile de sărbătoare
+                        </span>
+                      </div>
+                      <div class="stats__item">
+                        <span
+                          class="stats__number"
+                          data-target="3">
+                          0
+                        </span>
+                        <span class="stats__label">
+                          Evenimente majore incluse
+                        </span>
+                      </div>
+                      <div class="stats__item">
+                        <span
+                          class="stats__number"
+                          data-target="1000">
+                          0
+                        </span>
+                        <span class="stats__label">
+                          Participanți anual
+                        </span>
+                      </div>
+                  </div>
+                  
+              </div>
+            </div>
+
+            <!-- =====================================================
+                Biserica Poiana
+            ====================================================== -->
+            
+            <div id="biserica-poiana" class="subsection split-layout reveal">
+              <div class="section-block__content">
+                <span class="section-block__badge">
+                  Biserică
+                </span>
+
+                <h3 class="section-block__title">
+                  Biserica Poiana
+                </h3>
+
+                <p class="section-block__text">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  Zilele Comunei Bustuchin reprezintă
+                  cel mai important eveniment comunitar
+                  organizat anual în localitate.
+                  Desfășurată în ultimul weekend al lunii iulie,
+                  manifestarea reunește locuitori,
+                  invitați și artiști din întreaga regiune,
+                  transformând comuna într-un centru al
+                  tradițiilor, culturii și spiritului gorjenesc.
+                </p>
+
+                <p class="section-block__text">
+                  Programul include spectacole folclorice,
+                  concerte, activități culturale,
+                  demonstrații sportive și momente dedicate
+                  promovării patrimoniului local.
+                  Evenimentul oferă oportunitatea întâlnirii
+                  dintre generații și contribuie la
+                  consolidarea identității comunității.
+                </p>
+
+                <p class="section-block__text">
+                  În cadrul Zilelor Comunei sunt organizate
+                  anual Festivalul Folcloric
+                  „Iustina Băluțeanu”,
+                  Festivalul Internațional
+                  „Prof. Dr. Ștefan Popescu”,
+                  competiții sportive și numeroase
+                  activități recreative pentru copii și adulți.
+                </p>
+
+                <p class="section-block__text">
+                  De-a lungul anilor, pe scena evenimentului
+                  au urcat interpreți consacrați ai muzicii
+                  populare românești, ansambluri folclorice
+                  și invitați speciali, contribuind la
+                  promovarea imaginii comunei Bustuchin
+                  în întreaga țară.
+                </p>
+
+              </div>
+
+              <div class="video-preview" data-video="twCeP65fJlA">
+                  <img
+                    src="img/zilele comunei Bustuchin.webp"
+                    alt="Zilele Comunei Bustuchin"
+                    loading="lazy">
+                  <button class="play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+
+                  <div class="stats">
+                      <div class="stats__item">
+                        <span
+                          class="stats__number"
+                          data-target="3">
+                          0
+                        </span>
+                        <span class="stats__label">
+                          Zile de sărbătoare
+                        </span>
+                      </div>
+                      <div class="stats__item">
+                        <span
+                          class="stats__number"
+                          data-target="3">
+                          0
+                        </span>
+                        <span class="stats__label">
+                          Evenimente majore incluse
+                        </span>
+                      </div>
+                      <div class="stats__item">
+                        <span
+                          class="stats__number"
+                          data-target="1000">
+                          0
+                        </span>
+                        <span class="stats__label">
+                          Participanți anual
+                        </span>
+                      </div>
+                  </div>
+                  
+              </div>
+            </div>
+
+            <!-- =====================================================
+                Biserica Poienita
+            ====================================================== -->
+            
+            <div id="biserica-poienita" class="subsection split-layout reveal">
+              <div class="section-block__content">
+                <span class="section-block__badge">
+                  Biserică
+                </span>
+
+                <h3 class="section-block__title">
+                  Biserica Poienița
+                </h3>
+
+                <p class="section-block__text">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  Zilele Comunei Bustuchin reprezintă
+                  cel mai important eveniment comunitar
+                  organizat anual în localitate.
+                  Desfășurată în ultimul weekend al lunii iulie,
+                  manifestarea reunește locuitori,
+                  invitați și artiști din întreaga regiune,
+                  transformând comuna într-un centru al
+                  tradițiilor, culturii și spiritului gorjenesc.
+                </p>
+
+                <p class="section-block__text">
+                  Programul include spectacole folclorice,
+                  concerte, activități culturale,
+                  demonstrații sportive și momente dedicate
+                  promovării patrimoniului local.
+                  Evenimentul oferă oportunitatea întâlnirii
+                  dintre generații și contribuie la
+                  consolidarea identității comunității.
+                </p>
+
+                <p class="section-block__text">
+                  În cadrul Zilelor Comunei sunt organizate
+                  anual Festivalul Folcloric
+                  „Iustina Băluțeanu”,
+                  Festivalul Internațional
+                  „Prof. Dr. Ștefan Popescu”,
+                  competiții sportive și numeroase
+                  activități recreative pentru copii și adulți.
+                </p>
+
+                <p class="section-block__text">
+                  De-a lungul anilor, pe scena evenimentului
+                  au urcat interpreți consacrați ai muzicii
+                  populare românești, ansambluri folclorice
+                  și invitați speciali, contribuind la
+                  promovarea imaginii comunei Bustuchin
+                  în întreaga țară.
+                </p>
+
+              </div>
+
+              <div class="video-preview" data-video="twCeP65fJlA">
+                  <img
+                    src="img/zilele comunei Bustuchin.webp"
+                    alt="Zilele Comunei Bustuchin"
+                    loading="lazy">
+                  <button class="play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+
+                  <div class="stats">
+                      <div class="stats__item">
+                        <span
+                          class="stats__number"
+                          data-target="3">
+                          0
+                        </span>
+                        <span class="stats__label">
+                          Zile de sărbătoare
+                        </span>
+                      </div>
+                      <div class="stats__item">
+                        <span
+                          class="stats__number"
+                          data-target="3">
+                          0
+                        </span>
+                        <span class="stats__label">
+                          Evenimente majore incluse
+                        </span>
+                      </div>
+                      <div class="stats__item">
+                        <span
+                          class="stats__number"
+                          data-target="1000">
+                          0
+                        </span>
+                        <span class="stats__label">
+                          Participanți anual
+                        </span>
+                      </div>
+                  </div>
+                  
+              </div>
+            </div>
+
+
+        </div>
+
+        <div id="troite" class="troite">
+            <!-- =====================================================
+                TROITA POIANA SECRIURI
+            ====================================================== -->
+            
+            <div id="troita-poiana" class="subsection split-layout reveal">
+              <div class="section-block__content">
+                <span class="section-block__badge">
+                  Troiță
+                </span>
+
+                <h3 class="section-block__title">
+                  Troița Poiana Seciuri
+                </h3>
+
+                <p class="section-block__text">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  Zilele Comunei Bustuchin reprezintă
+                  cel mai important eveniment comunitar
+                  organizat anual în localitate.
+                  Desfășurată în ultimul weekend al lunii iulie,
+                  manifestarea reunește locuitori,
+                  invitați și artiști din întreaga regiune,
+                  transformând comuna într-un centru al
+                  tradițiilor, culturii și spiritului gorjenesc.
+                </p>
+
+                <p class="section-block__text">
+                  Programul include spectacole folclorice,
+                  concerte, activități culturale,
+                  demonstrații sportive și momente dedicate
+                  promovării patrimoniului local.
+                  Evenimentul oferă oportunitatea întâlnirii
+                  dintre generații și contribuie la
+                  consolidarea identității comunității.
+                </p>
+
+                <p class="section-block__text">
+                  În cadrul Zilelor Comunei sunt organizate
+                  anual Festivalul Folcloric
+                  „Iustina Băluțeanu”,
+                  Festivalul Internațional
+                  „Prof. Dr. Ștefan Popescu”,
+                  competiții sportive și numeroase
+                  activități recreative pentru copii și adulți.
+                </p>
+
+                <p class="section-block__text">
+                  De-a lungul anilor, pe scena evenimentului
+                  au urcat interpreți consacrați ai muzicii
+                  populare românești, ansambluri folclorice
+                  și invitați speciali, contribuind la
+                  promovarea imaginii comunei Bustuchin
+                  în întreaga țară.
+                </p>
+
+              </div>
+
+              <div class="video-preview" data-video="twCeP65fJlA">
+                  <img
+                    src="img/zilele comunei Bustuchin.webp"
+                    alt="Zilele Comunei Bustuchin"
+                    loading="lazy">
+                  <button class="play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+
+                  <div class="stats">
+                      <div class="stats__item">
+                        <span
+                          class="stats__number"
+                          data-target="3">
+                          0
+                        </span>
+                        <span class="stats__label">
+                          Zile de sărbătoare
+                        </span>
+                      </div>
+                      <div class="stats__item">
+                        <span
+                          class="stats__number"
+                          data-target="3">
+                          0
+                        </span>
+                        <span class="stats__label">
+                          Evenimente majore incluse
+                        </span>
+                      </div>
+                      <div class="stats__item">
+                        <span
+                          class="stats__number"
+                          data-target="1000">
+                          0
+                        </span>
+                        <span class="stats__label">
+                          Participanți anual
+                        </span>
+                      </div>
+                  </div>
+                  
+              </div>
+            </div>
+
+        </div>
+        <div id="traditii-religioase" class="traditii-religioase">
+            <!-- =====================================================
+                TRADIȚII RELIGIOASE
+            ====================================================== -->
+            
+            <div id="traditie-1" class="subsection split-layout reveal">
+              <div class="section-block__content">
+                <span class="section-block__badge">
+                  Tradiții religioase
+                </span>
+
+                <h3 class="section-block__title">
+                  Tradiții religioase
+                </h3>
+
+                <p class="section-block__text">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  Zilele Comunei Bustuchin reprezintă
+                  cel mai important eveniment comunitar
+                  organizat anual în localitate.
+                  Desfășurată în ultimul weekend al lunii iulie,
+                  manifestarea reunește locuitori,
+                  invitați și artiști din întreaga regiune,
+                  transformând comuna într-un centru al
+                  tradițiilor, culturii și spiritului gorjenesc.
+                </p>
+
+                <p class="section-block__text">
+                  Programul include spectacole folclorice,
+                  concerte, activități culturale,
+                  demonstrații sportive și momente dedicate
+                  promovării patrimoniului local.
+                  Evenimentul oferă oportunitatea întâlnirii
+                  dintre generații și contribuie la
+                  consolidarea identității comunității.
+                </p>
+
+                <p class="section-block__text">
+                  În cadrul Zilelor Comunei sunt organizate
+                  anual Festivalul Folcloric
+                  „Iustina Băluțeanu”,
+                  Festivalul Internațional
+                  „Prof. Dr. Ștefan Popescu”,
+                  competiții sportive și numeroase
+                  activități recreative pentru copii și adulți.
+                </p>
+
+                <p class="section-block__text">
+                  De-a lungul anilor, pe scena evenimentului
+                  au urcat interpreți consacrați ai muzicii
+                  populare românești, ansambluri folclorice
+                  și invitați speciali, contribuind la
+                  promovarea imaginii comunei Bustuchin
+                  în întreaga țară.
+                </p>
+
+              </div>
+
+              <div class="video-preview" data-video="twCeP65fJlA">
+                  <img
+                    src="img/zilele comunei Bustuchin.webp"
+                    alt="Zilele Comunei Bustuchin"
+                    loading="lazy">
+                  <button class="play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+
+                  <div class="stats">
+                      <div class="stats__item">
+                        <span
+                          class="stats__number"
+                          data-target="3">
+                          0
+                        </span>
+                        <span class="stats__label">
+                          Zile de sărbătoare
+                        </span>
+                      </div>
+                      <div class="stats__item">
+                        <span
+                          class="stats__number"
+                          data-target="3">
+                          0
+                        </span>
+                        <span class="stats__label">
+                          Evenimente majore incluse
+                        </span>
+                      </div>
+                      <div class="stats__item">
+                        <span
+                          class="stats__number"
+                          data-target="1000">
+                          0
+                        </span>
+                        <span class="stats__label">
+                          Participanți anual
+                        </span>
+                      </div>
+                  </div>
+                  
+              </div>
+            </div>
+        </div>
+
+        <div id="pricesne" class="pricesnesicolinde">
+
+            <!-- =====================================================
+                PRICESNE ȘI COLINDE
+            ====================================================== -->
+            
+            <div id="pricesne-1" class="subsection split-layout reveal">
+              <div class="section-block__content">
+                <span class="section-block__badge">
+                  Pricesne și colinde
+                </span>
+
+                <h3 class="section-block__title">
+                  Pricesne
+                </h3>
+
+                <p class="section-block__text">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  Zilele Comunei Bustuchin reprezintă
+                  cel mai important eveniment comunitar
+                  organizat anual în localitate.
+                  Desfășurată în ultimul weekend al lunii iulie,
+                  manifestarea reunește locuitori,
+                  invitați și artiști din întreaga regiune,
+                  transformând comuna într-un centru al
+                  tradițiilor, culturii și spiritului gorjenesc.
+                </p>
+
+                <p class="section-block__text">
+                  Programul include spectacole folclorice,
+                  concerte, activități culturale,
+                  demonstrații sportive și momente dedicate
+                  promovării patrimoniului local.
+                  Evenimentul oferă oportunitatea întâlnirii
+                  dintre generații și contribuie la
+                  consolidarea identității comunității.
+                </p>
+
+                <p class="section-block__text">
+                  În cadrul Zilelor Comunei sunt organizate
+                  anual Festivalul Folcloric
+                  „Iustina Băluțeanu”,
+                  Festivalul Internațional
+                  „Prof. Dr. Ștefan Popescu”,
+                  competiții sportive și numeroase
+                  activități recreative pentru copii și adulți.
+                </p>
+
+                <p class="section-block__text">
+                  De-a lungul anilor, pe scena evenimentului
+                  au urcat interpreți consacrați ai muzicii
+                  populare românești, ansambluri folclorice
+                  și invitați speciali, contribuind la
+                  promovarea imaginii comunei Bustuchin
+                  în întreaga țară.
+                </p>
+
+              </div>
+
+              <div class="video-preview" data-video="twCeP65fJlA">
+                  <img
+                    src="img/zilele comunei Bustuchin.webp"
+                    alt="Zilele Comunei Bustuchin"
+                    loading="lazy">
+                  <button class="play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+
+                  <div class="stats">
+                      <div class="stats__item">
+                        <span
+                          class="stats__number"
+                          data-target="3">
+                          0
+                        </span>
+                        <span class="stats__label">
+                          Zile de sărbătoare
+                        </span>
+                      </div>
+                      <div class="stats__item">
+                        <span
+                          class="stats__number"
+                          data-target="3">
+                          0
+                        </span>
+                        <span class="stats__label">
+                          Evenimente majore incluse
+                        </span>
+                      </div>
+                      <div class="stats__item">
+                        <span
+                          class="stats__number"
+                          data-target="1000">
+                          0
+                        </span>
+                        <span class="stats__label">
+                          Participanți anual
+                        </span>
+                      </div>
+                  </div>
+                  
+              </div>
+            </div>
+
+        </div>
+
       </div>
-
     </div>
-
   </section>
 
   <!-- =====================================================
@@ -7291,6 +8063,609 @@
 
 </div>
 
+    </div>
+  </section>
+
+  <!-- =====================================================
+      TURISM
+  ====================================================== -->
+
+  <section id="turism" class="section section--turism">
+    <div class="container">
+      <!-- =====================================================
+          SECTION HEADER
+      ====================================================== -->
+      <div class="section-header reveal">
+        <span class="section-kicker">
+          Turism
+        </span>
+        <h2 class="section-title">
+          Obiectivele turistice ale comunei Bustuchin
+        </h2>
+        <p class="section-description">
+          Povestea comunei Bustuchin
+          reflectă evoluția unei comunități
+          oltenești autentice,
+          modelată de natură,
+          tradiții și generații
+          care au păstrat identitatea locului
+          de-a lungul timpului.
+        </p>
+      </div>
+
+      <!-- =====================================================
+          SECTION CONTENT
+      ====================================================== -->
+
+      <div class="section-content">
+
+        <!-- =====================================================
+            BISERICA DIN VALEA POJARULUI
+        ====================================================== -->
+
+        <div
+          id="biserica-din-valea-pojarului"
+          class="subsection split-layout reveal">
+
+          <!-- CONTENT -->
+
+          <div class="section-block__content">
+            <span class="section-block__badge">
+
+              Monument Istoric
+
+            </span>
+
+
+
+            <h3 class="section-block__title">
+
+              Biserica din Valea Pojarului
+
+            </h3>
+
+
+
+            <p class="section-block__text">
+
+              Comuna Bustuchin este situată
+              în partea de est a județului Gorj,
+              pe cursul superior al râului Amaradia,
+              într-o zonă caracterizată
+              prin relief deluros,
+              peisaje naturale ample
+              și așezări rurale specifice
+              Piemontului Getic.
+
+            </p>
+
+
+
+            <p class="section-block__text">
+
+              Teritoriul administrativ al comunei
+              ocupă o suprafață de aproximativ
+              6.096 hectare și este alcătuit
+              din opt sate:
+              Bustuchin,
+              Cionți,
+              Motorgi,
+              Nămete,
+              Poiana-Seciuri,
+              Poienița,
+              Pojaru
+              și Valea Pojarului.
+
+            </p>
+
+
+
+            <p class="section-block__text">
+
+              Din punct de vedere geomorfologic,
+              comuna face parte din zona
+              Dealurilor Amaradiei,
+              aflate în cadrul
+              Piemontului Oltețului,
+              subunitate a Piemontului Getic.
+              Relieful este dominat
+              de dealuri domoale,
+              văi largi și terenuri modelate
+              de procese naturale desfășurate
+              de-a lungul timpului.
+
+            </p>
+
+
+
+            <p class="section-block__text">
+
+              Poziționarea geografică
+              a favorizat dezvoltarea
+              unei comunități rurale stabile,
+              în care agricultura,
+              creșterea animalelor
+              și legătura cu natura
+              au reprezentat elemente esențiale
+              ale vieții cotidiene.
+
+            </p>
+
+
+
+            <!-- STATS -->
+
+            <div class="stats">
+
+              <div class="stats__item">
+
+                <span
+                  class="stats__number"
+                  data-target="6096">
+
+                  0
+
+                </span>
+
+                <span class="stats__label">
+
+                  Hectare
+
+                </span>
+
+              </div>
+
+
+
+              <div class="stats__item">
+
+                <span
+                  class="stats__number"
+                  data-target="8">
+
+                  0
+
+                </span>
+
+                <span class="stats__label">
+
+                  Sate componente
+
+                </span>
+
+              </div>
+
+
+
+              <div class="stats__item">
+
+                <span
+                  class="stats__number"
+                  data-target="3657">
+
+                  0
+
+                </span>
+
+                <span class="stats__label">
+
+                  Locuitori (2005)
+
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- MEDIA -->
+
+          <div class="section-block__media media-frame">
+
+            <img
+              src="img/Biserica de lemn Valea Pojarului.webp"
+              alt="Monument Istoric"
+              loading="lazy">
+
+          </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+            FÂNTÂNA RECE
+        ====================================================== -->
+
+        <div
+          id="fantana-rece"
+          class="subsection split-layout reveal">
+
+          <!-- MEDIA -->
+
+          <div class="section-block__media media-frame">
+
+            <img
+              src="img/geografie/geologie.webp"
+              alt="Relieful comunei Bustuchin"
+              loading="lazy">
+
+          </div>
+
+
+
+          <!-- CONTENT -->
+
+          <div class="section-block__content">
+
+            <span class="section-block__badge">
+
+              Relaxare
+
+            </span>
+
+
+
+            <h3 class="section-block__title">
+
+              Fântâna Rece
+
+            </h3>
+
+
+
+            <p class="section-block__text">
+
+              Teritoriul comunei Bustuchin
+              aparține Piemontului Oltețului,
+              unitate geomorfologică formată
+              prin procese tectonice,
+              sedimentare și de eroziune
+              desfășurate pe parcursul
+              a milioane de ani.
+
+            </p>
+
+
+
+            <p class="section-block__text">
+
+              Relieful actual este rezultatul
+              mișcărilor tectonice carpatice,
+              al depunerilor sedimentare
+              și al modelării continue
+              produse de rețeaua hidrografică
+              și factorii climatici.
+
+            </p>
+
+
+
+            <p class="section-block__text">
+
+              Zona este caracterizată
+              prin dealuri fragmentate,
+              versanți înclinați,
+              procese geomorfologice active
+              și forme de relief specifice
+              regiunilor piemontane din Oltenia.
+
+            </p>
+
+
+
+            <p class="section-block__text">
+
+              Valea Amaradiei
+              și afluenții săi
+              au avut un rol esențial
+              în modelarea reliefului local,
+              contribuind la apariția
+              teraselor,
+              văilor
+              și zonelor fertile
+              care au favorizat locuirea umană.
+
+            </p>
+
+
+
+            <!-- STATS -->
+
+            <div class="stats">
+
+              <div class="stats__item">
+
+                <span
+                  class="stats__number"
+                  data-target="500">
+
+                  0
+
+                </span>
+
+                <span class="stats__label">
+
+                  Altitudine maximă (m)
+
+                </span>
+
+              </div>
+
+
+
+              <div class="stats__item">
+
+                <span
+                  class="stats__number"
+                  data-target="45">
+
+                  0
+
+                </span>
+
+                <span class="stats__label">
+
+                  Paralela nordică
+
+                </span>
+
+              </div>
+
+
+
+              <div class="stats__item">
+
+                <span
+                  class="stats__number"
+                  data-target="4">
+
+                  0
+
+                </span>
+
+                <span class="stats__label">
+
+                  Grad seismic regional
+
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+            DEALUL MUIERII
+        ====================================================== -->
+
+        <div
+          id="dealul-muierii"
+          class="subsection split-layout reveal">
+
+          <!-- CONTENT -->
+
+          <div class="section-block__content">
+
+            <span class="section-block__badge">
+
+              NATURĂ
+
+            </span>
+
+
+
+            <h3 class="section-block__title">
+
+              Dealul Muierii
+
+            </h3>
+
+
+
+            <p class="section-block__text">
+
+              De-a lungul timpului,
+              satele comunei Bustuchin
+              s-au dezvoltat în strânsă legătură
+              cu relieful,
+              resursele naturale
+              și activitățile agricole
+              specifice regiunii.
+
+            </p>
+
+
+
+            <p class="section-block__text">
+
+              Comunitățile locale
+              au fost organizate tradițional
+              în jurul gospodăriilor,
+              bisericilor
+              și relațiilor de întrajutorare,
+              păstrând un mod de viață
+              autentic și profund legat
+              de valorile satului românesc.
+
+            </p>
+
+
+
+            <p class="section-block__text">
+
+              Transformările administrative,
+              modernizarea infrastructurii
+              și evoluția economică
+              au influențat dezvoltarea comunei,
+              însă identitatea culturală
+              și tradițiile locale
+              continuă să reprezinte
+              elemente definitorii
+              ale comunității.
+
+            </p>
+
+
+
+            <!-- STATS -->
+
+            <div class="stats">
+
+              <div class="stats__item">
+
+                <span
+                  class="stats__number"
+                  data-target="8">
+
+                  0
+
+                </span>
+
+                <span class="stats__label">
+
+                  Sate istorice
+
+                </span>
+
+              </div>
+
+
+
+              <div class="stats__item">
+
+                <span
+                  class="stats__number"
+                  data-target="1968">
+
+                  0
+
+                </span>
+
+                <span class="stats__label">
+
+                  Reorganizare administrativă
+
+                </span>
+
+              </div>
+
+
+
+              <div class="stats__item">
+
+                <span
+                  class="stats__number"
+                  data-target="200">
+
+                  0
+
+                </span>
+
+                <span class="stats__label">
+
+                  Ani de tradiții locale
+
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- MEDIA -->
+
+          <div class="section-block__media media-frame">
+
+            <img
+              src="img/dealul muierii.webp"
+              alt="Evoluția comunei Bustuchin"
+              loading="lazy">
+
+          </div>
+
+        </div>
+
+
+    </div>
+  </section>
+
+<!-- =====================================================
+      INFRASTRUCTURA
+  ====================================================== -->
+
+  <section
+    id="infrastructura" class="section section--education">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">
+          Infrastructură
+        </span>
+        <h2 class="section-title">
+          Facilităti si dezvoltare
+        </h2>
+        <p class="section-description">
+          Școli, activități educaționale,
+          proiecte locale și inițiative
+          dedicate generațiilor viitoare.
+        </p>
+      </div>
+      <div class="section-content">
+        <div class="video-preview" data-video="sW81lLoTjFE">
+              <img
+                src="img/primarie.webp"
+                alt="Zilele Comunei Bustuchin"
+                loading="lazy">
+              <button class="play-btn">
+                <i class="fas fa-play"></i>
+              </button>
+
+              <div class="stats">
+                  <div class="stats__item">
+                    <span
+                      class="stats__number"
+                      data-target="3">
+                      0
+                    </span>
+                    <span class="stats__label">
+                      Zile de sărbătoare
+                    </span>
+                  </div>
+                  <div class="stats__item">
+                    <span
+                      class="stats__number"
+                      data-target="3">
+                      0
+                    </span>
+                    <span class="stats__label">
+                      Evenimente majore incluse
+                    </span>
+                  </div>
+                  <div class="stats__item">
+                    <span
+                      class="stats__number"
+                      data-target="1000">
+                      0
+                    </span>
+                    <span class="stats__label">
+                      Participanți anual
+                    </span>
+                  </div>
+              </div>
+              
+          </div>
+    </div>
     </div>
   </section>
 
