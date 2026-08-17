@@ -864,7 +864,6 @@ iframe{
 .stats{
   display:flex;
   gap:2px;
-  margin:25px;
   text-align: center;
 }
 
