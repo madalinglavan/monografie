@@ -385,6 +385,11 @@ body::after {
   transform:translateY(10px);
   transition:var(--transition);
 }
+.nav__dropdown.active .nav__dropdown-menu{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
 
 .nav__dropdown-menu a{
   display:flex;
@@ -3649,3 +3654,5 @@ transform:
     transition: none;
   }
 }
+
+
