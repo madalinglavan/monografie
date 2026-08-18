@@ -2229,15 +2229,32 @@ iframe{
   
 }
 
+.video-preview {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 24px;
+  margin-top: 30px;
+  cursor: pointer;
+  background: #000;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
 .video-preview img,
-.video-preview iframe{
+.video-preview iframe {
+  position: absolute;
+  inset: 0;
 
-  width:100%;
-  aspect-ratio:16/9;
-  display:block;
-  object-fit:cover;
-  border:none;
+  display: block;
 
+  width: 100%;
+  height: 100%;
+
+  border: none;
+  object-fit: cover;
 }
 
 .play-btn{
@@ -3731,4 +3748,70 @@ iframe{
   }
 }
 
+
+/* =========================================================
+   FIX VIDEOCLIPURI — SATELE COMUNEI
+========================================================= */
+
+.section--villages .village__media {
+  width: 100%;
+  min-width: 0;
+  align-self: center;
+}
+
+.section--villages .video-preview {
+  position: relative;
+
+  width: 100%;
+  max-width: none;
+  aspect-ratio: 16 / 9;
+
+  margin-top: 0;
+  overflow: hidden;
+
+  border-radius: 24px;
+  background: #000;
+}
+
+/* Imaginea și videoclipul ocupă întregul container */
+.section--villages .video-preview img,
+.section--villages .video-preview iframe {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+  object-fit: cover;
+}
+
+/* Păstrează proporția corectă a coloanei */
+.section--villages .village {
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+}
+
+/* Elimină posibilitatea micșorării elementelor din grid */
+.section--villages .village__content,
+.section--villages .village__media {
+  min-width: 0;
+}
+
+
+/* TABLETĂ ȘI TELEFON */
+@media (max-width: 768px) {
+  .section--villages .village {
+    grid-template-columns: 1fr;
+  }
+
+  .section--villages .village__media,
+  .section--villages .video-preview {
+    width: 100%;
+    max-width: none;
+  }
+}
 
