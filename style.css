@@ -121,7 +121,7 @@ body{
   transform:translateX(-50%);
   width:min(90%);
   z-index:1000;
-  border-radius:24px;
+  border-radius:16px;
   transition:var(--transition);
 }
 
@@ -153,23 +153,23 @@ body{
 .logo{
   display:flex;
   align-items:center;
-  gap:14px;
+  gap:8px;
   text-decoration: none;
 }
 
 .logo img{
-  height:54px;
+  height:45px;
 }
 
 .logo span{
-  font-size:1.2rem;
+  font-size:.9rem;
   font-weight:600;
   color:white;
   text-align: center;
   text-transform: uppercase;
   font-family: "DM Serif Display", serif;
-  font-weight: 600;
   font-style: italic;
+  margin-right: 5px;
 }
 
 
@@ -285,8 +285,176 @@ body{
   }
 
 }
+/* =========================================================
+   NAVBAR RESPONSIVE — DESKTOP / TABLET
+========================================================= */
 
+.navbar {
+  width: 90%;
+  max-width: 1500px;
+}
 
+.nav__links > a,
+.dropdown-trigger {
+  white-space: nowrap;
+}
+
+/* Ascunde textul logo-ului când spațiul începe să scadă */
+@media (max-width: 1580px) and (min-width: 769px) {
+  .logo span {
+    display: none;
+  }
+
+  .logo img {
+    height: 46px;
+  }
+
+  .nav__links {
+    gap: 5px;
+  }
+
+  .nav__links > a,
+  .dropdown-trigger {
+    padding: 11px 14px;
+    font-size: 0.82rem;
+  }
+}
+
+/* Ecrane sub 1200px */
+@media (max-width: 1200px) and (min-width: 769px) {
+  .navbar {
+    top: 8px;
+    width: 96%;
+    border-radius: 18px;
+  }
+
+  .navbar .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .logo {
+    gap: 6px;
+  }
+
+  .logo img {
+    height: 38px;
+  }
+
+  .nav__links {
+    gap: 2px;
+  }
+
+  .nav__links > a,
+  .dropdown-trigger {
+    gap: 3px;
+    padding: 9px 10px;
+    border-radius: 12px;
+    font-size: 0.72rem;
+  }
+
+  .nav__links > a i,
+  .dropdown-trigger i {
+    font-size: 0.72rem;
+  }
+
+  .nav__dropdown-menu {
+    min-width: 210px;
+    padding: 9px;
+    border-radius: 17px;
+  }
+
+  .nav__dropdown-menu a {
+    gap: 8px;
+    padding: 10px 11px;
+    border-radius: 12px;
+    font-size: 0.76rem;
+  }
+}
+
+/* Ecrane sub 1000px */
+@media (max-width: 1000px) and (min-width: 769px) {
+  .navbar {
+    top: 6px;
+    width: 98%;
+    border-radius: 16px;
+  }
+
+  .navbar .container {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .logo img {
+    height: 32px;
+  }
+
+  .nav__links {
+    gap: 0;
+  }
+
+  .nav__links > a,
+  .dropdown-trigger {
+    gap: 2px;
+    padding: 7px 7px;
+    border-radius: 10px;
+    font-size: 0.64rem;
+  }
+
+  .nav__links > a i,
+  .dropdown-trigger i {
+    font-size: 0.64rem;
+  }
+
+  .nav__dropdown-menu {
+    min-width: 190px;
+    padding: 7px;
+    border-radius: 15px;
+  }
+
+  .nav__dropdown-menu a {
+    gap: 7px;
+    padding: 8px 9px;
+    font-size: 0.7rem;
+  }
+}
+
+/* Intervalul înainte de burger menu */
+@media (max-width: 880px) and (min-width: 769px) {
+  .navbar {
+    width: 99%;
+  }
+
+  .navbar .container {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .logo img {
+    height: 28px;
+  }
+
+  .nav__links > a,
+  .dropdown-trigger {
+    gap: 2px;
+    padding: 6px 5px;
+    font-size: 0.58rem;
+  }
+
+  .nav__links > a i,
+  .dropdown-trigger i {
+    font-size: 0.58rem;
+  }
+
+  .nav__dropdown-menu {
+    min-width: 175px;
+  }
+
+  .nav__dropdown-menu a {
+    padding: 7px 8px;
+    font-size: 0.66rem;
+  }
+}
 /* =========================================================
    HERO
 ========================================================= */
@@ -1041,9 +1209,6 @@ transform:
   position:relative;
   z-index:2;
 }
-/* =========================================================
-   TOPONIMIE
-========================================================= */
 
 /* =========================================================
    TOPONIMIE
@@ -1073,8 +1238,11 @@ transform:
 .toponimie > .subsection{
   width:100%;
   min-width:0;
-
+  background-color: #ffffff34;
   display:block;
+  padding: 15px 2px;
+  border-radius: 14px;
+  text-shadow: 1px 2px black;
 }
 
 
