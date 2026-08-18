@@ -687,25 +687,282 @@ iframe{
 
 
 /* KICKER */
+/* =========================================================
+   WELCOME SIGN
+========================================================= */
+
 .section-kicker-top{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:12px 22px;
-  border-radius:999px;
+  position:relative;
+
+  display:table;
+
+  margin:
+    0 auto
+    45px;
+
+  padding:
+    16px
+    38px;
+
+  border-radius:14px;
+
   background:
-  rgba(37,99,235,.12);
+    linear-gradient(
+      145deg,
+      rgba(30,41,59,.96),
+      rgba(15,23,42,.98)
+    );
+
   border:
-  1px solid rgba(96,165,250,.2);
-  color:#60a5fa;
-  font-size:1.95rem;
+    1px solid rgba(255,255,255,.12);
+
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.08);
+
+  color:#fff;
+
+  font-size:
+    clamp(1rem,2vw,1.45rem);
+
   font-weight:600;
-  letter-spacing:.08em;
+
+  letter-spacing:.12em;
+
   text-transform:uppercase;
-  margin-bottom:28px;
-  margin-left: 50%;
-  transform: translate(-50%);
-  color: #fff;
+
+  text-align:center;
+
+  transform-origin:
+    top center;
+
+  opacity:0;
+
+transform:
+  translateY(-35px)
+  rotate(-4deg)
+  scale(.94);
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease;
+}
+/* =========================================================
+   WELCOME SIGN - VISIBLE
+========================================================= */
+
+.section-kicker-top.is-visible{
+  animation:
+    welcomeSignEnter 1.2s
+    cubic-bezier(.22,1,.36,1)
+    forwards;
+}
+
+
+/* =========================================================
+   WELCOME SIGN ANIMATION
+========================================================= */
+
+@keyframes welcomeSignEnter{
+
+  0%{
+    opacity:0;
+
+    transform:
+      translateY(-35px)
+      rotate(-4deg)
+      scale(.94);
+  }
+
+  50%{
+    opacity:1;
+
+    transform:
+      translateY(5px)
+      rotate(2deg)
+      scale(1.01);
+  }
+
+  70%{
+    transform:
+      translateY(-3px)
+      rotate(-1deg);
+  }
+
+  85%{
+    transform:
+      translateY(1px)
+      rotate(.5deg);
+  }
+
+  100%{
+    opacity:1;
+
+    transform:
+      translateY(0)
+      rotate(0)
+      scale(1);
+  }
+
+}
+
+/* =========================================================
+   DECORATIVE GOLD LINE
+========================================================= */
+
+.section-kicker-top::after{
+  content:"";
+
+  position:absolute;
+
+  left:18px;
+  right:18px;
+  bottom:7px;
+
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(245,200,110,.8),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   SIGN HANGERS
+========================================================= */
+
+.section-kicker-top::before{
+  content:"";
+
+  position:absolute;
+
+  width:64%;
+
+  height:24px;
+
+  left:18%;
+
+  top:-25px;
+
+  border-left:
+    2px solid rgba(255,255,255,.22);
+
+  border-right:
+    2px solid rgba(255,255,255,.22);
+
+  border-top:
+    2px solid rgba(255,255,255,.12);
+
+  border-radius:
+    12px 12px 0 0;
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.section-kicker-top:hover{
+  transform:
+    translateY(-4px)
+    rotate(.4deg);
+
+  border-color:
+    rgba(245,200,110,.45);
+
+  box-shadow:
+    0 25px 55px rgba(0,0,0,.42),
+    0 0 30px rgba(245,200,110,.08);
+}
+
+
+/* =========================================================
+   ENTRANCE ANIMATION
+========================================================= */
+
+@keyframes welcomeSignEnter{
+
+  0%{
+    opacity:0;
+
+    transform:
+      translateY(-35px)
+      rotate(-4deg)
+      scale(.94);
+  }
+
+  55%{
+    opacity:1;
+
+    transform:
+      translateY(4px)
+      rotate(2deg)
+      scale(1.01);
+  }
+
+  75%{
+    transform:
+      translateY(-2px)
+      rotate(-1deg);
+  }
+
+  100%{
+    opacity:1;
+
+    transform:
+      translateY(0)
+      rotate(0)
+      scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:768px){
+
+  .section-kicker-top{
+    padding:
+      12px
+      24px;
+
+    margin-bottom:32px;
+
+    font-size:.9rem;
+
+    letter-spacing:.1em;
+
+    border-radius:12px;
+  }
+
+  .section-kicker-top::before{
+    height:18px;
+    top:-19px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  .section-kicker-top{
+    animation:none;
+  }
+
 }
 
 .section-kicker{
@@ -1871,11 +2128,7 @@ iframe{
 
 @media (max-width:768px){
 
-  .section-kicker-top{
-    font-size: 1rem;
-    width: 100%;
-    
-  }
+ 
 
   .village--reverse .village__media{
   order:2;
@@ -2376,6 +2629,187 @@ iframe{
 
   .page-transition__logo{
     animation:none;
+  }
+
+}
+
+/* =========================================================
+   MOBILE CONTENT ORDER SYSTEM
+   Badge → Titlu → Media → Text
+========================================================= */
+
+@media(max-width:768px){
+
+  /* =======================================================
+     1. EVENIMENTE
+  ======================================================= */
+
+  .section--events .split-layout{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0;
+  }
+
+  .section--events
+  .split-layout
+  > .section-block__content{
+    display:contents;
+  }
+
+  .section--events
+  .section-block__badge{
+    order:1;
+    justify-self:start;
+    margin-bottom:18px;
+  }
+
+  .section--events
+  .section-block__title{
+    order:2;
+    width:100%;
+    margin-bottom:22px;
+  }
+
+  .section--events
+  .split-layout
+  > .video-preview,
+  .section--events
+  .split-layout
+  > .section-block__media{
+    order:3;
+    width:100%;
+    margin-top:0;
+    margin-bottom:28px;
+  }
+
+  .section--events
+  .section-block__text{
+    order:4;
+    width:100%;
+  }
+
+  .section--events
+  .stats{
+    order:5;
+    width:100%;
+  }
+
+
+  /* =======================================================
+     2. SATE
+  ======================================================= */
+
+  .section--villages .village{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0;
+  }
+
+  /*
+     Facem content-ul transparent pentru grid,
+     astfel încât badge-ul și titlul să poată veni
+     înaintea imaginii/video-ului.
+  */
+
+  .section--villages
+  .village
+  > .village__content{
+    display:contents;
+  }
+
+  .section--villages
+  .section-block__badge{
+    order:1;
+    justify-self:start;
+    margin-bottom:18px;
+  }
+
+  .section--villages
+  .section-block__title{
+    order:2;
+    width:100%;
+    margin-bottom:22px;
+  }
+
+  .section--villages
+  .village__media{
+    order:3 !important;
+    width:100%;
+    margin-bottom:28px;
+  }
+
+  .section--villages
+  .section-block__text{
+    order:4;
+    width:100%;
+  }
+
+  .section--villages
+  .stats{
+    order:5;
+    width:100%;
+  }
+
+
+  /* =======================================================
+     3. SUBSECȚIUNI GENERALE
+     Istorie / Geografie / Turism etc.
+  ======================================================= */
+
+  .section-content
+  > .split-layout{
+    grid-template-columns:1fr;
+  }
+
+  /*
+     Doar subsecțiunile clasice care au
+     section-block__content + section-block__media.
+  */
+
+  .section-content
+  > .split-layout
+  > .section-block__content{
+    display:contents;
+  }
+
+  .section-content
+  > .split-layout
+  > .section-block__content
+  > .section-block__badge{
+    order:1;
+    justify-self:start;
+  }
+
+  .section-content
+  > .split-layout
+  > .section-block__content
+  > .section-block__title{
+    order:2;
+    width:100%;
+  }
+
+  .section-content
+  > .split-layout
+  > .section-block__media{
+    order:3;
+    width:100%;
+    margin-bottom:28px;
+  }
+
+  .section-content
+  > .split-layout
+  > .section-block__content
+  > .section-block__text{
+    order:4;
+    width:100%;
+  }
+
+  .section-content
+  > .split-layout
+  > .section-block__content
+  > .stats{
+    order:5;
+    width:100%;
   }
 
 }

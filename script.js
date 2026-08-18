@@ -1053,3 +1053,37 @@ document.addEventListener(
   "DOMContentLoaded",
   initPageNavigationTransition
 );
+
+
+/* =========================================================
+   WELCOME SIGN - ANIMATE ON VIEW
+========================================================= */
+
+const welcomeSign =
+  document.querySelector(".section-kicker-top");
+
+if(welcomeSign){
+
+  const welcomeObserver =
+    new IntersectionObserver((entries, observer) => {
+
+      entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+          entry.target.classList.add("is-visible");
+
+          /* Rulează o singură dată */
+          observer.unobserve(entry.target);
+
+        }
+
+      });
+
+    },{
+      threshold:0.45
+    });
+
+  welcomeObserver.observe(welcomeSign);
+
+}
