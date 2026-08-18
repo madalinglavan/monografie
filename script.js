@@ -449,7 +449,7 @@ mediaCards.forEach(card => {
 ========================================================= */
 
 const statNumbers =
-  document.querySelectorAll(".stats__number");
+  document.querySelectorAll(".stats__number[data-target]")
 
 
 

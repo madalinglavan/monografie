@@ -39,11 +39,143 @@ html{
   scroll-behavior:smooth;
 }
 
-body{
-  font-family:'Poppins',sans-serif;
-  background:var(--bg-primary);
-  color:var(--text);
-  overflow-x:hidden;
+/* =========================================================
+   PAGE BACKGROUND
+========================================================= */
+
+body {
+  position: relative;
+  min-height: 100vh;
+
+  font-family:
+    "Poppins",
+    sans-serif;
+
+  color: var(--text);
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      circle at 8% 12%,
+      rgba(37, 99, 235, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 92% 28%,
+      rgba(124, 58, 237, 0.14),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 18% 68%,
+      rgba(14, 165, 233, 0.11),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 88% 88%,
+      rgba(16, 185, 129, 0.1),
+      transparent 28%
+    ),
+    linear-gradient(
+      145deg,
+      #060b16 0%,
+      #0a1222 38%,
+      #0d1729 68%,
+      #070d18 100%
+    );
+
+  background-attachment: fixed;
+}
+/* Lumină ambientală */
+body::before {
+  content: "";
+
+  position: fixed;
+  top: -20%;
+  left: -15%;
+  z-index: -1;
+
+  width: 65vw;
+  height: 65vw;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(59, 130, 246, 0.14),
+      rgba(59, 130, 246, 0.04) 38%,
+      transparent 70%
+    );
+
+  filter: blur(20px);
+  pointer-events: none;
+
+  animation:
+    backgroundGlow 16s ease-in-out infinite alternate;
+}
+
+
+/* Textură discretă tip grilă */
+body::after {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  pointer-events: none;
+
+  opacity: 0.2;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 55px 55px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent,
+      black 15%,
+      black 85%,
+      transparent
+    );
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      transparent,
+      black 15%,
+      black 85%,
+      transparent
+    );
+}
+@keyframes backgroundGlow {
+  0% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate3d(12vw, 8vh, 0)
+      scale(1.12);
+  }
+
+  100% {
+    transform:
+      translate3d(5vw, 18vh, 0)
+      scale(0.95);
+  }
 }
 
 /* =========================================================
@@ -1118,8 +1250,14 @@ transform:
     top:-19px;
   }
 
-}
+  
 
+}
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+  }
+}
 
 /* =========================================================
    REDUCED MOTION
@@ -3059,4 +3197,455 @@ transform:
     width:100%;
   }
 
+}
+
+
+
+
+.stats__number--code {
+  font-size: clamp(0.85rem, 1.4vw, 1.15rem);
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   CRONOLOGIE DEMOGRAFICĂ — INFO CARDS
+========================================================= */
+
+.info-grid--timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  width: 100%;
+  margin-top: 50px;
+}
+
+/* Linia luminoasă din spatele cardurilor */
+.info-grid--timeline::before {
+  content: "";
+  position: absolute;
+  top: 42px;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  z-index: 0;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(96, 165, 250, 0.6),
+    rgba(168, 85, 247, 0.7),
+    rgba(34, 197, 94, 0.6),
+    transparent
+  );
+
+  box-shadow:
+    0 0 12px rgba(96, 165, 250, 0.35),
+    0 0 25px rgba(168, 85, 247, 0.2);
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.info-grid--timeline .info-card {
+  --card-color: 96, 165, 250;
+
+  position: relative;
+  z-index: 1;
+  min-height: 320px;
+  padding: 82px 28px 30px;
+  overflow: hidden;
+
+  border:
+    1px solid rgba(var(--card-color), 0.22);
+
+  border-radius: 28px;
+
+  background:
+    radial-gradient(
+      circle at 20% 0%,
+      rgba(var(--card-color), 0.18),
+      transparent 38%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(30, 41, 59, 0.88),
+      rgba(15, 23, 42, 0.96)
+    );
+
+  box-shadow:
+    0 24px 55px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  backdrop-filter: blur(14px);
+  isolation: isolate;
+
+  transition:
+    translate 0.4s cubic-bezier(.22, 1, .36, 1),
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+
+/* Linie colorată în partea de sus */
+.info-grid--timeline .info-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 60%;
+  height: 3px;
+
+  border-radius: 0 0 10px 10px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(var(--card-color)),
+    transparent
+  );
+
+  box-shadow:
+    0 0 16px rgba(var(--card-color), 0.7);
+
+  transition:
+    left 0.4s ease,
+    width 0.4s ease;
+}
+
+
+/* Reflexie decorativă */
+.info-grid--timeline .info-card::after {
+  content: "";
+  position: absolute;
+  right: -80px;
+  bottom: -90px;
+  width: 190px;
+  height: 190px;
+  z-index: -1;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(var(--card-color), 0.2),
+      transparent 68%
+    );
+
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.info-grid--timeline .info-card__icon {
+  position: absolute;
+  top: 20px;
+  left: 28px;
+
+  display: grid;
+  place-items: center;
+
+  width: 48px;
+  height: 48px;
+
+  border:
+    1px solid rgba(var(--card-color), 0.35);
+
+  border-radius: 15px;
+
+  color: rgb(var(--card-color));
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(var(--card-color), 0.22),
+      rgba(var(--card-color), 0.06)
+    );
+
+  box-shadow:
+    0 12px 30px rgba(var(--card-color), 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+  transition:
+    transform 0.4s cubic-bezier(.22, 1, .36, 1),
+    background 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.info-grid--timeline .info-card__icon i {
+  font-size: 1.15rem;
+}
+
+
+/* Punctul cronologiei */
+.info-grid--timeline .info-card__icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -31px;
+
+  width: 9px;
+  height: 9px;
+
+  border:
+    2px solid rgba(15, 23, 42, 1);
+
+  border-radius: 50%;
+
+  background:
+    rgb(var(--card-color));
+
+  box-shadow:
+    0 0 12px rgba(var(--card-color), 0.9);
+}
+
+
+/* =========================================================
+   ANUL
+========================================================= */
+
+.info-grid--timeline .info-card h4 {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 20px;
+
+  font-family:
+    "DM Serif Display",
+    serif;
+
+  font-size:
+    clamp(2.2rem, 3vw, 3.2rem);
+
+  line-height: 1;
+  font-weight: 400;
+
+  color: white;
+
+  letter-spacing: -0.04em;
+
+  text-shadow:
+    0 5px 22px rgba(var(--card-color), 0.25);
+}
+
+/* Linie mică sub an */
+.info-grid--timeline .info-card h4::after {
+  content: "";
+  display: block;
+
+  width: 42px;
+  height: 3px;
+
+  margin-top: 12px;
+  border-radius: 20px;
+
+  background:
+    rgb(var(--card-color));
+
+  box-shadow:
+    0 0 12px rgba(var(--card-color), 0.65);
+
+  transition:
+    width 0.4s cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* An decorativ în fundal */
+.info-grid--timeline .info-card h4::before {
+  content: attr(data-year);
+
+  position: absolute;
+  top: 55px;
+  right: -5px;
+  z-index: -1;
+
+  font-family:
+    "DM Serif Display",
+    serif;
+
+  font-size: 5.6rem;
+  line-height: 1;
+
+  color:
+    rgba(var(--card-color), 0.055);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.info-grid--timeline .info-card p {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+
+  color:
+    rgba(226, 232, 240, 0.78);
+
+  font-size: 0.94rem;
+  line-height: 1.85;
+
+  transition:
+    color 0.35s ease;
+}
+
+
+/* =========================================================
+   CULORI DIFERITE
+========================================================= */
+
+.info-grid--timeline .info-card:nth-child(1) {
+  --card-color: 56, 189, 248;
+}
+
+.info-grid--timeline .info-card:nth-child(2) {
+  --card-color: 96, 165, 250;
+}
+
+.info-grid--timeline .info-card:nth-child(3) {
+  --card-color: 139, 92, 246;
+}
+
+.info-grid--timeline .info-card:nth-child(4) {
+  --card-color: 168, 85, 247;
+}
+
+.info-grid--timeline .info-card:nth-child(5) {
+  --card-color: 45, 212, 191;
+}
+
+.info-grid--timeline .info-card:nth-child(6) {
+  --card-color: 34, 197, 94;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.info-grid--timeline .info-card:hover {
+  translate: 0 -8px;
+
+  border-color:
+    rgba(var(--card-color), 0.55);
+
+  box-shadow:
+    0 32px 75px rgba(0, 0, 0, 0.42),
+    0 0 35px rgba(var(--card-color), 0.11),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.info-grid--timeline .info-card:hover::before {
+  left: 8%;
+  width: 84%;
+}
+
+.info-grid--timeline .info-card:hover::after {
+  transform: scale(1.25);
+}
+
+.info-grid--timeline .info-card:hover .info-card__icon {
+  transform:
+    translateY(-4px)
+    rotate(-5deg)
+    scale(1.08);
+
+  background:
+    rgba(var(--card-color), 0.22);
+
+  box-shadow:
+    0 16px 35px rgba(var(--card-color), 0.28),
+    0 0 24px rgba(var(--card-color), 0.14);
+}
+
+.info-grid--timeline .info-card:hover h4::after {
+  width: 76px;
+}
+
+.info-grid--timeline .info-card:hover p {
+  color:
+    rgba(241, 245, 249, 0.94);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+  .info-grid--timeline {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 24px;
+  }
+
+  .info-grid--timeline::before {
+    display: none;
+  }
+
+  .info-grid--timeline .info-card {
+    min-height: 300px;
+  }
+
+  .info-grid--timeline
+  .info-card__icon::after {
+    display: none;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .info-grid--timeline {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 35px;
+  }
+
+  .info-grid--timeline .info-card {
+    min-height: auto;
+    padding: 76px 22px 25px;
+    border-radius: 23px;
+  }
+
+  .info-grid--timeline .info-card__icon {
+    top: 18px;
+    left: 22px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .info-grid--timeline .info-card h4 {
+    font-size: 2.25rem;
+  }
+
+  .info-grid--timeline .info-card p {
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+}
+
+
+/* Reduce animațiile dacă utilizatorul solicită asta */
+@media (prefers-reduced-motion: reduce) {
+  .info-grid--timeline .info-card,
+  .info-grid--timeline .info-card::before,
+  .info-grid--timeline .info-card::after,
+  .info-grid--timeline .info-card__icon,
+  .info-grid--timeline .info-card h4::after {
+    transition: none;
+  }
 }
