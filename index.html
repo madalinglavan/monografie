@@ -1,72 +1,199 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <!-- BASIC -->
+  <!-- =====================================================
+       INFORMAȚII DE BAZĂ
+  ====================================================== -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- TITLE (FOARTE IMPORTANT) -->
-  <title>Comuna Bustuchin Gorj | Cultură | Natură | Tradiții</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <!-- META DESCRIPTION -->
-  <meta name="description" content="Descoperă comuna Bustuchin din județul Gorj: tradiții, evenimente, natură și informații oficiale despre comunitate și dezvoltare locală.">
+  <title>Comuna Bustuchin, Gorj – Istorie, natură și tradiții</title>
 
-  <!-- KEYWORDS (nu mai contează mult, dar nu strică) -->
-  <meta name="keywords" content="Bustuchin, Gorj, comuna Bustuchin, turism Bustuchin, primăria Bustuchin, tradiții Gorj">
+  <meta
+    name="description"
+    content="Descoperă comuna Bustuchin din județul Gorj: istorie locală, sate, natură, tradiții, personalități, evenimente și patrimoniu cultural."
+  >
 
-  <!-- AUTHOR -->
-  <meta name="author" content="Primăria Bustuchin">
+  <meta name="author" content="Primăria Comunei Bustuchin">
 
-  <!-- ROBOTS -->
-  <meta name="robots" content="index, follow">
+  <meta
+    name="robots"
+    content="index, follow, max-image-preview:large"
+  >
 
-  <!-- CANONICAL (FOARTE IMPORTANT) -->
-  <link rel="canonical" href="https://www.primaria-bustuchin.ro/">
+  <meta name="theme-color" content="#0f172a">
 
-  <!-- OPEN GRAPH (Facebook) -->
-  <meta property="og:title" content="Comuna Bustuchin | Gorj">
-  <meta property="og:description" content="Natură, tradiții și oportunități în comuna Bustuchin.">
-  <meta property="og:image" content="https://www.primaria-bustuchin.ro/img/logo.png">
-  <meta property="og:url" content="https://www.primaria-bustuchin.ro/">
+
+  <!-- =====================================================
+       ADRESĂ CANONICĂ
+  ====================================================== -->
+  <link
+    rel="canonical"
+    href="https://www.primaria-bustuchin.ro/"
+  >
+
+
+  <!-- =====================================================
+       OPEN GRAPH — FACEBOOK, WHATSAPP, LINKEDIN
+  ====================================================== -->
+  <meta property="og:locale" content="ro_RO">
   <meta property="og:type" content="website">
 
-  <!-- TWITTER (optional dar profi) -->
+  <meta
+    property="og:site_name"
+    content="Comuna Bustuchin"
+  >
+
+  <meta
+    property="og:title"
+    content="Comuna Bustuchin, Gorj – Istorie, natură și tradiții"
+  >
+
+  <meta
+    property="og:description"
+    content="Descoperă istoria, satele, natura, tradițiile, personalitățile și patrimoniul cultural al comunei Bustuchin."
+  >
+
+  <meta
+    property="og:url"
+    content="https://www.primaria-bustuchin.ro/"
+  >
+
+  <meta
+    property="og:image"
+    content="https://www.primaria-bustuchin.ro/img/bustuchin-social.webp"
+  >
+
+  <meta
+    property="og:image:secure_url"
+    content="https://www.primaria-bustuchin.ro/img/bustuchin-social.webp"
+  >
+
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta
+    property="og:image:alt"
+    content="Peisaj reprezentativ din comuna Bustuchin, județul Gorj"
+  >
+
+
+  <!-- =====================================================
+       X / TWITTER
+  ====================================================== -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Comuna Bustuchin">
-  <meta name="twitter:description" content="Descoperă Bustuchin, Gorj">
-  <meta name="twitter:image" content="https://www.primaria-bustuchin.ro/img/logo.png">
 
-  <!-- FAVICON -->
-  <link rel="icon" href="img/logo.png" type="image/png">
+  <meta
+    name="twitter:title"
+    content="Comuna Bustuchin, Gorj – Istorie, natură și tradiții"
+  >
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta
+    name="twitter:description"
+    content="Descoperă istoria, natura, tradițiile și patrimoniul cultural al comunei Bustuchin."
+  >
 
-  <!-- PERFORMANCE -->
+  <meta
+    name="twitter:image"
+    content="https://www.primaria-bustuchin.ro/img/bustuchin-social.webp"
+  >
+
+  <meta
+    name="twitter:image:alt"
+    content="Peisaj reprezentativ din comuna Bustuchin, județul Gorj"
+  >
+
+
+  <!-- =====================================================
+       FAVICON
+  ====================================================== -->
+  <link
+    rel="icon"
+    href="/img/logo.png"
+    type="image/png"
+  >
+
+  <link
+    rel="apple-touch-icon"
+    href="/img/logo.png"
+  >
+
+
+  <!-- =====================================================
+       CONEXIUNI EXTERNE
+  ====================================================== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playwrite+DE+LA+Guides&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Playwrite+DE+LA+Guides&display=swap" rel="stylesheet">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="//unpkg.com">
+
+
+  <!-- =====================================================
+       FONTURI — O SINGURĂ SOLICITARE
+  ====================================================== -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Playwrite+DE+LA+Guides&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- =====================================================
+       STILURI
+  ====================================================== -->
+  <link rel="stylesheet" href="/style.css">
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  >
+
+
+  <!-- =====================================================
+       DATE STRUCTURATE SCHEMA.ORG
+  ====================================================== -->
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Place",
-  "name": "Comuna Bustuchin",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Bustuchin",
-    "addressRegion": "Gorj",
-    "addressCountry": "RO"
+  {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    "@id": "https://www.primaria-bustuchin.ro/#place",
+    "name": "Comuna Bustuchin",
+    "alternateName": "Bustuchin",
+    "description": "Comuna Bustuchin din județul Gorj, România, prezentată prin istoria, satele, natura, tradițiile și patrimoniul său cultural.",
+    "url": "https://www.primaria-bustuchin.ro/",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.primaria-bustuchin.ro/img/bustuchin-social.webp",
+      "width": 1200,
+      "height": 630
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bustuchin",
+      "addressRegion": "Gorj",
+      "addressCountry": "RO"
+    },
+    "containedInPlace": {
+      "@type": "AdministrativeArea",
+      "name": "Județul Gorj"
+    }
   }
-}
-</script>
+  </script>
 </head>
 
 <body>
@@ -704,8 +831,7 @@
       EVENIMENTE
   ====================================================== -->
 
-  <section id="evenimente"
-    class="section section--events">
+  <section id="evenimente" class="section section--events">
 
     <div class="container">
 
@@ -1210,8 +1336,7 @@
       SATELE COMUNEI BUSTUCHIN
   ====================================================== -->
 
-  <section id="sate"
-    class="section section--villages">
+  <section id="sate" class="section section--villages">
     <div class="container">
       <div class="section-header">
         <span class="section-kicker">
@@ -2610,7 +2735,8 @@
           <!-- =====================================================
               POVEȘTILE NUMELOR DIN BUSTUCHIN
           ====================================================== -->
-        <div class="toponimie" id="toponimie">
+          <div class="toponimie" id="toponimie">
+            
           <div class="subsection split-layout reveal">
             <div class="section-block__content">
               <span class="section-block__badge">
@@ -2843,7 +2969,7 @@
 
           </div>
 
-      </div>
+          </div>
     </div>
   </section>
 
@@ -2955,6 +3081,17 @@
             ====================================================== -->
             
             <div id="biserica-poiana" class="subsection split-layout reveal">
+              <div class="video-preview" data-video="twCeP65fJlA">
+                  <img
+                    src="img/zilele comunei Bustuchin.webp"
+                    alt="Zilele Comunei Bustuchin"
+                    loading="lazy">
+                  <button class="play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+
+                  
+              </div>
               <div class="section-block__content">
                 <span class="section-block__badge">
                   Biserică
@@ -3007,17 +3144,7 @@
 
               </div>
 
-              <div class="video-preview" data-video="twCeP65fJlA">
-                  <img
-                    src="img/zilele comunei Bustuchin.webp"
-                    alt="Zilele Comunei Bustuchin"
-                    loading="lazy">
-                  <button class="play-btn">
-                    <i class="fas fa-play"></i>
-                  </button>
-
-                  
-              </div>
+              
             </div>
 
             <!-- =====================================================
@@ -3095,6 +3222,16 @@
             ====================================================== -->
             
             <div id="troita-poiana" class="subsection split-layout reveal">
+              <div class="video-preview" data-video="twCeP65fJlA">
+                  <img
+                    src="img/zilele comunei Bustuchin.webp"
+                    alt="Zilele Comunei Bustuchin"
+                    loading="lazy">
+                  <button class="play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+
+              </div>
               <div class="section-block__content">
                 <span class="section-block__badge">
                   Troiță
@@ -3147,16 +3284,7 @@
 
               </div>
 
-              <div class="video-preview" data-video="twCeP65fJlA">
-                  <img
-                    src="img/zilele comunei Bustuchin.webp"
-                    alt="Zilele Comunei Bustuchin"
-                    loading="lazy">
-                  <button class="play-btn">
-                    <i class="fas fa-play"></i>
-                  </button>
-
-              </div>
+              
             </div>
 
         </div>
@@ -3237,6 +3365,15 @@
             ====================================================== -->
             
             <div id="pricesne-1" class="subsection split-layout reveal">
+              <div class="video-preview" data-video="twCeP65fJlA">
+                  <img
+                    src="img/zilele comunei Bustuchin.webp"
+                    alt="Zilele Comunei Bustuchin"
+                    loading="lazy">
+                  <button class="play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+              </div>
               <div class="section-block__content">
                 <span class="section-block__badge">
                   Pricesne și colinde
@@ -3289,15 +3426,7 @@
 
               </div>
 
-              <div class="video-preview" data-video="twCeP65fJlA">
-                  <img
-                    src="img/zilele comunei Bustuchin.webp"
-                    alt="Zilele Comunei Bustuchin"
-                    loading="lazy">
-                  <button class="play-btn">
-                    <i class="fas fa-play"></i>
-                  </button>
-              </div>
+              
             </div>
         </div>
       </div>
@@ -7170,309 +7299,112 @@
 
 
         <!-- =====================================================
-            FÂNTÂNA RECE
-        ====================================================== -->
+              FÂNTÂNA RECE
+          ====================================================== -->
 
-        <div
-          id="fantana-rece"
-          class="subsection split-layout reveal">
-
-          <div class="village__media media-frame">
+          <div
+            id="fantana-rece"
+            class="subsection split-layout reveal"
+          >
 
             <!-- VIDEO -->
-                    <div class="video-preview" data-video="ExMFB9i2wRY">
-                          <img
-                            src="img/dealul muierii.webp"
-                            alt="Fântana Rece - Bustuchin"
-                            loading="lazy">
-                          <button class="play-btn">
-                            <i class="fas fa-play"></i>
-                          </button>
-                    </div>
-            </div>
+            <div class="village__media media-frame">
 
+              <div
+                class="video-preview"
+                data-video="ExMFB9i2wRY"
+              >
 
+                <img
+                  src="img/dealul muierii.webp"
+                  alt="Fântâna Rece și pădurea de pe Dealul Muierii din comuna Bustuchin"
+                  loading="lazy"
+                >
 
-          <!-- CONTENT -->
-
-          <div class="section-block__content">
-
-            <span class="section-block__badge">
-
-              Relaxare
-
-            </span>
-
-
-
-            <h3 class="section-block__title">
-
-              Fântâna Rece
-
-            </h3>
-
-
-
-            <p class="section-block__text">
-
-              Teritoriul comunei Bustuchin
-              aparține Piemontului Oltețului,
-              unitate geomorfologică formată
-              prin procese tectonice,
-              sedimentare și de eroziune
-              desfășurate pe parcursul
-              a milioane de ani.
-
-            </p>
-
-
-
-            <p class="section-block__text">
-
-              Relieful actual este rezultatul
-              mișcărilor tectonice carpatice,
-              al depunerilor sedimentare
-              și al modelării continue
-              produse de rețeaua hidrografică
-              și factorii climatici.
-
-            </p>
-
-
-
-            <p class="section-block__text">
-
-              Zona este caracterizată
-              prin dealuri fragmentate,
-              versanți înclinați,
-              procese geomorfologice active
-              și forme de relief specifice
-              regiunilor piemontane din Oltenia.
-
-            </p>
-
-
-
-            <p class="section-block__text">
-
-              Valea Amaradiei
-              și afluenții săi
-              au avut un rol esențial
-              în modelarea reliefului local,
-              contribuind la apariția
-              teraselor,
-              văilor
-              și zonelor fertile
-              care au favorizat locuirea umană.
-
-            </p>
-
-
-
-            <!-- STATS -->
-
-            <div class="stats">
-
-              <div class="stats__item">
-
-                <span
-                  class="stats__number"
-                  data-target="500">
-
-                  0
-
-                </span>
-
-                <span class="stats__label">
-
-                  Altitudine maximă (m)
-
-                </span>
-
-              </div>
-
-
-
-              <div class="stats__item">
-
-                <span
-                  class="stats__number"
-                  data-target="45">
-
-                  0
-
-                </span>
-
-                <span class="stats__label">
-
-                  Paralela nordică
-
-                </span>
-
-              </div>
-
-
-
-              <div class="stats__item">
-
-                <span
-                  class="stats__number"
-                  data-target="4">
-
-                  0
-
-                </span>
-
-                <span class="stats__label">
-
-                  Grad seismic regional
-
-                </span>
+                <button
+                  class="play-btn"
+                  type="button"
+                  aria-label="Redă videoclipul despre Fântâna Rece din Bustuchin"
+                >
+                  <i class="fas fa-play" aria-hidden="true"></i>
+                </button>
 
               </div>
 
             </div>
 
-          </div>
 
-        </div>
+            <!-- CONTENT -->
+            <div class="section-block__content">
 
+              <span class="section-block__badge">
+                NATURĂ ȘI POPAS
+              </span>
 
+              <h3 class="section-block__title">
+                Fântâna Rece
+              </h3>
 
-        <!-- =====================================================
-            DEALUL MUIERII
-        ====================================================== -->
+              <p class="section-block__text">
 
-        <div
-          id="dealul-muierii"
-          class="subsection split-layout reveal">
+                Aflată pe Dealul Muierii, pe teritoriul comunei
+                Bustuchin, Fântâna Rece este unul dintre popasurile
+                cunoscute ale traseului care străbate această culme.
+                Numele său evocă apa rece a locului și răgazul oferit
+                odinioară călătorilor, păstorilor și oamenilor care
+                treceau între comunitățile așezate de o parte
+                și de alta a dealului.
 
-          <!-- CONTENT -->
+              </p>
 
-          <div class="section-block__content">
+              <p class="section-block__text">
 
-            <span class="section-block__badge">
+                Împrejurimile sunt dominate de o pădure deasă,
+                care învelește versanții și păstrează o atmosferă
+                răcoroasă chiar și în zilele călduroase.
+                Umbra arborilor, liniștea și lumina filtrată printre
+                coroane transformă locul într-un refugiu natural,
+                departe de drumurile intens circulate și de agitația
+                zonelor locuite.
 
-              NATURĂ
+              </p>
 
-            </span>
+              <p class="section-block__text">
 
+                Vegetația este caracteristică dealurilor subcarpatice
+                și piemontane ale Gorjului. Pădurile de gorun sunt
+                predominante, fiind însoțite pe alocuri de fag,
+                frasin, paltin, jugastru și tei. La marginea pădurii
+                și în poieni apar arbuști, ierburi și plante specifice
+                luminișurilor, formând un peisaj variat și oferind
+                adăpost păsărilor și animalelor sălbatice din zonă.
 
+              </p>
 
-            <h3 class="section-block__title">
+              <p class="section-block__text">
 
-              Dealul Muierii
+                Alternanța dintre pădure, poieni și vechile poteci
+                de culme păstrează imaginea unui peisaj rural autentic.
+                Fântâna Rece nu este doar un reper geografic,
+                ci și un loc al întâlnirii dintre apă, pădure
+                și memoria comunităților care au folosit de-a lungul
+                timpului drumurile Dealului Muierii.
 
-            </h3>
+              </p>
 
+              <p class="section-block__text">
 
+                În prezent, locul este unul dintre reperele
+                Festivalului Cultural „Dealu’ Muierii”.
+                Participanții care parcurg traseul dintre Roșia
+                de Amaradia și Bustuchin poposesc aici, iar serile
+                culturale organizate în zonă reunesc muzica populară,
+                dansul, produsele tradiționale și poveștile localnicilor.
+                Astfel, Fântâna Rece continuă să fie un spațiu
+                al ospitalității și al legăturii dintre comunitate
+                și natură.
 
-            <p class="section-block__text">
-
-              De-a lungul timpului,
-              satele comunei Bustuchin
-              s-au dezvoltat în strânsă legătură
-              cu relieful,
-              resursele naturale
-              și activitățile agricole
-              specifice regiunii.
-
-            </p>
-
-
-
-            <p class="section-block__text">
-
-              Comunitățile locale
-              au fost organizate tradițional
-              în jurul gospodăriilor,
-              bisericilor
-              și relațiilor de întrajutorare,
-              păstrând un mod de viață
-              autentic și profund legat
-              de valorile satului românesc.
-
-            </p>
-
-
-
-            <p class="section-block__text">
-
-              Transformările administrative,
-              modernizarea infrastructurii
-              și evoluția economică
-              au influențat dezvoltarea comunei,
-              însă identitatea culturală
-              și tradițiile locale
-              continuă să reprezinte
-              elemente definitorii
-              ale comunității.
-
-            </p>
-
-
-
-            <!-- STATS -->
-
-            <div class="stats">
-
-              <div class="stats__item">
-
-                <span
-                  class="stats__number"
-                  data-target="8">
-
-                  0
-
-                </span>
-
-                <span class="stats__label">
-
-                  Sate istorice
-
-                </span>
-
-              </div>
-
-
-
-              <div class="stats__item">
-
-                <span
-                  class="stats__number"
-                  data-target="1968">
-
-                  0
-
-                </span>
-
-                <span class="stats__label">
-
-                  Reorganizare administrativă
-
-                </span>
-
-              </div>
-
-
-
-              <div class="stats__item">
-
-                <span
-                  class="stats__number"
-                  data-target="200">
-
-                  0
-
-                </span>
-
-                <span class="stats__label">
-
-                  Ani de tradiții locale
-
-                </span>
-
-              </div>
+              </p>
 
             </div>
 
@@ -7480,178 +7412,216 @@
 
 
 
-          <div class="village__media media-frame">
+          <!-- =====================================================
+              DEALUL MUIERII
+          ====================================================== -->
 
-            <!-- VIDEO -->
-                    <div class="video-preview" data-video="QG4qAxjoLSI">
-                          <img
-                            src="img/dealul muierii.webp"
-                            alt="Dealul Muierii - Bustuchin"
-                            loading="lazy">
-                          <button class="play-btn">
-                            <i class="fas fa-play"></i>
-                          </button>
-                    </div>
+          <div id="dealul-muierii"
+            class="subsection split-layout reveal"
+          >
+
+            <!-- CONTENT -->
+            <div class="section-block__content">
+
+              <span class="section-block__badge">
+                NATURĂ ȘI LEGENDĂ
+              </span>
+
+              <h3 class="section-block__title">
+                Dealul Muierii
+              </h3>
+
+              <p class="section-block__text">
+
+                Dealul Muierii este o culme întinsă a Podișului Getic,
+                care leagă zona de la poalele Munților Parâng,
+                din apropierea localităților Polovragi și Baia de Fier,
+                de ținuturile colinare aflate spre sudul Olteniei.
+                De-a lungul acestei culmi se succed păduri,
+                pășuni, terenuri agricole și sate vechi,
+                iar comuna Bustuchin ocupă un loc important
+                pe sectorul gorjean al traseului.
+
+              </p>
+
+              <p class="section-block__text">
+
+                Dealul și zonele sale limitrofe reunesc comunități
+                din județele Gorj, Vâlcea și Dolj.
+                În Gorj, traseul cultural este legat de localități precum
+                Polovragi, Baia de Fier, Alimpești, Roșia de Amaradia,
+                Bustuchin, Logrești, Stejari și Dănciulești.
+                Spre est și sud, acesta continuă prin comunități
+                din Vâlcea și Dolj, până în apropierea comunei Goiești,
+                formând o legătură naturală între nordul și centrul Olteniei.
+
+              </p>
+
+              <p class="section-block__text">
+
+                Denumirea Dealului Muierii este însoțită de o veche
+                legendă locală, așezată de tradiție la începutul
+                secolului al XVIII-lea. Se spune că, în timpul
+                incursiunilor otomane, femeile, copiii și bătrânii
+                din satele regiunii s-ar fi adăpostit în Peștera Polovragi,
+                Peștera Muierilor de la Baia de Fier și Peștera Frumoasă
+                din Vaideeni. Rămase fără hrană, femeile ar fi pornit
+                pe culmea dealului și i-ar fi alungat pe cotropitori.
+
+              </p>
+
+              <p class="section-block__text">
+
+                Culmea păstrează și urmele unor drumuri mult mai vechi.
+                În zona Grădiștea au fost semnalate vestigii atribuite
+                culturii Coțofeni și unei fortificații dacice,
+                iar tradiția locală amintește un drum de culme
+                care ar fi făcut legătura între sudul Dunării oltene
+                și așezările din interiorul spațiului dacic.
+                Fântânile, crucile de piatră, vechile drumuri pastorale
+                și punctele de observație întregesc patrimoniul
+                istoric și cultural al acestui traseu.
+
+              </p>
+
+              <p class="section-block__text">
+
+                În prezent, Dealul Muierii este promovat printr-un
+                traseu cultural de aproximativ 104 kilometri,
+                de la peșterile din nordul Olteniei până în satul Cruci,
+                comuna Goiești. Festivalul Cultural „Dealu’ Muierii”
+                readuce anual în atenție legenda, portul popular,
+                gastronomia și tradițiile comunităților străbătute,
+                transformând vechea culme într-un simbol regional
+                al identității și al cooperării dintre sate.
+
+              </p>
+
             </div>
 
-        </div>
-
-        <!-- =====================================================
-            LACURILE DE LA POIANA
-        ====================================================== -->
-
-        <div
-          id="lacurile-de-la-poiana"
-          class="subsection split-layout reveal">
-
-          
-          <div class="village__media media-frame">
 
             <!-- VIDEO -->
-                    <div class="video-preview" data-video="6dcuEStnyXs">
-                          <img
-                            src="img/lacurile de la poiana.webp"
-                            alt="Lacurile de la Poiana - Bustuchin"
-                            loading="lazy">
-                          <button class="play-btn">
-                            <i class="fas fa-play"></i>
-                          </button>
-                    </div>
-            </div>
-          <!-- CONTENT -->
+            <div class="village__media media-frame">
 
-          <div class="section-block__content">
+              <div
+                class="video-preview"
+                data-video="QG4qAxjoLSI"
+              >
 
-            <span class="section-block__badge">
+                <img
+                  src="img/dealul muierii.webp"
+                  alt="Dealul Muierii pe teritoriul comunei Bustuchin, județul Gorj"
+                  loading="lazy"
+                >
 
-              NATURĂ
-
-            </span>
-
-
-
-            <h3 class="section-block__title">
-
-              Lacurile de la Poiana Seciuri
-
-            </h3>
-
-
-
-            <p class="section-block__text">
-
-              De-a lungul timpului,
-              satele comunei Bustuchin
-              s-au dezvoltat în strânsă legătură
-              cu relieful,
-              resursele naturale
-              și activitățile agricole
-              specifice regiunii.
-
-            </p>
-
-
-
-            <p class="section-block__text">
-
-              Comunitățile locale
-              au fost organizate tradițional
-              în jurul gospodăriilor,
-              bisericilor
-              și relațiilor de întrajutorare,
-              păstrând un mod de viață
-              autentic și profund legat
-              de valorile satului românesc.
-
-            </p>
-
-
-
-            <p class="section-block__text">
-
-              Transformările administrative,
-              modernizarea infrastructurii
-              și evoluția economică
-              au influențat dezvoltarea comunei,
-              însă identitatea culturală
-              și tradițiile locale
-              continuă să reprezinte
-              elemente definitorii
-              ale comunității.
-
-            </p>
-
-
-
-            <!-- STATS -->
-
-            <div class="stats">
-
-              <div class="stats__item">
-
-                <span
-                  class="stats__number"
-                  data-target="8">
-
-                  0
-
-                </span>
-
-                <span class="stats__label">
-
-                  Sate istorice
-
-                </span>
-
-              </div>
-
-
-
-              <div class="stats__item">
-
-                <span
-                  class="stats__number"
-                  data-target="1968">
-
-                  0
-
-                </span>
-
-                <span class="stats__label">
-
-                  Reorganizare administrativă
-
-                </span>
-
-              </div>
-
-
-
-              <div class="stats__item">
-
-                <span
-                  class="stats__number"
-                  data-target="200">
-
-                  0
-
-                </span>
-
-                <span class="stats__label">
-
-                  Ani de tradiții locale
-
-                </span>
+                <button
+                  class="play-btn"
+                  type="button"
+                  aria-label="Redă videoclipul despre Dealul Muierii"
+                >
+                  <i class="fas fa-play" aria-hidden="true"></i>
+                </button>
 
               </div>
 
             </div>
 
           </div>
+
+          <!-- =====================================================
+            LACURILE DE LA POIANA-SECIURI
+        ====================================================== -->
+
+        <div id="lacurile-de-la-poiana"
+          class="subsection split-layout reveal"
+        >
+
+          <!-- VIDEO -->
+          <div class="village__media media-frame">
+
+            <div
+              class="video-preview"
+              data-video="6dcuEStnyXs"
+            >
+
+              <img
+                src="img/lacurile de la poiana.webp"
+                alt="Lacurile formate în fosta zonă minieră de la Poiana-Seciuri, Bustuchin"
+                loading="lazy"
+              >
+
+              <button
+                class="play-btn"
+                type="button"
+                aria-label="Redă videoclipul despre lacurile de la Poiana-Seciuri"
+              >
+                <i class="fas fa-play" aria-hidden="true"></i>
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- CONTENT -->
+          <div class="section-block__content">
+
+            <span class="section-block__badge">
+              PEISAJ POST-MINIER
+            </span>
+
+            <h3 class="section-block__title">
+              Lacurile de la Poiana-Seciuri
+            </h3>
+
+            <p class="section-block__text">
+
+              Lacurile de la Poiana-Seciuri reprezintă una dintre
+              cele mai vizibile transformări ale peisajului local.
+              Ele s-au format în perimetrele afectate în trecut de
+              exploatarea lignitului la suprafață, acolo unde lucrările
+              miniere au lăsat în relief excavații și zone adâncite.
+
+            </p>
+
+            <p class="section-block__text">
+
+              După încetarea activităților în aceste puncte,
+              depresiunile rămase au acumulat treptat apă,
+              schimbând aspectul fostului teren industrial.
+              În locul fronturilor de lucru și al suprafețelor
+              modelate de utilajele miniere a apărut un peisaj
+              dominat de luciul apei, dealuri și vegetație.
+
+            </p>
+
+            <p class="section-block__text">
+
+              Astăzi, lacurile păstrează memoria unei perioade
+              importante din evoluția economică a comunității.
+              Ele ilustrează felul în care un spațiu profund
+              transformat de activitatea omului poate dobândi,
+              în timp, o înfățișare nouă și poate deveni un reper
+              aparte al satului Poiana-Seciuri.
+
+            </p>
+
+            <p class="section-block__text">
+
+              Privite împreună cu relieful colinar din jur,
+              aceste întinderi de apă formează un cadru deosebit,
+              în care istoria mineritului și transformarea naturală
+              a terenului pot fi observate în același loc.
+              Lacurile rămân astfel mărturii ale trecutului
+              industrial al zonei și ale schimbărilor produse
+              în peisajul comunei Bustuchin.
+
+            </p>
+
+          </div>
         </div>
 
-
-    </div>
+      </div>
   </section>
 
 <!-- =====================================================
