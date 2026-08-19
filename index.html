@@ -840,6 +840,7 @@
       </div>
 
     </section>
+   
 
    <!-- =====================================================
       EVENIMENTE
@@ -1343,6 +1344,222 @@
   ====================================================== -->
 
   <section id="sate" class="section section--villages">
+     <!-- =====================================================
+    HARTA INTERACTIVĂ A COMUNEI
+====================================================== -->
+
+<section id="harta-comunei" class="section section--map">
+
+  <div class="container">
+
+    <div class="section-header reveal">
+
+      <span class="section-kicker">
+        Explorează comuna
+      </span>
+
+      <h2 class="section-title">
+        <i class="fas fa-map-location-dot"></i>
+        Descoperă Bustuchin pe hartă
+      </h2>
+
+      <p class="section-description">
+        Explorează cele opt sate ale comunei Bustuchin.
+        Alege un loc de pe hartă sau din listă și descoperă
+        povestea lui.
+      </p>
+
+    </div>
+
+
+    <div class="local-map reveal">
+
+      <!-- PANOU STÂNGA -->
+      <aside class="local-map__panel">
+
+        <div class="local-map__panel-header">
+          <h3>
+            Unde vrei să mergem?
+          </h3>
+
+          <p>
+            Apasă pe un sat pentru a-l localiza pe hartă.
+          </p>
+
+        </div>
+
+
+        <div
+          class="local-map__villages"
+          id="mapVillageList">
+
+          <button
+            class="local-map__village active"
+            type="button"
+            data-location="bustuchin">
+
+            <i class="fas fa-landmark"></i>
+
+            <span>
+              <strong>Bustuchin</strong>
+              <small>Reședința comunei</small>
+            </span>
+
+          </button>
+
+
+          <button
+            class="local-map__village"
+            type="button"
+            data-location="cionti">
+
+            <i class="fas fa-house"></i>
+
+            <span>
+              <strong>Cionți</strong>
+              <small>Sat al comunei</small>
+            </span>
+
+          </button>
+
+
+          <button
+            class="local-map__village"
+            type="button"
+            data-location="motorgi">
+
+            <i class="fas fa-road"></i>
+
+            <span>
+              <strong>Motorgi</strong>
+              <small>Sat al comunei</small>
+            </span>
+
+          </button>
+
+
+          <button
+            class="local-map__village"
+            type="button"
+            data-location="namete">
+
+            <i class="fas fa-tree-city"></i>
+
+            <span>
+              <strong>Nămete</strong>
+              <small>Sat al comunei</small>
+            </span>
+
+          </button>
+
+
+          <button
+            class="local-map__village"
+            type="button"
+            data-location="poiana-seciuri">
+
+            <i class="fas fa-tree"></i>
+
+            <span>
+              <strong>Poiana-Seciuri</strong>
+              <small>Sat al comunei</small>
+            </span>
+
+          </button>
+
+
+          <button
+            class="local-map__village"
+            type="button"
+            data-location="poienita">
+
+            <i class="fas fa-mountain"></i>
+
+            <span>
+              <strong>Poienița</strong>
+              <small>Sat al comunei</small>
+            </span>
+
+          </button>
+
+
+          <button
+            class="local-map__village"
+            type="button"
+            data-location="pojaru">
+
+            <i class="fas fa-fire"></i>
+
+            <span>
+              <strong>Pojaru</strong>
+              <small>Sat cu rădăcini istorice</small>
+            </span>
+
+          </button>
+
+
+          <button
+            class="local-map__village"
+            type="button"
+            data-location="valea-pojarului">
+
+            <i class="fas fa-church"></i>
+
+            <span>
+              <strong>Valea Pojarului</strong>
+              <small>Istorie și tradiție</small>
+            </span>
+
+          </button>
+
+        </div>
+
+
+        <button
+          id="randomMapLocation"
+          class="button local-map__random"
+          type="button">
+
+          <i class="fas fa-dice"></i>
+
+          Arată-mi un loc
+
+        </button>
+
+      </aside>
+
+
+      <!-- HARTA -->
+      <div class="local-map__map-wrapper">
+
+        <div
+          id="bustuchinMap"
+          class="local-map__map"
+          aria-label="Hartă interactivă a comunei Bustuchin">
+        </div>
+
+
+        <div class="local-map__legend">
+
+          <span>
+            <i class="fas fa-circle"></i>
+            Sat al comunei
+          </span>
+
+          <span>
+            <i class="fas fa-hand-pointer"></i>
+            Apasă pe marker
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
     <div class="container">
       <div class="section-header">
         
@@ -8624,7 +8841,7 @@
 
 </footer>
 
-<script src="script.js"></script>
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

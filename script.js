@@ -1087,3 +1087,528 @@ if(welcomeSign){
   welcomeObserver.observe(welcomeSign);
 
 }
+
+
+/* =========================================================
+   HARTA INTERACTIVĂ - COMUNA BUSTUCHIN
+========================================================= */
+
+function initBustuchinMap() {
+
+  const mapElement =
+    document.getElementById("bustuchinMap");
+
+
+  if (
+    !mapElement ||
+    typeof L === "undefined"
+  ) {
+    return;
+  }
+
+
+  /* =======================================================
+     LOCURILE COMUNEI
+  ======================================================= */
+
+  const locations = [
+
+    {
+      id: "bustuchin",
+
+      name: "Bustuchin",
+
+      label: "Reședința comunei",
+
+      lat: 44.96452,
+
+      lng: 23.72814,
+
+      zoom: 15,
+
+      icon: "fa-landmark",
+
+      description:
+        "Centrul administrativ și cultural al comunei Bustuchin."
+    },
+
+
+    {
+      id: "cionti",
+
+      name: "Cionți",
+
+      label: "Sat al comunei",
+
+      lat: 44.96595,
+
+      lng: 23.68434,
+
+      zoom: 15,
+
+      icon: "fa-house",
+
+      description:
+        "O așezare locală legată de istoria și familiile vechi ale comunei."
+    },
+
+
+    {
+      id: "motorgi",
+
+      name: "Motorgi",
+
+      label: "Identitate locală",
+
+      lat: 44.97773,
+
+      lng: 23.68391,
+
+      zoom: 15,
+
+      icon: "fa-road",
+
+      description:
+        "Sat de deal cu peisaj rural și rădăcini vechi în comunitatea locală."
+    },
+
+
+    {
+      id: "namete",
+
+      name: "Nămete",
+
+      label: "Tradiție și geografie",
+
+      lat: 44.98310,
+
+      lng: 23.70205,
+
+      zoom: 15,
+
+      icon: "fa-tree-city",
+
+      description:
+        "Sat așezat într-o zonă deluroasă din partea nordică a comunei."
+    },
+
+
+    {
+      id: "poiana-seciuri",
+
+      name: "Poiana-Seciuri",
+
+      label: "Natură și tradiție",
+
+      lat: 44.99191,
+
+      lng: 23.72536,
+
+      zoom: 15,
+
+      icon: "fa-tree",
+
+      description:
+        "Una dintre așezările importante din nordul comunei Bustuchin."
+    },
+
+
+    {
+      id: "poienita",
+
+      name: "Poienița",
+
+      label: "Sat cu rădăcini vechi",
+
+      lat: 44.99267,
+
+      lng: 23.68150,
+
+      zoom: 15,
+
+      icon: "fa-mountain",
+
+      description:
+        "Așezare rurală aflată în zona deluroasă a comunei Bustuchin."
+    },
+
+
+    {
+      id: "pojaru",
+
+      name: "Pojaru",
+
+      label: "Istorie locală",
+
+      lat: 44.93860,
+
+      lng: 23.69542,
+
+      zoom: 15,
+
+      icon: "fa-fire",
+
+      description:
+        "Una dintre cele mai vechi așezări documentate ale actualei comune."
+    },
+
+
+    {
+      id: "valea-pojarului",
+
+      name: "Valea Pojarului",
+
+      label: "Istorie și tradiție",
+
+      lat: 44.93428,
+
+      lng: 23.69457,
+
+      zoom: 15,
+
+      icon: "fa-church",
+
+      description:
+        "Sat situat în partea sudică a comunei, legat de patrimoniul religios local."
+    }
+
+  ];
+
+
+  /* =======================================================
+     CREARE HARTĂ
+  ======================================================= */
+
+  const map =
+    L.map(
+      "bustuchinMap",
+      {
+        zoomControl: true,
+
+        scrollWheelZoom: false
+      }
+    );
+
+
+  /* =======================================================
+     FUNDAL OPENSTREETMAP
+  ======================================================= */
+
+  L.tileLayer(
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+      maxZoom: 19,
+
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }
+  )
+  .addTo(map);
+
+
+  /* =======================================================
+     MARKERE
+  ======================================================= */
+
+  const markers = {};
+
+
+  locations.forEach(location => {
+
+    const markerIcon =
+      L.divIcon({
+
+        className:
+          "bustuchin-marker-wrapper",
+
+        html: `
+          <div class="bustuchin-map-marker">
+
+            <i
+              class="fas ${location.icon}"
+              aria-hidden="true">
+            </i>
+
+          </div>
+        `,
+
+        iconSize:
+          [42, 42],
+
+        iconAnchor:
+          [21, 42],
+
+        popupAnchor:
+          [0, -38]
+
+      });
+
+
+    const popupContent = `
+
+      <div class="bustuchin-popup">
+
+        <span class="bustuchin-popup__badge">
+
+          ${location.label}
+
+        </span>
+
+        <h3>
+
+          ${location.name}
+
+        </h3>
+
+        <p>
+
+          ${location.description}
+
+        </p>
+
+        <a
+          href="#${location.id}"
+          class="bustuchin-popup__link">
+
+          Descoperă satul
+
+          <i
+            class="fas fa-arrow-right"
+            aria-hidden="true">
+          </i>
+
+        </a>
+
+      </div>
+
+    `;
+
+
+    const marker =
+      L.marker(
+        [
+          location.lat,
+          location.lng
+        ],
+        {
+          icon:
+          markerIcon
+        }
+      )
+      .addTo(map)
+      .bindPopup(
+        popupContent,
+        {
+          maxWidth: 280
+        }
+      );
+
+
+    markers[location.id] =
+      marker;
+
+
+    /* CLICK MARKER */
+
+    marker.on(
+      "click",
+      () => {
+
+        setActiveVillage(
+          location.id
+        );
+
+      }
+    );
+
+  });
+
+
+  /* =======================================================
+     ÎNCADREAZĂ TOATE SATELE
+  ======================================================= */
+
+  const bounds =
+    L.latLngBounds(
+      locations.map(
+        location => [
+          location.lat,
+          location.lng
+        ]
+      )
+    );
+
+
+  map.fitBounds(
+    bounds,
+    {
+      padding:
+        [45, 45]
+    }
+  );
+
+
+  /* =======================================================
+     LISTA DE SATE
+  ======================================================= */
+
+  const villageButtons =
+    document.querySelectorAll(
+      ".local-map__village"
+    );
+
+
+  function setActiveVillage(id) {
+
+    villageButtons.forEach(button => {
+
+      button.classList.toggle(
+        "active",
+        button.dataset.location === id
+      );
+
+    });
+
+  }
+
+
+  function focusLocation(id) {
+
+    const location =
+      locations.find(
+        item => item.id === id
+      );
+
+
+    const marker =
+      markers[id];
+
+
+    if (
+      !location ||
+      !marker
+    ) {
+      return;
+    }
+
+
+    map.flyTo(
+      [
+        location.lat,
+        location.lng
+      ],
+      location.zoom,
+      {
+        duration: 1.2
+      }
+    );
+
+
+    setActiveVillage(id);
+
+
+    setTimeout(
+      () => {
+
+        marker.openPopup();
+
+      },
+      800
+    );
+
+  }
+
+
+  villageButtons.forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        focusLocation(
+          button.dataset.location
+        );
+
+      }
+    );
+
+  });
+
+
+  /* =======================================================
+     LOC ALEATORIU
+  ======================================================= */
+
+  const randomButton =
+    document.getElementById(
+      "randomMapLocation"
+    );
+
+
+  if (randomButton) {
+
+    randomButton.addEventListener(
+      "click",
+      () => {
+
+        const randomLocation =
+          locations[
+            Math.floor(
+              Math.random() *
+              locations.length
+            )
+          ];
+
+
+        focusLocation(
+          randomLocation.id
+        );
+
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     FIX LEAFLET DUPĂ REVEAL / RESIZE
+  ======================================================= */
+
+  setTimeout(
+    () => {
+
+      map.invalidateSize();
+
+      map.fitBounds(
+        bounds,
+        {
+          padding:
+            [45, 45]
+        }
+      );
+
+    },
+    300
+  );
+
+
+  window.addEventListener(
+    "resize",
+    () => {
+
+      map.invalidateSize();
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   PORNIRE HARTĂ
+========================================================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  initBustuchinMap
+);
