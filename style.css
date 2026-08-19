@@ -3815,3 +3815,286 @@ iframe{
   }
 }
 
+/* =========================================================
+   PATRIMONIU RELIGIOS — ORDINE PE MOBIL
+   Badge → Titlu → Video/Imagine → Text
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* Fiecare biserică devine un grid cu o singură coloană */
+  .section--religion
+  .biserici
+  > .split-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+
+    width: 100%;
+  }
+
+  /* Badge-ul, titlul și textele intră direct în grid */
+  .section--religion
+  .biserici
+  > .split-layout
+  > .section-block__content {
+    display: contents;
+  }
+
+
+  /* 1. BADGE */
+  .section--religion
+  .section-block__badge {
+    order: 1;
+    justify-self: start;
+
+    margin-bottom: 18px;
+  }
+
+
+  /* 2. TITLU */
+  .section--religion
+  .section-block__title {
+    order: 2;
+
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+
+  /* 3. VIDEO SAU IMAGINE */
+  .section--religion
+  .biserici
+  > .split-layout
+  > .video-preview,
+
+  .section--religion
+  .biserici
+  > .split-layout
+  > .section-block__media,
+
+  .section--religion
+  .biserici
+  > .split-layout
+  > .village__media {
+    order: 3;
+
+    width: 100%;
+    min-width: 0;
+
+    margin-top: 0;
+    margin-bottom: 28px;
+  }
+
+
+  /* 4. TEXTE */
+  .section--religion
+  .section-block__text {
+    order: 4;
+
+    width: 100%;
+  }
+
+
+  /* 5. STATISTICI, DACĂ VOR FI ADĂUGATE */
+  .section--religion
+  .stats {
+    order: 5;
+
+    width: 100%;
+  }
+
+
+  /* Videoclipurile păstrează dimensiunea mare */
+  .section--religion
+  .video-preview {
+    position: relative;
+
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+    background: #000;
+  }
+
+  .section--religion
+  .video-preview img,
+
+  .section--religion
+  .video-preview iframe {
+    position: absolute;
+    inset: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 768px) {
+  .section--religion .biserici {
+    display: flex;
+    flex-direction: column;
+    gap: 85px;
+  }
+}
+
+/* =========================================================
+   PATRIMONIU RELIGIOS — ORDINE PE MOBIL
+   Badge → Titlu → Media → Text
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* Lista elementelor de patrimoniu religios */
+  .section--religion .religious-content {
+    display: flex;
+    flex-direction: column;
+    gap: 85px;
+
+    width: 100%;
+  }
+
+
+  /* Fiecare element devine un grid cu o coloană */
+  .section--religion
+  .religious-content
+  > .split-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+
+    width: 100%;
+    min-width: 0;
+  }
+
+
+  /* Introducem conținutul direct în grid */
+  .section--religion
+  .religious-content
+  > .split-layout
+  > .section-block__content {
+    display: contents;
+  }
+
+
+  /* 1. BADGE */
+  .section--religion
+  .religious-content
+  .section-block__badge {
+    order: 1;
+    justify-self: start;
+
+    margin-bottom: 18px;
+  }
+
+
+  /* 2. TITLU */
+  .section--religion
+  .religious-content
+  .section-block__title {
+    order: 2;
+
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+
+  /* 3. VIDEO SAU IMAGINE */
+  .section--religion
+  .religious-content
+  > .split-layout
+  > .video-preview,
+
+  .section--religion
+  .religious-content
+  > .split-layout
+  > .section-block__media,
+
+  .section--religion
+  .religious-content
+  > .split-layout
+  > .village__media {
+    order: 3;
+
+    width: 100%;
+    min-width: 0;
+
+    margin-top: 0;
+    margin-bottom: 28px;
+  }
+
+
+  /* 4. PARAGRAFE */
+  .section--religion
+  .religious-content
+  .section-block__text {
+    order: 4;
+
+    width: 100%;
+  }
+
+
+  /* 5. LISTE */
+  .section--religion
+  .religious-content
+  .section-block__content > ul,
+
+  .section--religion
+  .religious-content
+  .section-block__content > ol {
+    order: 5;
+
+    width: 100%;
+  }
+
+
+  /* 6. STATISTICI */
+  .section--religion
+  .religious-content
+  .stats {
+    order: 6;
+
+    width: 100%;
+  }
+
+
+  /* Media mare, în format 16:9 */
+  .section--religion
+  .religious-content
+  .video-preview {
+    position: relative;
+
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+    border-radius: 24px;
+    background: #000;
+  }
+
+  .section--religion
+  .religious-content
+  .video-preview img,
+
+  .section--religion
+  .religious-content
+  .video-preview iframe {
+    position: absolute;
+    inset: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    object-fit: cover;
+  }
+}
