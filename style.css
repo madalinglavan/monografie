@@ -1311,7 +1311,7 @@ iframe{
 ========================================================= */
 
 @media(max-width:768px){
-
+  
   .section-kicker-top{
     padding:
       12px
@@ -1331,7 +1331,9 @@ iframe{
     top:-19px;
   }
 
-  
+  #evenimente .section-title{
+    font-size: 1.6rem;
+  }
 
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1389,6 +1391,7 @@ iframe{
   font-size:1.15rem;
   line-height:1.9;
   color:var(--muted);
+  font-style: italic;
 }
 
 /* =========================================================
@@ -2309,7 +2312,7 @@ iframe{
 
 #societate-proprietate {
     padding: 100px 0;
-    background: #f8f7f3;
+    background: #a79e7d8a;
 }
 
 #societate-proprietate .container {
@@ -2326,7 +2329,7 @@ iframe{
 
 #societate-proprietate .section-subtitle {
     display: inline-block;
-    color: #8c6b3f;
+    color: #f8f8f8;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -2340,9 +2343,10 @@ iframe{
 }
 
 #societate-proprietate .section-header p {
-    color: #6b7280;
+    color: #fdfdfd;
     line-height: 1.8;
     font-size: 1.05rem;
+    font-style: italic;
 }
 
 /* GRID */
@@ -2390,7 +2394,7 @@ iframe{
 
 .history-card h3 {
     font-size: 1.4rem;
-    color: #1f2937;
+    color: #ffffff;
     margin-bottom: 18px;
     line-height: 1.3;
     position: relative;
@@ -2411,7 +2415,7 @@ iframe{
 /* PARAGRAFE */
 
 .history-card p {
-    color: #4b5563;
+    color: #ffffff;
     line-height: 1.9;
     margin-bottom: 15px;
     text-align: justify;
@@ -2509,7 +2513,6 @@ iframe{
 .intro-weather-title{
   font-size:clamp(2rem,4vw,3rem);
   margin-top:20px;
-  margin-bottom:20px;
   color:var(--text-primary);
 }
 
@@ -2611,7 +2614,41 @@ iframe{
 
 @media (max-width:768px){
 
- 
+  #societate-proprietate {
+    padding: 10px 0;
+    background: #a79e7d8a;
+}
+
+#societate-proprietate .container {
+    width: 100%;
+    margin: auto;
+    padding: 0px;
+}
+
+#societate-proprietate .section-header {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto 20px;
+}
+
+#societate-proprietate .section-subtitle {
+    display: inline-block;
+    color: #f8f8f8;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.intro-section .section-header{
+  width:96%;
+  padding: 5px;
+  font-style: italic;
+}
+.intro-section .section-title{
+  width: 100%;
+  font-size: .8rem;
+}
 
   .village--reverse .village__media{
   order:2;
