@@ -1088,48 +1088,95 @@ if(welcomeSign){
 
 }
 
-
 /* =========================================================
-   HARTA INTERACTIVĂ - COMUNA BUSTUCHIN
+   HARTA INTERACTIVĂ — COMUNA BUSTUCHIN
 ========================================================= */
 
-function initBustuchinMap() {
+async function initBustuchinMap() {
+
+  /* =======================================================
+     ELEMENT HARTĂ
+  ======================================================= */
 
   const mapElement =
     document.getElementById("bustuchinMap");
 
 
-  if (
-    !mapElement ||
-    typeof L === "undefined"
-  ) {
+  if (!mapElement) {
     return;
   }
 
 
+  if (typeof L === "undefined") {
+
+    console.error(
+      "Leaflet nu este încărcat."
+    );
+
+    return;
+
+  }
   /* =======================================================
-     LOCURILE COMUNEI
+     CATEGORII
   ======================================================= */
 
-  const locations = [
+  const categories = {
+
+    village: {
+      label: "Sat",
+      icon: "fa-house"
+    },
+
+    tourism: {
+      label: "Turism",
+      icon: "fa-tree"
+    },
+
+    religion: {
+      label: "Patrimoniu",
+      icon: "fa-church"
+    },
+
+    education: {
+      label: "Educație",
+      icon: "fa-graduation-cap"
+    }
+
+  };
+
+
+  /* =======================================================
+     LOCURILE DE PE HARTĂ
+
+     id = ID-ul secțiunii din HTML
+
+     Exemple:
+     id: "pojaru"
+     -> navighează la #pojaru
+
+     category:
+     village
+     tourism
+     religion
+     education
+  ======================================================= */
+
+  const mapLocations = [
+
+    /* =====================================================
+       SATE
+    ===================================================== */
 
     {
       id: "bustuchin",
 
       name: "Bustuchin",
 
-      label: "Reședința comunei",
+      category: "village",
 
       lat: 44.96452,
 
-      lng: 23.72814,
-
-      zoom: 15,
-
-      icon: "fa-landmark",
-
-      description:
-        "Centrul administrativ și cultural al comunei Bustuchin."
+      lng: 23.72814
     },
 
 
@@ -1138,18 +1185,11 @@ function initBustuchinMap() {
 
       name: "Cionți",
 
-      label: "Sat al comunei",
+      category: "village",
 
       lat: 44.96595,
 
-      lng: 23.68434,
-
-      zoom: 15,
-
-      icon: "fa-house",
-
-      description:
-        "O așezare locală legată de istoria și familiile vechi ale comunei."
+      lng: 23.68434
     },
 
 
@@ -1158,18 +1198,11 @@ function initBustuchinMap() {
 
       name: "Motorgi",
 
-      label: "Identitate locală",
+      category: "village",
 
       lat: 44.97773,
 
-      lng: 23.68391,
-
-      zoom: 15,
-
-      icon: "fa-road",
-
-      description:
-        "Sat de deal cu peisaj rural și rădăcini vechi în comunitatea locală."
+      lng: 23.68391
     },
 
 
@@ -1178,18 +1211,11 @@ function initBustuchinMap() {
 
       name: "Nămete",
 
-      label: "Tradiție și geografie",
+      category: "village",
 
       lat: 44.98310,
 
-      lng: 23.70205,
-
-      zoom: 15,
-
-      icon: "fa-tree-city",
-
-      description:
-        "Sat așezat într-o zonă deluroasă din partea nordică a comunei."
+      lng: 23.70205
     },
 
 
@@ -1198,18 +1224,11 @@ function initBustuchinMap() {
 
       name: "Poiana-Seciuri",
 
-      label: "Natură și tradiție",
+      category: "village",
 
       lat: 44.99191,
 
-      lng: 23.72536,
-
-      zoom: 15,
-
-      icon: "fa-tree",
-
-      description:
-        "Una dintre așezările importante din nordul comunei Bustuchin."
+      lng: 23.72536
     },
 
 
@@ -1218,18 +1237,11 @@ function initBustuchinMap() {
 
       name: "Poienița",
 
-      label: "Sat cu rădăcini vechi",
+      category: "village",
 
       lat: 44.99267,
 
-      lng: 23.68150,
-
-      zoom: 15,
-
-      icon: "fa-mountain",
-
-      description:
-        "Așezare rurală aflată în zona deluroasă a comunei Bustuchin."
+      lng: 23.68150
     },
 
 
@@ -1238,18 +1250,11 @@ function initBustuchinMap() {
 
       name: "Pojaru",
 
-      label: "Istorie locală",
+      category: "village",
 
       lat: 44.93860,
 
-      lng: 23.69542,
-
-      zoom: 15,
-
-      icon: "fa-fire",
-
-      description:
-        "Una dintre cele mai vechi așezări documentate ale actualei comune."
+      lng: 23.69542
     },
 
 
@@ -1258,22 +1263,89 @@ function initBustuchinMap() {
 
       name: "Valea Pojarului",
 
-      label: "Istorie și tradiție",
+      category: "village",
 
-      lat: 44.93428,
+      lat: 44.93230,
 
-      lng: 23.69457,
-
-      zoom: 15,
-
-      icon: "fa-church",
-
-      description:
-        "Sat situat în partea sudică a comunei, legat de patrimoniul religios local."
+      lng: 23.72700
     }
+,
+       {
+         id: "fantana-rece",
+         name: "Fântâna Rece",
+         category: "tourism",
+         lat: 44.969408,
+         lng: 23.760961
+       }
+,
+,
+       {
+         id: "lacurile-de-la-poiana",
+         name: "Lacurile de la Poiana-Seciuri",
+         category: "tourism",
+         lat: 45.005435,
+         lng: 23.743231
+
+
+       }
+,
+,
+       {
+         id: "dealul-muierii",
+         name: "Dealul Muierii",
+         category: "tourism",
+         lat: 44.985166,
+         lng: 23.760546
+
+
+       }
+ ,
+       {
+         id: "biserica-pojaru",
+         name: "Biserica Pojaru",
+         category: "religion",
+         lat: 44.945505,
+         lng: 23.707883
+
+
+       }
+,
+       {
+         id: "biserica-din-valea-pojarului",
+         name: "Biserica de lemn din Valea Pojarului",
+         category: "religion",
+         lat: 44.938134,
+         lng: 23.727307
+       }
+,
+       {
+         id: "liceul-tehnologic-bustuchin",
+         name: "Liceul Tehnologic Bustuchin",
+         category: "education",
+         lat: 44.952382,
+         lng: 23.712845
+       }
+       ,
+       {
+         id: "gradinita-program-prelungit",
+         name: "Grădinița cu Program Prelungit",
+         category: "education",
+         lat: 44.952288,
+         lng: 23.713439
+
+
+       }
+,
+       {
+         id: "scoala-poiana-seciuri",
+         name: "Școala Gimnazială Poiana-Seciuri",
+         category: "education",
+         lat: 45.001266,
+         lng: 23.724950
+       }
+   
 
   ];
-
 
   /* =======================================================
      CREARE HARTĂ
@@ -1281,288 +1353,629 @@ function initBustuchinMap() {
 
   const map =
     L.map(
-      "bustuchinMap",
+      mapElement,
       {
-        zoomControl: true,
 
-        scrollWheelZoom: false
+        zoomControl:
+          true,
+
+        scrollWheelZoom:
+          false,
+
+        doubleClickZoom:
+          true,
+
+        dragging:
+          true,
+
+        touchZoom:
+          true
+
       }
     );
 
 
   /* =======================================================
-     FUNDAL OPENSTREETMAP
+     OPENSTREETMAP
   ======================================================= */
 
   L.tileLayer(
+
     "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+
     {
-      maxZoom: 19,
+
+      maxZoom:
+        19,
 
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+
     }
+
   )
   .addTo(map);
 
 
   /* =======================================================
-     MARKERE
+     LIMITA OFICIALĂ UAT BUSTUCHIN — ANCPI
+
+     SIRUTA BUSTUCHIN = 79406
   ======================================================= */
 
-  const markers = {};
+  let bustuchinBoundary =
+    null;
 
 
-  locations.forEach(location => {
+  async function loadBustuchinBoundary() {
 
-    const markerIcon =
-      L.divIcon({
+    try {
 
-        className:
-          "bustuchin-marker-wrapper",
+      /* ===================================================
+         SERVICIUL OFICIAL ANCPI
 
-        html: `
-          <div class="bustuchin-map-marker">
+         Layer:
+         UAT-uri recepționate
 
-            <i
-              class="fas ${location.icon}"
-              aria-hidden="true">
-            </i>
+         SIRUTA:
+         79406 = Bustuchin
+      =================================================== */
 
-          </div>
-        `,
-
-        iconSize:
-          [42, 42],
-
-        iconAnchor:
-          [21, 42],
-
-        popupAnchor:
-          [0, -38]
-
-      });
+      const endpoint =
+        "https://geoportal.ancpi.ro/inspireview/rest/services/UtilitatiStereo/MapServer/2/query";
 
 
-    const popupContent = `
+      const params =
+        new URLSearchParams({
 
-      <div class="bustuchin-popup">
+          where:
+            "SIRUTA=79406",
 
-        <span class="bustuchin-popup__badge">
+          outFields:
+            "DENUMIRE,SIRUTA,DENUMIRE_DIACRITICE",
 
-          ${location.label}
+          returnGeometry:
+            "true",
 
-        </span>
+          outSR:
+            "4326",
 
-        <h3>
+          f:
+            "geojson"
 
-          ${location.name}
-
-        </h3>
-
-        <p>
-
-          ${location.description}
-
-        </p>
-
-        <a
-          href="#${location.id}"
-          class="bustuchin-popup__link">
-
-          Descoperă satul
-
-          <i
-            class="fas fa-arrow-right"
-            aria-hidden="true">
-          </i>
-
-        </a>
-
-      </div>
-
-    `;
+        });
 
 
-    const marker =
-      L.marker(
-        [
-          location.lat,
-          location.lng
-        ],
-        {
-          icon:
-          markerIcon
-        }
-      )
-      .addTo(map)
-      .bindPopup(
-        popupContent,
-        {
-          maxWidth: 280
-        }
-      );
+      const response =
+        await fetch(
+          `${endpoint}?${params.toString()}`
+        );
 
 
-    markers[location.id] =
-      marker;
+      if (!response.ok) {
 
-
-    /* CLICK MARKER */
-
-    marker.on(
-      "click",
-      () => {
-
-        setActiveVillage(
-          location.id
+        throw new Error(
+          `ANCPI HTTP ${response.status}`
         );
 
       }
-    );
 
-  });
+
+      const geoJSON =
+        await response.json();
+
+console.log(
+  "HOTAR BUSTUCHIN:",
+  geoJSON
+);
+      if (
+        !geoJSON.features ||
+        !geoJSON.features.length
+      ) {
+
+        throw new Error(
+          "Limita UAT Bustuchin nu a fost găsită."
+        );
+
+      }
+
+
+      /* ===================================================
+         DESENEAZĂ HOTARUL
+      =================================================== */
+
+     bustuchinBoundary =
+  L.geoJSON(
+    geoJSON,
+    {
+
+      style: {
+
+        className:
+          "bustuchin-boundary",
+
+        color:
+          "#38bdf8",
+
+        weight:
+          5,
+
+        opacity:
+          1,
+
+        dashArray:
+          "12 8",
+
+        lineCap:
+          "round",
+
+        lineJoin:
+          "round",
+
+        fillColor:
+          "#2563eb",
+
+        fillOpacity:
+          0.14
+
+      },
+
+      interactive:
+        false
+
+    }
+  )
+  .addTo(map);
+
+
+      /* Hotarul trebuie să rămână sub markere */
+
+      bustuchinBoundary.bringToBack();
+
+
+      console.info(
+        "Limita oficială UAT Bustuchin a fost încărcată de la ANCPI."
+      );
+
+
+      return bustuchinBoundary;
+
+    }
+
+
+    catch (error) {
+
+      console.warn(
+        "Limita UAT Bustuchin nu a putut fi încărcată de la ANCPI.",
+        error
+      );
+
+
+      return null;
+
+    }
+
+  }
 
 
   /* =======================================================
-     ÎNCADREAZĂ TOATE SATELE
+     COORDONATE MARKERE
   ======================================================= */
 
-  const bounds =
-    L.latLngBounds(
-      locations.map(
-        location => [
-          location.lat,
-          location.lng
-        ]
-      )
-    );
+  const markerCoordinates =
+    [];
 
 
-  map.fitBounds(
-    bounds,
-    {
-      padding:
-        [45, 45]
+  /* =======================================================
+     CREARE MARKERE
+  ======================================================= */
+
+  mapLocations.forEach(
+    location => {
+
+      const category =
+        categories[
+          location.category
+        ];
+
+
+      if (!category) {
+        return;
+      }
+
+
+      const coordinates = [
+
+        location.lat,
+
+        location.lng
+
+      ];
+
+
+      markerCoordinates.push(
+        coordinates
+      );
+
+
+      /* ===================================================
+         ICON
+      =================================================== */
+
+      const markerIcon =
+        L.divIcon({
+
+          className:
+            "community-marker-wrapper",
+
+          html: `
+
+            <div
+              class="
+                community-marker
+                community-marker--${location.category}
+              ">
+
+              <i
+                class="
+                  fas
+                  ${category.icon}
+                "
+                aria-hidden="true">
+              </i>
+
+            </div>
+
+          `,
+
+          iconSize:
+            [42, 42],
+
+          iconAnchor:
+            [21, 42],
+
+          popupAnchor:
+            [0, -36]
+
+        });
+
+
+      /* ===================================================
+         MARKER
+      =================================================== */
+
+      const marker =
+        L.marker(
+          coordinates,
+          {
+
+            icon:
+              markerIcon,
+
+            title:
+              location.name,
+
+            riseOnHover:
+              true
+
+          }
+        )
+        .addTo(map);
+
+
+      /* ===================================================
+         POPUP
+      =================================================== */
+
+      const popupContent = `
+
+        <div class="map-popup">
+
+          <span class="map-popup__category">
+
+            ${category.label}
+
+          </span>
+
+
+          <strong class="map-popup__title">
+
+            ${location.name}
+
+          </strong>
+
+
+          <button
+            type="button"
+            class="map-popup__button"
+            data-map-target="${location.id}">
+
+            Descoperă locul
+
+            <i
+              class="fas fa-arrow-right"
+              aria-hidden="true">
+            </i>
+
+          </button>
+
+        </div>
+
+      `;
+
+
+      marker.bindPopup(
+        popupContent,
+        {
+
+          className:
+            "community-map-popup",
+
+          closeButton:
+            false,
+
+          maxWidth:
+            250,
+
+          minWidth:
+            170,
+
+          autoPan:
+            true,
+
+          autoPanPadding:
+            [40, 40]
+
+        }
+      );
+
     }
   );
 
 
   /* =======================================================
-     LISTA DE SATE
+     NAVIGARE DIN POPUP + PAGE TRANSITION
   ======================================================= */
 
-  const villageButtons =
-    document.querySelectorAll(
-      ".local-map__village"
-    );
+  mapElement.addEventListener(
+    "click",
+    event => {
+
+      const button =
+        event.target.closest(
+          ".map-popup__button"
+        );
 
 
-  function setActiveVillage(id) {
+      if (!button) {
+        return;
+      }
 
-    villageButtons.forEach(button => {
 
-      button.classList.toggle(
-        "active",
-        button.dataset.location === id
+      const targetId =
+        button.dataset.mapTarget;
+
+
+      if (!targetId) {
+        return;
+      }
+
+
+      const target =
+        document.getElementById(
+          targetId
+        );
+
+
+      if (!target) {
+
+        console.warn(
+          `Secțiunea #${targetId} nu există în HTML.`
+        );
+
+        return;
+
+      }
+
+
+      /* ===================================================
+         ÎNCHIDE POPUP
+      =================================================== */
+
+      map.closePopup();
+
+
+      /* ===================================================
+         PAGE TRANSITION
+      =================================================== */
+
+      const transition =
+        document.getElementById(
+          "pageTransition"
+        );
+
+
+      const targetPosition =
+        target.getBoundingClientRect().top
+        + window.scrollY;
+
+
+      const currentPosition =
+        window.scrollY;
+
+
+      const distance =
+        Math.abs(
+          targetPosition -
+          currentPosition
+        );
+
+
+      const transitionDuration =
+        Math.min(
+          Math.max(
+            distance / 3,
+            700
+          ),
+          1500
+        );
+
+
+      /* ===================================================
+         AFIȘEAZĂ TRANZIȚIA
+      =================================================== */
+
+      if (transition) {
+
+        transition.classList.add(
+          "active"
+        );
+
+
+        transition.setAttribute(
+          "aria-hidden",
+          "false"
+        );
+
+      }
+
+
+      /* ===================================================
+         URL
+      =================================================== */
+
+      history.pushState(
+        null,
+        "",
+        `#${targetId}`
       );
 
-    });
 
-  }
+      /* ===================================================
+         NAVIGARE
+      =================================================== */
 
+      setTimeout(
+        () => {
 
-  function focusLocation(id) {
+          target.scrollIntoView(
+            {
 
-    const location =
-      locations.find(
-        item => item.id === id
+              behavior:
+                "smooth",
+
+              block:
+                "start"
+
+            }
+          );
+
+        },
+
+        200
       );
 
 
-    const marker =
-      markers[id];
+      /* ===================================================
+         ASCUNDE TRANZIȚIA
+      =================================================== */
+
+      if (transition) {
+
+        setTimeout(
+          () => {
+
+            transition.classList.remove(
+              "active"
+            );
 
 
-    if (
-      !location ||
-      !marker
-    ) {
+            transition.setAttribute(
+              "aria-hidden",
+              "true"
+            );
+
+          },
+
+          transitionDuration
+        );
+
+      }
+
+    }
+  );
+
+
+  /* =======================================================
+     ÎNCADRAREA HĂRȚII
+  ======================================================= */
+
+  function fitMapToPins() {
+
+    if (!markerCoordinates.length) {
       return;
     }
 
 
-    map.flyTo(
-      [
-        location.lat,
-        location.lng
-      ],
-      location.zoom,
+    const bounds =
+      L.latLngBounds(
+        markerCoordinates
+      );
+
+
+    map.fitBounds(
+      bounds,
       {
-        duration: 1.2
+
+        padding:
+          [45, 45],
+
+        maxZoom:
+          14
+
       }
-    );
-
-
-    setActiveVillage(id);
-
-
-    setTimeout(
-      () => {
-
-        marker.openPopup();
-
-      },
-      800
     );
 
   }
 
 
-  villageButtons.forEach(button => {
-
-    button.addEventListener(
-      "click",
-      () => {
-
-        focusLocation(
-          button.dataset.location
-        );
-
-      }
-    );
-
-  });
-
-
   /* =======================================================
-     LOC ALEATORIU
+     ÎNTÂI ARĂTĂM PINII
   ======================================================= */
 
-  const randomButton =
-    document.getElementById(
-      "randomMapLocation"
-    );
+  fitMapToPins();
 
 
-  if (randomButton) {
+  /* =======================================================
+     APOI ÎNCĂRCĂM HOTARUL OFICIAL
+  ======================================================= */
 
-    randomButton.addEventListener(
-      "click",
-      () => {
-
-        const randomLocation =
-          locations[
-            Math.floor(
-              Math.random() *
-              locations.length
-            )
-          ];
+  const boundary =
+    await loadBustuchinBoundary();
 
 
-        focusLocation(
-          randomLocation.id
-        );
+  /* =======================================================
+     DACĂ HOTARUL EXISTĂ,
+     ÎNCADREAZĂ ÎNTREAGA COMUNĂ
+  ======================================================= */
+
+  if (
+    boundary &&
+    boundary.getBounds().isValid()
+  ) {
+
+    map.fitBounds(
+      boundary.getBounds(),
+      {
+
+        paddingTopLeft:
+          [35, 55],
+
+        paddingBottomRight:
+          [35, 70],
+
+        maxZoom:
+          13
 
       }
     );
@@ -1571,7 +1984,7 @@ function initBustuchinMap() {
 
 
   /* =======================================================
-     FIX LEAFLET DUPĂ REVEAL / RESIZE
+     FIX LEAFLET DUPĂ REVEAL
   ======================================================= */
 
   setTimeout(
@@ -1579,27 +1992,143 @@ function initBustuchinMap() {
 
       map.invalidateSize();
 
-      map.fitBounds(
-        bounds,
-        {
-          padding:
-            [45, 45]
-        }
-      );
+
+      if (
+        bustuchinBoundary &&
+        bustuchinBoundary.getBounds().isValid()
+      ) {
+
+        map.fitBounds(
+          bustuchinBoundary.getBounds(),
+          {
+
+            padding:
+              [35, 35],
+
+            maxZoom:
+              13
+
+          }
+        );
+
+      }
 
     },
-    300
+
+    350
+
   );
+
+
+  /* =======================================================
+     CÂND HARTA INTRĂ ÎN VIEWPORT
+  ======================================================= */
+
+  const mapObserver =
+    new IntersectionObserver(
+      entries => {
+
+        entries.forEach(
+          entry => {
+
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+
+            setTimeout(
+              () => {
+
+                map.invalidateSize();
+
+              },
+
+              150
+            );
+
+          }
+        );
+
+      },
+      {
+
+        threshold:
+          0.1
+
+      }
+    );
+
+
+  mapObserver.observe(
+    mapElement
+  );
+
+
+  /* =======================================================
+     RESIZE
+  ======================================================= */
+
+  let resizeTimer;
 
 
   window.addEventListener(
     "resize",
     () => {
 
-      map.invalidateSize();
+      clearTimeout(
+        resizeTimer
+      );
+
+
+      resizeTimer =
+        setTimeout(
+          () => {
+
+            map.invalidateSize();
+
+          },
+
+          150
+        );
 
     }
   );
+
+
+  /* =======================================================
+     SCROLL WHEEL ZOOM — DESKTOP
+  ======================================================= */
+
+  const desktopPointer =
+    window.matchMedia(
+      "(hover: hover) and (pointer: fine)"
+    );
+
+
+  if (
+    desktopPointer.matches
+  ) {
+
+    mapElement.addEventListener(
+      "click",
+      () => {
+
+        map.scrollWheelZoom.enable();
+
+      }
+    );
+
+
+    mapElement.addEventListener(
+      "mouseleave",
+      () => {
+
+        map.scrollWheelZoom.disable();
+
+      }
+    );
+
+  }
 
 }
 

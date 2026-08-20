@@ -4136,34 +4136,26 @@ iframe{
   }
 }
 
-
 /* =========================================================
-   HARTA INTERACTIVĂ BUSTUCHIN
+   HARTA INTERACTIVĂ — COMUNA BUSTUCHIN
 ========================================================= */
 
 .section--map {
+  position: relative;
   overflow: hidden;
 }
 
 
-.local-map {
-  display: grid;
-  grid-template-columns: 320px minmax(0, 1fr);
-  gap: 24px;
-
-  margin-top: 50px;
-}
-
-
 /* =========================================================
-   PANOU LATERAL
+   WRAPPER
 ========================================================= */
 
-.local-map__panel {
-  display: flex;
-  flex-direction: column;
+.community-map {
+  position: relative;
 
-  padding: 24px;
+  width: 100%;
+
+  margin-top: 50px;
 
   border:
   1px solid var(--border);
@@ -4171,166 +4163,13 @@ iframe{
   border-radius:
   var(--radius);
 
-  background:
-  rgba(15, 23, 42, 0.72);
+  overflow: hidden;
 
-  backdrop-filter:
-  blur(16px);
+  background:
+  var(--bg-secondary);
 
   box-shadow:
-  0 25px 60px rgba(0, 0, 0, .25);
-}
-
-
-.local-map__panel-header {
-  margin-bottom: 22px;
-}
-
-
-.local-map__panel-header h3 {
-  margin-top: 14px;
-  margin-bottom: 8px;
-
-  font-size: 1.3rem;
-}
-
-
-.local-map__panel-header p {
-  color: var(--muted);
-
-  line-height: 1.7;
-
-  font-size: .9rem;
-}
-
-
-/* =========================================================
-   LISTĂ SATE
-========================================================= */
-
-.local-map__villages {
-  display: flex;
-  flex-direction: column;
-
-  gap: 8px;
-}
-
-
-.local-map__village {
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-
-  gap: 14px;
-
-  padding: 12px 14px;
-
-  border:
-  1px solid transparent;
-
-  border-radius:
-  16px;
-
-  background:
-  rgba(255, 255, 255, .025);
-
-  color: white;
-
-  text-align: left;
-
-  cursor: pointer;
-
-  transition:
-  var(--transition);
-}
-
-
-.local-map__village:hover {
-  transform:
-  translateX(5px);
-
-  background:
-  rgba(255, 255, 255, .06);
-
-  border-color:
-  rgba(255, 255, 255, .08);
-}
-
-
-.local-map__village.active {
-  background:
-  rgba(37, 99, 235, .16);
-
-  border-color:
-  rgba(96, 165, 250, .35);
-
-  box-shadow:
-  0 12px 30px rgba(37, 99, 235, .12);
-}
-
-
-.local-map__village > i {
-  width: 36px;
-  height: 36px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  flex-shrink: 0;
-
-  border-radius: 12px;
-
-  background:
-  rgba(37, 99, 235, .14);
-
-  color:
-  #60a5fa;
-}
-
-
-.local-map__village span {
-  display: flex;
-  flex-direction: column;
-
-  min-width: 0;
-}
-
-
-.local-map__village strong {
-  font-size: .9rem;
-
-  font-weight: 600;
-}
-
-
-.local-map__village small {
-  margin-top: 2px;
-
-  color:
-  var(--muted);
-
-  font-size:
-  .72rem;
-}
-
-
-/* =========================================================
-   RANDOM BUTTON
-========================================================= */
-
-.local-map__random {
-  width: 100%;
-
-  margin-top: 22px;
-
-  background:
-  linear-gradient(
-    135deg,
-    var(--blue),
-    var(--blue-dark)
-  );
+  0 30px 80px rgba(0, 0, 0, .32);
 }
 
 
@@ -4338,38 +4177,26 @@ iframe{
    HARTA
 ========================================================= */
 
-.local-map__map-wrapper {
-  position: relative;
-
-  min-width: 0;
-}
-
-
-.local-map__map {
+.community-map__canvas {
   width: 100%;
-  height: 650px;
 
-  overflow: hidden;
+  height: 72vh;
 
-  border:
-  1px solid var(--border);
-
-  border-radius:
-  var(--radius);
+  min-height: 580px;
+  max-height: 780px;
 
   background:
   var(--bg-secondary);
-
-  box-shadow:
-  0 25px 70px rgba(0, 0, 0, .3);
 }
 
 
 /* =========================================================
-   MARKERE PERSONALIZATE
+   MARKER
 ========================================================= */
 
-.bustuchin-map-marker {
+.community-marker {
+  position: relative;
+
   width: 42px;
   height: 42px;
 
@@ -4377,35 +4204,29 @@ iframe{
   align-items: center;
   justify-content: center;
 
-  position: relative;
-
   border:
-  3px solid white;
+  3px solid rgba(255, 255, 255, .95);
 
   border-radius:
   50% 50% 50% 8px;
 
-  background:
-  linear-gradient(
-    135deg,
-    var(--blue),
-    var(--blue-dark)
-  );
-
   color: white;
 
   box-shadow:
-  0 10px 25px rgba(0, 0, 0, .35);
+  0 10px 25px rgba(0, 0, 0, .38);
 
   transform:
   rotate(-45deg);
 
   transition:
-  transform .3s ease;
+  transform .25s ease,
+  filter .25s ease;
 }
 
 
-.bustuchin-map-marker i {
+/* Iconița rămâne dreaptă */
+
+.community-marker i {
   transform:
   rotate(45deg);
 
@@ -4414,35 +4235,183 @@ iframe{
 }
 
 
-.bustuchin-marker-wrapper:hover
-.bustuchin-map-marker {
-  transform:
-  rotate(-45deg)
-  scale(1.12);
+/* =========================================================
+   CULORI CATEGORII
+========================================================= */
+
+/* SATE */
+
+.community-marker--village {
+  background:
+  linear-gradient(
+    135deg,
+    #2563eb,
+    #1d4ed8
+  );
+}
+
+
+/* TURISM */
+
+.community-marker--tourism {
+  background:
+  linear-gradient(
+    135deg,
+    #16a34a,
+    #15803d
+  );
+}
+
+
+/* RELIGIE */
+
+.community-marker--religion {
+  background:
+  linear-gradient(
+    135deg,
+    #9333ea,
+    #6b21a8
+  );
+}
+
+
+/* EDUCAȚIE */
+
+.community-marker--education {
+  background:
+  linear-gradient(
+    135deg,
+    #ea580c,
+    #c2410c
+  );
 }
 
 
 /* =========================================================
-   POPUP LEAFLET
+   HOVER MARKER
 ========================================================= */
 
-.bustuchin-popup {
-  min-width: 220px;
+.community-marker-wrapper:hover
+.community-marker {
+  transform:
+  rotate(-45deg)
+  scale(1.16);
 
-  padding: 4px;
+  filter:
+  brightness(1.15);
 }
 
 
-.bustuchin-popup__badge {
-  display: inline-flex;
+/* =========================================================
+   PULS DISCRET
+========================================================= */
 
-  margin-bottom: 8px;
+.community-marker::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -7px;
+
+  border:
+  2px solid currentColor;
+
+  border-radius:
+  50%;
+
+  opacity: 0;
+
+  animation:
+  mapMarkerPulse 2.8s ease-out infinite;
+}
+
+
+@keyframes mapMarkerPulse {
+
+  0% {
+    opacity: .35;
+
+    transform:
+    scale(.7);
+  }
+
+  70% {
+    opacity: 0;
+
+    transform:
+    scale(1.35);
+  }
+
+  100% {
+    opacity: 0;
+  }
+
+}
+
+/* =========================================================
+   POPUP HARTĂ
+========================================================= */
+
+.community-map-popup
+.leaflet-popup-content-wrapper {
+  overflow: hidden;
+
+  border:
+  1px solid rgba(255, 255, 255, .12);
+
+  border-radius:
+  18px;
+
+  background:
+  rgba(15, 23, 42, .96);
+
+  backdrop-filter:
+  blur(18px);
+
+  box-shadow:
+  0 18px 45px rgba(0, 0, 0, .4);
+}
+
+
+.community-map-popup
+.leaflet-popup-content {
+  margin:
+  0;
+}
+
+
+.community-map-popup
+.leaflet-popup-tip {
+  background:
+  rgba(15, 23, 42, .96);
+}
+
+
+/* =========================================================
+   CONȚINUT
+========================================================= */
+
+.map-popup {
+  min-width:
+  180px;
+
+  padding:
+  15px;
+}
+
+
+.map-popup__category {
+  display:
+  block;
+
+  margin-bottom:
+  5px;
 
   color:
-  #2563eb;
+  #93c5fd;
 
   font-size:
-  .7rem;
+  .58rem;
 
   font-weight:
   700;
@@ -4455,93 +4424,158 @@ iframe{
 }
 
 
-.bustuchin-popup h3 {
-  margin:
-  0 0 8px;
+.map-popup__title {
+  display:
+  block;
+
+  margin-bottom:
+  12px;
 
   color:
-  #0f172a;
+  white;
 
   font-size:
-  1.1rem;
-}
-
-
-.bustuchin-popup p {
-  margin:
-  0 0 14px;
-
-  color:
-  #475569;
+  .9rem;
 
   line-height:
-  1.55;
-
-  font-size:
-  .82rem;
+  1.3;
 }
 
 
-.bustuchin-popup__link {
-  display: inline-flex;
-  align-items: center;
+/* =========================================================
+   BUTTON
+========================================================= */
 
-  gap: 7px;
+.map-popup__button {
+  width:
+  100%;
+
+  display:
+  flex;
+
+  align-items:
+  center;
+
+  justify-content:
+  center;
+
+  gap:
+  7px;
 
   padding:
-  9px 14px;
+  9px 12px;
+
+  border:
+  none;
 
   border-radius:
   999px;
 
   background:
-  #2563eb;
+  linear-gradient(
+    135deg,
+    var(--blue),
+    var(--blue-dark)
+  );
 
   color:
-  white !important;
+  white;
 
-  text-decoration:
-  none;
+  font-family:
+  inherit;
 
   font-size:
-  .78rem;
+  .68rem;
 
   font-weight:
   600;
+
+  cursor:
+  pointer;
+
+  transition:
+  var(--transition);
 }
 
 
-.leaflet-popup-content-wrapper {
-  border-radius:
-  18px;
+.map-popup__button:hover {
+  transform:
+  translateY(-2px);
+
+  filter:
+  brightness(1.08);
 }
 
 
-.leaflet-popup-content {
-  margin:
-  16px;
+.map-popup__button i {
+  font-size:
+  .62rem;
 }
 
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .map-popup {
+    min-width:
+    150px;
+
+    padding:
+    12px;
+  }
+
+
+  .map-popup__category {
+    font-size:
+    .5rem;
+  }
+
+
+  .map-popup__title {
+    margin-bottom:
+    9px;
+
+    font-size:
+    .76rem;
+  }
+
+
+  .map-popup__button {
+    padding:
+    8px 10px;
+
+    font-size:
+    .6rem;
+  }
+
+}
 
 /* =========================================================
    LEGENDĂ
 ========================================================= */
 
-.local-map__legend {
+.community-map__legend {
   position: absolute;
 
-  left: 18px;
+  left: 50%;
   bottom: 18px;
 
   z-index: 500;
 
-  display: flex;
-  flex-wrap: wrap;
+  transform:
+  translateX(-50%);
 
-  gap: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
 
   padding:
-  10px 14px;
+  8px;
 
   border:
   1px solid rgba(255, 255, 255, .1);
@@ -4550,407 +4584,425 @@ iframe{
   999px;
 
   background:
-  rgba(15, 23, 42, .85);
+  rgba(15, 23, 42, .88);
 
   backdrop-filter:
-  blur(12px);
+  blur(16px);
+
+  box-shadow:
+  0 10px 35px rgba(0, 0, 0, .3);
+}
+
+
+.community-map__legend-item {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  padding:
+  7px 11px;
+
+  border-radius:
+  999px;
 
   color:
   white;
 
   font-size:
-  .72rem;
+  .68rem;
+
+  white-space:
+  nowrap;
+}
+
+
+.community-map__legend-item i {
+  font-size:
+  .7rem;
+}
+
+
+/* SATE */
+
+.community-map__legend-item--village i {
+  color:
+  #60a5fa;
+}
+
+
+/* TURISM */
+
+.community-map__legend-item--tourism i {
+  color:
+  #4ade80;
+}
+
+
+/* PATRIMONIU */
+
+.community-map__legend-item--religion i {
+  color:
+  #c084fc;
+}
+
+
+/* EDUCAȚIE */
+
+.community-map__legend-item--education i {
+  color:
+  #fb923c;
+}
+
+
+/* =========================================================
+   INDICAȚIE SUS
+========================================================= */
+
+.community-map__hint {
+  position: absolute;
+
+  top: 18px;
+  left: 50%;
+
+  z-index: 500;
+
+  transform:
+  translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding:
+  9px 15px;
+
+  border:
+  1px solid rgba(255, 255, 255, .1);
+
+  border-radius:
+  999px;
+
+  background:
+  rgba(15, 23, 42, .82);
+
+  backdrop-filter:
+  blur(14px);
+
+  color:
+  rgba(255, 255, 255, .9);
+
+  font-size:
+  .68rem;
 
   pointer-events:
   none;
 }
 
 
-.local-map__legend span {
-  display: flex;
-  align-items: center;
-
-  gap: 6px;
-}
-
-
-.local-map__legend i {
+.community-map__hint i {
   color:
   #60a5fa;
-
-  font-size:
-  .65rem;
 }
 
 
 /* =========================================================
-   LEAFLET CONTROLS
+   LEAFLET ZOOM
 ========================================================= */
 
-.local-map
+.community-map
 .leaflet-control-zoom {
-  border: none;
+  overflow:
+  hidden;
+
+  border:
+  1px solid rgba(255, 255, 255, .08);
+
+  border-radius:
+  14px;
 
   box-shadow:
-  0 10px 30px rgba(0, 0, 0, .25);
+  0 12px 35px rgba(0, 0, 0, .3);
 }
 
 
-.local-map
+.community-map
 .leaflet-control-zoom a {
+  width:
+  36px;
+
+  height:
+  36px;
+
+  line-height:
+  36px;
+
+  border:
+  none;
+
+  border-bottom:
+  1px solid rgba(255, 255, 255, .08);
+
   background:
   rgba(15, 23, 42, .92);
 
   color:
   white;
-
-  border-color:
-  rgba(255, 255, 255, .08);
 }
 
 
-.local-map
+.community-map
+.leaflet-control-zoom a:last-child {
+  border-bottom:
+  none;
+}
+
+
+.community-map
 .leaflet-control-zoom a:hover {
   background:
   #1e293b;
 
   color:
-  white;
+  #60a5fa;
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   LEAFLET ATTRIBUTION
 ========================================================= */
+
+.community-map
+.leaflet-control-attribution {
+  border-radius:
+  8px 0 0 0;
+
+  background:
+  rgba(15, 23, 42, .8);
+
+  color:
+  #94a3b8;
+
+  font-size:
+  .55rem;
+}
+
+
+.community-map
+.leaflet-control-attribution a {
+  color:
+  #93c5fd;
+}
+
+
 /* =========================================================
-   RESPONSIVE — TABLETĂ
+   TABLETĂ
 ========================================================= */
 
 @media (max-width: 1000px) {
 
-  .local-map {
-    grid-template-columns: 1fr;
-    gap: 18px;
+  .community-map {
+    margin-top:
+    38px;
   }
 
-  .local-map__panel {
-    padding: 18px;
-  }
 
-  .local-map__villages {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
+  .community-map__canvas {
+    height:
+    68vh;
 
-  .local-map__map {
-    height: 55vh;
-    min-height: 420px;
+    min-height:
+    520px;
   }
 
 }
 
 
 /* =========================================================
-   RESPONSIVE — MOBILE
+   MOBILE
 ========================================================= */
 
 @media (max-width: 600px) {
 
   .section--map {
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top:
+    70px;
+
+    padding-bottom:
+    70px;
   }
 
 
-  .section--map .section-header {
-    margin-bottom: 20px;
+  .community-map {
+    margin-top:
+    24px;
+
+    border-radius:
+    20px;
   }
 
 
-  .local-map {
-    display: flex;
-    flex-direction: column;
+  /* HARTA DEVINE ATRACȚIA PRINCIPALĂ */
 
-    gap: 12px;
+  .community-map__canvas {
+    height:
+    68svh;
 
-    margin-top: 22px;
+    min-height:
+    470px;
+
+    max-height:
+    620px;
   }
 
 
-  /* =====================================================
-     PANOU SATE
-  ===================================================== */
+  /* MARKERE MAI MICI */
 
-  .local-map__panel {
-    height: 40vh;
-    min-height: 260px;
-    max-height: 340px;
+  .community-marker {
+    width:
+    33px;
 
-    padding: 12px;
+    height:
+    33px;
 
-    border-radius: 18px;
-
-    overflow: hidden;
+    border-width:
+    2px;
   }
 
 
-  .local-map__panel-header {
-    margin-bottom: 10px;
+  .community-marker i {
+    font-size:
+    .67rem;
   }
 
 
-  .local-map__panel-header .section-block__badge {
-    padding: 5px 9px;
-
-    font-size: .62rem;
+  .community-marker::after {
+    inset:
+    -5px;
   }
 
 
-  .local-map__panel-header h3 {
-    margin-top: 8px;
-    margin-bottom: 3px;
+  /* TOOLTIP */
 
-    font-size: .95rem;
+  .map-tooltip {
+    min-width:
+    105px;
   }
 
 
-  .local-map__panel-header p {
-    font-size: .68rem;
-
-    line-height: 1.35;
+  .map-tooltip__category {
+    font-size:
+    .48rem;
   }
 
 
-  /* =====================================================
-     LISTĂ SATE — SCROLLABILĂ
-  ===================================================== */
-
-  .local-map__villages {
-    display: grid;
-
-    grid-template-columns:
-    repeat(2, minmax(0, 1fr));
-
-    gap: 5px;
-
-    flex: 1;
-
-    min-height: 0;
-
-    overflow-y: auto;
-    overflow-x: hidden;
-
-    padding-right: 3px;
-
-    overscroll-behavior: contain;
-
-    scrollbar-width: thin;
+  .map-tooltip strong {
+    font-size:
+    .67rem;
   }
 
 
-  .local-map__villages::-webkit-scrollbar {
-    width: 4px;
+  .map-tooltip small {
+    font-size:
+    .5rem;
   }
 
 
-  .local-map__villages::-webkit-scrollbar-thumb {
-    background:
-    rgba(96, 165, 250, .4);
+  /* INDICAȚIA */
 
-    border-radius: 999px;
+  .community-map__hint {
+    top:
+    10px;
+
+    max-width:
+    calc(100% - 100px);
+
+    padding:
+    7px 10px;
+
+    font-size:
+    .56rem;
   }
 
 
-  /* =====================================================
-     SAT INDIVIDUAL
-  ===================================================== */
+  /* LEGENDĂ */
 
-  .local-map__village {
-    min-height: 44px;
+  .community-map__legend {
+    right:
+    8px;
 
-    gap: 7px;
+    bottom:
+    8px;
 
-    padding: 6px 7px;
+    left:
+    8px;
 
-    border-radius: 11px;
+    transform:
+    none;
+
+    justify-content:
+    space-around;
+
+    gap:
+    2px;
+
+    padding:
+    5px;
+
+    border-radius:
+    14px;
   }
 
 
-  .local-map__village:hover {
-    transform: none;
+  .community-map__legend-item {
+    flex-direction:
+    column;
+
+    gap:
+    2px;
+
+    padding:
+    4px;
+
+    font-size:
+    .48rem;
   }
 
 
-  .local-map__village > i {
-    width: 26px;
-    height: 26px;
-
-    border-radius: 8px;
-
-    font-size: .68rem;
+  .community-map__legend-item i {
+    font-size:
+    .62rem;
   }
 
 
-  .local-map__village strong {
-    font-size: .67rem;
+  /* ZOOM */
 
-    line-height: 1.15;
-  }
-
-
-  .local-map__village small {
-    margin-top: 1px;
-
-    font-size: .52rem;
-
-    line-height: 1.15;
-
-    white-space: nowrap;
-
-    overflow: hidden;
-
-    text-overflow: ellipsis;
-  }
-
-
-  .local-map__village.active {
-    box-shadow:
-    0 5px 14px rgba(37, 99, 235, .12);
-  }
-
-
-  /* =====================================================
-     BUTON RANDOM
-  ===================================================== */
-
-  .local-map__random {
-    min-height: 34px;
-
-    margin-top: 8px;
-
-    padding: 8px 14px;
-
-    gap: 7px;
-
-    font-size: .68rem;
-  }
-
-
-  /* =====================================================
-     HARTA
-  ===================================================== */
-
-  .local-map__map {
-    height: 55vh;
-    min-height: 350px;
-    max-height: 520px;
-
-    border-radius: 18px;
-  }
-
-
-  /* =====================================================
-     MARKERE MAI MICI
-  ===================================================== */
-
-  .bustuchin-map-marker {
-    width: 34px;
-    height: 34px;
-
-    border-width: 2px;
-  }
-
-
-  .bustuchin-map-marker i {
-    font-size: .72rem;
-  }
-
-
-  /* =====================================================
-     POPUP MOBILE
-  ===================================================== */
-
-  .bustuchin-popup {
-    min-width: 175px;
-
-    padding: 1px;
-  }
-
-
-  .bustuchin-popup__badge {
-    margin-bottom: 4px;
-
-    font-size: .56rem;
-  }
-
-
-  .bustuchin-popup h3 {
-    margin-bottom: 5px;
-
-    font-size: .88rem;
-  }
-
-
-  .bustuchin-popup p {
-    margin-bottom: 9px;
-
-    font-size: .65rem;
-
-    line-height: 1.4;
-  }
-
-
-  .bustuchin-popup__link {
-    padding: 7px 10px;
-
-    font-size: .62rem;
-  }
-
-
-  .leaflet-popup-content {
-    margin: 11px;
-  }
-
-
-  /* =====================================================
-     LEGENDĂ COMPACTĂ
-  ===================================================== */
-
-  .local-map__legend {
-    right: 8px;
-    left: 8px;
-    bottom: 8px;
-
-    gap: 8px;
-
-    justify-content: center;
-
-    padding: 6px 9px;
-
-    border-radius: 12px;
-
-    font-size: .55rem;
-  }
-
-
-  .local-map__legend i {
-    font-size: .5rem;
-  }
-
-
-  /* =====================================================
-     CONTROALE LEAFLET
-  ===================================================== */
-
-  .local-map
+  .community-map
   .leaflet-control-zoom a {
-    width: 28px;
-    height: 28px;
+    width:
+    29px;
 
-    line-height: 28px;
+    height:
+    29px;
 
-    font-size: 15px;
+    line-height:
+    29px;
+
+    font-size:
+    15px;
+  }
+
+
+  /* ATTRIBUTION */
+
+  .community-map
+  .leaflet-control-attribution {
+    margin-bottom:
+    43px;
+
+    font-size:
+    .45rem;
   }
 
 }
@@ -4962,43 +5014,83 @@ iframe{
 
 @media (max-width: 380px) {
 
-  .local-map__panel {
-    height: 38vh;
-    min-height: 245px;
+  .community-map__canvas {
+    height:
+    65svh;
 
-    padding: 10px;
+    min-height:
+    430px;
   }
 
 
-  .local-map__village {
-    min-height: 40px;
+  .community-map__hint span {
+    overflow:
+    hidden;
 
-    padding: 5px 6px;
+    white-space:
+    nowrap;
+
+    text-overflow:
+    ellipsis;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCERE ANIMAȚII
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .community-marker::after {
+    animation:
+    none;
   }
 
 
-  .local-map__village > i {
-    width: 23px;
-    height: 23px;
-
-    font-size: .6rem;
+  .community-marker {
+    transition:
+    none;
   }
 
+}
 
-  .local-map__village strong {
-    font-size: .61rem;
-  }
+/* =========================================================
+   LIMITA ADMINISTRATIVĂ — COMUNA BUSTUCHIN
+========================================================= */
+
+/* Linia poligonului Leaflet */
+
+.bustuchin-boundary {
+  stroke: #38bdf8 !important;
+  stroke-width: 5px !important;
+  stroke-opacity: 1 !important;
+
+  fill: #2563eb !important;
+  fill-opacity: .14 !important;
+
+  stroke-dasharray: 12 8;
+
+  filter:
+    drop-shadow(
+      0 0 5px rgba(56, 189, 248, .75)
+    );
+
+  pointer-events: none;
+}
 
 
-  .local-map__village small {
-    font-size: .48rem;
-  }
+/* MOBILE */
 
+@media (max-width: 600px) {
 
-  .local-map__map {
-    height: 53vh;
+  .bustuchin-boundary {
+    stroke-width: 4px !important;
 
-    min-height: 330px;
+    fill-opacity: .12 !important;
+
+    stroke-dasharray: 9 6;
   }
 
 }
