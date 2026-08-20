@@ -7261,3 +7261,1464 @@ iframe{
   }
 
 }
+
+/* =========================================================
+   GRĂDINIȚA CU PROGRAM PRELUNGIT
+   ROL ȘI FACILITĂȚI — PREMIUM CARDS
+========================================================= */
+
+#gradinita-program-prelungit .info-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
+
+  width: 100%;
+
+  margin-top: 55px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+#gradinita-program-prelungit .info-card {
+  --card-accent: 96, 165, 250;
+
+  position: relative;
+
+  min-width: 0;
+  min-height: 290px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding:
+    30px 28px 28px;
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(255, 255, 255, .08);
+
+  border-radius:
+    28px;
+
+  background:
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(var(--card-accent), .11),
+      transparent 42%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, .045),
+      rgba(255, 255, 255, .012)
+    );
+
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, .20),
+    inset 0 1px 0 rgba(255, 255, 255, .045);
+
+  transition:
+    transform .4s cubic-bezier(.22, 1, .36, 1),
+    border-color .4s ease,
+    box-shadow .4s ease,
+    background .4s ease;
+}
+
+
+/* =========================================================
+   LINIE COLORATĂ SUS
+========================================================= */
+
+#gradinita-program-prelungit .info-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 28px;
+  right: 28px;
+
+  height: 2px;
+
+  border-radius:
+    0 0 999px 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(var(--card-accent), .95),
+      transparent
+    );
+
+  opacity: .85;
+
+  transition:
+    left .4s ease,
+    right .4s ease,
+    opacity .4s ease;
+}
+
+
+/* =========================================================
+   GLOW DECORATIV
+========================================================= */
+
+#gradinita-program-prelungit .info-card::after {
+  content: "";
+
+  position: absolute;
+
+  right: -70px;
+  bottom: -80px;
+
+  width: 180px;
+  height: 180px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(var(--card-accent), .13),
+      transparent 68%
+    );
+
+  filter:
+    blur(4px);
+
+  pointer-events: none;
+
+  transition:
+    transform .5s ease,
+    opacity .5s ease;
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+#gradinita-program-prelungit .info-card__icon {
+  position: relative;
+
+  z-index: 2;
+
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 28px;
+
+  border:
+    1px solid rgba(var(--card-accent), .28);
+
+  border-radius:
+    17px;
+
+  background:
+    rgba(var(--card-accent), .10);
+
+  color:
+    rgb(var(--card-accent));
+
+  box-shadow:
+    0 12px 30px rgba(var(--card-accent), .10);
+
+  transition:
+    transform .4s cubic-bezier(.22, 1, .36, 1),
+    background .4s ease,
+    box-shadow .4s ease;
+}
+
+
+#gradinita-program-prelungit .info-card__icon i {
+  font-size:
+    1.15rem;
+}
+
+
+/* MICĂ AURĂ ÎN SPATELE ICONULUI */
+
+#gradinita-program-prelungit
+.info-card__icon::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -8px;
+
+  z-index: -1;
+
+  border-radius:
+    22px;
+
+  background:
+    rgba(var(--card-accent), .05);
+
+  opacity: 0;
+
+  transform:
+    scale(.7);
+
+  transition:
+    opacity .4s ease,
+    transform .4s ease;
+}
+
+
+/* =========================================================
+   TITLU
+========================================================= */
+
+#gradinita-program-prelungit .info-card h4 {
+  position: relative;
+
+  z-index: 2;
+
+  margin:
+    0 0 17px;
+
+  padding-bottom:
+    14px;
+
+  font-family:
+    "DM Serif Display",
+    serif;
+
+  font-size:
+    clamp(1.55rem, 2vw, 2.1rem);
+
+  font-weight:
+    400;
+
+  line-height:
+    1.05;
+
+  letter-spacing:
+    -.02em;
+
+  color:
+    #fff;
+}
+
+
+/* LINIE SUB TITLU */
+
+#gradinita-program-prelungit .info-card h4::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 36px;
+  height: 2px;
+
+  border-radius:
+    999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(var(--card-accent), 1),
+      rgba(var(--card-accent), 0)
+    );
+
+  transition:
+    width .4s cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+#gradinita-program-prelungit .info-card p {
+  position: relative;
+
+  z-index: 2;
+
+  margin: 0;
+
+  color:
+    #94a3b8;
+
+  font-size:
+    .9rem;
+
+  line-height:
+    1.82;
+
+  transition:
+    color .35s ease;
+}
+
+
+/* =========================================================
+   CULORI DIFERITE
+========================================================= */
+
+/* PROGRAM */
+
+#gradinita-program-prelungit
+.info-card:nth-child(1) {
+  --card-accent:
+    56, 189, 248;
+}
+
+
+/* CLĂDIRE */
+
+#gradinita-program-prelungit
+.info-card:nth-child(2) {
+  --card-accent:
+    96, 165, 250;
+}
+
+
+/* JOC */
+
+#gradinita-program-prelungit
+.info-card:nth-child(3) {
+  --card-accent:
+    168, 85, 247;
+}
+
+
+/* MASĂ */
+
+#gradinita-program-prelungit
+.info-card:nth-child(4) {
+  --card-accent:
+    251, 146, 60;
+}
+
+
+/* FAMILIE */
+
+#gradinita-program-prelungit
+.info-card:nth-child(5) {
+  --card-accent:
+    244, 114, 182;
+}
+
+
+/* COMUNITATE */
+
+#gradinita-program-prelungit
+.info-card:nth-child(6) {
+  --card-accent:
+    52, 211, 153;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media (hover:hover) and (pointer:fine) {
+
+  #gradinita-program-prelungit
+  .info-card:hover {
+    transform:
+      translateY(-8px);
+
+    border-color:
+      rgba(var(--card-accent), .30);
+
+    background:
+      radial-gradient(
+        circle at 0% 0%,
+        rgba(var(--card-accent), .16),
+        transparent 45%
+      ),
+      linear-gradient(
+        145deg,
+        rgba(255, 255, 255, .06),
+        rgba(255, 255, 255, .018)
+      );
+
+    box-shadow:
+      0 32px 75px rgba(0, 0, 0, .30),
+      0 0 30px rgba(var(--card-accent), .07),
+      inset 0 1px 0 rgba(255, 255, 255, .06);
+  }
+
+
+  #gradinita-program-prelungit
+  .info-card:hover::before {
+    left: 10px;
+    right: 10px;
+
+    opacity: 1;
+  }
+
+
+  #gradinita-program-prelungit
+  .info-card:hover::after {
+    transform:
+      scale(1.25);
+  }
+
+
+  #gradinita-program-prelungit
+  .info-card:hover
+  .info-card__icon {
+    transform:
+      translateY(-4px)
+      rotate(-4deg)
+      scale(1.07);
+
+    background:
+      rgba(var(--card-accent), .16);
+
+    box-shadow:
+      0 16px 36px rgba(var(--card-accent), .17);
+  }
+
+
+  #gradinita-program-prelungit
+  .info-card:hover
+  .info-card__icon::before {
+    opacity: 1;
+
+    transform:
+      scale(1);
+  }
+
+
+  #gradinita-program-prelungit
+  .info-card:hover h4::after {
+    width:
+      68px;
+  }
+
+
+  #gradinita-program-prelungit
+  .info-card:hover p {
+    color:
+      #cbd5e1;
+  }
+
+}
+
+
+/* =========================================================
+   TABLETĂ
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  #gradinita-program-prelungit .info-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap:
+      16px;
+  }
+
+
+  #gradinita-program-prelungit
+  .info-card {
+    min-height:
+      270px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  #gradinita-program-prelungit
+  .info-grid {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      13px;
+
+    margin-top:
+      35px;
+  }
+
+
+  #gradinita-program-prelungit
+  .info-card {
+    min-height:
+      auto;
+
+    padding:
+      20px;
+
+    border-radius:
+      22px;
+  }
+
+
+  #gradinita-program-prelungit
+  .info-card__icon {
+    width:
+      46px;
+
+    height:
+      46px;
+
+    margin-bottom:
+      20px;
+
+    border-radius:
+      14px;
+  }
+
+
+  #gradinita-program-prelungit
+  .info-card__icon i {
+    font-size:
+      .95rem;
+  }
+
+
+  #gradinita-program-prelungit
+  .info-card h4 {
+    margin-bottom:
+      14px;
+
+    padding-bottom:
+      11px;
+
+    font-size:
+      1.65rem;
+  }
+
+
+  #gradinita-program-prelungit
+  .info-card p {
+    font-size:
+      .82rem;
+
+    line-height:
+      1.75;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  #gradinita-program-prelungit
+  .info-card,
+
+  #gradinita-program-prelungit
+  .info-card::before,
+
+  #gradinita-program-prelungit
+  .info-card::after,
+
+  #gradinita-program-prelungit
+  .info-card__icon,
+
+  #gradinita-program-prelungit
+  .info-card__icon::before,
+
+  #gradinita-program-prelungit
+  .info-card h4::after {
+
+    transition:
+      none;
+
+  }
+
+}
+
+/* =========================================================
+   GRĂDINIȚĂ — COMPONENTĂ COMPLETĂ
+========================================================= */
+
+#gradinita-program-prelungit {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 70px;
+
+  padding:
+    clamp(28px, 4vw, 55px);
+
+  border:
+    1px solid rgba(255, 255, 255, .07);
+
+  border-radius:
+    38px;
+
+  background:
+    radial-gradient(
+      circle at 90% 5%,
+      rgba(168, 85, 247, .07),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 5% 90%,
+      rgba(56, 189, 248, .06),
+      transparent 34%
+    ),
+    rgba(255, 255, 255, .012);
+
+  box-shadow:
+    0 35px 90px rgba(0, 0, 0, .20);
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+#gradinita-program-prelungit
+.education-feature__intro {
+  width:
+    100%;
+
+  gap:
+    clamp(45px, 6vw, 90px);
+}
+
+
+/* =========================================================
+   IMAGINE
+========================================================= */
+
+#gradinita-program-prelungit
+.section-block__media {
+  position:
+    relative;
+
+  min-height:
+    580px;
+
+  border-radius:
+    30px;
+}
+
+
+#gradinita-program-prelungit
+.section-block__media img {
+  min-height:
+    580px;
+
+  object-fit:
+    cover;
+}
+
+
+/* =========================================================
+   LABEL PESTE IMAGINE
+========================================================= */
+
+.education-feature__media-label {
+  position:
+    absolute;
+
+  left:
+    20px;
+
+  bottom:
+    20px;
+
+  z-index:
+    4;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  gap:
+    9px;
+
+  padding:
+    10px 14px;
+
+  border:
+    1px solid rgba(255, 255, 255, .14);
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(15, 23, 42, .82);
+
+  backdrop-filter:
+    blur(14px);
+
+  color:
+    white;
+
+  font-size:
+    .7rem;
+}
+
+
+.education-feature__media-label i {
+  color:
+    #c084fc;
+}
+
+
+/* =========================================================
+   FACILITĂȚI
+========================================================= */
+
+.education-feature__facilities {
+  position:
+    relative;
+
+  padding-top:
+    55px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, .07);
+}
+
+
+/* =========================================================
+   HEADER FACILITĂȚI
+========================================================= */
+
+.education-feature__facilities-header {
+  max-width:
+    850px;
+
+  margin:
+    0 auto 48px;
+
+  text-align:
+    center;
+}
+
+
+.education-feature__eyebrow {
+  display:
+    inline-flex;
+
+  margin-bottom:
+    18px;
+
+  color:
+    #c084fc;
+
+  font-size:
+    .68rem;
+
+  font-weight:
+    600;
+
+  letter-spacing:
+    .15em;
+
+  text-transform:
+    uppercase;
+}
+
+
+.education-feature__facilities-header h4 {
+  margin:
+    0;
+
+  font-family:
+    "DM Serif Display",
+    serif;
+
+  font-size:
+    clamp(2.2rem, 4vw, 4rem);
+
+  font-weight:
+    400;
+
+  line-height:
+    1.02;
+
+  letter-spacing:
+    -.025em;
+}
+
+
+.education-feature__facilities-header h4 span {
+  display:
+    block;
+
+  margin-top:
+    8px;
+
+  color:
+    #c4b5fd;
+
+  font-style:
+    italic;
+
+  font-size:
+    .78em;
+}
+
+
+.education-feature__facilities-header p {
+  max-width:
+    680px;
+
+  margin:
+    22px auto 0;
+
+  color:
+    var(--muted);
+
+  font-size:
+    .9rem;
+
+  line-height:
+    1.8;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  #gradinita-program-prelungit {
+    gap:
+      45px;
+
+    padding:
+      24px;
+
+    border-radius:
+      28px;
+  }
+
+
+  #gradinita-program-prelungit
+  .education-feature__intro {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  #gradinita-program-prelungit
+  .section-block__media,
+  #gradinita-program-prelungit
+  .section-block__media img {
+    min-height:
+      420px;
+  }
+
+
+  .education-feature__facilities {
+    padding-top:
+      40px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  #gradinita-program-prelungit {
+    padding:
+      16px;
+
+    border-radius:
+      22px;
+  }
+
+
+  #gradinita-program-prelungit
+  .section-block__media,
+  #gradinita-program-prelungit
+  .section-block__media img {
+    min-height:
+      330px;
+  }
+
+
+  .education-feature__facilities-header {
+    margin-bottom:
+      32px;
+  }
+
+
+  .education-feature__facilities-header h4 {
+    font-size:
+      2.25rem;
+  }
+
+
+  .education-feature__facilities-header p {
+    font-size:
+      .8rem;
+  }
+
+}
+
+
+/* =========================================================
+   ȘCOALA GIMNAZIALĂ POIANA-SECIURI
+========================================================= */
+
+#scoala-poiana-seciuri {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 75px;
+
+  padding:
+    clamp(28px, 4vw, 55px);
+
+  border:
+    1px solid rgba(255, 255, 255, .07);
+
+  border-radius:
+    38px;
+
+  background:
+    radial-gradient(
+      circle at 8% 8%,
+      rgba(14, 165, 233, .075),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 95% 90%,
+      rgba(37, 99, 235, .06),
+      transparent 30%
+    ),
+    rgba(255, 255, 255, .012);
+
+  box-shadow:
+    0 35px 90px rgba(0, 0, 0, .20);
+}
+
+
+/* INTRO */
+
+#scoala-poiana-seciuri
+.education-feature__intro {
+  width: 100%;
+
+  gap:
+    clamp(45px, 6vw, 90px);
+}
+
+
+/* MEDIA */
+
+#scoala-poiana-seciuri
+.section-block__media {
+  position: relative;
+
+  min-height: 560px;
+
+  border-radius: 30px;
+}
+
+
+#scoala-poiana-seciuri
+.section-block__media img {
+  min-height: 560px;
+
+  object-fit: cover;
+}
+
+
+/* LABEL */
+
+#scoala-poiana-seciuri
+.education-feature__media-label i {
+  color: #38bdf8;
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.education-feature__timeline {
+  position: relative;
+
+  padding-top: 58px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, .07);
+}
+
+
+/* =========================================================
+   TIMELINE GRID
+========================================================= */
+
+#scoala-poiana-seciuri
+.info-grid--school-timeline {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 22px;
+
+  margin-top: 50px;
+}
+
+
+/* LINIE DE FUNDAL */
+
+#scoala-poiana-seciuri
+.info-grid--school-timeline::before {
+  content: "";
+
+  position: absolute;
+
+  top: 34px;
+  left: 7%;
+  right: 7%;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(56, 189, 248, .35),
+      rgba(96, 165, 250, .35),
+      transparent
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CARD TIMELINE
+========================================================= */
+
+#scoala-poiana-seciuri
+.info-grid--school-timeline
+.info-card {
+  --school-card:
+    56, 189, 248;
+
+  position: relative;
+
+  min-height: 310px;
+
+  padding:
+    78px 26px 28px;
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(255, 255, 255, .08);
+
+  border-radius:
+    27px;
+
+  background:
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(var(--school-card), .11),
+      transparent 43%
+    ),
+    rgba(255, 255, 255, .025);
+
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, .19);
+
+  transition:
+    transform .4s cubic-bezier(.22, 1, .36, 1),
+    border-color .4s ease,
+    box-shadow .4s ease;
+}
+
+
+/* ICON */
+
+#scoala-poiana-seciuri
+.info-grid--school-timeline
+.info-card__icon {
+  position: absolute;
+
+  top: 18px;
+  left: 25px;
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid rgba(var(--school-card), .30);
+
+  border-radius: 15px;
+
+  background:
+    rgba(var(--school-card), .11);
+
+  color:
+    rgb(var(--school-card));
+
+  box-shadow:
+    0 12px 28px rgba(var(--school-card), .10);
+}
+
+
+/* PUNCT PE TIMELINE */
+
+#scoala-poiana-seciuri
+.info-grid--school-timeline
+.info-card__icon::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  right: -29px;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background:
+    rgb(var(--school-card));
+
+  box-shadow:
+    0 0 13px rgba(var(--school-card), .65);
+
+  transform:
+    translateY(-50%);
+}
+
+
+/* TITLU / AN */
+
+#scoala-poiana-seciuri
+.info-grid--school-timeline
+.info-card h4 {
+  position: relative;
+
+  z-index: 2;
+
+  display: inline-block;
+
+  margin:
+    0 0 18px;
+
+  padding-bottom: 11px;
+
+  font-family:
+    "DM Serif Display",
+    serif;
+
+  font-size:
+    clamp(1.7rem, 2.3vw, 2.5rem);
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  color: white;
+}
+
+
+#scoala-poiana-seciuri
+.info-grid--school-timeline
+.info-card h4::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 38px;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(var(--school-card), 1),
+      rgba(var(--school-card), 0)
+    );
+
+  transition:
+    width .4s ease;
+}
+
+
+/* AN DECORATIV */
+
+#scoala-poiana-seciuri
+.info-grid--school-timeline
+.info-card h4::before {
+  content:
+    attr(data-year);
+
+  position: absolute;
+
+  top: 44px;
+  right: -8px;
+
+  z-index: -1;
+
+  color:
+    rgba(var(--school-card), .055);
+
+  font-family:
+    "DM Serif Display",
+    serif;
+
+  font-size:
+    4.7rem;
+
+  white-space: nowrap;
+
+  pointer-events: none;
+}
+
+
+/* TEXT */
+
+#scoala-poiana-seciuri
+.info-grid--school-timeline
+.info-card p {
+  position: relative;
+
+  z-index: 2;
+
+  margin: 0;
+
+  color:
+    #94a3b8;
+
+  font-size:
+    .88rem;
+
+  line-height:
+    1.8;
+}
+
+
+/* =========================================================
+   CULORI
+========================================================= */
+
+#scoala-poiana-seciuri
+.info-card:nth-child(1) {
+  --school-card:
+    56, 189, 248;
+}
+
+#scoala-poiana-seciuri
+.info-card:nth-child(2) {
+  --school-card:
+    96, 165, 250;
+}
+
+#scoala-poiana-seciuri
+.info-card:nth-child(3) {
+  --school-card:
+    99, 102, 241;
+}
+
+#scoala-poiana-seciuri
+.info-card:nth-child(4) {
+  --school-card:
+    139, 92, 246;
+}
+
+#scoala-poiana-seciuri
+.info-card:nth-child(5) {
+  --school-card:
+    52, 211, 153;
+}
+
+#scoala-poiana-seciuri
+.info-card:nth-child(6) {
+  --school-card:
+    34, 197, 94;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media (hover:hover) and (pointer:fine) {
+
+  #scoala-poiana-seciuri
+  .info-grid--school-timeline
+  .info-card:hover {
+
+    transform:
+      translateY(-7px);
+
+    border-color:
+      rgba(var(--school-card), .32);
+
+    box-shadow:
+      0 32px 72px rgba(0, 0, 0, .28),
+      0 0 26px rgba(var(--school-card), .07);
+  }
+
+
+  #scoala-poiana-seciuri
+  .info-grid--school-timeline
+  .info-card:hover h4::after {
+
+    width:
+      70px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLETĂ
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  #scoala-poiana-seciuri
+  .info-grid--school-timeline {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  #scoala-poiana-seciuri
+  .info-grid--school-timeline::before {
+    display:
+      none;
+  }
+
+
+  #scoala-poiana-seciuri
+  .info-card__icon::after {
+    display:
+      none;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  #scoala-poiana-seciuri {
+    gap:
+      45px;
+
+    padding:
+      16px;
+
+    border-radius:
+      22px;
+  }
+
+
+  #scoala-poiana-seciuri
+  .education-feature__intro {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  #scoala-poiana-seciuri
+  .section-block__media,
+  #scoala-poiana-seciuri
+  .section-block__media img {
+    min-height:
+      330px;
+  }
+
+
+  #scoala-poiana-seciuri
+  .info-grid--school-timeline {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      13px;
+
+    margin-top:
+      32px;
+  }
+
+
+  #scoala-poiana-seciuri
+  .info-grid--school-timeline
+  .info-card {
+
+    min-height:
+      auto;
+
+    padding:
+      72px 20px 22px;
+
+    border-radius:
+      21px;
+  }
+
+
+  #scoala-poiana-seciuri
+  .info-grid--school-timeline
+  .info-card h4 {
+
+    font-size:
+      1.8rem;
+  }
+
+
+  #scoala-poiana-seciuri
+  .info-grid--school-timeline
+  .info-card p {
+
+    font-size:
+      .82rem;
+
+    line-height:
+      1.75;
+  }
+
+}
