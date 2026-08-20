@@ -1406,157 +1406,118 @@ async function initBustuchinMap() {
   let bustuchinBoundary =
     null;
 
+/* =======================================================
+   LIMITA UAT BUSTUCHIN — FIȘIER LOCAL
+======================================================= */
 
-  async function loadBustuchinBoundary() {
+async function loadBustuchinBoundary() {
 
-    try {
+  try {
 
-      /* ===================================================
-         SERVICIUL OFICIAL ANCPI
-
-         Layer:
-         UAT-uri recepționate
-
-         SIRUTA:
-         79406 = Bustuchin
-      =================================================== */
-
-      const endpoint =
-        "https://geoportal.ancpi.ro/inspireview/rest/services/UtilitatiStereo/MapServer/2/query";
-
-
-      const params =
-        new URLSearchParams({
-
-          where:
-            "SIRUTA=79406",
-
-          outFields:
-            "DENUMIRE,SIRUTA,DENUMIRE_DIACRITICE",
-
-          returnGeometry:
-            "true",
-
-          outSR:
-            "4326",
-
-          f:
-            "geojson"
-
-        });
-
-
-      const response =
-        await fetch(
-          `${endpoint}?${params.toString()}`
-        );
-
-
-      if (!response.ok) {
-
-        throw new Error(
-          `ANCPI HTTP ${response.status}`
-        );
-
-      }
-
-
-      const geoJSON =
-        await response.json();
-
-console.log(
-  "HOTAR BUSTUCHIN:",
-  geoJSON
-);
-      if (
-        !geoJSON.features ||
-        !geoJSON.features.length
-      ) {
-
-        throw new Error(
-          "Limita UAT Bustuchin nu a fost găsită."
-        );
-
-      }
-
-
-      /* ===================================================
-         DESENEAZĂ HOTARUL
-      =================================================== */
-
-     bustuchinBoundary =
-  L.geoJSON(
-    geoJSON,
-    {
-
-      style: {
-
-        className:
-          "bustuchin-boundary",
-
-        color:
-          "#38bdf8",
-
-        weight:
-          5,
-
-        opacity:
-          1,
-
-        dashArray:
-          "12 8",
-
-        lineCap:
-          "round",
-
-        lineJoin:
-          "round",
-
-        fillColor:
-          "#2563eb",
-
-        fillOpacity:
-          0.14
-
-      },
-
-      interactive:
-        false
-
-    }
-  )
-  .addTo(map);
-
-
-      /* Hotarul trebuie să rămână sub markere */
-
-      bustuchinBoundary.bringToBack();
-
-
-      console.info(
-        "Limita oficială UAT Bustuchin a fost încărcată de la ANCPI."
+    const response =
+      await fetch(
+        "data/bustuchin-boundary.geojson"
       );
 
 
-      return bustuchinBoundary;
+    if (!response.ok) {
 
-    }
-
-
-    catch (error) {
-
-      console.warn(
-        "Limita UAT Bustuchin nu a putut fi încărcată de la ANCPI.",
-        error
+      throw new Error(
+        `GeoJSON HTTP ${response.status}`
       );
 
+    }
 
-      return null;
+
+    const geoJSON =
+      await response.json();
+
+
+    if (
+      !geoJSON.features ||
+      !geoJSON.features.length
+    ) {
+
+      throw new Error(
+        "Fișierul GeoJSON nu conține geometria Bustuchin."
+      );
 
     }
+
+
+    /* ===================================================
+       DESENEAZĂ HOTARUL
+    =================================================== */
+
+    bustuchinBoundary =
+      L.geoJSON(
+        geoJSON,
+        {
+
+          style: {
+
+            color:
+              "#38bdf8",
+
+            weight:
+              4,
+
+            opacity:
+              1,
+
+            dashArray:
+              "10 7",
+
+            lineCap:
+              "round",
+
+            lineJoin:
+              "round",
+
+            fillColor:
+              "#2563eb",
+
+            fillOpacity:
+              0.08
+
+          },
+
+          interactive:
+            false
+
+        }
+      )
+      .addTo(map);
+
+
+    /* Hotarul rămâne sub markere */
+
+    bustuchinBoundary.bringToBack();
+
+
+    console.log(
+      "Hotarul Bustuchin a fost încărcat cu succes."
+    );
+
+
+    return bustuchinBoundary;
 
   }
 
+
+  catch (error) {
+
+    console.error(
+      "Nu am putut încărca hotarul Bustuchin:",
+      error
+    );
+
+
+    return null;
+
+  }
+
+}
 
   /* =======================================================
      COORDONATE MARKERE
