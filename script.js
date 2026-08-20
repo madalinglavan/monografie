@@ -1140,6 +1140,10 @@ async function initBustuchinMap() {
     education: {
       label: "Educație",
       icon: "fa-graduation-cap"
+    },
+    monument: {
+      label: "Monument istoric",
+      icon: "fa-landmark"
     }
 
   };
@@ -1313,7 +1317,7 @@ async function initBustuchinMap() {
        {
          id: "biserica-din-valea-pojarului",
          name: "Biserica de lemn din Valea Pojarului",
-         category: "religion",
+         category: "monument",
          lat: 44.938134,
          lng: 23.727307
        }

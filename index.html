@@ -823,7 +823,7 @@
            
 
         </div>
- <!-- =====================================================
+            <!-- =====================================================
                 HARTA INTERACTIVĂ A COMUNEI BUSTUCHIN
             ====================================================== -->
 
@@ -834,13 +834,9 @@
                 <!-- HEADER -->
                 <div class="section-header reveal">
 
-                  <span class="section-kicker">
-                    Explorează comuna
-                  </span>
-
                   <h2 class="section-title">
-                    <i class="fas fa-map-location-dot"></i>
-                    Descoperă Bustuchin pe hartă
+                    <i class="fas fa-map-location-dot"></i> &nbsp;
+                    Bustuchin pe hartă 
                   </h2>
 
                 </div>
@@ -879,6 +875,10 @@
                     <span class="community-map__legend-item community-map__legend-item--education">
                       <i class="fas fa-graduation-cap"></i>
                       Educație
+                    </span>
+                    <span class="community-map__legend-item community-map__legend-item--monument">
+                      <i class="fas fa-landmark"></i>
+                      Monument istoric
                     </span>
 
                   </div>
@@ -8703,6 +8703,28 @@
   </div>
 
 </footer>
+<!-- =====================================================
+    BUTON FLOTANT — HARTA COMUNEI
+====================================================== -->
+
+<a
+  href="#harta-comunei"
+  class="floating-map-button"
+  id="floatingMapButton"
+  aria-label="Deschide harta interactivă a comunei"
+  title="Explorează harta comunei"
+>
+
+  <i
+    class="fas fa-map-location-dot"
+    aria-hidden="true">
+  </i>
+
+  <span>
+    Hartă
+  </span>
+
+</a>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="script.js"></script>
