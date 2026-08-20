@@ -1376,13 +1376,25 @@ iframe{
 
 /* TITLE */
 
-.section-title{
+.section-title {
+  font-family:
+    "DM Serif Display",
+    serif;
+
   font-size:
-  clamp(1.5rem,3vw,3rem);
-  line-height:1.05;
-  margin-bottom:30px;
-  letter-spacing:-.03em;
-  text-align: center;
+    clamp(2.7rem, 5vw, 5rem);
+
+  font-weight:
+    400;
+
+  line-height:
+    1;
+
+  letter-spacing:
+    -.03em;
+
+  text-wrap:
+    balance;
 }
 
 /* DESCRIPTION */
@@ -1532,15 +1544,109 @@ iframe{
 
 /* TITLE */
 
-.section-block__title{
+/* =========================================================
+   TITLURI INTERNE — STIL MONOGRAFIE DIGITALĂ
+========================================================= */
+
+.section-block__title {
+  position: relative;
+
+  display: inline-block;
+
+  margin-top: 10px;
+  margin-bottom: 34px;
+
+  padding-bottom: 16px;
+
+  font-family:
+    "DM Serif Display",
+    serif;
+
   font-size:
-  clamp(1.5rem,3vw,3rem);
-  line-height:1.05;
-  margin-bottom:34px;
-  letter-spacing:-.03em;
-  text-align: center;
-  font-style: italic;
-  text-shadow: 2px 1px black;
+    clamp(2rem, 3.4vw, 3.6rem);
+
+  font-weight:
+    400;
+
+  line-height:
+    1.02;
+
+  letter-spacing:
+    -.025em;
+
+  color:
+    #ffffff;
+
+  text-wrap:
+    balance;
+}
+
+
+/* =========================================================
+   ACCENT SUB TITLU
+========================================================= */
+
+.section-block__title::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 62px;
+  height: 2px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #60a5fa,
+      rgba(96, 165, 250, 0)
+    );
+
+  box-shadow:
+    0 0 10px rgba(96, 165, 250, .25);
+}
+
+
+/* =========================================================
+   MIC ACCENT DE CULOARE
+========================================================= */
+
+.section-block__title::first-letter {
+  color:
+    #dbeafe;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .section-block__title {
+    margin-bottom:
+      24px;
+
+    padding-bottom:
+      12px;
+
+    font-size:
+      clamp(1.8rem, 8vw, 2.5rem);
+
+    line-height:
+      1.05;
+  }
+
+
+  .section-block__title::after {
+    width:
+      46px;
+  }
+
 }
 
 /* TEXT */
@@ -5259,13 +5365,1899 @@ iframe{
 
 }
 
+/* =========================================================
+   DESCOPERĂ BUSTUCHIN — MONOGRAFIE DIGITALĂ
+========================================================= */
 
-#descopera-bustuchin .container{
-  width: 98%;
-  padding: 0;
+#descopera-bustuchin {
+  position: relative;
+
+  overflow: hidden;
+
+  padding-top: 130px;
+  padding-bottom: 120px;
 }
 
-#harta-comunei .section-title{
-  margin-bottom: -120px;
-  font-size: 1.5rem;
+
+/* =========================================================
+   CONTAINER LAT
+========================================================= */
+
+#descopera-bustuchin > .container {
+  width: 94%;
+
+  max-width: 1550px;
+
+  margin-inline: auto;
+}
+
+
+/* =========================================================
+   FUNDAL
+========================================================= */
+
+#descopera-bustuchin::after {
+  content: "";
+
+  position: absolute;
+
+  top: 10%;
+  right: -15%;
+
+  width: 650px;
+  height: 650px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(37, 99, 235, .13),
+      transparent 68%
+    );
+
+  filter: blur(20px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.discover-header {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 1100px;
+
+  margin:
+    0 auto
+    70px;
+
+  text-align: center;
+}
+
+
+/* Folosim kickerul existent */
+
+.discover-header
+.section-kicker-top {
+  margin-bottom: 32px;
+}
+
+
+.discover-title {
+  margin: 0;
+
+  font-family:
+    "DM Serif Display",
+    serif;
+
+  font-size:
+    clamp(2.7rem, 5vw, 5.5rem);
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  letter-spacing: -.025em;
+}
+
+
+.discover-title span {
+  display: block;
+
+  margin-top: 12px;
+
+  color: #93c5fd;
+
+  font-style: italic;
+
+  font-size: .72em;
+}
+
+
+.discover-lead {
+  max-width: 760px;
+
+  margin:
+    28px auto
+    0;
+
+  color: var(--muted);
+
+  font-size:
+    1rem;
+
+  line-height:
+    1.9;
+}
+
+
+/* =========================================================
+   LAYOUT PRINCIPAL
+========================================================= */
+
+.discover-layout {
+  position: relative;
+
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.08fr)
+    minmax(0, .92fr);
+
+  align-items: stretch;
+
+  gap: 48px;
+}
+
+
+/* =========================================================
+   MEDIA
+========================================================= */
+
+.discover-media {
+  position: relative;
+
+  min-height: 640px;
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(255, 255, 255, .10);
+
+  border-radius:
+    32px;
+
+  background:
+    #0f172a;
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, .35);
+}
+
+
+.discover-media::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(2, 6, 23, .92) 0%,
+      rgba(2, 6, 23, .25) 45%,
+      rgba(2, 6, 23, .05) 75%
+    );
+
+  pointer-events: none;
+}
+
+
+.discover-media img {
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+
+  inset: 0;
+
+  object-fit: cover;
+
+  transition:
+    transform 1s cubic-bezier(.22, 1, .36, 1);
+}
+
+
+.discover-media:hover img {
+  transform:
+    scale(1.045);
+}
+
+
+/* =========================================================
+   TEXT PESTE IMAGINE
+========================================================= */
+
+.discover-media__overlay {
+  position: absolute;
+
+  left: 34px;
+  right: 34px;
+  bottom: 34px;
+
+  z-index: 3;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 4px;
+}
+
+
+.discover-media__eyebrow {
+  margin-bottom: 7px;
+
+  color:
+    #93c5fd;
+
+  font-size:
+    .68rem;
+
+  font-weight:
+    600;
+
+  letter-spacing:
+    .15em;
+
+  text-transform:
+    uppercase;
+}
+
+
+.discover-media__overlay strong {
+  font-family:
+    "DM Serif Display",
+    serif;
+
+  font-size:
+    clamp(2rem, 3vw, 3.5rem);
+
+  font-weight:
+    400;
+}
+
+
+.discover-media__overlay > span:last-child {
+  color:
+    rgba(255, 255, 255, .68);
+
+  font-size:
+    .8rem;
+}
+
+
+/* =========================================================
+   LABEL IMAGINE
+========================================================= */
+
+.discover-media__label {
+  position: absolute;
+
+  top: 22px;
+  left: 22px;
+
+  z-index: 4;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding:
+    9px 13px;
+
+  border:
+    1px solid rgba(255, 255, 255, .12);
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(15, 23, 42, .75);
+
+  backdrop-filter:
+    blur(12px);
+
+  color:
+    rgba(255, 255, 255, .9);
+
+  font-size:
+    .68rem;
+}
+
+
+.discover-media__label i {
+  color:
+    #60a5fa;
+}
+
+
+/* =========================================================
+   CONȚINUT
+========================================================= */
+
+.discover-content {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  padding:
+    clamp(15px, 3vw, 45px)
+    0;
+}
+
+
+.discover-content h3 {
+  max-width: 650px;
+
+  margin:
+    20px 0
+    30px;
+
+  font-family:
+    "DM Serif Display",
+    serif;
+
+  font-size:
+    clamp(2rem, 3.2vw, 3.6rem);
+
+  font-weight:
+    400;
+
+  line-height:
+    1.06;
+}
+
+
+.discover-content p {
+  max-width: 680px;
+
+  margin-bottom:
+    19px;
+
+  color:
+    #cbd5e1;
+
+  font-size:
+    .94rem;
+
+  line-height:
+    1.9;
+}
+
+
+/* Prima literă / primul paragraf puțin mai important */
+
+.discover-content p:first-of-type {
+  color: white;
+
+  font-size:
+    1.02rem;
+}
+
+
+/* =========================================================
+   LINK
+========================================================= */
+
+.discover-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 15px;
+
+  padding:
+    13px 19px;
+
+  border:
+    1px solid rgba(96, 165, 250, .28);
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(37, 99, 235, .10);
+
+  color:
+    white;
+
+  text-decoration:
+    none;
+
+  font-size:
+    .78rem;
+
+  font-weight:
+    600;
+
+  transition:
+    var(--transition);
+}
+
+
+.discover-link i {
+  color:
+    #60a5fa;
+
+  transition:
+    transform .3s ease;
+}
+
+
+.discover-link:hover {
+  transform:
+    translateY(-3px);
+
+  background:
+    rgba(37, 99, 235, .18);
+
+  border-color:
+    rgba(96, 165, 250, .55);
+}
+
+
+.discover-link:hover i {
+  transform:
+    translateX(5px);
+}
+
+
+/* =========================================================
+   STATISTICI
+========================================================= */
+
+#descopera-bustuchin
+.discover-stats {
+  position: relative;
+
+  z-index: 3;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 12px;
+
+  width: 100%;
+
+  margin:
+    70px 0
+    0;
+}
+
+
+#descopera-bustuchin
+.discover-stats
+.stats__item {
+  min-width: 0;
+
+  padding:
+    22px 14px;
+
+  border-radius:
+    20px;
+}
+
+
+#descopera-bustuchin
+.discover-stats
+.stats__number {
+  margin-bottom:
+    8px;
+
+  font-family:
+    "DM Serif Display",
+    serif;
+
+  font-size:
+    clamp(2rem, 3vw, 3rem);
+
+  font-weight:
+    400;
+}
+
+
+#descopera-bustuchin
+.discover-stats
+.stats__label {
+  font-size:
+    .7rem;
+
+  letter-spacing:
+    .03em;
+}
+
+
+/* =========================================================
+   METEO SEPARAT
+========================================================= */
+
+.discover-weather {
+  padding-top:
+    40px;
+}
+
+
+/* =========================================================
+   TABLETĂ
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .discover-layout {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      38px;
+  }
+
+
+  .discover-media {
+    min-height:
+      520px;
+  }
+
+
+  .discover-content {
+    max-width:
+      800px;
+
+    margin-inline:
+      auto;
+
+    align-items:
+      center;
+
+    text-align:
+      center;
+  }
+
+
+  .discover-content h3,
+  .discover-content p {
+    max-width:
+      760px;
+  }
+
+
+  #descopera-bustuchin
+  .discover-stats {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  #descopera-bustuchin {
+    padding-top:
+      85px;
+
+    padding-bottom:
+      80px;
+  }
+
+
+  #descopera-bustuchin > .container {
+    width:
+      92%;
+  }
+
+
+  .discover-header {
+    margin-bottom:
+      42px;
+  }
+
+
+  .discover-header
+  .section-kicker-top {
+    margin-bottom:
+      24px;
+  }
+
+
+  .discover-title {
+    font-size:
+      clamp(2.3rem, 11vw, 3.3rem);
+
+    line-height:
+      1.03;
+  }
+
+
+  .discover-title span {
+    margin-top:
+      9px;
+
+    font-size:
+      .64em;
+  }
+
+
+  .discover-lead {
+    margin-top:
+      20px;
+
+    font-size:
+      .8rem;
+
+    line-height:
+      1.7;
+  }
+
+
+  .discover-layout {
+    gap:
+      26px;
+  }
+
+
+  .discover-media {
+    min-height:
+      430px;
+
+    border-radius:
+      22px;
+  }
+
+
+  .discover-media__overlay {
+    left:
+      20px;
+
+    right:
+      20px;
+
+    bottom:
+      21px;
+  }
+
+
+  .discover-media__overlay strong {
+    font-size:
+      2rem;
+  }
+
+
+  .discover-media__label {
+    top:
+      14px;
+
+    left:
+      14px;
+
+    padding:
+      7px 10px;
+
+    font-size:
+      .58rem;
+  }
+
+
+  .discover-content {
+    padding:
+      10px 4px;
+
+    text-align:
+      left;
+
+    align-items:
+      flex-start;
+  }
+
+
+  .discover-content h3 {
+    margin:
+      15px 0
+      22px;
+
+    font-size:
+      2rem;
+  }
+
+
+  .discover-content p,
+  .discover-content p:first-of-type {
+    font-size:
+      .8rem;
+
+    line-height:
+      1.75;
+  }
+
+
+  .discover-link {
+    margin-top:
+      8px;
+
+    padding:
+      11px 15px;
+
+    font-size:
+      .68rem;
+  }
+
+
+  #descopera-bustuchin
+  .discover-stats {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap:
+      7px;
+
+    margin-top:
+      40px;
+  }
+
+
+  #descopera-bustuchin
+  .discover-stats
+  .stats__item {
+    padding:
+      14px 7px;
+
+    border-radius:
+      15px;
+  }
+
+
+  #descopera-bustuchin
+  .discover-stats
+  .stats__number {
+    margin-bottom:
+      5px;
+
+    font-size:
+      1.7rem;
+  }
+
+
+  #descopera-bustuchin
+  .discover-stats
+  .stats__label {
+    font-size:
+      .55rem;
+  }
+
+}
+
+/* =========================================================
+   PAGE SCROLL PROGRESS
+========================================================= */
+
+.scroll-progress {
+  position: fixed;
+
+  top: var(--nav-h);
+  left: 0;
+
+  z-index: 999;
+
+  width: 100%;
+  height: 2px;
+
+  background:
+    rgba(255, 255, 255, .035);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+
+.scroll-progress__bar {
+  width: 0%;
+  height: 100%;
+
+  position: relative;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #60a5fa
+    );
+
+  box-shadow:
+    0 0 10px rgba(96, 165, 250, .45);
+
+  transition:
+    width .08s linear;
+
+  will-change:
+    width;
+}
+
+
+/* =========================================================
+   MICĂ LUMINĂ ÎN CAPĂTUL BAREI
+========================================================= */
+
+.scroll-progress__bar::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  right: 0;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background:
+    #93c5fd;
+
+  box-shadow:
+    0 0 10px #60a5fa,
+    0 0 18px rgba(96, 165, 250, .65);
+
+  transform:
+    translate(50%, -50%);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .scroll-progress {
+    height: 2px;
+  }
+
+
+  .scroll-progress__bar::after {
+    width: 4px;
+    height: 4px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .scroll-progress__bar {
+    transition: none;
+  }
+
+}
+
+
+
+
+
+
+
+/* =========================================================
+   NAVBAR — CAPITOL ACTIV LA SCROLL
+========================================================= */
+
+/* Dropdown activ ca secțiune curentă */
+
+.nav__dropdown.current-section
+.dropdown-trigger {
+  position: relative;
+
+  color: #93c5fd;
+
+  background:
+    rgba(37, 99, 235, .07);
+}
+
+
+/* ICON */
+
+.nav__dropdown.current-section
+.dropdown-trigger > span > i {
+  color: #60a5fa;
+}
+
+
+/* LINIE SUB CAPITOL */
+
+.nav__dropdown.current-section
+.dropdown-trigger::after {
+  content: "";
+
+  position: absolute;
+
+  left: 18%;
+  right: 18%;
+  bottom: 4px;
+
+  height: 2px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #60a5fa,
+      transparent
+    );
+
+  box-shadow:
+    0 0 8px rgba(96, 165, 250, .45);
+
+  animation:
+    navSectionAppear .35s ease forwards;
+}
+
+
+/* LINK DIRECT ACTIV — ex. INFRASTRUCTURĂ */
+
+.nav__links > a.current-section {
+  position: relative;
+
+  color: #93c5fd;
+
+  background:
+    rgba(37, 99, 235, .07);
+}
+
+
+.nav__links > a.current-section i {
+  color: #60a5fa;
+}
+
+
+.nav__links > a.current-section::after {
+  content: "";
+
+  position: absolute;
+
+  left: 18%;
+  right: 18%;
+  bottom: 4px;
+
+  height: 2px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #60a5fa,
+      transparent
+    );
+
+  box-shadow:
+    0 0 8px rgba(96, 165, 250, .45);
+}
+
+
+/* APARIȚIE */
+
+@keyframes navSectionAppear {
+
+  from {
+    opacity: 0;
+
+    transform:
+      scaleX(.35);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scaleX(1);
+  }
+
+}
+
+
+/* =========================================================
+   PE MOBILE NU AVEM NEVOIE DE UNDERLINE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .nav__dropdown.current-section
+  .dropdown-trigger::after,
+
+  .nav__links > a.current-section::after {
+    display: none;
+  }
+
+
+  .nav__dropdown.current-section
+  .dropdown-trigger,
+
+  .nav__links > a.current-section {
+    background:
+      rgba(37, 99, 235, .14);
+
+    border:
+      1px solid rgba(96, 165, 250, .25);
+
+    color:
+      #93c5fd;
+  }
+
+}
+
+
+
+/* =========================================================
+   TITLURI SATE
+========================================================= */
+
+.section--villages
+.section-block__title {
+  font-size:
+    clamp(2.5rem, 4.5vw, 4.5rem);
+
+  font-style:
+    italic;
+}
+
+
+/* =========================================================
+   EDITORIAL CONTENT SYSTEM
+   SATE · ISTORIE · GEOGRAFIE · TURISM
+========================================================= */
+
+
+/* =========================================================
+   1. SPAȚIERE GENERALĂ
+========================================================= */
+
+.section--villages .villages,
+.section--history .section-content,
+.section--geografie .section-content,
+.section--turism .section-content {
+  gap:
+    clamp(90px, 9vw, 150px);
+}
+
+
+/* =========================================================
+   2. CONTAINERE EDITORIALE — DESKTOP
+========================================================= */
+
+@media (min-width: 901px) {
+
+  .section--villages .village,
+
+  .section--history
+  .section-content
+  > .split-layout,
+
+  .section--geografie
+  .section-content
+  > .split-layout,
+
+  .section--turism
+  .section-content
+  > .split-layout {
+
+    position:
+      relative;
+
+    isolation:
+      isolate;
+
+    padding:
+      clamp(28px, 3vw, 48px);
+
+    border:
+      1px solid rgba(255, 255, 255, .075);
+
+    border-radius:
+      34px;
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(255, 255, 255, .035),
+        rgba(255, 255, 255, .012)
+      );
+
+    box-shadow:
+      0 28px 70px rgba(0, 0, 0, .18);
+
+    transition:
+      transform .45s cubic-bezier(.22, 1, .36, 1),
+      border-color .45s ease,
+      background .45s ease,
+      box-shadow .45s ease;
+
+  }
+
+
+  /* LUMINĂ FOARTE DISCRETĂ */
+
+  .section--villages .village::before,
+
+  .section--history
+  .section-content
+  > .split-layout::before,
+
+  .section--geografie
+  .section-content
+  > .split-layout::before,
+
+  .section--turism
+  .section-content
+  > .split-layout::before {
+
+    content:
+      "";
+
+    position:
+      absolute;
+
+    inset:
+      0;
+
+    z-index:
+      -1;
+
+    overflow:
+      hidden;
+
+    border-radius:
+      inherit;
+
+    background:
+      radial-gradient(
+        circle at 10% 10%,
+        rgba(96, 165, 250, .075),
+        transparent 35%
+      );
+
+    opacity:
+      .7;
+
+    pointer-events:
+      none;
+
+  }
+
+
+  /* HOVER GENERAL */
+
+  .section--villages .village:hover,
+
+  .section--history
+  .section-content
+  > .split-layout:hover,
+
+  .section--geografie
+  .section-content
+  > .split-layout:hover,
+
+  .section--turism
+  .section-content
+  > .split-layout:hover {
+
+    transform:
+      translateY(-5px);
+
+    border-color:
+      rgba(96, 165, 250, .16);
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(255, 255, 255, .048),
+        rgba(255, 255, 255, .018)
+      );
+
+    box-shadow:
+      0 36px 90px rgba(0, 0, 0, .24);
+
+  }
+
+}
+
+
+/* =========================================================
+   3. CONȚINUTUL TEXTUAL
+========================================================= */
+
+@media (min-width: 901px) {
+
+  .section--villages
+  .village__content,
+
+  .section--history
+  .section-block__content,
+
+  .section--geografie
+  .section-block__content,
+
+  .section--turism
+  .section-block__content {
+
+    position:
+      relative;
+
+    padding:
+      clamp(12px, 2vw, 28px);
+
+  }
+
+}
+
+
+/* =========================================================
+   4. LINIE EDITORIALĂ LÂNGĂ TEXT
+========================================================= */
+
+@media (min-width: 901px) {
+
+  .section--villages
+  .village__content::before,
+
+  .section--history
+  .section-block__content::before,
+
+  .section--geografie
+  .section-block__content::before,
+
+  .section--turism
+  .section-block__content::before {
+
+    content:
+      "";
+
+    position:
+      absolute;
+
+    top:
+      12px;
+
+    bottom:
+      12px;
+
+    left:
+      -4px;
+
+    width:
+      1px;
+
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(96, 165, 250, 0),
+        rgba(96, 165, 250, .65),
+        rgba(96, 165, 250, 0)
+      );
+
+    opacity:
+      .6;
+
+  }
+
+}
+
+
+/* =========================================================
+   5. BADGE — MAI EDITORIAL
+========================================================= */
+
+.section--villages
+.section-block__badge,
+
+.section--history
+.section-block__badge,
+
+.section--geografie
+.section-block__badge,
+
+.section--turism
+.section-block__badge {
+
+  border:
+    1px solid rgba(96, 165, 250, .18);
+
+  background:
+    rgba(37, 99, 235, .075);
+
+  color:
+    #bfdbfe;
+
+  letter-spacing:
+    .08em;
+
+  text-transform:
+    uppercase;
+
+  font-size:
+    .66rem;
+
+  font-weight:
+    600;
+
+}
+
+
+/* =========================================================
+   6. TITLURI
+========================================================= */
+
+.section--villages
+.section-block__title,
+
+.section--history
+.section-block__title,
+
+.section--geografie
+.section-block__title,
+
+.section--turism
+.section-block__title {
+
+  margin-top:
+    16px;
+
+}
+
+
+/* SATELE POT FI PUȚIN MAI SPECTACULOASE */
+
+.section--villages
+.section-block__title {
+
+  font-size:
+    clamp(2.7rem, 4.4vw, 4.6rem);
+
+  font-style:
+    italic;
+
+}
+
+
+/* =========================================================
+   7. TEXT
+========================================================= */
+
+.section--villages
+.section-block__text,
+
+.section--history
+.section-block__text,
+
+.section--geografie
+.section-block__text,
+
+.section--turism
+.section-block__text {
+
+  color:
+    #aebbd0;
+
+  line-height:
+    1.95;
+
+  transition:
+    color .35s ease;
+
+}
+
+
+@media (hover:hover) and (pointer:fine) {
+
+  .section--villages
+  .village:hover
+  .section-block__text,
+
+  .section--history
+  .split-layout:hover
+  .section-block__text,
+
+  .section--geografie
+  .split-layout:hover
+  .section-block__text,
+
+  .section--turism
+  .split-layout:hover
+  .section-block__text {
+
+    color:
+      #cbd5e1;
+
+  }
+
+}
+
+
+/* =========================================================
+   8. IMAGINI / VIDEO — ASPECT MAI EDITORIAL
+========================================================= */
+
+.section--villages
+.media-frame,
+
+.section--history
+.media-frame,
+
+.section--geografie
+.media-frame,
+
+.section--turism
+.media-frame {
+
+  position:
+    relative;
+
+  border-radius:
+    28px;
+
+  border:
+    1px solid rgba(255, 255, 255, .09);
+
+  box-shadow:
+    0 26px 65px rgba(0, 0, 0, .30);
+
+}
+
+
+/* MICĂ LUMINĂ LA MARGINE */
+
+.section--villages
+.media-frame::after,
+
+.section--history
+.media-frame::after,
+
+.section--geografie
+.media-frame::after,
+
+.section--turism
+.media-frame::after {
+
+  content:
+    "";
+
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  z-index:
+    3;
+
+  border-radius:
+    inherit;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, .025);
+
+  pointer-events:
+    none;
+
+}
+
+
+/* =========================================================
+   9. IMAGINE — HOVER MAI FIN
+========================================================= */
+
+@media (hover:hover) and (pointer:fine) {
+
+  .section--villages
+  .media-frame:hover img,
+
+  .section--history
+  .media-frame:hover img,
+
+  .section--geografie
+  .media-frame:hover img,
+
+  .section--turism
+  .media-frame:hover img {
+
+    transform:
+      scale(1.035);
+
+  }
+
+}
+
+
+/* =========================================================
+   10. ACCENT DIFERIT PE CAPITOLE
+========================================================= */
+
+
+/* SATE — ALBASTRU */
+
+.section--villages {
+  --chapter-accent:
+    96, 165, 250;
+}
+
+
+/* ISTORIE — AURIU DISCRET */
+
+.section--history {
+  --chapter-accent:
+    245, 158, 11;
+}
+
+
+/* GEOGRAFIE — VERDE */
+
+.section--geografie {
+  --chapter-accent:
+    52, 211, 153;
+}
+
+
+/* TURISM — CYAN */
+
+.section--turism {
+  --chapter-accent:
+    34, 211, 238;
+}
+
+
+/* BORDER ACCENT */
+
+@media (min-width: 901px) {
+
+  .section--villages
+  .village::after,
+
+  .section--history
+  .section-content
+  > .split-layout::after,
+
+  .section--geografie
+  .section-content
+  > .split-layout::after,
+
+  .section--turism
+  .section-content
+  > .split-layout::after {
+
+    content:
+      "";
+
+    position:
+      absolute;
+
+    top:
+      36px;
+
+    left:
+      0;
+
+    width:
+      3px;
+
+    height:
+      74px;
+
+    border-radius:
+      0 999px 999px 0;
+
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(var(--chapter-accent), .95),
+        rgba(var(--chapter-accent), .15)
+      );
+
+    box-shadow:
+      0 0 18px rgba(var(--chapter-accent), .20);
+
+  }
+
+}
+
+
+/* =========================================================
+   11. CULOAREA LINIEI DE SUB TITLU
+========================================================= */
+
+.section--villages
+.section-block__title::after,
+
+.section--history
+.section-block__title::after,
+
+.section--geografie
+.section-block__title::after,
+
+.section--turism
+.section-block__title::after {
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(var(--chapter-accent), .95),
+      rgba(var(--chapter-accent), 0)
+    );
+
+  box-shadow:
+    0 0 12px rgba(var(--chapter-accent), .20);
+
+}
+
+
+/* =========================================================
+   12. BADGE CULOARE PE CAPITOL
+========================================================= */
+
+.section--villages
+.section-block__badge,
+
+.section--history
+.section-block__badge,
+
+.section--geografie
+.section-block__badge,
+
+.section--turism
+.section-block__badge {
+
+  border-color:
+    rgba(var(--chapter-accent), .22);
+
+  background:
+    rgba(var(--chapter-accent), .075);
+
+}
+
+
+/* =========================================================
+   TABLETĂ
+========================================================= */
+
+@media (max-width: 1100px) and (min-width: 901px) {
+
+  .section--villages .village,
+
+  .section--history
+  .section-content
+  > .split-layout,
+
+  .section--geografie
+  .section-content
+  > .split-layout,
+
+  .section--turism
+  .section-content
+  > .split-layout {
+
+    padding:
+      26px;
+
+    gap:
+      45px;
+
+    border-radius:
+      28px;
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  /*
+     Pe mobil NU transformăm fiecare bloc într-un card mare.
+     Structura ta folosește display:contents pentru ordonarea
+     badge → titlu → media → text, deci păstrăm acel sistem.
+  */
+
+  .section--villages .village,
+
+  .section--history
+  .section-content
+  > .split-layout,
+
+  .section--geografie
+  .section-content
+  > .split-layout,
+
+  .section--turism
+  .section-content
+  > .split-layout {
+
+    position:
+      relative;
+
+    padding-bottom:
+      42px;
+
+    border-bottom:
+      1px solid rgba(255, 255, 255, .07);
+
+  }
+
+
+  /* MIC ACCENT ÎNAINTEA BADGE-ULUI */
+
+  .section--villages
+  .section-block__badge,
+
+  .section--history
+  .section-block__badge,
+
+  .section--geografie
+  .section-block__badge,
+
+  .section--turism
+  .section-block__badge {
+
+    position:
+      relative;
+
+    padding-left:
+      17px;
+
+  }
+
+
+  .section--villages
+  .section-block__badge::before,
+
+  .section--history
+  .section-block__badge::before,
+
+  .section--geografie
+  .section-block__badge::before,
+
+  .section--turism
+  .section-block__badge::before {
+
+    content:
+      "";
+
+    width:
+      5px;
+
+    height:
+      5px;
+
+    flex:
+      0 0 auto;
+
+    border-radius:
+      50%;
+
+    background:
+      rgba(var(--chapter-accent), 1);
+
+    box-shadow:
+      0 0 10px rgba(var(--chapter-accent), .45);
+
+  }
+
+
+  .section--villages
+  .section-block__title {
+
+    font-size:
+      clamp(2.25rem, 10vw, 3.1rem);
+
+  }
+
+
+  .section--villages
+  .media-frame,
+
+  .section--history
+  .media-frame,
+
+  .section--geografie
+  .media-frame,
+
+  .section--turism
+  .media-frame {
+
+    border-radius:
+      22px;
+
+  }
+
+}
+
+
+/* =========================================================
+   TELEFOANE MICI
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .section--villages
+  .section-block__title,
+
+  .section--history
+  .section-block__title,
+
+  .section--geografie
+  .section-block__title,
+
+  .section--turism
+  .section-block__title {
+
+    font-size:
+      1.9rem;
+
+  }
+
+
+  .section--villages
+  .section-block__text,
+
+  .section--history
+  .section-block__text,
+
+  .section--geografie
+  .section-block__text,
+
+  .section--turism
+  .section-block__text {
+
+    font-size:
+      .88rem;
+
+    line-height:
+      1.8;
+
+  }
+
 }

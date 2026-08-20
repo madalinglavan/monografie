@@ -2106,3 +2106,535 @@ document.addEventListener(
   "DOMContentLoaded",
   initBustuchinMap
 );
+
+
+
+
+
+
+
+
+/* =========================================================
+   PAGE SCROLL PROGRESS
+========================================================= */
+
+function initScrollProgress() {
+
+  const progressBar =
+    document.getElementById(
+      "scrollProgressBar"
+    );
+
+
+  if (!progressBar) {
+    return;
+  }
+
+
+  let ticking =
+    false;
+
+
+  function updateProgress() {
+
+    /* =====================================================
+       DISTANȚA TOTALĂ CARE POATE FI PARCURSĂ
+    ===================================================== */
+
+    const scrollableHeight =
+      document.documentElement.scrollHeight
+      - window.innerHeight;
+
+
+    /* =====================================================
+       PROCENT SCROLL
+    ===================================================== */
+
+    let progress =
+      scrollableHeight > 0
+        ? (
+            window.scrollY /
+            scrollableHeight
+          ) * 100
+        : 0;
+
+
+    /* Siguranță */
+
+    progress =
+      Math.min(
+        Math.max(
+          progress,
+          0
+        ),
+        100
+      );
+
+
+    /* =====================================================
+       ACTUALIZEAZĂ BARA
+    ===================================================== */
+
+    progressBar.style.width =
+      `${progress}%`;
+
+
+    ticking =
+      false;
+
+  }
+
+
+  /* =======================================================
+     SCROLL
+  ======================================================= */
+
+  window.addEventListener(
+    "scroll",
+    () => {
+
+      if (ticking) {
+        return;
+      }
+
+
+      window.requestAnimationFrame(
+        updateProgress
+      );
+
+
+      ticking =
+        true;
+
+    },
+    {
+      passive:
+        true
+    }
+  );
+
+
+  /* =======================================================
+     RESIZE
+  ======================================================= */
+
+  window.addEventListener(
+    "resize",
+    updateProgress
+  );
+
+
+  /* =======================================================
+     POZIȚIA INIȚIALĂ
+  ======================================================= */
+
+  updateProgress();
+
+}
+
+
+/* =========================================================
+   PORNIRE
+========================================================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  initScrollProgress
+);
+
+
+
+
+
+
+
+/* =========================================================
+   NAVBAR — CAPITOL ACTIV ÎN FUNCȚIE DE SCROLL
+========================================================= */
+
+function initActiveNavSection() {
+
+  /* =======================================================
+     DEFINIRE CAPITOLE
+
+     "selector" = zona din pagină
+     "navText"  = textul dropdown-ului din navbar
+  ======================================================= */
+
+  const chapters = [
+
+    /* EVENIMENTE */
+
+    {
+      selector:
+        "#evenimente",
+
+      navText:
+        "Evenimente"
+    },
+
+
+    /* SATE */
+
+    {
+      selector:
+        "#satele-comunei",
+
+      navText:
+        "Sate"
+    },
+
+
+    /* CULTURĂ */
+
+    {
+      selector:
+        "#patrimoniu",
+
+      navText:
+        "Cultura"
+    },
+
+
+    /* RELIGIE */
+
+    {
+      selector:
+        "#patrimoniu-religios",
+
+      navText:
+        "Religie"
+    },
+
+
+    /* ISTORIE */
+
+    {
+      selector:
+        "#istorie",
+
+      navText:
+        "Istorie"
+    },
+
+
+    /* GEOGRAFIE */
+
+    {
+      selector:
+        "#geografie",
+
+      navText:
+        "Geografie"
+    },
+
+
+    /* TURISM */
+
+    {
+      selector:
+        "#turism",
+
+      navText:
+        "Turism"
+    },
+
+
+    /* INFRASTRUCTURĂ */
+
+    {
+      selector:
+        "#infrastructura",
+
+      directHref:
+        "#infrastructura"
+    },
+
+
+    /* EDUCAȚIE */
+
+    {
+      selector:
+        "#educatie",
+
+      navText:
+        "Educație"
+    },
+
+    /*Religie*/
+    {
+      selector:
+      "#religie",
+      navText:
+      "Religie"
+    }
+
+  ];
+
+
+  /* =======================================================
+     GĂSEȘTE ELEMENTELE NAVBAR
+  ======================================================= */
+
+  const dropdowns =
+    document.querySelectorAll(
+      ".nav__dropdown"
+    );
+
+
+  const directLinks =
+    document.querySelectorAll(
+      ".nav__links > a"
+    );
+
+
+  /* =======================================================
+     ȘTERGE ACTIVE STATE
+  ======================================================= */
+
+  function clearCurrentNav() {
+
+    dropdowns.forEach(
+      dropdown => {
+
+        dropdown.classList.remove(
+          "current-section"
+        );
+
+      }
+    );
+
+
+    directLinks.forEach(
+      link => {
+
+        link.classList.remove(
+          "current-section"
+        );
+
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     ACTIVEAZĂ DROPDOWN DUPĂ TEXT
+  ======================================================= */
+
+  function activateDropdown(
+    navText
+  ) {
+
+    dropdowns.forEach(
+      dropdown => {
+
+        const trigger =
+          dropdown.querySelector(
+            ".dropdown-trigger"
+          );
+
+
+        if (!trigger) {
+          return;
+        }
+
+
+        const text =
+          trigger.textContent
+            .replace(/\s+/g, " ")
+            .trim();
+
+
+        if (
+          text
+            .toLowerCase()
+            .includes(
+              navText.toLowerCase()
+            )
+        ) {
+
+          dropdown.classList.add(
+            "current-section"
+          );
+
+        }
+
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     ACTIVEAZĂ LINK DIRECT
+  ======================================================= */
+
+  function activateDirectLink(
+    href
+  ) {
+
+    const link =
+      document.querySelector(
+        `.nav__links > a[href="${href}"]`
+      );
+
+
+    if (link) {
+
+      link.classList.add(
+        "current-section"
+      );
+
+    }
+
+  }
+
+
+  /* =======================================================
+     GĂSEȘTE CAPITOLUL CURENT
+  ======================================================= */
+
+  function updateActiveChapter() {
+
+    const viewportPoint =
+      window.scrollY
+      + window.innerHeight * 0.32;
+
+
+    let currentChapter =
+      null;
+
+
+    chapters.forEach(
+      chapter => {
+
+        const section =
+          document.querySelector(
+            chapter.selector
+          );
+
+
+        if (!section) {
+          return;
+        }
+
+
+        const top =
+          section.offsetTop;
+
+
+        const bottom =
+          top
+          + section.offsetHeight;
+
+
+        if (
+          viewportPoint >= top &&
+          viewportPoint < bottom
+        ) {
+
+          currentChapter =
+            chapter;
+
+        }
+
+      }
+    );
+
+
+    clearCurrentNav();
+
+
+    if (!currentChapter) {
+      return;
+    }
+
+
+    if (
+      currentChapter.navText
+    ) {
+
+      activateDropdown(
+        currentChapter.navText
+      );
+
+    }
+
+
+    if (
+      currentChapter.directHref
+    ) {
+
+      activateDirectLink(
+        currentChapter.directHref
+      );
+
+    }
+
+  }
+
+
+  /* =======================================================
+     SCROLL OPTIMIZAT
+  ======================================================= */
+
+  let ticking =
+    false;
+
+
+  window.addEventListener(
+    "scroll",
+    () => {
+
+      if (ticking) {
+        return;
+      }
+
+
+      requestAnimationFrame(
+        () => {
+
+          updateActiveChapter();
+
+          ticking =
+            false;
+
+        }
+      );
+
+
+      ticking =
+        true;
+
+    },
+    {
+      passive:
+        true
+    }
+  );
+
+
+  /* RESIZE */
+
+  window.addEventListener(
+    "resize",
+    updateActiveChapter
+  );
+
+
+  /* POZIȚIA INIȚIALĂ */
+
+  updateActiveChapter();
+
+}
+
+
+/* =========================================================
+   PORNIRE
+========================================================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  initActiveNavSection
+);

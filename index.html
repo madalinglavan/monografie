@@ -201,25 +201,24 @@
      PAGE NAVIGATION TRANSITION
 ====================================================== -->
 
-<div
-  id="pageTransition"
-  class="page-transition"
-  aria-hidden="true">
+  <div id="pageTransition"
+    class="page-transition"
+    aria-hidden="true">
 
-  <div class="page-transition__content">
+    <div class="page-transition__content">
 
-    <img
-      src="img/logo.png"
-      alt=""
-      class="page-transition__logo">
+      <img
+        src="img/logo.png"
+        alt=""
+        class="page-transition__logo">
 
-    <span class="page-transition__text">
-      Descoperă Bustuchin
-    </span>
+      <span class="page-transition__text">
+        Descoperă Bustuchin
+      </span>
+
+    </div>
 
   </div>
-
-</div>
 
   <header class="navbar" id="navbar">
     <div class="container">
@@ -684,7 +683,19 @@
     </div>
 
   </header>
-
+    <!-- =====================================================
+        PAGE SCROLL PROGRESS
+    ====================================================== -->
+    <div
+      class="scroll-progress"
+      aria-hidden="true"
+    >
+      <div
+        class="scroll-progress__bar"
+        id="scrollProgressBar"
+      ></div>
+    </div>
+    
   <main>
 
   <section id="hero" class="section hero">
@@ -729,196 +740,272 @@
     </div>
   </section>
 
-      <!-- =====================================================
-          INTRODUCERE BUSTUCHIN
+     <!-- =====================================================
+    DESCOPERĂ BUSTUCHIN
+====================================================== -->
+
+<section
+  id="descopera-bustuchin"
+  class="section intro-section"
+>
+
+  <div class="container">
+
+    <!-- =====================================================
+        HEADER
     ====================================================== -->
 
-    <section id="descopera-bustuchin" class="section intro-section">
-      <div class="container">
-        <!-- HEADER -->
-        <div class="section-header reveal">
-          <span class="section-kicker-top">
-            Bun venit în comuna Bustuchin
+    <div class="discover-header reveal">
+
+      <span class="section-kicker-top">
+        Bun venit în comuna Bustuchin
+      </span>
+
+      <h2 class="discover-title">
+        O comunitate cu rădăcini adânci
+        <span>
+          în istoria și cultura Gorjului
+        </span>
+      </h2>
+
+      <p class="discover-lead">
+        Descoperă un loc în care istoria, natura,
+        tradițiile și oamenii formează identitatea
+        unei comunități cu peste cinci secole de
+        istorie documentată.
+      </p>
+
+    </div>
+
+
+    <!-- =====================================================
+        PREZENTARE PRINCIPALĂ
+    ====================================================== -->
+
+    <div class="discover-layout reveal">
+
+
+      <!-- ===================================================
+          IMAGINE
+      ==================================================== -->
+
+      <div class="discover-media">
+
+        <img
+          src="img/primarie.webp"
+          alt="Peisaj reprezentativ din comuna Bustuchin"
+          loading="lazy"
+        >
+
+
+        <!-- OVERLAY -->
+
+        <div class="discover-media__overlay">
+
+          <span class="discover-media__eyebrow">
+            Gorj · România
           </span>
 
-          <h2 class="section-title">
-            O comunitate cu rădăcini adânci <br> în istoria și cultura Gorjului
-          </h2>
+          <strong>
+            Comuna Bustuchin
+          </strong>
 
-          <p class="section-description">
-            Așezată pe pitoreasca Vale a Amaradiei,
-            în partea de est a județului Gorj,
-            comuna Bustuchin reunește opt sate
-            cu identități proprii, unite printr-o istorie
-            de peste cinci secole.
-          </p>
-
-          <p class="section-description">
-            De la moșnenii care au modelat aceste locuri,
-            până la personalități precum
-            Iustina Băluțeanu,
-            Profesor Doctor Ștefan Popescu,
-            Nicodim Ungureanu
-            și numeroși păstrători ai tradițiilor locale,
-            Bustuchinul reprezintă un spațiu în care
-            patrimoniul cultural, folclorul și spiritul comunitar
-            continuă să fie transmise din generație în generație.
-          </p>
-
-          <p class="section-description">
-            Vizitatorii descoperă aici
-            peisaje specifice dealurilor gorjene,
-            monumente istorice,
-            festivaluri folclorice,
-            oameni gospodari
-            și o comunitate care își respectă trecutul
-            în timp ce privește cu încredere spre viitor.
-          </p>
-
-           <!-- STATISTICI -->
-
-            <div class="stats">
-              <div class="stats__item">
-                <span
-                  class="stats__number"
-                  data-target="8">
-                  0
-                </span>
-                <span class="stats__label">
-                  Sate componente
-                </span>
-              </div>
-              <div class="stats__item">
-                <span
-                  class="stats__number"
-                  data-target="6096">
-                  0
-                </span>
-                <span class="stats__label">
-                  Hectare teritoriu
-                </span>
-              </div>
-              <div class="stats__item">
-                <span
-                  class="stats__number"
-                  data-target="3657">
-                  0
-                </span>
-                <span class="stats__label">
-                  Locuitori
-                </span>
-              </div>
-              <div class="stats__item">
-                <span
-                  class="stats__number"
-                  data-target="509">
-                  0
-                </span>
-                <span class="stats__label">
-                  Ani de istorie documentată
-                </span>
-              </div>
-            </div>
-
-           
+          <span>
+            Valea Amaradiei
+          </span>
 
         </div>
-            <!-- =====================================================
-                HARTA INTERACTIVĂ A COMUNEI BUSTUCHIN
-            ====================================================== -->
-
-            <section id="harta-comunei" class="section section--map">
-
-              <div class="container">
-
-                <!-- HEADER -->
-                <div class="section-header reveal">
-
-                  <h2 class="section-title">
-                    <i class="fas fa-map-location-dot"></i> &nbsp;
-                    Bustuchin pe hartă 
-                  </h2>
-
-                </div>
 
 
-                <!-- HARTA -->
-                <div class="community-map reveal">
+        <!-- MIC LABEL -->
 
-                  <div
-                    id="bustuchinMap"
-                    class="community-map__canvas"
-                    aria-label="Hartă interactivă a comunei Bustuchin">
-                  </div>
+        <div class="discover-media__label">
 
+          <i class="fas fa-location-dot"></i>
 
-                  <!-- LEGENDĂ -->
-                  <div
-                    class="community-map__legend"
-                    aria-label="Legenda hărții">
+          <span>
+            8 sate · o singură comunitate
+          </span>
 
-                    <span class="community-map__legend-item community-map__legend-item--village">
-                      <i class="fas fa-house"></i>
-                      Sate
-                    </span>
-
-                    <span class="community-map__legend-item community-map__legend-item--tourism">
-                      <i class="fas fa-tree"></i>
-                      Turism
-                    </span>
-
-                    <span class="community-map__legend-item community-map__legend-item--religion">
-                      <i class="fas fa-church"></i>
-                      Patrimoniu
-                    </span>
-
-                    <span class="community-map__legend-item community-map__legend-item--education">
-                      <i class="fas fa-graduation-cap"></i>
-                      Educație
-                    </span>
-                    <span class="community-map__legend-item community-map__legend-item--monument">
-                      <i class="fas fa-landmark"></i>
-                      Monument istoric
-                    </span>
-
-                  </div>
-
-
-                  <!-- INDICAȚIE -->
-                  <div class="community-map__hint">
-
-                    <i class="fas fa-hand-pointer"></i>
-
-                    <span>
-                      Apasă pe un punct pentru a descoperi locul
-                    </span>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            </section>
-        
-
-        <!-- METEO -->
-        <div
-          id="weatherCurrent"
-          class="weather-current reveal">
-        </div>
-
-        <!-- PROGNOZA -->
-
-        <div
-          id="weatherGrid"
-          class="weather-grid reveal">
         </div>
 
       </div>
 
-    </section>
-   
+
+      <!-- ===================================================
+          TEXT
+      ==================================================== -->
+
+      <div class="discover-content">
+
+        <span class="section-block__badge">
+          <i class="fas fa-landmark"></i>
+          Identitate locală
+        </span>
+
+
+        <h3>
+          Un loc modelat de oameni,
+          natură și istorie
+        </h3>
+
+
+        <p>
+          Așezată pe pitoreasca Vale a Amaradiei,
+          în partea de est a județului Gorj,
+          comuna Bustuchin reunește opt sate
+          cu identități proprii, unite printr-o istorie
+          de peste cinci secole.
+        </p>
+
+
+        <p>
+          De la moșnenii care au modelat aceste locuri,
+          până la personalități precum
+          Iustina Băluțeanu,
+          Profesor Doctor Ștefan Popescu,
+          Nicodim Ungureanu
+          și numeroși păstrători ai tradițiilor locale,
+          Bustuchinul reprezintă un spațiu în care
+          patrimoniul cultural, folclorul și spiritul comunitar
+          continuă să fie transmise din generație în generație.
+        </p>
+
+
+        <p>
+          Vizitatorii descoperă aici
+          peisaje specifice dealurilor gorjene,
+          monumente istorice,
+          festivaluri folclorice,
+          oameni gospodari
+          și o comunitate care își respectă trecutul
+          în timp ce privește cu încredere spre viitor.
+        </p>
+
+
+        <!-- LINK CĂTRE HARTĂ -->
+
+        <a
+          href="#harta-comunei"
+          class="discover-link"
+        >
+
+          <span>
+            Explorează comuna pe hartă
+          </span>
+
+          <i class="fas fa-arrow-right"></i>
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+        STATISTICI
+    ====================================================== -->
+
+    <div class="stats discover-stats reveal">
+
+
+      <div class="stats__item">
+
+        <span
+          class="stats__number"
+          data-target="8"
+        >
+          0
+        </span>
+
+        <span class="stats__label">
+          Sate componente
+        </span>
+
+      </div>
+
+
+      <div class="stats__item">
+
+        <span
+          class="stats__number"
+          data-target="6096"
+        >
+          0
+        </span>
+
+        <span class="stats__label">
+          Hectare teritoriu
+        </span>
+
+      </div>
+
+
+      <div class="stats__item">
+
+        <span
+          class="stats__number"
+          data-target="3657"
+        >
+          0
+        </span>
+
+        <span class="stats__label">
+          Locuitori
+        </span>
+
+      </div>
+
+
+      <div class="stats__item">
+
+        <span
+          class="stats__number"
+          data-target="509"
+        >
+          0
+        </span>
+
+        <span class="stats__label">
+          Ani de istorie documentată
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+<!-- =====================================================
+    METEO
+====================================================== -->
+
+<section class="section discover-weather">
+
+  <div class="container">
+
+    <div
+      id="weatherCurrent"
+      class="weather-current reveal"
+    >
+    </div>
+
+
+    <div
+      id="weatherGrid"
+      class="weather-grid reveal"
+    >
+    </div>
+
+  </div>
+
+</section>
 
    <!-- =====================================================
       EVENIMENTE
@@ -8409,6 +8496,128 @@
           </div>
 
         </section>
+
+
+        
+<!-- =====================================================
+    HARTA INTERACTIVĂ A COMUNEI BUSTUCHIN
+====================================================== -->
+
+<section
+  id="harta-comunei"
+  class="section section--map"
+>
+
+  <div class="container">
+
+    <div class="section-header reveal">
+
+      <h2 class="section-title">
+
+        <i class="fas fa-map-location-dot"></i>
+
+        &nbsp;
+
+        HARTĂ INTERACTIVĂ
+
+      </h2>
+
+    </div>
+
+
+    <div class="community-map reveal">
+
+      <div
+        id="bustuchinMap"
+        class="community-map__canvas"
+        aria-label="Hartă interactivă a comunei Bustuchin"
+      >
+      </div>
+
+
+      <!-- LEGENDĂ -->
+
+      <div
+        class="community-map__legend"
+        aria-label="Legenda hărții"
+      >
+
+        <span
+          class="
+            community-map__legend-item
+            community-map__legend-item--village
+          "
+        >
+          <i class="fas fa-house"></i>
+          Sate
+        </span>
+
+
+        <span
+          class="
+            community-map__legend-item
+            community-map__legend-item--tourism
+          "
+        >
+          <i class="fas fa-tree"></i>
+          Turism
+        </span>
+
+
+        <span
+          class="
+            community-map__legend-item
+            community-map__legend-item--religion
+          "
+        >
+          <i class="fas fa-church"></i>
+          Patrimoniu
+        </span>
+
+
+        <span
+          class="
+            community-map__legend-item
+            community-map__legend-item--education
+          "
+        >
+          <i class="fas fa-graduation-cap"></i>
+          Educație
+        </span>
+
+
+        <span
+          class="
+            community-map__legend-item
+            community-map__legend-item--monument
+          "
+        >
+          <i class="fas fa-landmark"></i>
+          Monument istoric
+        </span>
+
+      </div>
+
+
+      <!-- INDICAȚIE -->
+
+      <div class="community-map__hint">
+
+        <i class="fas fa-hand-pointer"></i>
+
+        <span>
+          Apasă pe un punct pentru a descoperi locul
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
   </main>
 
 <footer class="footer">
