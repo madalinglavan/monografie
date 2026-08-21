@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* =========================================================
-   CLOSE MENU WHEN CLICK REAL NAV LINKS
+   CLOSE MOBILE MENU WHEN CLICK NAV LINK
 ========================================================= */
 
 document
@@ -82,25 +82,26 @@ document
 
     link.addEventListener("click", () => {
 
-      if(window.matchMedia("(hover: none)").matches){
+      /* Închide meniul dacă acesta este deschis */
+
+      if(navLinks && navLinks.classList.contains("active")){
 
         navLinks.classList.remove("active");
 
-        menuToggle.classList.remove("active");
+        menuToggle?.classList.remove("active");
 
         document.body.classList.remove("menu-open");
 
-
-
-        /* CLOSE DROPDOWNS */
-
-        dropdowns.forEach(dropdown => {
-
-          dropdown.classList.remove("active");
-
-        });
-
       }
+
+
+      /* Închide toate dropdown-urile */
+
+      dropdowns.forEach(dropdown => {
+
+        dropdown.classList.remove("active");
+
+      });
 
     });
 
@@ -443,6 +444,28 @@ mediaCards.forEach(card => {
 });
 
 
+/* =========================================================
+   AUTOMATIC HISTORY YEARS
+========================================================= */
+
+const historyYears =
+  document.getElementById("historyYears");
+
+if(historyYears){
+
+  const startYear =
+    Number(historyYears.dataset.startYear);
+
+  const currentYear =
+    new Date().getFullYear();
+
+  const yearsOfHistory =
+    currentYear - startYear;
+
+  historyYears.dataset.target =
+    yearsOfHistory;
+
+}
 
 /* =========================================================
    STATS COUNTER
