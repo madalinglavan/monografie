@@ -234,6 +234,8 @@ body::after {
 }
 
 .button--stop{
+  
+  margin-top: 300px;
   background:
   linear-gradient(
     135deg,
