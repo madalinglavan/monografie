@@ -1326,6 +1326,16 @@ async function initBustuchinMap() {
 
 
        }
+,
+       {
+         id: "biserica-bustuchin",
+         name: "Biserica Bustuchin",
+         category: "religion",
+         lat: 44.975502,
+         lng: 23.725401
+
+
+       }
  ,
        {
          id: "biserica-pojaru",
@@ -1337,6 +1347,36 @@ async function initBustuchinMap() {
 
        }
 ,
+       {
+         id: "biserica-valea-pojarului",
+         name: "Biserica Valea Pojarului",
+         category: "religion",
+         lat: 44.938034,
+         lng: 23.727402
+
+
+       }
+,
+       {
+         id: "biserica-poienita",
+         name: "Biserica Poienita",
+         category: "religion",
+         lat: 44.990881,
+         lng: 23.681493
+
+       }
+,
+       {
+         id: "biserica-poiana",
+         name: "Biserica Poiana Seciuri",
+         category: "religion",
+         lat: 44.988755,
+         lng: 23.723080
+
+
+       }
+,
+       
        {
          id: "biserica-din-valea-pojarului",
          name: "Biserica de lemn din Valea Pojarului",
@@ -1354,6 +1394,24 @@ async function initBustuchinMap() {
        }
        ,
        {
+         id: "scoala-poiana-seciuri",
+         name: "Școala Gimnazială Poiana-Seciuri",
+         category: "education",
+         lat: 45.001266,
+         lng: 23.724950
+       }
+    ,
+       {
+         id: "scoala-primara-nr2",
+         name: "Școala Primara Nr.2",
+         category: "education",
+         lat: 44.974433,
+         lng: 23.725543
+
+       }
+   
+       ,
+       {
          id: "gradinita-program-prelungit",
          name: "Grădinița cu Program Prelungit",
          category: "education",
@@ -1362,15 +1420,16 @@ async function initBustuchinMap() {
 
 
        }
-,
+       ,
        {
-         id: "scoala-poiana-seciuri",
-         name: "Școala Gimnazială Poiana-Seciuri",
+         id: "gradinita-nr2",
+         name: "Gradinita nr2",
          category: "education",
-         lat: 45.001266,
-         lng: 23.724950
+         lat: 44.971261,
+         lng: 23.730856
+
        }
-   
+
 
   ];
 
