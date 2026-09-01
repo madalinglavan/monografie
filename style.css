@@ -10252,3 +10252,126 @@ iframe{
   }
 
 }
+
+/* =========================================================
+   ORDINE GENERALĂ SUBSECȚIUNI PE MOBIL
+   Titlu → Imagine/Video → Text → Stats
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* =======================================================
+     1. SUBSECȚIUNI CLASICE
+     Istorie / Geografie / Turism etc.
+  ======================================================= */
+
+  .section-content
+  .subsection.split-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    width: 100%;
+  }
+
+  .section-content
+  .subsection.split-layout
+  > .section-block__content {
+    display: contents;
+  }
+
+  .section-content
+  .subsection.split-layout
+  > .section-block__content
+  > .section-block__title {
+    order: 1;
+    width: 100%;
+    margin-bottom: 22px;
+  }
+
+  .section-content
+  .subsection.split-layout
+  > .section-block__media,
+  .section-content
+  .subsection.split-layout
+  > .video-preview {
+    order: 2;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 28px;
+  }
+
+  .section-content
+  .subsection.split-layout
+  > .section-block__content
+  > .section-block__text {
+    order: 3;
+    width: 100%;
+  }
+
+  .section-content
+  .subsection.split-layout
+  > .section-block__content
+  > .stats {
+    order: 4;
+    width: 100%;
+  }
+
+
+  /* =======================================================
+     2. EDUCATION FEATURE
+     Educație / Infrastructură / Telecomunicații etc.
+  ======================================================= */
+
+  .section-content
+  .education-feature__intro.split-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    width: 100%;
+  }
+
+  .section-content
+  .education-feature__intro.split-layout
+  > .section-block__content {
+    display: contents;
+  }
+
+  /* TITLU */
+  .section-content
+  .education-feature__intro.split-layout
+  > .section-block__content
+  > .section-block__title {
+    order: 1;
+    width: 100%;
+    margin-bottom: 22px;
+  }
+
+  /* POZĂ */
+  .section-content
+  .education-feature__intro.split-layout
+  > .section-block__media {
+    order: 2;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 28px;
+  }
+
+  /* TEXT */
+  .section-content
+  .education-feature__intro.split-layout
+  > .section-block__content
+  > .section-block__text {
+    order: 3;
+    width: 100%;
+  }
+
+  /* STATISTICI */
+  .section-content
+  .education-feature__intro.split-layout
+  > .section-block__content
+  > .stats {
+    order: 4;
+    width: 100%;
+  }
+
+}
