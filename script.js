@@ -2770,3 +2770,55 @@ document.addEventListener(
   "DOMContentLoaded",
   initActiveNavSection
 );
+
+
+
+/* =========================================================
+   REVISTA TRADIȚII BUSTUCHINENE
+========================================================= */
+
+const magazineViewer = document.getElementById("magazineViewer");
+const magazineEditionTitle = document.getElementById("magazineEditionTitle");
+const magazineOpenPdf = document.getElementById("magazineOpenPdf");
+const magazineEditions = document.querySelectorAll(".magazine-edition");
+
+if (
+  magazineViewer &&
+  magazineEditionTitle &&
+  magazineOpenPdf &&
+  magazineEditions.length
+) {
+
+  magazineEditions.forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+      const pdf = button.dataset.pdf;
+      const edition = button.dataset.edition;
+
+      magazineEditions.forEach((item) => {
+        item.classList.remove("active");
+      });
+
+      button.classList.add("active");
+
+      magazineViewer.src = pdf;
+      magazineViewer.title =
+        `Revista Tradiții Bustuchinene – ${edition}`;
+
+      magazineEditionTitle.textContent =
+        `Revista „Tradiții Bustuchinene” – ${edition}`;
+
+      magazineOpenPdf.href = pdf;
+
+      document.querySelector(".magazine-reader")
+        ?.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+    });
+
+  });
+
+}

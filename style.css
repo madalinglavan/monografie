@@ -10375,3 +10375,153 @@ iframe{
   }
 
 }
+
+/* =========================================================
+   REVISTA TRADIȚII BUSTUCHINENE
+========================================================= */
+
+.magazine-library {
+  width: 100%;
+  margin-top: 70px;
+}
+
+.magazine-library__header {
+  max-width: 850px;
+  margin-bottom: 35px;
+}
+
+
+/* EDIȚII */
+
+.magazine-editions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 12px;
+  margin: 30px 0 40px;
+}
+
+.magazine-edition {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 90px;
+  padding: 14px 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.04);
+  color: inherit;
+
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.magazine-edition span {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.magazine-edition small {
+  margin-top: 5px;
+  opacity: 0.65;
+}
+
+.magazine-edition:hover,
+.magazine-edition.active {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+
+/* READER */
+
+.magazine-reader {
+  width: 100%;
+}
+
+.magazine-reader__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  margin-bottom: 18px;
+}
+
+.magazine-reader__label {
+  display: block;
+  margin-bottom: 5px;
+
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.6;
+}
+
+.magazine-reader__top h4 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.magazine-reader__open {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  white-space: nowrap;
+}
+
+
+/* PDF */
+
+.magazine-viewer {
+  width: 100%;
+  overflow: hidden;
+
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.magazine-viewer iframe {
+  display: block;
+  width: 100%;
+  height: 900px;
+  border: 0;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .magazine-library {
+    margin-top: 50px;
+  }
+
+  .magazine-editions {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 9px;
+  }
+
+  .magazine-edition {
+    min-height: 75px;
+    padding: 10px 5px;
+  }
+
+  .magazine-reader__top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .magazine-viewer iframe {
+    height: 650px;
+  }
+
+}
