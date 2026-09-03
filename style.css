@@ -8825,84 +8825,7 @@ body.menu-open{
   }
 
 
-  /* =======================================================
-     25. BUSTUCHINUL DE ALTĂDATĂ / MEMORIES
-  ======================================================= */
 
-  .section--memories
-  .memory-hero__media,
-
-  .section--memories
-  .memory-hero__content {
-    min-height: 500px;
-  }
-
-  .section--memories
-  .memory-hero__overlay {
-    background:
-      linear-gradient(
-        to top,
-        rgba(20, 17, 13, .92),
-        rgba(20, 17, 13, .35)
-      );
-  }
-
-  .section--memories
-  .memory-hero__content {
-    justify-content: flex-end;
-
-    padding: 2rem;
-  }
-
-  .section--memories
-  .memory-compare__item {
-    grid-template-columns: 1fr;
-  }
-
-  .section--memories
-  .memory-compare__image:first-child {
-    border-right: 0;
-
-    border-bottom:
-      1px solid rgba(255, 255, 255, .3);
-  }
-
-  .section--memories
-  .memory-grid,
-
-  .section--memories
-  .memory-objects,
-
-  .section--memories
-  .memory-archive__grid,
-
-  .section--memories
-  .memory-portraits {
-    grid-template-columns: 1fr;
-  }
-
-  .section--memories
-  .memory-portrait {
-    min-height: 400px;
-  }
-
-  .section--memories
-  .memory-industry__facts {
-    grid-template-columns: 1fr;
-  }
-
-  .section--memories
-  .memory-contribute {
-    grid-template-columns: 1fr;
-  }
-
-  .section--memories
-  .memory-contribute__icon {
-    width: 72px;
-    height: 72px;
-
-    font-size: 1.5rem;
-  }
 
 }
 
@@ -11154,3 +11077,216 @@ body.menu-open{
 }
 
 
+
+/* =========================================================
+   BUSTUCHINUL DE ALTĂDATĂ
+   MOBILE / TABLET — MAX 768px
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* =======================================================
+     HERO
+  ======================================================= */
+
+  .section--memories .memory-hero__media,
+  .section--memories .memory-hero__content {
+    min-height: 420px;
+  }
+
+  .section--memories .memory-hero__overlay {
+    background:
+      linear-gradient(
+        to top,
+        rgba(20, 17, 13, .96) 0%,
+        rgba(20, 17, 13, .65) 48%,
+        rgba(20, 17, 13, .18) 100%
+      );
+  }
+
+  .section--memories .memory-hero__content {
+    justify-content: flex-end;
+
+    padding:
+      2rem 1.5rem;
+  }
+
+
+  /* =======================================================
+     ATUNCI / ACUM
+  ======================================================= */
+
+  .section--memories .memory-compare__item {
+    grid-template-columns: 1fr;
+  }
+
+  .section--memories
+  .memory-compare__image:first-child {
+    border-right: 0;
+
+    border-bottom:
+      1px solid rgba(255, 255, 255, .3);
+  }
+
+
+  /* =======================================================
+     GRIDURI GENERALE
+  ======================================================= */
+
+  .section--memories .memory-grid,
+  .section--memories .memory-portraits {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+
+  /* =======================================================
+     OBIECTE CU POVESTE
+  ======================================================= */
+
+  .section--memories .memory-objects {
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+  }
+
+  .section--memories .memory-object {
+    width: 100%;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+  }
+
+  .section--memories .memory-object__media {
+    width: 100%;
+
+    aspect-ratio:
+      16 / 10;
+  }
+
+  .section--memories .memory-object__media img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+
+  .section--memories .memory-object__content {
+    padding:
+      1.5rem;
+  }
+
+  .section--memories .memory-object__content > span {
+    font-size: .68rem;
+
+    letter-spacing: .1em;
+  }
+
+  .section--memories .memory-object__content h4 {
+    margin:
+      .45rem 0 .6rem;
+
+    font-size:
+      1.25rem;
+
+    line-height:
+      1.25;
+  }
+
+  .section--memories .memory-object__content p {
+    font-size:
+      .95rem;
+
+    line-height:
+      1.7;
+  }
+
+
+  /* =======================================================
+     ARHIVA BUSTUCHINULUI
+  ======================================================= */
+
+  .section--memories .memory-archive {
+    margin-top:
+      4rem;
+
+    padding:
+      1.5rem;
+
+    border-radius:
+      24px;
+  }
+
+  .section--memories .memory-archive__grid {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      14px;
+  }
+
+  .section--memories .memory-archive__card {
+    width: 100%;
+
+    padding:
+      1.5rem;
+
+    border-radius:
+      18px;
+  }
+
+
+  /* =======================================================
+     PORTRETE
+  ======================================================= */
+
+  .section--memories .memory-portrait {
+    min-height:
+      340px;
+  }
+
+
+  /* =======================================================
+     INDUSTRIE
+  ======================================================= */
+
+  .section--memories .memory-industry {
+    grid-template-columns:
+      1fr;
+  }
+
+  .section--memories .memory-industry__facts {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      16px;
+  }
+
+
+  /* =======================================================
+     CONTRIBUȚIE
+  ======================================================= */
+
+  .section--memories .memory-contribute {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      22px;
+  }
+
+  .section--memories .memory-contribute__icon {
+    width:
+      64px;
+
+    height:
+      64px;
+
+    font-size:
+      1.35rem;
+  }
+
+}
