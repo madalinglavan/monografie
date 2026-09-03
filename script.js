@@ -207,120 +207,136 @@ dropdowns.forEach(dropdown => {
     });
 
 
+/* =========================================================
+   HERO VIDEO
+========================================================= */
 
-  /* =========================================================
-     HERO VIDEO
-  ========================================================= */
+const heroSection =
+  document.getElementById("hero");
 
-  const playBtn =
-    document.getElementById("playVideoBtn");
+const playVideoBtn =
+  document.getElementById("playVideoBtn");
 
-  const stopBtn =
-    document.getElementById("stopVideoBtn");
+const heroVideo =
+  document.getElementById("heroVideo");
 
-  const heroVideo =
-    document.getElementById("heroVideo");
-
-  const heroIframe =
-    document.getElementById("heroIframe");
-
-  const heroBg =
-    document.getElementById("heroBg");
-
-  const heroContent =
-    document.getElementById("heroContent");
+const heroIframe =
+  document.getElementById("heroIframe");
 
 
+/* =========================================================
+   YOUTUBE VIDEO
+========================================================= */
 
-  const youtubeVideoId =
-    "_gEYWhsmpBc";
-
-
-
-  if(
-    playBtn &&
-    stopBtn &&
-    heroVideo &&
-    heroIframe &&
-    heroBg &&
-    heroContent
-  ){
-
-    /* PLAY */
-
-    playBtn.addEventListener("click", () => {
-
-      heroVideo.classList.add("active");
-
-      heroBg.style.display = "none";
-
-      heroIframe.src =
-`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&controls=0&loop=1&playlist=${youtubeVideoId}&modestbranding=1&rel=0&playsinline=1`;
-
-      heroContent.classList.add("hidden");
-
-      playBtn.classList.add("hidden");
-
-      stopBtn.classList.remove("hidden");
-
-    });
+const heroYoutubeVideoId =
+  "_gEYWhsmpBc";
 
 
+/* =========================================================
+   PLAY HERO VIDEO
+========================================================= */
 
-    /* STOP */
+function playHeroVideo() {
 
-    stopBtn.addEventListener("click", () => {
-
-      stopHeroVideo();
-
-    });
-
+  if (
+    !heroSection ||
+    !heroVideo ||
+    !heroIframe
+  ) {
+    return;
   }
 
 
+  heroIframe.src =
+    `https://www.youtube.com/embed/${heroYoutubeVideoId}?autoplay=1&controls=1&rel=0&modestbranding=1&playsinline=1`;
 
-  /* =========================================================
-     STOP HERO VIDEO FUNCTION
-  ========================================================= */
 
-  function stopHeroVideo(){
+  heroSection.classList.add(
+    "is-video-playing"
+  );
 
-    heroVideo.classList.remove("active");
 
-    heroBg.style.display = "block";
+  heroVideo.setAttribute(
+    "aria-hidden",
+    "false"
+  );
 
-    heroIframe.src = "";
+}
 
-    heroContent.classList.remove("hidden");
 
-    stopBtn.classList.add("hidden");
+/* =========================================================
+   STOP HERO VIDEO
+========================================================= */
 
-    playBtn.classList.remove("hidden");
+function stopHeroVideo() {
 
+  if (
+    !heroSection ||
+    !heroVideo ||
+    !heroIframe
+  ) {
+    return;
   }
 
 
-
-  /* =========================================================
-     AUTO STOP VIDEO ON SCROLL
-  ========================================================= */
-
-  const heroSection =
-    document.querySelector(".hero");
+  heroSection.classList.remove(
+    "is-video-playing"
+  );
 
 
+  heroVideo.setAttribute(
+    "aria-hidden",
+    "true"
+  );
 
-  if(heroSection && heroVideo){
 
-    const heroObserver =
-      new IntersectionObserver((entries) => {
+  /*
+    Golirea src-ului oprește efectiv
+    redarea videoclipului YouTube.
+  */
 
-        entries.forEach(entry => {
+  heroIframe.src =
+    "";
 
-          if(
-            !entry.isIntersecting &&
-            heroVideo.classList.contains("active")
-          ){
+}
+
+
+/* =========================================================
+   PLAY BUTTON
+========================================================= */
+
+if (playVideoBtn) {
+
+  playVideoBtn.addEventListener(
+    "click",
+    playHeroVideo
+  );
+
+}
+
+
+/* =========================================================
+   AUTO STOP HERO VIDEO ON SCROLL
+========================================================= */
+
+if (
+  heroSection &&
+  heroVideo
+) {
+
+  const heroObserver =
+    new IntersectionObserver(
+
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          if (
+            entry.intersectionRatio < 0.15 &&
+            heroSection.classList.contains(
+              "is-video-playing"
+            )
+          ) {
 
             stopHeroVideo();
 
@@ -328,54 +344,99 @@ dropdowns.forEach(dropdown => {
 
         });
 
-      },{
-        threshold:0.15
-      });
+      },
 
-    heroObserver.observe(heroSection);
+      {
+        threshold: [
+          0,
+          0.15,
+          1
+        ]
+      }
+
+    );
+
+
+  heroObserver.observe(
+    heroSection
+  );
+
+}
+
+
+/* =========================================================
+   STOP VIDEO WHEN PAGE IS HIDDEN
+========================================================= */
+
+document.addEventListener(
+  "visibilitychange",
+  () => {
+
+    if (
+      document.hidden &&
+      heroSection?.classList.contains(
+        "is-video-playing"
+      )
+    ) {
+
+      stopHeroVideo();
+
+    }
 
   }
+);
 
 });
-
-
-
-
-
-
-
 
 /* =========================================================
    REVEAL ON SCROLL
 ========================================================= */
 
 const reveals =
-  document.querySelectorAll(".reveal");
+  document.querySelectorAll(
+    ".reveal, .history-card"
+  );
+
 
 const revealObserver =
-  new IntersectionObserver((entries) => {
+  new IntersectionObserver(
 
-    entries.forEach(entry => {
+    (entries, observer) => {
 
-      if(entry.isIntersecting){
+      entries.forEach((entry) => {
 
-        entry.target.classList.add("active");
+        if (!entry.isIntersecting) {
+          return;
+        }
 
-      }
 
-    });
+        entry.target.classList.add(
+          "active"
+        );
 
-  },{
-    threshold:0.15
-  });
 
-reveals.forEach(reveal => {
+        observer.unobserve(
+          entry.target
+        );
 
-  revealObserver.observe(reveal);
+      });
+
+    },
+
+    {
+      threshold: 0.15
+    }
+
+  );
+
+
+reveals.forEach((reveal) => {
+
+  revealObserver.observe(
+    reveal
+  );
 
 });
-
-
 
 
 

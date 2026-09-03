@@ -818,44 +818,101 @@
 
       <section id="hero" class="section hero">
 
-        <!-- IMAGINE DEFAULT -->
+        <!-- =====================================================
+            IMAGINE HERO
+        ====================================================== -->
+
         <div class="hero-bg" id="heroBg">
-          <img src="img/primarie.webp" alt="Primăria Bustuchin" loading="eager">
+
+          <img
+            src="img/primarie.webp"
+            alt="Primăria Bustuchin"
+            loading="eager"
+          >
+
         </div>
 
-            <!-- VIDEO (inițial ascuns) -->
-          <div id="heroVideo" class="hero-video">
-            <iframe
-              id="heroIframe"
-              src=""
-              title="Bustuchin Video"
-              frameborder="0"
-              allow="autoplay; encrypted-media"
-              allowfullscreen>
-            </iframe>
+
+        <!-- =====================================================
+            VIDEO HERO
+        ====================================================== -->
+
+        <div
+          id="heroVideo"
+          class="hero-video"
+          aria-hidden="true"
+        >
+
+          <iframe
+            id="heroIframe"
+            src=""
+            title="Prezentare video a comunei Bustuchin"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+
+
+        <!-- =====================================================
+            HERO OVERLAY
+        ====================================================== -->
+
+        <div
+          class="hero__overlay"
+          id="heroOverlay"
+        >
+
+          <div
+            class="hero__content"
+            id="heroContent"
+          >
+
+            <h2>
+              MONOGRAFIA COMUNEI
+            </h2>
+
+            <h1>
+              BUSTUCHIN
+              <br>
+              <span>Județul Gorj</span>
+            </h1>
+
+            <p>
+              Cultură | Natură | Tradiții | Istorie
+            </p>
+
           </div>
 
-        <!-- OVERLAY -->
-        <div class="hero__overlay" id="heroOverlay">
-            <div class="hero__content" id="heroContent">
-              <h2>MONOGRAFIA COMUNEI</h2>
-              <h1>BUSTUCHIN <br> <span>Județul Gorj</span> </h1>
-              
-              <p>
-                Cultură | Natură | Tradiții | Istorie
-              </p>
-            </div>
-            <div class="hero__actions">
-              <button id="playVideoBtn" class="button button--hero button--play">
-                <i class="fas fa-play"></i>
-                <span>Prezentare</span>
-              </button>
-              <button id="stopVideoBtn" class="button button--hero button--stop hidden">
-                <i class="fas fa-xmark"></i>
-                <span>Închide</span>
-              </button>
-            </div>
+
+          <!-- =====================================================
+              HERO ACTIONS
+          ====================================================== -->
+
+          <div class="hero__actions">
+
+            <button
+              id="playVideoBtn"
+              class="button button--hero button--play"
+              type="button"
+              aria-label="Pornește prezentarea video a comunei Bustuchin"
+            >
+
+              <i
+                class="fas fa-play"
+                aria-hidden="true"
+              ></i>
+
+              <span>
+                Prezentare
+              </span>
+
+            </button>
+
+          </div>
+
         </div>
+
       </section>
 
 
