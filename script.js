@@ -16,6 +16,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const dropdowns =
     document.querySelectorAll(".nav__dropdown");
 
+  /* Meniul mobil este prezentat ca un cuprins al monografiei. */
+  if (navLinks && !navLinks.querySelector(".mobile-nav__intro")) {
+    const intro = document.createElement("div");
+    intro.className = "mobile-nav__intro";
+    intro.innerHTML = `
+      <span class="mobile-nav__eyebrow">Monografia comunei</span>
+      <strong>Cuprins</strong>
+      <small>Alege un capitol pentru a continua explorarea</small>
+    `;
+    navLinks.prepend(intro);
+
+    dropdowns.forEach((dropdown, index) => {
+      dropdown.style.setProperty("--nav-index", `'${String(index + 1).padStart(2, "0")}'`);
+      dropdown.querySelector(".dropdown-trigger")?.setAttribute("aria-expanded", "false");
+    });
+
+    const footer = document.createElement("div");
+    footer.className = "mobile-nav__footer";
+    footer.innerHTML = '<i class="fas fa-location-dot"></i><span>Bustuchin, Gorj<br><small>Istorie · oameni · locuri</small></span>';
+    navLinks.append(footer);
+  }
+
 
 
   /* =========================================================
@@ -31,6 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
       menuToggle.classList.toggle("active");
 
       document.body.classList.toggle("menu-open");
+
+      const isOpen = navLinks.classList.contains("active");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Închide meniul" : "Deschide meniul");
 
     });
 
@@ -56,6 +82,9 @@ document.addEventListener("DOMContentLoaded", () => {
       menuToggle.classList.remove("active");
 
       document.body.classList.remove("menu-open");
+
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Deschide meniul");
 
 
 
@@ -91,6 +120,9 @@ document
         menuToggle?.classList.remove("active");
 
         document.body.classList.remove("menu-open");
+
+        menuToggle?.setAttribute("aria-expanded", "false");
+        menuToggle?.setAttribute("aria-label", "Deschide meniul");
 
       }
 
@@ -138,6 +170,13 @@ dropdowns.forEach(dropdown => {
     });
 
     dropdown.classList.toggle("active");
+
+    dropdowns.forEach(item => {
+      item.querySelector(".dropdown-trigger")?.setAttribute(
+        "aria-expanded",
+        String(item.classList.contains("active"))
+      );
+    });
 
   });
 
@@ -3035,6 +3074,23 @@ document.addEventListener("DOMContentLoaded", () => {
     paragraphs.forEach((paragraph) => textFlow.appendChild(paragraph));
 
     block.classList.add("split-layout--longform");
+
+    const image = media.querySelector("img");
+
+    if (image) {
+      const updateOrientation = () => {
+        const isPortraitLike = image.naturalWidth > 0 &&
+          image.naturalHeight >= image.naturalWidth * 0.9;
+
+        block.classList.toggle("longform--portrait-media", isPortraitLike);
+      };
+
+      if (image.complete) {
+        updateOrientation();
+      }
+
+      image.addEventListener("load", updateOrientation, { once: true });
+    }
   });
 });
 
