@@ -11855,6 +11855,160 @@ body.menu-open{
 }
 
 /* =========================================================
+   ATLAS LOCAL — COMENZI SUB HARTĂ PE MOBIL
+========================================================= */
+@media (max-width: 768px) {
+  .section--map .community-map {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 18px;
+    background: rgba(9, 20, 36, .96);
+  }
+
+  .section--map .community-map__canvas {
+    order: 1;
+    height: 65svh;
+    min-height: 500px;
+    max-height: 630px;
+    border-radius: 0;
+  }
+
+  .section--map .community-map__legend {
+    position: relative;
+    inset: auto;
+    order: 2;
+    width: calc(100% - 24px);
+    margin: 12px;
+    padding: 7px;
+    flex: 0 0 auto;
+    border-color: rgba(224, 194, 140, .14);
+    border-radius: 13px;
+    background: rgba(255, 255, 255, .035);
+    box-shadow: none;
+    transform: none;
+  }
+
+  .section--map .map-explorer {
+    position: relative;
+    inset: auto;
+    order: 3;
+    width: auto;
+    margin: 0 12px 12px;
+    padding: 17px;
+    border-color: rgba(224, 194, 140, .16);
+    border-radius: 15px;
+    background: linear-gradient(145deg, rgba(245, 241, 232, .055), rgba(255, 255, 255, .025));
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .section--map .map-explorer__heading {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    column-gap: 12px;
+    margin-bottom: 13px;
+  }
+
+  .section--map .map-explorer__heading > span,
+  .section--map .map-explorer__heading > strong {
+    grid-column: 1;
+  }
+
+  .section--map .map-explorer__heading small {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    margin: 0;
+    padding: 6px 9px;
+    border: 1px solid rgba(224, 194, 140, .14);
+    border-radius: 999px;
+    white-space: nowrap;
+    background: rgba(198, 154, 85, .06);
+  }
+
+  .section--map .map-explorer__search {
+    background: rgba(7, 16, 31, .42);
+  }
+
+  .section--map .map-explorer__results {
+    max-height: 230px;
+  }
+}
+
+@media (max-width: 390px) {
+  .section--map .community-map__canvas {
+    height: 61svh;
+    min-height: 470px;
+  }
+
+  .section--map .map-explorer__heading {
+    grid-template-columns: 1fr;
+  }
+
+  .section--map .map-explorer__heading small {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: start;
+    margin-top: 7px;
+  }
+}
+
+/* Atlasul precedă harta pe telefon, fără să o acopere. */
+@media (max-width: 768px) {
+  .section--map .map-explorer {
+    order: 1;
+    margin: 12px 12px 0;
+  }
+
+  .section--map .community-map__canvas {
+    order: 2;
+    margin-top: 12px;
+    border-top: 1px solid rgba(224, 194, 140, .12);
+  }
+
+  .section--map .community-map__legend {
+    order: 3;
+  }
+
+  .floating-map-button,
+  .floating-map-button:visited {
+    position: fixed;
+    right: 14px;
+    bottom: max(14px, env(safe-area-inset-bottom));
+    z-index: 950;
+    display: flex;
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+    padding: 0;
+    opacity: 1;
+    visibility: visible;
+    border: 1px solid rgba(224, 194, 140, .34);
+    border-radius: 50%;
+    color: var(--gold-soft);
+    background: rgba(7, 16, 31, .92);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, .4), 0 0 0 5px rgba(198, 154, 85, .05);
+    transform: none;
+  }
+
+  .floating-map-button span {
+    display: none;
+  }
+
+  .floating-map-button i {
+    color: var(--gold-soft);
+    font-size: 1rem;
+  }
+
+  body.menu-open .floating-map-button {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+/* =========================================================
    HARTA COMUNEI — ATLAS LOCAL INTERACTIV
 ========================================================= */
 .section--map .section-header {
