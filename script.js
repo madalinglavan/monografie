@@ -246,6 +246,66 @@ dropdowns.forEach(dropdown => {
     });
 
 
+  /* =========================================================
+     NAVIGARE MOBILĂ CU POZIȚIONARE EXACTĂ
+  ========================================================= */
+
+  document.addEventListener("click", event => {
+    if (!window.matchMedia("(max-width: 768px)").matches) return;
+
+    const link = event.target.closest(".nav__dropdown-menu a[href^='#'], .nav__links > a[href^='#']");
+    if (!link) return;
+
+    const targetId = link.getAttribute("href");
+    if (!targetId || targetId === "#") return;
+
+    const target = document.querySelector(targetId);
+    if (!target) return;
+
+    event.preventDefault();
+    event.stopImmediatePropagation();
+
+    navLinks?.classList.remove("active");
+    menuToggle?.classList.remove("active");
+    document.body.classList.remove("menu-open");
+    menuToggle?.setAttribute("aria-expanded", "false");
+    menuToggle?.setAttribute("aria-label", "Deschide meniul");
+
+    dropdowns.forEach(dropdown => {
+      dropdown.classList.remove("active");
+      dropdown.querySelector(".dropdown-trigger")?.setAttribute("aria-expanded", "false");
+    });
+
+    const placeTargetExactly = behavior => {
+      const navbarHeight = navbar?.getBoundingClientRect().height || 62;
+      const navbarTop = Number.parseFloat(getComputedStyle(navbar).top) || 10;
+      const offset = navbarHeight + navbarTop + 14;
+      const destination = Math.max(0, target.getBoundingClientRect().top + window.scrollY - offset);
+
+      window.scrollTo({
+        top: destination,
+        behavior
+      });
+    };
+
+    history.pushState(null, "", targetId);
+
+    /* Așteaptă eliberarea blocării scroll-ului și pornirea închiderii meniului. */
+    requestAnimationFrame(() => requestAnimationFrame(() => placeTargetExactly("smooth")));
+
+    /* Corecție discretă după derulare, utilă pe browserele mobile cu bară dinamică. */
+    window.setTimeout(() => {
+      const navbarHeight = navbar?.getBoundingClientRect().height || 62;
+      const expectedTop = navbarHeight + (Number.parseFloat(getComputedStyle(navbar).top) || 10) + 14;
+      const error = target.getBoundingClientRect().top - expectedTop;
+
+      if (Math.abs(error) > 3) {
+        window.scrollBy({ top: error, behavior: "auto" });
+      }
+    }, 700);
+  }, true);
+
+
 /* =========================================================
    HERO VIDEO
 ========================================================= */
