@@ -12134,3 +12134,455 @@ body.menu-open{
     transition: none;
   }
 }
+
+
+/* =========================================================
+   LONGFORM EDITORIAL — SECȚIUNI CU MULT TEXT
+========================================================= */
+
+@media (min-width: 901px) {
+  .split-layout--longform {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    align-items: start;
+    width: 100%;
+  }
+
+  .split-layout--longform > :is(.section-block__content, .village__content) {
+    display: contents;
+  }
+
+  .split-layout--longform .section-block__title {
+    order: 1;
+    grid-column: 1;
+    width: min(920px, 100%);
+    margin: 0 0 30px;
+  }
+
+  .split-layout--longform > :is(.section-block__media, .village__media, .video-preview) {
+    order: 2;
+    grid-column: 1;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    height: clamp(330px, 40vw, 520px);
+    margin: 0 0 34px;
+    border-radius: 28px;
+  }
+
+  .split-layout--longform > :is(.section-block__media, .village__media) > img,
+  .split-layout--longform > .video-preview > img,
+  .split-layout--longform > .village__media .video-preview,
+  .split-layout--longform > .village__media .video-preview > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .split-layout--longform .longform__text {
+    order: 3;
+    grid-column: 1;
+    column-count: 2;
+    column-gap: clamp(38px, 5vw, 72px);
+    column-rule: 1px solid rgba(255, 255, 255, .07);
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .split-layout--longform .longform__text .section-block__text {
+    break-inside: avoid;
+    margin: 0 0 20px;
+    font-size: 1rem;
+    line-height: 1.82;
+    text-align: left;
+  }
+
+  .split-layout--longform > :is(.section-block__content, .village__content) > :not(.section-block__title, .longform__text, .stats) {
+    order: 3;
+    grid-column: 1;
+  }
+
+  .split-layout--longform .stats {
+    order: 4;
+    grid-column: 1;
+    width: min(900px, 100%);
+    margin: 32px auto 0;
+  }
+
+  .split-layout--longform::after {
+    top: 38px;
+    height: 82px;
+  }
+}
+
+@media (max-width: 900px) {
+  .split-layout--longform .longform__text {
+    order: 3;
+    width: 100%;
+  }
+
+  .split-layout--longform .longform__text .section-block__text {
+    width: 100%;
+  }
+}
+
+
+/* Imagine longform integrală, centrată pe desktop */
+@media (min-width: 901px) {
+  .split-layout--longform > :is(.section-block__media, .village__media) {
+    width: min(900px, 86%);
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+    background: rgba(255, 255, 255, .025);
+  }
+
+  .split-layout--longform > :is(.section-block__media, .village__media) > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+  }
+
+  .split-layout--longform > .video-preview,
+  .split-layout--longform > .village__media:has(.video-preview) {
+    width: min(900px, 86%);
+    height: auto;
+    aspect-ratio: 16 / 9;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .split-layout--longform > .village__media .video-preview {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+
+/* Titlurile longform urmează axul central al imaginii și textului */
+@media (min-width: 901px) {
+  .split-layout--longform .section-block__title {
+    width: min(900px, 86%);
+    margin-right: auto;
+    margin-bottom: 32px;
+    margin-left: auto;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  .split-layout--longform .section-block__title::after {
+    left: 50%;
+    width: 72px;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, rgba(96, 165, 250, 0), #60a5fa, rgba(96, 165, 250, 0));
+  }
+}
+
+
+/* =========================================================
+   VIAȚA DE ODINIOARĂ — ALBUM EDITORIAL LIZIBIL
+========================================================= */
+
+#viata-de-odinioara.memory-block--soft {
+  padding: clamp(28px, 4vw, 54px);
+  border: 1px solid rgba(88, 67, 39, .14);
+  background:
+    radial-gradient(circle at 92% 5%, rgba(169, 120, 50, .1), transparent 28%),
+    linear-gradient(145deg, #f5efe4, #ebe1d1);
+  box-shadow: 0 28px 65px rgba(0, 0, 0, .2);
+}
+
+#viata-de-odinioara .memory-block__header {
+  max-width: 850px;
+  margin-bottom: 32px;
+}
+
+#viata-de-odinioara .section-block__badge {
+  border-color: rgba(88, 67, 39, .18);
+  color: #76511f;
+  background: rgba(255, 250, 242, .6);
+  text-shadow: none;
+}
+
+#viata-de-odinioara .section-block__title {
+  margin: 16px 0 14px;
+  padding-bottom: 14px;
+  color: #252019;
+  text-shadow: none;
+}
+
+#viata-de-odinioara .section-block__title::first-letter {
+  color: #252019;
+}
+
+#viata-de-odinioara .section-block__title::after {
+  background: linear-gradient(90deg, #a97832, rgba(169, 120, 50, 0));
+  box-shadow: none;
+}
+
+#viata-de-odinioara .memory-block__header .section-block__text {
+  max-width: 720px;
+  margin: 0;
+  color: #655b4f;
+  font-size: 1rem;
+  line-height: 1.7;
+  text-shadow: none;
+}
+
+#viata-de-odinioara .memory-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+#viata-de-odinioara .memory-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-color: rgba(88, 67, 39, .16);
+  border-radius: 18px;
+  background: rgba(255, 250, 242, .88);
+  box-shadow: 0 10px 24px rgba(74, 54, 31, .07);
+}
+
+#viata-de-odinioara .memory-card__media {
+  aspect-ratio: 16 / 10;
+  min-height: 0;
+  background: #ded3c2;
+}
+
+#viata-de-odinioara .memory-card__content {
+  padding: 20px;
+}
+
+#viata-de-odinioara .memory-card__eyebrow {
+  color: #8a5b1f;
+  font-size: .69rem;
+  line-height: 1.4;
+  text-shadow: none;
+}
+
+#viata-de-odinioara .memory-card__content h4 {
+  margin: 7px 0 8px;
+  color: #252019;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  text-shadow: none;
+}
+
+#viata-de-odinioara .memory-card__content p {
+  color: #655b4f;
+  font-size: .91rem;
+  line-height: 1.62;
+  text-shadow: none;
+}
+
+#viata-de-odinioara .memory-card__number {
+  width: 36px;
+  height: 36px;
+  color: #3b3024;
+  background: rgba(255, 250, 242, .94);
+  box-shadow: 0 5px 14px rgba(37, 32, 25, .12);
+}
+
+/* Card compact și intenționat atunci când fișierul imaginii lipsește. */
+#viata-de-odinioara .memory-card--missing-image .memory-card__media {
+  display: none;
+}
+
+#viata-de-odinioara .memory-card--missing-image {
+  position: relative;
+  min-height: 190px;
+  padding-top: 8px;
+}
+
+#viata-de-odinioara .memory-card--missing-image::before {
+  content: "✦";
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  color: rgba(169, 120, 50, .42);
+  font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  #viata-de-odinioara .memory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  #viata-de-odinioara.memory-block--soft {
+    padding: 22px 16px;
+    border-radius: 20px;
+  }
+
+  #viata-de-odinioara .memory-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  #viata-de-odinioara .memory-card__content {
+    padding: 18px;
+  }
+
+  #viata-de-odinioara .memory-card--missing-image {
+    min-height: 0;
+    padding-top: 4px;
+  }
+}
+
+
+/* =========================================================
+   BUSTUCHINUL DE ALTĂDATĂ — CORECȚIE COMPLETĂ BLOCURI DESCHISE
+========================================================= */
+
+.section--memories .memory-block--soft .memory-block__header {
+  max-width: 850px;
+  margin-bottom: 32px;
+}
+
+.section--memories .memory-block--soft .section-block__badge {
+  border-color: rgba(88, 67, 39, .18);
+  color: #76511f;
+  background: rgba(255, 250, 242, .62);
+  text-shadow: none;
+}
+
+.section--memories .memory-block--soft .section-block__title {
+  margin: 16px 0 14px;
+  padding-bottom: 14px;
+  color: #252019;
+  text-shadow: none;
+}
+
+.section--memories .memory-block--soft .section-block__title::first-letter {
+  color: #252019;
+}
+
+.section--memories .memory-block--soft .section-block__title::after {
+  background: linear-gradient(90deg, #a97832, rgba(169, 120, 50, 0));
+  box-shadow: none;
+}
+
+.section--memories .memory-block--soft .memory-block__header .section-block__text {
+  max-width: 720px;
+  margin: 0;
+  color: #655b4f;
+  font-size: 1rem;
+  line-height: 1.7;
+  text-shadow: none;
+}
+
+#obiecte-cu-poveste.memory-block--soft {
+  padding: clamp(28px, 4vw, 54px);
+  border: 1px solid rgba(88, 67, 39, .14);
+  background: radial-gradient(circle at 92% 5%, rgba(169, 120, 50, .1), transparent 28%), linear-gradient(145deg, #f5efe4, #ebe1d1);
+  box-shadow: 0 28px 65px rgba(0, 0, 0, .2);
+}
+
+#obiecte-cu-poveste .memory-objects {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+#obiecte-cu-poveste .memory-object {
+  min-width: 0;
+  border-color: rgba(88, 67, 39, .16);
+  border-radius: 18px;
+  background: rgba(255, 250, 242, .88);
+  box-shadow: 0 10px 24px rgba(74, 54, 31, .07);
+}
+
+#obiecte-cu-poveste .memory-object__media {
+  aspect-ratio: 16 / 10;
+  min-height: 0;
+  background: #ded3c2;
+}
+
+#obiecte-cu-poveste .memory-object__content {
+  padding: 20px;
+}
+
+#obiecte-cu-poveste .memory-object__content > span {
+  color: #8a5b1f;
+  text-shadow: none;
+}
+
+#obiecte-cu-poveste .memory-object__content h4 {
+  margin: 7px 0 8px;
+  color: #252019;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  text-shadow: none;
+}
+
+#obiecte-cu-poveste .memory-object__content p {
+  color: #655b4f;
+  font-size: .91rem;
+  line-height: 1.62;
+  text-shadow: none;
+}
+
+#obiecte-cu-poveste .memory-object.memory-item--missing-image .memory-object__media {
+  display: none;
+}
+
+#obiecte-cu-poveste .memory-object.memory-item--missing-image {
+  position: relative;
+  min-height: 176px;
+  padding-top: 7px;
+}
+
+#obiecte-cu-poveste .memory-object.memory-item--missing-image::before {
+  content: "✦";
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  color: rgba(169, 120, 50, .42);
+}
+
+/* Portretele fără fișier devin plăci memoriale compacte. */
+.section--memories .memory-portrait.memory-item--missing-image {
+  min-height: 180px;
+  border: 1px solid rgba(255, 255, 255, .09);
+  background: linear-gradient(145deg, rgba(169, 120, 50, .2), rgba(20, 17, 13, .92));
+}
+
+.section--memories .memory-portrait.memory-item--missing-image img {
+  display: none;
+}
+
+.section--memories .memory-portrait.memory-item--missing-image::after {
+  background: radial-gradient(circle at 90% 10%, rgba(209, 171, 112, .18), transparent 42%);
+}
+
+.section--memories .memory-portrait.memory-item--missing-image figcaption {
+  top: auto;
+  bottom: 24px;
+}
+
+@media (max-width: 900px) {
+  #obiecte-cu-poveste .memory-objects {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .section--memories .memory-block--soft {
+    padding: 22px 16px;
+  }
+
+  #obiecte-cu-poveste .memory-objects {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  #obiecte-cu-poveste .memory-object.memory-item--missing-image {
+    min-height: 0;
+    padding-top: 4px;
+  }
+}

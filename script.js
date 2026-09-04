@@ -3004,3 +3004,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
   transitions.forEach((transition) => transitionObserver.observe(transition));
 });
+
+
+/* =========================================================
+   LAYOUT EDITORIAL PENTRU SECȚIUNILE CU TEXT LUNG
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const candidates = document.querySelectorAll(".split-layout, .section--villages .village");
+
+  candidates.forEach((block) => {
+    const content = block.querySelector(":scope > .section-block__content, :scope > .village__content");
+    const media = block.querySelector(":scope > .section-block__media, :scope > .village__media, :scope > .video-preview");
+
+    if (!content || !media || block.classList.contains("split-layout--longform")) {
+      return;
+    }
+
+    const paragraphs = Array.from(content.children).filter((element) =>
+      element.matches("p.section-block__text")
+    );
+
+    if (paragraphs.length < 4) {
+      return;
+    }
+
+    const textFlow = document.createElement("div");
+    textFlow.className = "longform__text";
+    paragraphs[0].insertAdjacentElement("beforebegin", textFlow);
+    paragraphs.forEach((paragraph) => textFlow.appendChild(paragraph));
+
+    block.classList.add("split-layout--longform");
+  });
+});
+
+
+/* Imaginile încă neadăugate nu mai lasă spații goale în cardurile de memorie. */
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("#bustuchin-altadata :is(.memory-card, .memory-object, .memory-portrait) img").forEach((image) => {
+    const card = image.closest(".memory-card, .memory-object, .memory-portrait");
+
+    const updateImageState = () => {
+      const isMissing = !image.naturalWidth;
+      card?.classList.toggle("memory-item--missing-image", isMissing);
+      card?.classList.toggle("memory-card--missing-image", isMissing && card.classList.contains("memory-card"));
+    };
+
+    if (image.complete) {
+      updateImageState();
+    }
+
+    image.addEventListener("load", updateImageState, { once: true });
+    image.addEventListener("error", updateImageState, { once: true });
+  });
+});
