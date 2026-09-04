@@ -262,6 +262,9 @@ const heroVideo =
 const heroIframe =
   document.getElementById("heroIframe");
 
+const closeHeroVideo =
+  document.getElementById("closeHeroVideo");
+
 
 /* =========================================================
    YOUTUBE VIDEO
@@ -352,6 +355,17 @@ if (playVideoBtn) {
   );
 
 }
+
+if (closeHeroVideo) {
+  closeHeroVideo.addEventListener("click", stopHeroVideo);
+}
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && heroSection?.classList.contains("is-video-playing")) {
+    stopHeroVideo();
+    playVideoBtn?.focus();
+  }
+});
 
 
 /* =========================================================
@@ -1762,6 +1776,8 @@ async function loadBustuchinBoundary() {
   const markerCoordinates =
     [];
 
+  const markerRecords = [];
+
 
   /* =======================================================
      CREARE MARKERE
@@ -1859,6 +1875,12 @@ async function loadBustuchinBoundary() {
         )
         .addTo(map);
 
+      markerRecords.push({
+        marker,
+        location,
+        category
+      });
+
 
       /* ===================================================
          POPUP
@@ -1896,6 +1918,15 @@ async function loadBustuchinBoundary() {
 
           </button>
 
+          <a
+            class="map-popup__route"
+            href="https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lng}"
+            target="_blank"
+            rel="noopener noreferrer">
+            <i class="fas fa-route" aria-hidden="true"></i>
+            Traseu până aici
+          </a>
+
         </div>
 
       `;
@@ -1928,6 +1959,135 @@ async function loadBustuchinBoundary() {
 
     }
   );
+
+  /* =======================================================
+     ATLAS LOCAL — CĂUTARE, FILTRE ȘI CONTROLUL HĂRȚII
+  ======================================================= */
+
+  const searchInput = document.getElementById("mapSearch");
+  const searchResults = document.getElementById("mapSearchResults");
+  const resultsCount = document.getElementById("mapResultsCount");
+  const resetViewButton = document.getElementById("mapResetView");
+  const legendItems = document.querySelectorAll(".community-map__legend-item");
+  let activeMapCategory = "all";
+
+  const normalizeMapText = value => value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
+
+  const updateMapCount = count => {
+    if (!resultsCount) return;
+    resultsCount.textContent = count === 1
+      ? "1 loc afișat"
+      : `${count} locuri afișate`;
+  };
+
+  const showMarkerRecord = record => {
+    map.flyTo([record.location.lat, record.location.lng], 16, {
+      duration: .8
+    });
+    window.setTimeout(() => record.marker.openPopup(), 450);
+    if (searchResults) searchResults.classList.remove("is-visible");
+  };
+
+  const applyMapFilters = () => {
+    const query = normalizeMapText(searchInput?.value || "");
+    const matches = markerRecords.filter(record => {
+      const categoryMatches = activeMapCategory === "all" || record.location.category === activeMapCategory;
+      const textMatches = !query || normalizeMapText(`${record.location.name} ${record.category.label}`).includes(query);
+      return categoryMatches && textMatches;
+    });
+
+    markerRecords.forEach(record => {
+      const visible = matches.includes(record);
+      if (visible && !map.hasLayer(record.marker)) record.marker.addTo(map);
+      if (!visible && map.hasLayer(record.marker)) record.marker.removeFrom(map);
+    });
+
+    updateMapCount(matches.length);
+
+    if (searchResults) {
+      searchResults.innerHTML = query
+        ? matches.slice(0, 6).map(record => `
+            <button type="button" data-map-result="${markerRecords.indexOf(record)}">
+              <i class="fas ${record.category.icon}" aria-hidden="true"></i>
+              <span><strong>${record.location.name}</strong><small>${record.category.label}</small></span>
+              <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </button>
+          `).join("") || '<p>Nu am găsit acest loc pe hartă.</p>'
+        : "";
+      searchResults.classList.toggle("is-visible", Boolean(query));
+    }
+
+    return matches;
+  };
+
+  searchInput?.addEventListener("input", applyMapFilters);
+
+  searchResults?.addEventListener("click", event => {
+    const resultButton = event.target.closest("[data-map-result]");
+    if (!resultButton) return;
+    const record = markerRecords[Number(resultButton.dataset.mapResult)];
+    if (record) showMarkerRecord(record);
+  });
+
+  legendItems.forEach(item => {
+    const categoryClass = [...item.classList].find(className =>
+      className.startsWith("community-map__legend-item--")
+    );
+    const categoryName = categoryClass?.replace("community-map__legend-item--", "");
+    if (!categoryName) return;
+
+    item.dataset.category = categoryName;
+    item.setAttribute("role", "button");
+    item.setAttribute("tabindex", "0");
+    item.setAttribute("aria-pressed", "false");
+    item.setAttribute("title", "Filtrează harta");
+
+    const selectCategory = () => {
+      activeMapCategory = activeMapCategory === categoryName ? "all" : categoryName;
+      legendItems.forEach(otherItem => {
+        const selected = otherItem.dataset.category === activeMapCategory;
+        otherItem.classList.toggle("is-active", selected);
+        otherItem.setAttribute("aria-pressed", String(selected));
+      });
+      const matches = applyMapFilters();
+      if (matches.length) {
+        map.fitBounds(L.latLngBounds(matches.map(record => [record.location.lat, record.location.lng])), {
+          padding: [55, 55],
+          maxZoom: 14
+        });
+      }
+    };
+
+    item.addEventListener("click", selectCategory);
+    item.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        selectCategory();
+      }
+    });
+  });
+
+  resetViewButton?.addEventListener("click", () => {
+    activeMapCategory = "all";
+    if (searchInput) searchInput.value = "";
+    legendItems.forEach(item => {
+      item.classList.remove("is-active");
+      item.setAttribute("aria-pressed", "false");
+    });
+    applyMapFilters();
+    map.closePopup();
+    if (bustuchinBoundary?.getBounds().isValid()) {
+      map.fitBounds(bustuchinBoundary.getBounds(), { padding: [35, 35], maxZoom: 13 });
+    } else {
+      fitMapToPins();
+    }
+  });
+
+  updateMapCount(markerRecords.length);
 
 
   /* =======================================================
@@ -2922,7 +3082,6 @@ if (
   });
 
 }
-
 
 /* =========================================================
    TRANZIȚII NARATIVE ÎNTRE CAPITOLE

@@ -845,6 +845,16 @@
           aria-hidden="true"
         >
 
+          <button
+            id="closeHeroVideo"
+            class="hero-video__close"
+            type="button"
+            aria-label="Închide prezentarea video"
+          >
+            <i class="fas fa-xmark" aria-hidden="true"></i>
+            <span>Închide</span>
+          </button>
+
           <iframe
             id="heroIframe"
             src=""
@@ -870,19 +880,27 @@
             id="heroContent"
           >
 
-            <h2>
-              MONOGRAFIA COMUNEI
-            </h2>
+            <div class="hero__eyebrow">
+              <span>Monografie digitală</span>
+              <span class="hero__eyebrow-line"></span>
+              <span>Gorj · România</span>
+            </div>
 
             <h1>
-              BUSTUCHIN
-              <br>
-              <span>Județul Gorj</span>
+              <span class="hero__title-small">Comuna</span>
+              Bustuchin
             </h1>
 
-            <p>
-              Cultură | Natură | Tradiții | Istorie
+            <p class="hero__lead">
+              O călătorie prin memoria, oamenii și locurile unei comunități
+              așezate pe Valea Amaradiei.
             </p>
+
+            <div class="hero__meta" aria-label="Repere ale comunei Bustuchin">
+              <span><strong>8</strong><small>sate</small></span>
+              <span><strong>1513</strong><small>atestare documentară</small></span>
+              <span><strong>GJ</strong><small>județul Gorj</small></span>
+            </div>
 
           </div>
 
@@ -906,13 +924,28 @@
               ></i>
 
               <span>
-                Prezentare
+                Vezi prezentarea
               </span>
 
             </button>
 
+            <a href="#descopera-bustuchin" class="button button--hero hero__explore">
+              <span>Începe călătoria</span>
+              <i class="fas fa-arrow-down" aria-hidden="true"></i>
+            </a>
+
           </div>
 
+          <div class="hero__coordinates" aria-hidden="true">
+            <span>44°58′ N</span>
+            <i class="fas fa-location-dot"></i>
+            <span>23°44′ E</span>
+          </div>
+
+        </div>
+
+        <div class="hero__chapter-rail" aria-hidden="true">
+          <span>Istorie</span><i></i><span>Oameni</span><i></i><span>Tradiții</span><i></i><span>Locuri</span>
         </div>
 
       </section>
@@ -1249,6 +1282,27 @@
               </div>
 
               <div class="community-map reveal">
+                <div class="map-explorer" aria-label="Instrumente de explorare a hărții">
+                  <div class="map-explorer__heading">
+                    <span>Atlas local</span>
+                    <strong>Descoperă Bustuchinul</strong>
+                    <small id="mapResultsCount">Toate locurile de pe hartă</small>
+                  </div>
+
+                  <label class="map-explorer__search">
+                    <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+                    <span class="sr-only">Caută un loc pe hartă</span>
+                    <input id="mapSearch" type="search" placeholder="Caută sat, școală, obiectiv…" autocomplete="off">
+                  </label>
+
+                  <div class="map-explorer__results" id="mapSearchResults" aria-live="polite"></div>
+
+                  <button class="map-explorer__reset" id="mapResetView" type="button">
+                    <i class="fas fa-expand" aria-hidden="true"></i>
+                    Vezi întreaga comună
+                  </button>
+                </div>
+
                 <div
                   id="bustuchinMap"
                   class="community-map__canvas"
