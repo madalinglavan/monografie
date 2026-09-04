@@ -2883,3 +2883,124 @@ if (
   });
 
 }
+
+
+/* =========================================================
+   TRANZIȚII NARATIVE ÎNTRE CAPITOLE
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const chapters = [
+    {
+      target: "istorie",
+      icon: "fa-book-open",
+      eyebrow: "Istorie",
+      message: "De aici începe povestea locului"
+    },
+    {
+      target: "geografie",
+      icon: "fa-mountain-sun",
+      eyebrow: "Geografie",
+      message: "Din trecut, spre locurile de astăzi"
+    },
+    {
+      target: "sate",
+      icon: "fa-tree-city",
+      eyebrow: "Comunitate",
+      message: "Opt sate. O singură comunitate."
+    },
+    {
+      target: "religie",
+      icon: "fa-church",
+      eyebrow: "Credință",
+      message: "Credință, memorie și continuitate"
+    },
+    {
+      target: "patrimoniu",
+      icon: "fa-landmark",
+      eyebrow: "Patrimoniu",
+      message: "Moștenirea păstrată din generație în generație"
+    },
+    {
+      target: "evenimente",
+      icon: "fa-people-group",
+      eyebrow: "Tradiții",
+      message: "Tradiția continuă prin oameni"
+    },
+    {
+      target: "turism",
+      icon: "fa-route",
+      eyebrow: "Descoperire",
+      message: "Locuri care merită descoperite"
+    },
+    {
+      target: "educatie",
+      icon: "fa-graduation-cap",
+      eyebrow: "Educație",
+      message: "Povestea merge mai departe prin noile generații"
+    },
+    {
+      target: "infrastructura",
+      icon: "fa-road",
+      eyebrow: "Dezvoltare",
+      message: "Rădăcini trainice. Un drum spre viitor."
+    }
+  ];
+
+  const transitions = [];
+
+  chapters.forEach((chapter) => {
+    const section = document.getElementById(chapter.target);
+
+    if (!section || section.previousElementSibling?.classList.contains("chapter-transition")) {
+      return;
+    }
+
+    const transition = document.createElement("div");
+    transition.className = "chapter-transition";
+    transition.setAttribute("role", "separator");
+    transition.setAttribute("aria-label", `Urmează capitolul ${chapter.eyebrow}`);
+    transition.innerHTML = `
+      <div class="chapter-transition__path" aria-hidden="true">
+        <span class="chapter-transition__line chapter-transition__line--left"></span>
+        <span class="chapter-transition__marker">
+          <i class="fa-solid ${chapter.icon}"></i>
+        </span>
+        <span class="chapter-transition__line chapter-transition__line--right"></span>
+      </div>
+      <div class="chapter-transition__copy">
+        <span class="chapter-transition__eyebrow">${chapter.eyebrow}</span>
+        <p>${chapter.message}</p>
+      </div>
+    `;
+
+    section.insertAdjacentElement("beforebegin", transition);
+    transitions.push(transition);
+  });
+
+  if (!transitions.length) {
+    return;
+  }
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    transitions.forEach((transition) => transition.classList.add("is-visible"));
+    return;
+  }
+
+  const transitionObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      }
+
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    });
+  }, {
+    threshold: 0.42,
+    rootMargin: "0px 0px -8%"
+  });
+
+  transitions.forEach((transition) => transitionObserver.observe(transition));
+});
