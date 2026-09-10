@@ -1381,6 +1381,139 @@
   .section--events .event-card .section-block__text { font-size: 0.94rem; line-height: 1.7; }
   .event-card__facts { grid-template-columns: 1fr; }
 }
+
+/* Ultimul strat mobil: păstrează textul în panoul său, fără grile moștenite. */
+@media (max-width: 900px) {
+  .section--events .event-card.split-layout,
+  .section--events .event-card.split-layout--longform { display: flex !important; flex-direction: column !important; grid-template-columns: none !important; gap: 0 !important; scroll-margin-top: 7.5rem; }
+  .section--events .event-card > .section-block__content,
+  .section--events .event-card.split-layout--longform > .section-block__content { display: block !important; order: 2 !important; width: 100% !important; min-width: 0 !important; max-width: none !important; padding: clamp(1.35rem, 5vw, 2.25rem) !important; }
+  .section--events .event-card > :is(.video-preview, .section-block__media, .event-card__poster) { order: 1 !important; width: 100% !important; min-width: 0 !important; margin: 0 !important; }
+  .section--events .event-card .section-block__title { display: block !important; order: initial !important; width: 100% !important; max-width: 100% !important; margin: 0 0 1rem !important; font-size: clamp(1.9rem, 8.8vw, 2.7rem) !important; line-height: 1.02 !important; }
+  .section--events .event-card :is(.culture-story, .longform__text) { display: block !important; width: 100% !important; max-width: none !important; margin: 0 !important; column-count: 1 !important; column-rule: 0 !important; }
+  .section--events .event-card .section-block__text { display: block !important; width: 100% !important; min-width: 0 !important; margin: 0 0 1rem !important; font-size: clamp(0.98rem, 4.1vw, 1.08rem) !important; line-height: 1.72 !important; overflow-wrap: break-word; }
+  .cultural-archive .toponimie { display: grid !important; grid-template-columns: minmax(0, 1fr) !important; width: 100% !important; gap: 0.9rem !important; padding: 0 !important; }
+  .cultural-archive .toponimie > .subsection { display: block !important; grid-column: 1 / -1 !important; width: 100% !important; min-width: 0 !important; padding: 1.2rem 1.05rem 1.3rem !important; scroll-margin-top: 7.5rem; }
+  .cultural-archive .toponimie > .subsection::before { position: static !important; display: block !important; width: auto !important; margin: 0 0 0.65rem !important; font-size: 0.88rem !important; }
+  .cultural-archive .toponimie .section-block__content,
+  .cultural-archive .toponimie .section-block__content > * { display: block !important; width: 100% !important; min-width: 0 !important; max-width: none !important; }
+  .cultural-archive .toponimie .section-block__title { margin: 0 0 0.85rem !important; font-size: clamp(1.5rem, 7.2vw, 2rem) !important; line-height: 1.08 !important; }
+  .cultural-archive .toponimie .section-block__text { margin: 0 0 0.85rem !important; font-size: clamp(0.96rem, 4vw, 1.05rem) !important; line-height: 1.72 !important; overflow-wrap: break-word; }
+}
+
+/* =========================================================
+   MOBIL — izolare pentru Evenimente și Atlasul numelor
+   Regulile editoriale generale nu trebuie să separe textul
+   de propriul său panou.
+========================================================= */
+@media (max-width: 900px) {
+  .section--events .event-card,
+  .cultural-archive .toponimie > .subsection { scroll-margin-top: 7.5rem; }
+  .section--events .event-card.split-layout,
+  .section--events .event-card.split-layout--longform {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+    width: 100% !important;
+    min-width: 0;
+    gap: 0 !important;
+  }
+  .section--events .event-card > .section-block__content,
+  .section--events .event-card.split-layout--longform > .section-block__content {
+    display: block !important;
+    order: 2 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    padding: clamp(1.35rem, 5vw, 2.25rem) !important;
+  }
+  .section--events .event-card > :is(.video-preview, .section-block__media, .event-card__poster) {
+    order: 1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+  }
+  .section--events .event-card .section-block__title,
+  .section--events .event-card.split-layout--longform .section-block__title {
+    display: block;
+    order: initial !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 1rem !important;
+    font-size: clamp(1.9rem, 8.8vw, 2.7rem) !important;
+    line-height: 1.02 !important;
+    overflow-wrap: anywhere;
+  }
+  .section--events .event-card .culture-story,
+  .section--events .event-card .longform__text,
+  .section--events .event-card.split-layout--longform .longform__text {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    column-count: 1 !important;
+    column-rule: 0 !important;
+  }
+  .section--events .event-card .section-block__text,
+  .section--events .event-card .longform__text .section-block__text {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 0 1rem !important;
+    font-size: clamp(0.98rem, 4.1vw, 1.08rem) !important;
+    line-height: 1.72 !important;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+  .cultural-archive .toponimie {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    gap: 0.9rem !important;
+    padding: 0 !important;
+  }
+  .cultural-archive .toponimie > .subsection,
+  .cultural-archive .toponimie > .toponimie__card--intro {
+    display: block !important;
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 1.2rem 1.05rem 1.3rem !important;
+  }
+  .cultural-archive .toponimie > .subsection::before {
+    position: static !important;
+    display: block;
+    width: auto;
+    margin: 0 0 0.65rem !important;
+    font-size: 0.88rem !important;
+  }
+  .cultural-archive .toponimie .section-block__content {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+  .cultural-archive .toponimie .section-block__title {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 0.85rem !important;
+    font-size: clamp(1.5rem, 7.2vw, 2rem) !important;
+    line-height: 1.08 !important;
+    overflow-wrap: anywhere;
+  }
+  .cultural-archive .toponimie .section-block__text {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 0 0.85rem !important;
+    font-size: clamp(0.96rem, 4vw, 1.05rem) !important;
+    line-height: 1.72 !important;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+}
 @media (max-width: 900px) {
   .split-layout--longform .longform__text {
     order: 3;
@@ -4606,6 +4739,153 @@ body.search-open { overflow: hidden; }
     width: min(100% - 3rem, 980px);
     margin: clamp(-5.25rem, -6vw, -3.5rem) auto 0;
     padding: clamp(1.5rem, 3.2vw, 3rem) clamp(1.4rem, 3.6vw, 3.6rem) clamp(2rem, 4vw, 3.5rem);
+  }
+}
+
+/* Prioritate finală: împiedică regulile vechi mobile să fragmenteze textul. */
+@media (max-width: 900px) {
+  .section--events .event-card,
+  .section--events .event-card.split-layout,
+  .section--events .event-card.split-layout--longform {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+    gap: 0 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    scroll-margin-top: 7.5rem;
+  }
+  .section--events .event-card > .section-block__content,
+  .section--events .event-card.split-layout--longform > .section-block__content {
+    display: block !important;
+    order: 2 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    padding: clamp(1.35rem, 5vw, 2.25rem) !important;
+  }
+  .section--events .event-card > :is(.video-preview, .section-block__media, .event-card__poster) {
+    order: 1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+  }
+  .section--events .event-card .section-block__title,
+  .section--events .event-card.split-layout--longform .section-block__title {
+    display: block !important;
+    order: initial !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 1rem !important;
+    font-size: clamp(1.9rem, 8.8vw, 2.7rem) !important;
+    line-height: 1.02 !important;
+  }
+  .section--events .event-card :is(.culture-story, .longform__text) {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    column-count: 1 !important;
+    column-rule: 0 !important;
+  }
+  .section--events .event-card .section-block__text {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 0 1rem !important;
+    font-size: clamp(0.98rem, 4.1vw, 1.08rem) !important;
+    line-height: 1.72 !important;
+    overflow-wrap: break-word;
+  }
+  .cultural-archive .toponimie {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    gap: 0.9rem !important;
+    padding: 0 !important;
+  }
+  .cultural-archive .toponimie > .subsection,
+  .cultural-archive .toponimie > .toponimie__card--intro {
+    display: block !important;
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 1.2rem 1.05rem 1.3rem !important;
+    scroll-margin-top: 7.5rem;
+  }
+  .cultural-archive .toponimie > .subsection::before {
+    position: static !important;
+    display: block !important;
+    width: auto !important;
+    margin: 0 0 0.65rem !important;
+    font-size: 0.88rem !important;
+  }
+  .cultural-archive .toponimie .section-block__content,
+  .cultural-archive .toponimie .section-block__content > * {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+  }
+  .cultural-archive .toponimie .section-block__title {
+    margin: 0 0 0.85rem !important;
+    font-size: clamp(1.5rem, 7.2vw, 2rem) !important;
+    line-height: 1.08 !important;
+  }
+  .cultural-archive .toponimie .section-block__text {
+    margin: 0 0 0.85rem !important;
+    font-size: clamp(0.96rem, 4vw, 1.05rem) !important;
+    line-height: 1.72 !important;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Ordinea mobilă a evenimentelor: etichetă → titlu → video → poveste. */
+@media (max-width: 900px) {
+  .section--events .event-card.split-layout,
+  .section--events .event-card.split-layout--longform {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+  .section--events .event-card > .section-block__content,
+  .section--events .event-card.split-layout--longform > .section-block__content {
+    display: contents !important;
+  }
+  .section--events .event-card .event-card__eyebrow {
+    order: 1 !important;
+    width: calc(100% - 2.7rem) !important;
+    margin: 1.45rem 1.35rem 0.8rem !important;
+  }
+  .section--events .event-card .section-block__title,
+  .section--events .event-card.split-layout--longform .section-block__title {
+    order: 2 !important;
+    width: calc(100% - 2.7rem) !important;
+    margin: 0 1.35rem 1.2rem !important;
+  }
+  .section--events .event-card > :is(.video-preview, .section-block__media, .event-card__poster) {
+    order: 3 !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  .section--events .event-card :is(.culture-story, .longform__text) {
+    order: 4 !important;
+    display: block !important;
+    width: calc(100% - 2.7rem) !important;
+    max-width: none !important;
+    margin: 1.35rem !important;
+    column-count: 1 !important;
+    column-rule: 0 !important;
+  }
+  .section--events .event-card > .section-block__content > .section-block__text {
+    order: 4 !important;
+    width: calc(100% - 2.7rem) !important;
+    margin: 1.35rem 1.35rem 0 !important;
+  }
+  .section--events .event-card .event-card__facts {
+    order: 5 !important;
+    width: calc(100% - 2.7rem) !important;
+    margin: 0 1.35rem 1.5rem !important;
   }
 }
 
