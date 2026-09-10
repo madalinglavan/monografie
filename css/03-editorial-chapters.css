@@ -1,0 +1,3246 @@
+/* =========================================================
+   DESCOPERĂ BUSTUCHIN — MONOGRAFIE DIGITALĂ
+========================================================= */
+#descopera-bustuchin {
+  position: relative;
+  overflow: hidden;
+  padding-top: 130px;
+  padding-bottom: 120px;
+}
+/* =========================================================
+   CONTAINER LAT
+========================================================= */
+#descopera-bustuchin > .container {
+  width: 94%;
+  max-width: 1550px;
+  margin-inline: auto;
+}
+/* =========================================================
+   FUNDAL
+========================================================= */
+#descopera-bustuchin::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  right: -15%;
+  width: 650px;
+  height: 650px;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(37, 99, 235, .13),
+      transparent 68%
+    );
+  filter: blur(20px);
+  pointer-events: none;
+}
+/* =========================================================
+   HEADER
+========================================================= */
+.discover-header {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin:
+    0 auto
+    70px;
+  text-align: center;
+}
+/* Folosim kickerul existent */
+.discover-header
+.section-kicker-top {
+  margin-bottom: 32px;
+}
+.discover-title {
+  margin: 0;
+  font-family:
+    "DM Serif Display",
+    serif;
+  font-size:
+    clamp(2.7rem, 5vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -.025em;
+}
+.discover-title span {
+  display: block;
+  margin-top: 12px;
+  color: #93c5fd;
+  font-style: italic;
+  font-size: .72em;
+}
+.discover-lead {
+  max-width: 760px;
+  margin:
+    28px auto
+    0;
+  color: var(--muted);
+  font-size:
+    1rem;
+  line-height:
+    1.9;
+}
+/* =========================================================
+   LAYOUT PRINCIPAL
+========================================================= */
+.discover-layout {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.08fr)
+    minmax(0, .92fr);
+  align-items: stretch;
+  gap: 48px;
+}
+/* =========================================================
+   MEDIA
+========================================================= */
+.discover-media {
+  position: relative;
+  min-height: 640px;
+  overflow: hidden;
+  border:
+    1px solid rgba(255, 255, 255, .10);
+  border-radius:
+    32px;
+  background:
+    #0f172a;
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, .35);
+}
+.discover-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to top,
+      rgba(2, 6, 23, .92) 0%,
+      rgba(2, 6, 23, .25) 45%,
+      rgba(2, 6, 23, .05) 75%
+    );
+  pointer-events: none;
+}
+.discover-media img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  transition:
+    transform 1s cubic-bezier(.22, 1, .36, 1);
+}
+.discover-media:hover img {
+  transform:
+    scale(1.045);
+}
+/* =========================================================
+   TEXT PESTE IMAGINE
+========================================================= */
+.discover-media__overlay {
+  position: absolute;
+  left: 34px;
+  right: 34px;
+  bottom: 34px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+.discover-media__eyebrow {
+  margin-bottom: 7px;
+  color:
+    #93c5fd;
+  font-size:
+    .68rem;
+  font-weight:
+    600;
+  letter-spacing:
+    .15em;
+  text-transform:
+    uppercase;
+}
+.discover-media__overlay strong {
+  font-family:
+    "DM Serif Display",
+    serif;
+  font-size:
+    clamp(2rem, 3vw, 3.5rem);
+  font-weight:
+    400;
+}
+.discover-media__overlay > span:last-child {
+  color:
+    rgba(255, 255, 255, .68);
+  font-size:
+    .8rem;
+}
+/* =========================================================
+   LABEL IMAGINE
+========================================================= */
+.discover-media__label {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding:
+    9px 13px;
+  border:
+    1px solid rgba(255, 255, 255, .12);
+  border-radius:
+    999px;
+  background:
+    rgba(15, 23, 42, .75);
+  backdrop-filter:
+    blur(12px);
+  color:
+    rgba(255, 255, 255, .9);
+  font-size:
+    .68rem;
+}
+.discover-media__label i {
+  color:
+    #60a5fa;
+}
+/* =========================================================
+   CONȚINUT
+========================================================= */
+.discover-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding:
+    clamp(15px, 3vw, 45px)
+    0;
+}
+.discover-content h3 {
+  max-width: 650px;
+  margin:
+    20px 0
+    30px;
+  font-family:
+    "DM Serif Display",
+    serif;
+  font-size:
+    clamp(2rem, 3.2vw, 3.6rem);
+  font-weight:
+    400;
+  line-height:
+    1.06;
+}
+.discover-content p {
+  max-width: 680px;
+  margin-bottom:
+    19px;
+  color:
+    #cbd5e1;
+  font-size:
+    .94rem;
+  line-height:
+    1.9;
+}
+/* Prima literă / primul paragraf puțin mai important */
+.discover-content p:first-of-type {
+  color: white;
+  font-size:
+    1.02rem;
+}
+/* =========================================================
+   LINK
+========================================================= */
+.discover-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 15px;
+  padding:
+    13px 19px;
+  border:
+    1px solid rgba(96, 165, 250, .28);
+  border-radius:
+    999px;
+  background:
+    rgba(37, 99, 235, .10);
+  color:
+    white;
+  text-decoration:
+    none;
+  font-size:
+    .78rem;
+  font-weight:
+    600;
+  transition:
+    var(--transition);
+}
+.discover-link i {
+  color:
+    #60a5fa;
+  transition:
+    transform .3s ease;
+}
+.discover-link:hover {
+  transform:
+    translateY(-3px);
+  background:
+    rgba(37, 99, 235, .18);
+  border-color:
+    rgba(96, 165, 250, .55);
+}
+.discover-link:hover i {
+  transform:
+    translateX(5px);
+}
+/* =========================================================
+   STATISTICI
+========================================================= */
+#descopera-bustuchin
+.discover-stats {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns:
+    repeat(4, 1fr);
+  gap: 12px;
+  width: 100%;
+  margin:
+    70px 0
+    0;
+}
+#descopera-bustuchin
+.discover-stats
+.stats__item {
+  min-width: 0;
+  padding:
+    22px 14px;
+  border-radius:
+    20px;
+}
+#descopera-bustuchin
+.discover-stats
+.stats__number {
+  margin-bottom:
+    8px;
+  font-family:
+    "DM Serif Display",
+    serif;
+  font-size:
+    clamp(2rem, 3vw, 3rem);
+  font-weight:
+    400;
+}
+#descopera-bustuchin
+.discover-stats
+.stats__label {
+  font-size:
+    .7rem;
+  letter-spacing:
+    .03em;
+}
+/* =========================================================
+   METEO SEPARAT
+========================================================= */
+.discover-weather {
+  padding-top:
+    30px;
+}
+/* =========================================================
+   PAGE SCROLL PROGRESS
+========================================================= */
+.scroll-progress {
+  position: fixed;
+  top: var(--nav-h);
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 2px;
+  background:
+    rgba(255, 255, 255, .035);
+  pointer-events: none;
+}
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+.scroll-progress__bar {
+  width: 0%;
+  height: 100%;
+  position: relative;
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #60a5fa
+    );
+  box-shadow:
+    0 0 10px rgba(96, 165, 250, .45);
+  transition:
+    width .08s linear;
+  will-change:
+    width;
+}
+/* =========================================================
+   MICĂ LUMINĂ ÎN CAPĂTUL BAREI
+========================================================= */
+.scroll-progress__bar::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background:
+    #93c5fd;
+  box-shadow:
+    0 0 10px #60a5fa,
+    0 0 18px rgba(96, 165, 250, .65);
+  transform:
+    translate(50%, -50%);
+}
+/* =========================================================
+   NAVBAR — CAPITOL ACTIV LA SCROLL
+========================================================= */
+/* Dropdown activ ca secțiune curentă */
+.nav__dropdown.current-section
+.dropdown-trigger {
+  position: relative;
+  color: #93c5fd;
+  background:
+    rgba(37, 99, 235, .07);
+}
+/* ICON */
+.nav__dropdown.current-section
+.dropdown-trigger > span > i {
+  color: #60a5fa;
+}
+/* LINIE SUB CAPITOL */
+.nav__dropdown.current-section
+.dropdown-trigger::after {
+  content: "";
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #60a5fa,
+      transparent
+    );
+  box-shadow:
+    0 0 8px rgba(96, 165, 250, .45);
+  animation:
+    navSectionAppear .35s ease forwards;
+}
+/* LINK DIRECT ACTIV — ex. INFRASTRUCTURĂ */
+.nav__links > a.current-section {
+  position: relative;
+  color: #93c5fd;
+  background:
+    rgba(37, 99, 235, .07);
+}
+.nav__links > a.current-section i {
+  color: #60a5fa;
+}
+.nav__links > a.current-section::after {
+  content: "";
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #60a5fa,
+      transparent
+    );
+  box-shadow:
+    0 0 8px rgba(96, 165, 250, .45);
+}
+/* APARIȚIE */
+@keyframes navSectionAppear {
+  from {
+    opacity: 0;
+    transform:
+      scaleX(.35);
+  }
+  to {
+    opacity: 1;
+    transform:
+      scaleX(1);
+  }
+}
+/* =========================================================
+   TITLURI SATE
+========================================================= */
+.section--villages
+.section-block__title {
+  font-size:
+    clamp(2.5rem, 4.5vw, 4.5rem);
+  font-style:
+    italic;
+}
+/* =========================================================
+   EDITORIAL CONTENT SYSTEM
+   SATE · ISTORIE · GEOGRAFIE · TURISM
+========================================================= */
+/* =========================================================
+   1. SPAȚIERE GENERALĂ
+========================================================= */
+.section--villages .villages,
+.section--history .section-content,
+.section--geografie .section-content,
+.section--turism .section-content {
+  gap:
+    clamp(90px, 9vw, 150px);
+}
+/* =========================================================
+   6. TITLURI
+========================================================= */
+.section--villages
+.section-block__title,
+.section--history
+.section-block__title,
+.section--geografie
+.section-block__title,
+.section--turism
+.section-block__title {
+  margin-top:
+    16px;
+}
+/* SATELE POT FI PUȚIN MAI SPECTACULOASE */
+.section--villages
+.section-block__title {
+  font-size:
+    clamp(2.7rem, 4.4vw, 4.6rem);
+  font-style:
+    italic;
+}
+/* =========================================================
+   7. TEXT
+========================================================= */
+.section--villages
+.section-block__text,
+.section--history
+.section-block__text,
+.section--geografie
+.section-block__text,
+.section--turism
+.section-block__text {
+  color:
+    #aebbd0;
+  line-height:
+    1.95;
+  transition:
+    color .35s ease;
+}
+@media (hover:hover) and (pointer:fine) {
+  .section--villages
+  .village:hover
+  .section-block__text,
+  .section--history
+  .split-layout:hover
+  .section-block__text,
+  .section--geografie
+  .split-layout:hover
+  .section-block__text,
+  .section--turism
+  .split-layout:hover
+  .section-block__text {
+    color:
+      #cbd5e1;
+  }
+}
+/* =========================================================
+   8. IMAGINI / VIDEO — ASPECT MAI EDITORIAL
+========================================================= */
+.section--villages
+.media-frame,
+.section--history
+.media-frame,
+.section--geografie
+.media-frame,
+.section--turism
+.media-frame {
+  position:
+    relative;
+  border-radius:
+    28px;
+  border:
+    1px solid rgba(255, 255, 255, .09);
+  box-shadow:
+    0 26px 65px rgba(0, 0, 0, .30);
+}
+/* MICĂ LUMINĂ LA MARGINE */
+.section--villages
+.media-frame::after,
+.section--history
+.media-frame::after,
+.section--geografie
+.media-frame::after,
+.section--turism
+.media-frame::after {
+  content:
+    "";
+  position:
+    absolute;
+  inset:
+    0;
+  z-index:
+    3;
+  border-radius:
+    inherit;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, .025);
+  pointer-events:
+    none;
+}
+/* =========================================================
+   9. IMAGINE — HOVER MAI FIN
+========================================================= */
+@media (hover:hover) and (pointer:fine) {
+  .section--villages
+  .media-frame:hover img,
+  .section--history
+  .media-frame:hover img,
+  .section--geografie
+  .media-frame:hover img,
+  .section--turism
+  .media-frame:hover img {
+    transform:
+      scale(1.035);
+  }
+}
+/* =========================================================
+   10. ACCENT DIFERIT PE CAPITOLE
+========================================================= */
+/* SATE — ALBASTRU */
+.section--villages {
+  --chapter-accent:
+    96, 165, 250;
+}
+/* ISTORIE — AURIU DISCRET */
+.section--history {
+  --chapter-accent:
+    245, 158, 11;
+}
+/* GEOGRAFIE — VERDE */
+.section--geografie {
+  --chapter-accent:
+    52, 211, 153;
+}
+/* TURISM — CYAN */
+.section--turism {
+  --chapter-accent:
+    34, 211, 238;
+}
+/* =========================================================
+   11. CULOAREA LINIEI DE SUB TITLU
+========================================================= */
+.section--villages
+.section-block__title::after,
+.section--history
+.section-block__title::after,
+.section--geografie
+.section-block__title::after,
+.section--turism
+.section-block__title::after {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(var(--chapter-accent), .95),
+      rgba(var(--chapter-accent), 0)
+    );
+  box-shadow:
+    0 0 12px rgba(var(--chapter-accent), .20);
+}
+/* =========================================================
+   GRĂDINIȚA CU PROGRAM PRELUNGIT
+   ROL ȘI FACILITĂȚI — PREMIUM CARDS
+========================================================= */
+#gradinita-program-prelungit .info-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+  margin-top: 55px;
+}
+/* =========================================================
+   CARD
+========================================================= */
+#gradinita-program-prelungit .info-card {
+  --card-accent: 96, 165, 250;
+  position: relative;
+  min-width: 0;
+  min-height: 290px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding:
+    30px 28px 28px;
+  overflow: hidden;
+  border:
+    1px solid rgba(255, 255, 255, .08);
+  border-radius:
+    28px;
+  background:
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(var(--card-accent), .11),
+      transparent 42%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, .045),
+      rgba(255, 255, 255, .012)
+    );
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, .20),
+    inset 0 1px 0 rgba(255, 255, 255, .045);
+  transition:
+    transform .4s cubic-bezier(.22, 1, .36, 1),
+    border-color .4s ease,
+    box-shadow .4s ease,
+    background .4s ease;
+}
+/* =========================================================
+   LINIE COLORATĂ SUS
+========================================================= */
+#gradinita-program-prelungit .info-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 28px;
+  right: 28px;
+  height: 2px;
+  border-radius:
+    0 0 999px 999px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(var(--card-accent), .95),
+      transparent
+    );
+  opacity: .85;
+  transition:
+    left .4s ease,
+    right .4s ease,
+    opacity .4s ease;
+}
+/* =========================================================
+   GLOW DECORATIV
+========================================================= */
+#gradinita-program-prelungit .info-card::after {
+  content: "";
+  position: absolute;
+  right: -70px;
+  bottom: -80px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(var(--card-accent), .13),
+      transparent 68%
+    );
+  filter:
+    blur(4px);
+  pointer-events: none;
+  transition:
+    transform .5s ease,
+    opacity .5s ease;
+}
+/* =========================================================
+   ICON
+========================================================= */
+#gradinita-program-prelungit .info-card__icon {
+  position: relative;
+  z-index: 2;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  border:
+    1px solid rgba(var(--card-accent), .28);
+  border-radius:
+    17px;
+  background:
+    rgba(var(--card-accent), .10);
+  color:
+    rgb(var(--card-accent));
+  box-shadow:
+    0 12px 30px rgba(var(--card-accent), .10);
+  transition:
+    transform .4s cubic-bezier(.22, 1, .36, 1),
+    background .4s ease,
+    box-shadow .4s ease;
+}
+#gradinita-program-prelungit .info-card__icon i {
+  font-size:
+    1.15rem;
+}
+/* MICĂ AURĂ ÎN SPATELE ICONULUI */
+#gradinita-program-prelungit
+.info-card__icon::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  z-index: -1;
+  border-radius:
+    22px;
+  background:
+    rgba(var(--card-accent), .05);
+  opacity: 0;
+  transform:
+    scale(.7);
+  transition:
+    opacity .4s ease,
+    transform .4s ease;
+}
+/* =========================================================
+   TITLU
+========================================================= */
+#gradinita-program-prelungit .info-card h4 {
+  position: relative;
+  z-index: 2;
+  margin:
+    0 0 17px;
+  padding-bottom:
+    14px;
+  font-family:
+    "DM Serif Display",
+    serif;
+  font-size:
+    clamp(1.55rem, 2vw, 2.1rem);
+  font-weight:
+    400;
+  line-height:
+    1.05;
+  letter-spacing:
+    -.02em;
+  color:
+    #fff;
+}
+/* LINIE SUB TITLU */
+#gradinita-program-prelungit .info-card h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 36px;
+  height: 2px;
+  border-radius:
+    999px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(var(--card-accent), 1),
+      rgba(var(--card-accent), 0)
+    );
+  transition:
+    width .4s cubic-bezier(.22, 1, .36, 1);
+}
+/* =========================================================
+   TEXT
+========================================================= */
+#gradinita-program-prelungit .info-card p {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  color:
+    #94a3b8;
+  font-size:
+    .9rem;
+  line-height:
+    1.82;
+  transition:
+    color .35s ease;
+}
+/* =========================================================
+   CULORI DIFERITE
+========================================================= */
+/* PROGRAM */
+#gradinita-program-prelungit
+.info-card:nth-child(1) {
+  --card-accent:
+    56, 189, 248;
+}
+/* CLĂDIRE */
+#gradinita-program-prelungit
+.info-card:nth-child(2) {
+  --card-accent:
+    96, 165, 250;
+}
+/* JOC */
+#gradinita-program-prelungit
+.info-card:nth-child(3) {
+  --card-accent:
+    168, 85, 247;
+}
+/* MASĂ */
+#gradinita-program-prelungit
+.info-card:nth-child(4) {
+  --card-accent:
+    251, 146, 60;
+}
+/* FAMILIE */
+#gradinita-program-prelungit
+.info-card:nth-child(5) {
+  --card-accent:
+    244, 114, 182;
+}
+/* COMUNITATE */
+#gradinita-program-prelungit
+.info-card:nth-child(6) {
+  --card-accent:
+    52, 211, 153;
+}
+/* =========================================================
+   HOVER
+========================================================= */
+@media (hover:hover) and (pointer:fine) {
+  #gradinita-program-prelungit
+  .info-card:hover {
+    transform:
+      translateY(-8px);
+    border-color:
+      rgba(var(--card-accent), .30);
+    background:
+      radial-gradient(
+        circle at 0% 0%,
+        rgba(var(--card-accent), .16),
+        transparent 45%
+      ),
+      linear-gradient(
+        145deg,
+        rgba(255, 255, 255, .06),
+        rgba(255, 255, 255, .018)
+      );
+    box-shadow:
+      0 32px 75px rgba(0, 0, 0, .30),
+      0 0 30px rgba(var(--card-accent), .07),
+      inset 0 1px 0 rgba(255, 255, 255, .06);
+  }
+  #gradinita-program-prelungit
+  .info-card:hover::before {
+    left: 10px;
+    right: 10px;
+    opacity: 1;
+  }
+  #gradinita-program-prelungit
+  .info-card:hover::after {
+    transform:
+      scale(1.25);
+  }
+  #gradinita-program-prelungit
+  .info-card:hover
+  .info-card__icon {
+    transform:
+      translateY(-4px)
+      rotate(-4deg)
+      scale(1.07);
+    background:
+      rgba(var(--card-accent), .16);
+    box-shadow:
+      0 16px 36px rgba(var(--card-accent), .17);
+  }
+  #gradinita-program-prelungit
+  .info-card:hover
+  .info-card__icon::before {
+    opacity: 1;
+    transform:
+      scale(1);
+  }
+  #gradinita-program-prelungit
+  .info-card:hover h4::after {
+    width:
+      68px;
+  }
+  #gradinita-program-prelungit
+  .info-card:hover p {
+    color:
+      #cbd5e1;
+  }
+}
+/* =========================================================
+   GRĂDINIȚĂ — COMPONENTĂ COMPLETĂ
+========================================================= */
+#gradinita-program-prelungit {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  padding:
+    clamp(28px, 4vw, 55px);
+  border:
+    1px solid rgba(255, 255, 255, .07);
+  border-radius:
+    38px;
+  background:
+    radial-gradient(
+      circle at 90% 5%,
+      rgba(168, 85, 247, .07),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 5% 90%,
+      rgba(56, 189, 248, .06),
+      transparent 34%
+    ),
+    rgba(255, 255, 255, .012);
+  box-shadow:
+    0 35px 90px rgba(0, 0, 0, .20);
+}
+/* =========================================================
+   INTRO
+========================================================= */
+#gradinita-program-prelungit
+.education-feature__intro {
+  width:
+    100%;
+  gap:
+    clamp(45px, 6vw, 90px);
+}
+/* =========================================================
+   IMAGINE
+========================================================= */
+#gradinita-program-prelungit
+.section-block__media {
+  position:
+    relative;
+  min-height:
+    580px;
+  border-radius:
+    30px;
+}
+#gradinita-program-prelungit
+.section-block__media img {
+  min-height:
+    580px;
+  object-fit:
+    cover;
+}
+/* =========================================================
+   LABEL PESTE IMAGINE
+========================================================= */
+.education-feature__media-label {
+  position:
+    absolute;
+  left:
+    20px;
+  bottom:
+    20px;
+  z-index:
+    4;
+  display:
+    inline-flex;
+  align-items:
+    center;
+  gap:
+    9px;
+  padding:
+    10px 14px;
+  border:
+    1px solid rgba(255, 255, 255, .14);
+  border-radius:
+    999px;
+  background:
+    rgba(15, 23, 42, .82);
+  backdrop-filter:
+    blur(14px);
+  color:
+    white;
+  font-size:
+    .7rem;
+}
+.education-feature__media-label i {
+  color:
+    #c084fc;
+}
+/* =========================================================
+   FACILITĂȚI
+========================================================= */
+.education-feature__facilities {
+  position:
+    relative;
+  padding-top:
+    55px;
+  border-top:
+    1px solid rgba(255, 255, 255, .07);
+}
+/* =========================================================
+   HEADER FACILITĂȚI
+========================================================= */
+.education-feature__facilities-header {
+  max-width:
+    850px;
+  margin:
+    0 auto 48px;
+  text-align:
+    center;
+}
+.education-feature__eyebrow {
+  display:
+    inline-flex;
+  margin-bottom:
+    18px;
+  color:
+    #c084fc;
+  font-size:
+    .68rem;
+  font-weight:
+    600;
+  letter-spacing:
+    .15em;
+  text-transform:
+    uppercase;
+}
+.education-feature__facilities-header h4 {
+  margin:
+    0;
+  font-family:
+    "DM Serif Display",
+    serif;
+  font-size:
+    clamp(2.2rem, 4vw, 4rem);
+  font-weight:
+    400;
+  line-height:
+    1.02;
+  letter-spacing:
+    -.025em;
+}
+.education-feature__facilities-header h4 span {
+  display:
+    block;
+  margin-top:
+    8px;
+  color:
+    #c4b5fd;
+  font-style:
+    italic;
+  font-size:
+    .78em;
+}
+.education-feature__facilities-header p {
+  max-width:
+    680px;
+  margin:
+    22px auto 0;
+  color:
+    var(--muted);
+  font-size:
+    .9rem;
+  line-height:
+    1.8;
+}
+/* =========================================================
+   ȘCOALA GIMNAZIALĂ POIANA-SECIURI
+========================================================= */
+#scoala-poiana-seciuri {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 75px;
+  padding:
+    clamp(28px, 4vw, 55px);
+  border:
+    1px solid rgba(255, 255, 255, .07);
+  border-radius:
+    38px;
+  background:
+    radial-gradient(
+      circle at 8% 8%,
+      rgba(14, 165, 233, .075),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 95% 90%,
+      rgba(37, 99, 235, .06),
+      transparent 30%
+    ),
+    rgba(255, 255, 255, .012);
+  box-shadow:
+    0 35px 90px rgba(0, 0, 0, .20);
+}
+/* INTRO */
+#scoala-poiana-seciuri
+.education-feature__intro {
+  width: 100%;
+  gap:
+    clamp(45px, 6vw, 90px);
+}
+/* MEDIA */
+#scoala-poiana-seciuri
+.section-block__media {
+  position: relative;
+  min-height: 560px;
+  border-radius: 30px;
+}
+#scoala-poiana-seciuri
+.section-block__media img {
+  min-height: 560px;
+  object-fit: cover;
+}
+/* LABEL */
+#scoala-poiana-seciuri
+.education-feature__media-label i {
+  color: #38bdf8;
+}
+/* =========================================================
+   TIMELINE
+========================================================= */
+.education-feature__timeline {
+  position: relative;
+  padding-top: 58px;
+  border-top:
+    1px solid rgba(255, 255, 255, .07);
+}
+/* =========================================================
+   TIMELINE GRID
+========================================================= */
+#scoala-poiana-seciuri
+.info-grid--school-timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 50px;
+}
+/* LINIE DE FUNDAL */
+#scoala-poiana-seciuri
+.info-grid--school-timeline::before {
+  content: "";
+  position: absolute;
+  top: 34px;
+  left: 7%;
+  right: 7%;
+  height: 1px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(56, 189, 248, .35),
+      rgba(96, 165, 250, .35),
+      transparent
+    );
+  pointer-events: none;
+}
+/* =========================================================
+   CARD TIMELINE
+========================================================= */
+#scoala-poiana-seciuri
+.info-grid--school-timeline
+.info-card {
+  --school-card:
+    56, 189, 248;
+  position: relative;
+  min-height: 310px;
+  padding:
+    78px 26px 28px;
+  overflow: hidden;
+  border:
+    1px solid rgba(255, 255, 255, .08);
+  border-radius:
+    27px;
+  background:
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(var(--school-card), .11),
+      transparent 43%
+    ),
+    rgba(255, 255, 255, .025);
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, .19);
+  transition:
+    transform .4s cubic-bezier(.22, 1, .36, 1),
+    border-color .4s ease,
+    box-shadow .4s ease;
+}
+/* ICON */
+#scoala-poiana-seciuri
+.info-grid--school-timeline
+.info-card__icon {
+  position: absolute;
+  top: 18px;
+  left: 25px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border:
+    1px solid rgba(var(--school-card), .30);
+  border-radius: 15px;
+  background:
+    rgba(var(--school-card), .11);
+  color:
+    rgb(var(--school-card));
+  box-shadow:
+    0 12px 28px rgba(var(--school-card), .10);
+}
+/* PUNCT PE TIMELINE */
+#scoala-poiana-seciuri
+.info-grid--school-timeline
+.info-card__icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -29px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background:
+    rgb(var(--school-card));
+  box-shadow:
+    0 0 13px rgba(var(--school-card), .65);
+  transform:
+    translateY(-50%);
+}
+/* TITLU / AN */
+#scoala-poiana-seciuri
+.info-grid--school-timeline
+.info-card h4 {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  margin:
+    0 0 18px;
+  padding-bottom: 11px;
+  font-family:
+    "DM Serif Display",
+    serif;
+  font-size:
+    clamp(1.7rem, 2.3vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1;
+  color: white;
+}
+#scoala-poiana-seciuri
+.info-grid--school-timeline
+.info-card h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 38px;
+  height: 2px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(var(--school-card), 1),
+      rgba(var(--school-card), 0)
+    );
+  transition:
+    width .4s ease;
+}
+/* AN DECORATIV */
+#scoala-poiana-seciuri
+.info-grid--school-timeline
+.info-card h4::before {
+  content:
+    attr(data-year);
+  position: absolute;
+  top: 44px;
+  right: -8px;
+  z-index: -1;
+  color:
+    rgba(var(--school-card), .055);
+  font-family:
+    "DM Serif Display",
+    serif;
+  font-size:
+    4.7rem;
+  white-space: nowrap;
+  pointer-events: none;
+}
+/* TEXT */
+#scoala-poiana-seciuri
+.info-grid--school-timeline
+.info-card p {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  color:
+    #94a3b8;
+  font-size:
+    .88rem;
+  line-height:
+    1.8;
+}
+/* =========================================================
+   CULORI
+========================================================= */
+#scoala-poiana-seciuri
+.info-card:nth-child(1) {
+  --school-card:
+    56, 189, 248;
+}
+#scoala-poiana-seciuri
+.info-card:nth-child(2) {
+  --school-card:
+    96, 165, 250;
+}
+#scoala-poiana-seciuri
+.info-card:nth-child(3) {
+  --school-card:
+    99, 102, 241;
+}
+#scoala-poiana-seciuri
+.info-card:nth-child(4) {
+  --school-card:
+    139, 92, 246;
+}
+#scoala-poiana-seciuri
+.info-card:nth-child(5) {
+  --school-card:
+    52, 211, 153;
+}
+#scoala-poiana-seciuri
+.info-card:nth-child(6) {
+  --school-card:
+    34, 197, 94;
+}
+/* =========================================================
+   HOVER
+========================================================= */
+@media (hover:hover) and (pointer:fine) {
+  #scoala-poiana-seciuri
+  .info-grid--school-timeline
+  .info-card:hover {
+    transform:
+      translateY(-7px);
+    border-color:
+      rgba(var(--school-card), .32);
+    box-shadow:
+      0 32px 72px rgba(0, 0, 0, .28),
+      0 0 26px rgba(var(--school-card), .07);
+  }
+  #scoala-poiana-seciuri
+  .info-grid--school-timeline
+  .info-card:hover h4::after {
+    width:
+      70px;
+  }
+}
+/* =========================================================
+   FOOTER — DESCOPERĂ BUSTUCHIN
+   ========================================================= */
+.footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding:
+    100px 0
+    32px;
+  border-top:
+    1px solid rgba(96, 165, 250, .16);
+  background:
+    radial-gradient(
+      circle at 12% 10%,
+      rgba(37, 99, 235, .16),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 88% 70%,
+      rgba(14, 165, 233, .08),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(7, 13, 24, .96),
+      rgba(2, 6, 23, .99)
+    );
+}
+/* =========================================================
+   LUMINĂ SUPERIOARĂ
+   ========================================================= */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(80%, 1100px);
+  height: 1px;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(96, 165, 250, .75),
+      transparent
+    );
+  box-shadow:
+    0 0 35px rgba(37, 99, 235, .32);
+  pointer-events: none;
+}
+/* =========================================================
+   TEXTURĂ DE FUNDAL
+   ========================================================= */
+.footer-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .45;
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, .018) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, .018) 1px,
+      transparent 1px
+    );
+  background-size:
+    48px 48px;
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent 85%
+    );
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent 85%
+    );
+}
+/* =========================================================
+   CONTAINER PRINCIPAL
+   ========================================================= */
+.footer-container {
+  position: relative;
+  display: grid;
+  grid-template-columns:
+    minmax(280px, 1.6fr)
+    repeat(4, minmax(150px, 1fr));
+  gap:
+    55px 38px;
+  align-items: start;
+}
+/* =========================================================
+   COLOANE
+   ========================================================= */
+.footer__column {
+  min-width: 0;
+}
+/* =========================================================
+   BRAND
+   ========================================================= */
+.footer__brand {
+  padding-right: 20px;
+}
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 25px;
+}
+.footer-logo img {
+  width: 68px;
+  height: 68px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  padding: 7px;
+  border:
+    1px solid rgba(96, 165, 250, .16);
+  border-radius:
+    20px;
+  background:
+    rgba(255, 255, 255, .035);
+  box-shadow:
+    0 14px 35px rgba(0, 0, 0, .25),
+    inset 0 1px 0 rgba(255, 255, 255, .05);
+}
+.footer-logo h3 {
+  margin: 0;
+  color:
+    #f8fafc;
+  font-family:
+    "DM Serif Display",
+    serif;
+  font-size:
+    1.35rem;
+  font-weight:
+    400;
+  line-height:
+    1.15;
+  letter-spacing:
+    .01em;
+}
+.footer-logo span {
+  display: block;
+  margin-top: 6px;
+  color:
+    #60a5fa;
+  font-size:
+    .72rem;
+  font-weight:
+    600;
+  letter-spacing:
+    .12em;
+  text-transform:
+    uppercase;
+}
+/* =========================================================
+   DESCRIERE
+   ========================================================= */
+.footer-description {
+  max-width: 440px;
+  margin:
+    0 0 14px;
+  color:
+    #94a3b8;
+  font-size:
+    .88rem;
+  line-height:
+    1.85;
+}
+/* =========================================================
+   TITLURI COLOANE
+   ========================================================= */
+.footer__column h4 {
+  position: relative;
+  margin:
+    6px 0 28px;
+  padding-bottom:
+    13px;
+  color:
+    #f8fafc;
+  font-size:
+    .82rem;
+  font-weight:
+    600;
+  letter-spacing:
+    .08em;
+  text-transform:
+    uppercase;
+}
+.footer__column h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 38px;
+  height: 2px;
+  border-radius:
+    999px;
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #60a5fa
+    );
+  box-shadow:
+    0 0 14px rgba(37, 99, 235, .4);
+}
+/* =========================================================
+   LINKURI
+   ========================================================= */
+.footer__column > a,
+.footer__column > p > a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  max-width: 100%;
+  margin-bottom:
+    11px;
+  padding:
+    5px 0;
+  color:
+    #94a3b8;
+  font-size:
+    .82rem;
+  line-height:
+    1.45;
+  text-decoration:
+    none;
+  transition:
+    color .3s ease,
+    transform .3s ease;
+}
+/* ICON */
+.footer__column > a i,
+.footer__column > p > a i {
+  width: 26px;
+  height: 26px;
+  flex:
+    0 0 26px;
+  display:
+    inline-flex;
+  align-items:
+    center;
+  justify-content:
+    center;
+  border:
+    1px solid rgba(96, 165, 250, .11);
+  border-radius:
+    8px;
+  background:
+    rgba(37, 99, 235, .055);
+  color:
+    #60a5fa;
+  font-size:
+    .68rem;
+  transition:
+    background .3s ease,
+    border-color .3s ease,
+    transform .3s ease,
+    color .3s ease;
+}
+/* HOVER LINK */
+@media (hover:hover) and (pointer:fine) {
+  .footer__column > a:hover,
+  .footer__column > p > a:hover {
+    color:
+      #f8fafc;
+    transform:
+      translateX(4px);
+  }
+  .footer__column > a:hover i,
+  .footer__column > p > a:hover i {
+    color:
+      #bfdbfe;
+    border-color:
+      rgba(96, 165, 250, .32);
+    background:
+      rgba(37, 99, 235, .14);
+    transform:
+      scale(1.08);
+  }
+}
+/* =========================================================
+   TEXTE SIMPLE DIN COLOANE
+   ========================================================= */
+.footer__column > p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin:
+    0 0 10px;
+  color:
+    #94a3b8;
+  font-size:
+    .82rem;
+  line-height:
+    1.6;
+}
+.footer__column > p > i {
+  width: 26px;
+  height: 26px;
+  flex:
+    0 0 26px;
+  display:
+    inline-flex;
+  align-items:
+    center;
+  justify-content:
+    center;
+  border:
+    1px solid rgba(96, 165, 250, .11);
+  border-radius:
+    8px;
+  background:
+    rgba(37, 99, 235, .055);
+  color:
+    #60a5fa;
+  font-size:
+    .68rem;
+}
+/* =========================================================
+   SOCIAL MEDIA
+   ========================================================= */
+.footer-socials {
+  display:
+    flex;
+  align-items:
+    center;
+  gap:
+    10px;
+  margin-top:
+    26px;
+}
+.footer-socials a {
+  position:
+    relative;
+  width:
+    42px;
+  height:
+    42px;
+  margin:
+    0;
+  display:
+    inline-flex;
+  align-items:
+    center;
+  justify-content:
+    center;
+  overflow:
+    hidden;
+  border:
+    1px solid rgba(96, 165, 250, .18);
+  border-radius:
+    13px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, .06),
+      rgba(255, 255, 255, .018)
+    );
+  color:
+    #cbd5e1;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .04);
+  transition:
+    transform .3s ease,
+    border-color .3s ease,
+    background .3s ease,
+    color .3s ease,
+    box-shadow .3s ease;
+}
+.footer-socials a i {
+  width:
+    auto;
+  height:
+    auto;
+  flex:
+    initial;
+  padding:
+    0;
+  border:
+    none;
+  background:
+    none;
+  color:
+    inherit;
+  font-size:
+    .95rem;
+}
+@media (hover:hover) and (pointer:fine) {
+  .footer-socials a:hover {
+    color:
+      white;
+    border-color:
+      rgba(96, 165, 250, .45);
+    background:
+      rgba(37, 99, 235, .18);
+    transform:
+      translateY(-4px);
+    box-shadow:
+      0 12px 28px rgba(0, 0, 0, .25),
+      0 0 18px rgba(37, 99, 235, .12);
+  }
+}
+/* =========================================================
+   FOOTER BOTTOM
+   ========================================================= */
+.footer-bottom {
+  position:
+    relative;
+  width:
+    min(90%, 1500px);
+  margin:
+    75px auto 0;
+  padding:
+    28px 0 0;
+  display:
+    grid;
+  grid-template-columns:
+    1.2fr 1fr 1.2fr;
+  align-items:
+    center;
+  gap:
+    30px;
+  border-top:
+    1px solid rgba(255, 255, 255, .07);
+}
+.footer-bottom::before {
+  content:
+    "";
+  position:
+    absolute;
+  top:
+    -1px;
+  left:
+    0;
+  width:
+    120px;
+  height:
+    1px;
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      transparent
+    );
+}
+.footer-bottom p {
+  margin:
+    0;
+  color:
+    #64748b;
+  font-size:
+    .72rem;
+  line-height:
+    1.7;
+}
+/* CITAT */
+.footer-bottom p:first-child {
+  color:
+    #94a3b8;
+  font-family:
+    "DM Serif Display",
+    serif;
+  font-size:
+    .88rem;
+  font-style:
+    italic;
+}
+/* COPYRIGHT */
+.footer-bottom p:nth-child(2) {
+  text-align:
+    center;
+}
+/* CREDIT */
+.footer-credit {
+  text-align:
+    right;
+}
+.footer-credit a {
+  color:
+    #93c5fd;
+  font-weight:
+    500;
+  text-decoration:
+    none;
+  transition:
+    color .3s ease;
+}
+.footer-credit a:hover {
+  color:
+    #ffffff;
+}
+/* =========================================================
+   FOCUS — ACCESIBILITATE
+   ========================================================= */
+.footer a:focus-visible {
+  outline:
+    2px solid #60a5fa;
+  outline-offset:
+    4px;
+  border-radius:
+    6px;
+}
+/* =========================================================
+   GOOGLE MAPS BUTTON
+========================================================= */
+.location-map-btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 22px;
+  padding: 11px 15px 11px 11px;
+  border: 1px solid rgba(255, 255, 255, .10);
+  border-radius: 15px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(6, 182, 212, .12),
+      rgba(14, 116, 144, .06)
+    ),
+    rgba(255, 255, 255, .025);
+  color: white;
+  text-decoration: none;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, .18);
+  transition:
+    transform .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease,
+    background .3s ease;
+}
+/* lumină subtilă la hover */
+.location-map-btn::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -60%;
+  width: 45%;
+  height: 300%;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, .08),
+      transparent
+    );
+  transform: rotate(25deg);
+  transition:
+    left .55s ease;
+  z-index: -1;
+}
+.location-map-btn:hover::before {
+  left: 130%;
+}
+/* ICON */
+.location-map-btn__icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background:
+    linear-gradient(
+      135deg,
+      #06b6d4,
+      #0e7490
+    );
+  color: white;
+  box-shadow:
+    0 8px 20px rgba(6, 182, 212, .22);
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+.location-map-btn__icon i {
+  font-size: .9rem;
+}
+/* TEXT */
+.location-map-btn__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.location-map-btn__label {
+  color:
+    rgba(255, 255, 255, .48);
+  font-size: .58rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.location-map-btn__text {
+  color: white;
+  font-size: .78rem;
+  font-weight: 650;
+}
+/* SĂGEATĂ */
+.location-map-btn__arrow {
+  margin-left: 8px;
+  color:
+    rgba(255, 255, 255, .45);
+  font-size: .72rem;
+  transition:
+    transform .3s ease,
+    color .3s ease;
+}
+/* HOVER */
+.location-map-btn:hover {
+  transform:
+    translateY(-3px);
+  border-color:
+    rgba(34, 211, 238, .30);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(6, 182, 212, .18),
+      rgba(14, 116, 144, .08)
+    ),
+    rgba(255, 255, 255, .035);
+  box-shadow:
+    0 16px 38px rgba(0, 0, 0, .28);
+}
+.location-map-btn:hover
+.location-map-btn__icon {
+  transform:
+    scale(1.06);
+  box-shadow:
+    0 10px 26px rgba(6, 182, 212, .32);
+}
+.location-map-btn:hover
+.location-map-btn__arrow {
+  color:
+    #22d3ee;
+  transform:
+    translate(2px, -2px);
+}
+/* CLICK */
+.location-map-btn:active {
+  transform:
+    translateY(-1px)
+    scale(.98);
+}
+/* ACCESSIBILITY */
+.location-map-btn:focus-visible {
+  outline:
+    2px solid #22d3ee;
+  outline-offset:
+    4px;
+}
+/* =========================================================
+   MESAJUL PRIMARULUI
+========================================================= */
+.mayor-welcome {
+  position: relative;
+  overflow: hidden;
+  padding: 150px 0 170px;
+  background:
+    radial-gradient(
+      circle at 15% 40%,
+      rgba(37, 99, 235, 0.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 65%,
+      rgba(255, 255, 255, 0.04),
+      transparent 30%
+    );
+}
+/* linie subtilă sus */
+.mayor-welcome::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(90%, 1400px);
+  height: 1px;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.14),
+      transparent
+    );
+}
+/* =========================================================
+   AMBIENT GLOW
+========================================================= */
+.mayor-welcome__glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+}
+.mayor-welcome__glow--one {
+  top: 5%;
+  left: -250px;
+  background:
+    rgba(37, 99, 235, 0.13);
+}
+.mayor-welcome__glow--two {
+  right: -300px;
+  bottom: 0;
+  background:
+    rgba(255, 255, 255, 0.06);
+}
+/* =========================================================
+   LAYOUT
+========================================================= */
+.mayor-welcome__layout {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns:
+    minmax(320px, 0.78fr)
+    minmax(450px, 1.22fr);
+  gap: clamp(60px, 8vw, 130px);
+  align-items: center;
+  max-width: 1350px;
+  margin-inline: auto;
+}
+/* =========================================================
+   PORTRET
+========================================================= */
+.mayor-welcome__portrait {
+  position: relative;
+}
+.mayor-welcome__portrait-frame {
+  position: relative;
+  overflow: hidden;
+  min-height: 650px;
+  border-radius:
+    4px
+    80px
+    4px
+    80px;
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.12);
+  background:
+    rgba(255, 255, 255, 0.03);
+  box-shadow:
+    0 50px 120px
+    rgba(0, 0, 0, 0.45);
+}
+.mayor-welcome__portrait-frame::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  z-index: 2;
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.1);
+  border-radius:
+    2px
+    65px
+    2px
+    65px;
+  pointer-events: none;
+}
+.mayor-welcome__portrait img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition:
+    transform 1.4s
+    cubic-bezier(.22, 1, .36, 1);
+}
+.mayor-welcome__portrait:hover img {
+  transform:
+    scale(1.035);
+}
+/* overlay fotografie */
+.mayor-welcome__portrait-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to top,
+      rgba(2, 6, 23, 0.97) 0%,
+      rgba(2, 6, 23, 0.5) 30%,
+      transparent 65%
+    );
+}
+/* informații peste fotografie */
+.mayor-welcome__portrait-info {
+  position: absolute;
+  left: 45px;
+  right: 45px;
+  bottom: 45px;
+  z-index: 3;
+}
+.mayor-welcome__role {
+  display: block;
+  margin-bottom: 8px;
+  color:
+    rgba(255, 255, 255, 0.62);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.mayor-welcome__portrait-info h3 {
+  margin: 0;
+  font-family:
+    "DM Serif Display",
+    serif;
+  font-size:
+    clamp(2rem, 4vw, 3.4rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+/* text lateral */
+.mayor-welcome__vertical-text {
+  position: absolute;
+  top: 50%;
+  left: -50px;
+  transform:
+    translateY(-50%)
+    rotate(-90deg);
+  color:
+    rgba(255, 255, 255, 0.22);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+}
+/* =========================================================
+   CONTENT
+========================================================= */
+.mayor-welcome__content {
+  position: relative;
+  max-width: 720px;
+}
+/* =========================================================
+   EYEBROW
+========================================================= */
+.mayor-welcome__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 25px;
+  color: #60a5fa;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.mayor-welcome__eyebrow span {
+  display: block;
+  width: 45px;
+  height: 1px;
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #60a5fa
+    );
+}
+/* =========================================================
+   TITLE
+========================================================= */
+.mayor-welcome__title {
+  margin: 0 0 55px;
+  font-family:
+    "DM Serif Display",
+    serif;
+  font-size:
+    clamp(3.3rem, 6vw, 4.5rem);
+  font-weight: 400;
+  line-height: 0.93;
+  letter-spacing: -0.045em;
+  color: #fff;
+}
+.mayor-welcome__title em {
+  display: block;
+  margin-top: 12px;
+  color:
+    rgba(255, 255, 255, 0.38);
+  font-weight: 400;
+}
+/* =========================================================
+   QUOTE
+========================================================= */
+.mayor-welcome__quote {
+  position: relative;
+  padding-left: 42px;
+}
+.mayor-welcome__quote::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  bottom: 5px;
+  width: 1px;
+  background:
+    linear-gradient(
+      to bottom,
+      #3b82f6,
+      rgba(59, 130, 246, 0.1)
+    );
+}
+/* ghilimea mare */
+.mayor-welcome__quote-mark {
+  position: absolute;
+  top: -72px;
+  left: 18px;
+  font-family:
+    "DM Serif Display",
+    serif;
+  font-size: 8rem;
+  line-height: 1;
+  color:
+    rgba(59, 130, 246, 0.12);
+  pointer-events: none;
+}
+/* =========================================================
+   TEXT
+========================================================= */
+.mayor-welcome__message {
+  position: relative;
+}
+.mayor-welcome__message p {
+  margin-bottom: 22px;
+  color:
+    rgba(226, 232, 240, 0.84);
+  font-size:
+    clamp(0.98rem, 1.25vw, 1.08rem);
+  line-height: 1.95;
+  font-weight: 300;
+}
+.mayor-welcome__message p:first-child {
+  color: #fff;
+  font-family:
+    "DM Serif Display",
+    serif;
+  font-size:
+    clamp(1.35rem, 2vw, 1.7rem);
+  line-height: 1.5;
+}
+/* =========================================================
+   TYPEWRITER CURSOR
+========================================================= */
+.mayor-welcome__message p.is-writing::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1.15em;
+  margin-left: 5px;
+  vertical-align: -2px;
+  background: #60a5fa;
+  animation:
+    mayorCursorBlink
+    0.75s
+    steps(1)
+    infinite;
+}
+@keyframes mayorCursorBlink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  46%,
+  100% {
+    opacity: 0;
+  }
+}
+/* =========================================================
+   SIGNATURE
+========================================================= */
+.mayor-welcome__signature {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 50px;
+  padding-left: 42px;
+}
+.mayor-welcome__signature-line {
+  width: 55px;
+  height: 1px;
+  background:
+    rgba(255, 255, 255, 0.25);
+}
+.mayor-welcome__signature-name {
+  display: block;
+  margin-bottom: 6px;
+  font-family:
+    "Playwrite DE LA Guides",
+    cursive;
+  font-size:
+    clamp(1.5rem, 2vw, 2rem);
+  color: #fff;
+}
+.mayor-welcome__signature small {
+  color:
+    rgba(148, 163, 184, 0.8);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+/* =========================================================
+   CONTINUE
+========================================================= */
+.mayor-welcome__continue {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 55px;
+  margin-left: 42px;
+  color:
+    rgba(255, 255, 255, 0.52);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    color 0.35s ease;
+}
+.mayor-welcome__continue i {
+  transition:
+    transform 0.35s ease;
+}
+.mayor-welcome__continue:hover {
+  color: #fff;
+}
+.mayor-welcome__continue:hover i {
+  transform:
+    translateY(5px);
+}
+/* =========================================================
+   REVISTA TRADIȚII BUSTUCHINENE
+========================================================= */
+.magazine-library {
+  width: 100%;
+  margin-top: 70px;
+}
+.magazine-library__header {
+  max-width: 850px;
+  margin-bottom: 35px;
+}
+/* EDIȚII */
+.magazine-editions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 12px;
+  margin: 30px 0 40px;
+}
+.magazine-edition {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90px;
+  padding: 14px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  color: inherit;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+.magazine-edition span {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+.magazine-edition small {
+  margin-top: 5px;
+  opacity: 0.65;
+}
+.magazine-edition:hover,
+.magazine-edition.active {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+/* READER */
+.magazine-reader {
+  width: 100%;
+}
+.magazine-reader__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 18px;
+}
+.magazine-reader__label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.6;
+}
+.magazine-reader__top h4 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+.magazine-reader__open {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+/* PDF */
+.magazine-viewer {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+}
+.magazine-viewer iframe {
+  display: block;
+  width: 100%;
+  height: 900px;
+  border: 0;
+}
+/* =========================================================
+   BUSTUCHINUL DE ALTĂDATĂ
+========================================================= */
+.section--memories {
+    --memory-bg: #f4eee3;
+    --memory-paper: #fffaf2;
+    --memory-dark: #252019;
+    --memory-muted: #72685b;
+    --memory-gold: #a97832;
+    --memory-border: rgba(88, 67, 39, 0.16);
+    position: relative;
+    overflow: hidden;
+}
+/* =========================================================
+   HERO
+========================================================= */
+.section--memories .memory-hero {
+    margin-top: 2.5rem;
+}
+.section--memories .memory-hero__media {
+    position: relative;
+    min-height: 560px;
+    border-radius: 28px;
+    overflow: hidden;
+    background: #222;
+}
+.section--memories .memory-hero__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.section--memories .memory-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(20, 17, 13, 0.88) 0%,
+            rgba(20, 17, 13, 0.55) 45%,
+            rgba(20, 17, 13, 0.1) 100%
+        );
+}
+.section--memories .memory-hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    min-height: 560px;
+    padding: clamp(2rem, 6vw, 5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+}
+.section--memories .memory-label {
+    width: fit-content;
+    margin-bottom: 1.25rem;
+    padding: 0.55rem 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    backdrop-filter: blur(8px);
+}
+.section--memories .memory-hero__content h3 {
+    margin: 0;
+    font-size: clamp(2.2rem, 5vw, 4.6rem);
+    line-height: 1.03;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 500;
+}
+.section--memories .memory-hero__content p {
+    max-width: 620px;
+    margin-top: 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.84);
+}
+/* =========================================================
+   GENERAL MEMORY BLOCK
+========================================================= */
+.section--memories .memory-block {
+    margin-top: 6rem;
+}
+.section--memories .memory-block--soft {
+    padding: clamp(2rem, 5vw, 4rem);
+    border-radius: 30px;
+    background: var(--memory-bg);
+}
+.section--memories .memory-block__header {
+    max-width: 760px;
+    margin-bottom: 2.5rem;
+}
+/* =========================================================
+   ATUNCI / ACUM
+========================================================= */
+.section--memories .memory-compare {
+    overflow: hidden;
+    border: 1px solid var(--memory-border);
+    border-radius: 28px;
+    background: var(--memory-paper);
+}
+.section--memories .memory-compare__item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.section--memories .memory-compare__image {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+.section--memories .memory-compare__image:first-child {
+    border-right: 1px solid rgba(255,255,255,0.35);
+}
+.section--memories .memory-compare__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+.section--memories .memory-compare:hover img {
+    transform: scale(1.025);
+}
+.section--memories .memory-year {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(20,20,20,0.72);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+.section--memories .memory-compare__caption {
+    padding: 1.6rem 1.8rem 1.8rem;
+}
+.section--memories .memory-compare__caption > span {
+    color: var(--memory-gold);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+.section--memories .memory-compare__caption h4 {
+    margin: 0.45rem 0 0.5rem;
+    font-size: 1.4rem;
+    color: var(--memory-dark);
+}
+.section--memories .memory-compare__caption p {
+    margin: 0;
+    color: var(--memory-muted);
+    line-height: 1.7;
+}
+/* =========================================================
+   MEMORY CARDS
+========================================================= */
+.section--memories .memory-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+.section--memories .memory-card {
+    border-radius: 22px;
+    overflow: hidden;
+    background: var(--memory-paper);
+    border: 1px solid var(--memory-border);
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+.section--memories .memory-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(74, 54, 31, 0.12);
+}
+.section--memories .memory-card__media {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+.section--memories .memory-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.65s ease;
+}
+.section--memories .memory-card:hover img {
+    transform: scale(1.05);
+}
+.section--memories .memory-card__number {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(255, 250, 242, 0.92);
+    color: var(--memory-dark);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+.section--memories .memory-card__content {
+    padding: 1.5rem;
+}
+.section--memories .memory-card__eyebrow {
+    color: var(--memory-gold);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+}
+.section--memories .memory-card__content h4 {
+    margin: 0.45rem 0 0.7rem;
+    font-size: 1.3rem;
+    color: var(--memory-dark);
+}
+.section--memories .memory-card__content p {
+    margin: 0;
+    color: var(--memory-muted);
+    line-height: 1.7;
+}
+/* =========================================================
+   PORTRETE
+========================================================= */
+.section--memories .memory-portraits {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr 1fr;
+    gap: 1.25rem;
+}
+.section--memories .memory-portrait {
+    position: relative;
+    min-height: 430px;
+    margin: 0;
+    border-radius: 24px;
+    overflow: hidden;
+}
+.section--memories .memory-portrait img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+.section--memories .memory-portrait:hover img {
+    transform: scale(1.04);
+}
+.section--memories .memory-portrait::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            to top,
+            rgba(16, 13, 10, 0.9),
+            transparent 60%
+        );
+}
+.section--memories .memory-portrait figcaption {
+    position: absolute;
+    z-index: 2;
+    left: 1.5rem;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+.section--memories .memory-portrait figcaption strong {
+    font-size: 1.15rem;
+}
+.section--memories .memory-portrait figcaption span {
+    margin-top: 0.3rem;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+}
+/* =========================================================
+   INDUSTRIE
+========================================================= */
+.section--memories .memory-industry {
+    margin-top: 6rem;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    overflow: hidden;
+    border-radius: 30px;
+    background: #201d19;
+    color: #fff;
+}
+.section--memories .memory-industry__media {
+    min-height: 550px;
+}
+.section--memories .memory-industry__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.8) contrast(1.05);
+}
+.section--memories .memory-industry__content {
+    padding: clamp(2rem, 5vw, 4.5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.section--memories .memory-industry .section-block__title {
+    color: #fff;
+}
+.section--memories .memory-industry .section-block__text {
+    color: rgba(255,255,255,0.72);
+}
+.section--memories .memory-industry__facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.section--memories .memory-industry__facts div {
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.16);
+}
+.section--memories .memory-industry__facts span {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: #d1ab70;
+    font-size: 0.75rem;
+}
+.section--memories .memory-industry__facts strong {
+    font-size: 0.95rem;
+}
+/* =========================================================
+   OBIECTE CU POVESTE
+========================================================= */
+.section--memories .memory-objects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+.section--memories .memory-object {
+    overflow: hidden;
+    border-radius: 22px;
+    background: #fff;
+    border: 1px solid var(--memory-border);
+}
+.section--memories .memory-object__media {
+    aspect-ratio: 1 / 1;
+    background: #e9e1d4;
+}
+.section--memories .memory-object__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.section--memories .memory-object__content {
+    padding: 1.4rem;
+}
+.section--memories .memory-object__content > span {
+    color: var(--memory-gold);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.section--memories .memory-object__content h4 {
+    margin: 0.4rem 0 0.6rem;
+    color: var(--memory-dark);
+    font-size: 1.25rem;
+}
+.section--memories .memory-object__content p {
+    margin: 0;
+    color: var(--memory-muted);
+    line-height: 1.65;
+}
+/* =========================================================
+   ARHIVA
+========================================================= */
+.section--memories .memory-archive {
+    margin-top: 6rem;
+    padding: clamp(2rem, 5vw, 4rem);
+    border-radius: 30px;
+    background: var(--memory-dark);
+}
+.section--memories .memory-archive .section-block__title {
+    color: #fff;
+}
+.section--memories .memory-archive__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+.section--memories .memory-archive__card {
+    display: block;
+    padding: 2rem;
+    border-radius: 20px;
+    color: #fff;
+    text-decoration: none;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+.section--memories .memory-archive__card:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.1);
+}
+.section--memories .memory-archive__card > i {
+    margin-bottom: 2.5rem;
+    font-size: 1.5rem;
+    color: #d3ad70;
+}
+.section--memories .memory-archive__card > span {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #d3ad70;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+.section--memories .memory-archive__card h4 {
+    margin: 0;
+    font-size: 1.35rem;
+}
+.section--memories .memory-archive__card p {
+    margin: 0.8rem 0 1.8rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.65;
+}
+.section--memories .memory-archive__card strong {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+}
+/* =========================================================
+   CONTRIBUȚII
+========================================================= */
+.section--memories .memory-contribute {
+    margin-top: 3rem;
+    padding: clamp(2rem, 5vw, 4rem);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    align-items: center;
+    border-radius: 28px;
+    background: var(--memory-bg);
+    border: 1px solid var(--memory-border);
+}
+.section--memories .memory-contribute__icon {
+    width: 90px;
+    height: 90px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--memory-dark);
+    color: #fff;
+    font-size: 2rem;
+}
+.section--memories .memory-contribute__content > span {
+    color: var(--memory-gold);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+.section--memories .memory-contribute__content h3 {
+    margin: 0.45rem 0 0.75rem;
+    color: var(--memory-dark);
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+}
+.section--memories .memory-contribute__content p {
+    max-width: 800px;
+    margin: 0 0 1.5rem;
+    color: var(--memory-muted);
+    line-height: 1.75;
+}
+.section--memories .memory-contribute__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.85rem 1.15rem;
+    border-radius: 999px;
+    text-decoration: none;
+    background: var(--memory-dark);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+/* =========================================================
+   CLIMĂ — CAPITOL EDITORIAL
+========================================================= */
+#clima.climate-chapter {
+    position: relative;
+    margin: clamp(2.5rem, 6vw, 5rem) 0;
+    padding: clamp(1.25rem, 3vw, 2.25rem) 0;
+    isolation: isolate;
+}
+#clima.climate-chapter::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border: 1px solid rgba(211, 173, 112, 0.22);
+    border-radius: 32px;
+    background:
+        radial-gradient(circle at 8% 8%, rgba(97, 153, 157, 0.16), transparent 28%),
+        linear-gradient(145deg, rgba(21, 39, 59, 0.96), rgba(12, 27, 43, 0.94));
+    box-shadow: 0 24px 60px rgba(3, 13, 24, 0.24);
+}
+#clima .climate-chapter__inner {
+    width: min(100% - 2rem, 1240px);
+}
+#clima .climate-chapter__header {
+    max-width: 980px;
+    margin: 0 auto clamp(2rem, 4vw, 3rem);
+    text-align: center;
+}
+#clima .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.55rem 0.9rem;
+    border: 1px solid rgba(211, 173, 112, 0.34);
+    border-radius: 999px;
+    color: #e5c487;
+    background: rgba(211, 173, 112, 0.08);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+#clima .section-title {
+    max-width: 850px;
+    margin: 1rem auto 0.65rem;
+    color: #f5f0e6;
+    font-family: "DM Serif Display", "Georgia", serif;
+    font-size: clamp(2.1rem, 4.4vw, 4rem);
+    line-height: 1.02;
+    text-wrap: balance;
+}
+#clima .section-divider {
+    width: 72px;
+    height: 2px;
+    margin: 1.15rem auto;
+    background: linear-gradient(90deg, transparent, #d3ad70, transparent);
+}
+#clima .section-description {
+    max-width: 800px;
+    margin-inline: auto;
+    color: rgba(239, 243, 244, 0.72);
+    line-height: 1.8;
+}
+#clima .climate-chapter__highlights {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.65rem;
+    margin-top: 1.75rem;
+}
+#clima .climate-chapter__highlights > span {
+    min-height: 92px;
+    padding: 0.85rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-content: center;
+    column-gap: 0.65rem;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.045);
+}
+#clima .climate-chapter__highlights i {
+    grid-row: 1 / 3;
+    align-self: center;
+    color: #d3ad70;
+    font-size: 1rem;
+}
+#clima .climate-chapter__highlights strong {
+    color: #f5f0e6;
+    font-family: "DM Serif Display", "Georgia", serif;
+    font-size: 1rem;
+}
+#clima .climate-chapter__highlights small {
+    color: rgba(239, 243, 244, 0.55);
+    font-size: 0.68rem;
+}
+#clima .climate-chapter__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.75fr);
+    gap: clamp(1.5rem, 3vw, 2.75rem);
+    align-items: start;
+}
+#clima .climate-chapter__content {
+    display: grid;
+    gap: 1rem;
+    counter-reset: climate-topic;
+}
+#clima .climate-chapter__content > .section-block {
+    counter-increment: climate-topic;
+    position: relative;
+    padding: clamp(1.25rem, 2.5vw, 2rem);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.035);
+}
+#clima .climate-chapter__content > .section-block::before {
+    content: "0" counter(climate-topic);
+    display: block;
+    margin-bottom: 0.7rem;
+    color: #d3ad70;
+    font: 700 0.7rem/1 "Poppins", sans-serif;
+    letter-spacing: 0.14em;
+}
+#clima .section-block__title {
+    margin-top: 0;
+    color: #f5f0e6;
+    font-size: clamp(1.4rem, 2.1vw, 2rem);
+}
+#clima .section-block__text {
+    color: rgba(231, 237, 239, 0.7);
+}
+#clima .climate-chapter__media {
+    position: sticky;
+    top: 105px;
+    display: grid;
+    gap: 1rem;
+}
+#clima .climate-chapter__media .media-frame {
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    border: 1px solid rgba(211, 173, 112, 0.25);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.04);
+}
+#clima .climate-chapter__media .media-frame__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#clima .climate-chapter__media .stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+#clima .climate-chapter__media .stats__item {
+    min-width: 0;
+    padding: 1rem 0.65rem;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.045);
+    text-align: center;
+}
+#clima .climate-chapter__media .stats__number {
+    color: #e5c487;
+}
