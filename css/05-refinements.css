@@ -1528,6 +1528,159 @@
   #turism .split-layout { border-radius: 19px; }
 }
 
+/* =========================================================
+   EDUCAȚIE — PARCURSUL UNEI COMUNITĂȚI
+========================================================= */
+#educatie {
+  --chapter-accent: 188, 151, 79;
+  background:
+    radial-gradient(circle at 8% 14%, rgba(67, 120, 184, .16), transparent 29rem),
+    radial-gradient(circle at 93% 35%, rgba(215, 173, 84, .12), transparent 25rem),
+    #091927;
+}
+#educatie > .container > .section-header { max-width: 800px; margin-inline: auto; text-align: center; }
+#educatie > .container > .section-header .section-kicker { color: #dfbc73; }
+#educatie > .container > .section-header .section-title { max-width: 770px; margin-inline: auto; }
+#educatie > .container > .section-header .section-description { max-width: 665px; margin-inline: auto; color: #becbda; }
+.education-portal { width: min(100%, 1260px); margin: clamp(2.2rem, 5vw, 4.5rem) auto clamp(3rem, 7vw, 6.5rem); }
+.education-portal__hero {
+  position: relative;
+  display: flex;
+  align-items: end;
+  min-height: clamp(390px, 43vw, 520px);
+  overflow: hidden;
+  border: 1px solid rgba(215, 181, 111, .36);
+  border-radius: 30px;
+  background: #162e49;
+  box-shadow: 0 25px 74px rgba(0, 0, 0, .26);
+}
+.education-portal__hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .7; }
+.education-portal__overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7, 22, 38, .97), rgba(10, 33, 54, .68) 48%, rgba(8, 26, 39, .12)), linear-gradient(0deg, rgba(6, 20, 33, .72), transparent 56%); }
+.education-portal__copy { position: relative; z-index: 1; width: min(100%, 700px); padding: clamp(2rem, 5vw, 5rem); }
+.education-portal__copy > span { display: inline-flex; align-items: center; gap: .55rem; color: #e4c377; font-size: .7rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+.education-portal__copy h3 { max-width: 640px; margin: .75rem 0 1rem; color: #f8f2e8; font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 4.65rem); line-height: .98; }
+.education-portal__copy p { max-width: 580px; margin: 0; color: #d7e0ea; font-size: clamp(.96rem, 1.3vw, 1.08rem); line-height: 1.75; }
+.education-portal__copy a { display: inline-flex; align-items: center; gap: .7rem; margin-top: 1.7rem; padding: .83rem 1.1rem; color: #17233a; background: #e4c276; border-radius: 999px; font-size: .8rem; font-weight: 800; text-decoration: none; transition: transform .25s ease, background .25s ease; }
+.education-portal__copy a:hover { color: #17233a; background: #f2d58f; transform: translateY(-2px); }
+.education-portal__milestones { position: absolute; z-index: 1; right: clamp(1rem, 3vw, 2.2rem); bottom: clamp(1rem, 3vw, 2.2rem); display: grid; gap: 1px; min-width: 195px; overflow: hidden; color: #d9e4f0; background: rgba(5, 17, 30, .76); border: 1px solid rgba(227, 194, 119, .28); border-radius: 14px; }
+.education-portal__milestones span { display: flex; align-items: baseline; gap: .5rem; padding: .65rem .9rem; background: rgba(255, 255, 255, .035); font-size: .68rem; }
+.education-portal__milestones strong { color: #e5c071; font-family: var(--font-display); font-size: 1.05rem; }
+.education-path { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 12px; }
+.education-path a { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: .65rem; min-height: 86px; padding: .9rem; color: #eff4fa; background: linear-gradient(145deg, rgba(28, 61, 91, .88), rgba(16, 35, 57, .92)); border: 1px solid rgba(138, 177, 219, .22); border-radius: 16px; text-decoration: none; transition: transform .25s ease, border-color .25s ease, background .25s ease; }
+.education-path a:hover { color: #fff; background: linear-gradient(145deg, rgba(42, 84, 121, .96), rgba(20, 46, 73, .96)); border-color: rgba(229, 192, 113, .58); transform: translateY(-4px); }
+.education-path i { display: grid; width: 31px; height: 31px; place-items: center; color: #e2be73; background: rgba(226, 190, 115, .1); border: 1px solid rgba(226, 190, 115, .18); border-radius: 9px; font-size: .82rem; }
+.education-path span { display: grid; gap: .22rem; min-width: 0; }
+.education-path small { color: #a9c0d9; font-size: .53rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.education-path span:not(small) { color: #f4f2eb; font-family: var(--font-display); font-size: 1.05rem; line-height: 1.04; }
+.education-path b { color: #e5bf70; font-size: .85rem; font-weight: 500; }
+.education-portal__note { display: flex; align-items: flex-start; gap: .8rem; margin-top: 15px; padding: 1rem 1.15rem; color: #c7d6e4; background: rgba(38, 78, 112, .2); border-left: 3px solid #e0b96d; border-radius: 0 12px 12px 0; font-size: .82rem; line-height: 1.6; }
+.education-portal__note i { margin-top: .18rem; color: #e1bb70; }
+.education-portal__note p { margin: 0; }
+#educatie > .container > .section-content { gap: clamp(2.5rem, 5vw, 5rem); }
+#educatie .split-layout { border-color: rgba(123, 164, 207, .23); background: linear-gradient(135deg, rgba(19, 49, 78, .65), rgba(9, 27, 46, .9)); }
+#educatie .split-layout:hover { border-color: rgba(225, 188, 111, .47); }
+#educatie .section-block__title { color: #f4efe5; }
+#educatie .section-block__text { color: #c5d2df; }
+#educatie .education-timeline { margin-top: clamp(1.5rem, 4vw, 3.5rem); padding: clamp(1.4rem, 4vw, 3rem); border: 1px solid rgba(122, 164, 208, .2); border-radius: 24px; background: linear-gradient(135deg, rgba(17, 45, 71, .62), rgba(8, 24, 40, .42)); }
+#educatie .education-timeline__header { padding-inline: 0; background: transparent; border: 0; }
+#educatie .education-timeline__header::before { background: #e0b96d; }
+#educatie .education-timeline__grid .info-card { background: rgba(255, 255, 255, .045); border-color: rgba(140, 179, 217, .18); }
+
+@media (max-width: 1050px) { .education-path { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 600px) {
+  #educatie > .container > .section-header { text-align: left; }
+  #educatie > .container > .section-header .section-title,
+  #educatie > .container > .section-header .section-description { margin-inline: 0; }
+  .education-portal { margin: 1.8rem auto 3.25rem; }
+  .education-portal__hero { min-height: 520px; border-radius: 21px; }
+  .education-portal__overlay { background: linear-gradient(0deg, rgba(5, 17, 30, .98) 18%, rgba(8, 28, 46, .5) 76%, rgba(7, 20, 32, .18)); }
+  .education-portal__copy { position: absolute; bottom: 106px; padding: 1.4rem; }
+  .education-portal__copy h3 { font-size: clamp(2.25rem, 11vw, 3.25rem); }
+  .education-portal__copy p { font-size: .92rem; line-height: 1.62; }
+  .education-portal__milestones { right: 1rem; bottom: 1rem; left: 1rem; grid-template-columns: repeat(3, 1fr); min-width: 0; border-radius: 12px; }
+  .education-portal__milestones span { display: block; min-width: 0; padding: .55rem .6rem; font-size: .54rem; line-height: 1.35; }
+  .education-portal__milestones strong { display: block; font-size: .92rem; }
+  .education-path { display: flex; gap: .75rem; padding: .15rem 1px .85rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .education-path::-webkit-scrollbar { display: none; }
+  .education-path a { flex: 0 0 min(78vw, 290px); min-height: 80px; scroll-snap-align: start; }
+  .education-portal__note { margin-top: .5rem; padding: .9rem; font-size: .77rem; }
+  #educatie .education-timeline { padding: 1.1rem; border-radius: 18px; }
+}
+
+/* =========================================================
+   INFRASTRUCTURĂ — HARTA SERVICIILOR PUBLICE
+========================================================= */
+#infrastructura {
+  --chapter-accent: 111, 151, 168;
+  background:
+    radial-gradient(circle at 7% 13%, rgba(69, 126, 151, .17), transparent 30rem),
+    radial-gradient(circle at 94% 29%, rgba(191, 153, 86, .1), transparent 25rem),
+    #081722;
+}
+#infrastructura > .container > .section-header { max-width: 800px; margin-inline: auto; text-align: center; }
+#infrastructura > .container > .section-header .section-kicker { color: #d8b773; }
+#infrastructura > .container > .section-header .section-title { max-width: 780px; margin-inline: auto; }
+#infrastructura > .container > .section-header .section-description { max-width: 680px; margin-inline: auto; color: #bdcbd3; }
+.infrastructure-portal { width: min(100%, 1260px); margin: clamp(2.2rem, 5vw, 4.5rem) auto clamp(3rem, 7vw, 6.5rem); }
+.infrastructure-portal__hero {
+  position: relative;
+  display: flex;
+  align-items: end;
+  min-height: clamp(390px, 43vw, 520px);
+  overflow: hidden;
+  border: 1px solid rgba(173, 193, 200, .34);
+  border-radius: 30px;
+  background: #16323c;
+  box-shadow: 0 25px 74px rgba(0, 0, 0, .26);
+}
+.infrastructure-portal__hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .68; }
+.infrastructure-portal__overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6, 21, 31, .97), rgba(10, 37, 47, .7) 49%, rgba(6, 22, 29, .12)), linear-gradient(0deg, rgba(4, 16, 23, .75), transparent 56%); }
+.infrastructure-portal__copy { position: relative; z-index: 1; width: min(100%, 700px); padding: clamp(2rem, 5vw, 5rem); }
+.infrastructure-portal__copy > span { display: inline-flex; align-items: center; gap: .55rem; color: #ddbd77; font-size: .7rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+.infrastructure-portal__copy h3 { max-width: 650px; margin: .75rem 0 1rem; color: #f7f2e8; font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 4.65rem); line-height: .98; }
+.infrastructure-portal__copy p { max-width: 570px; margin: 0; color: #d4e0e1; font-size: clamp(.96rem, 1.3vw, 1.08rem); line-height: 1.75; }
+.infrastructure-portal__copy a { display: inline-flex; align-items: center; gap: .7rem; margin-top: 1.7rem; padding: .83rem 1.1rem; color: #142832; background: #dec078; border-radius: 999px; font-size: .8rem; font-weight: 800; text-decoration: none; transition: transform .25s ease, background .25s ease; }
+.infrastructure-portal__copy a:hover { color: #142832; background: #f0d28e; transform: translateY(-2px); }
+.infrastructure-portal__facts { position: absolute; z-index: 1; right: clamp(1rem, 3vw, 2.2rem); bottom: clamp(1rem, 3vw, 2.2rem); display: grid; gap: 1px; min-width: 205px; overflow: hidden; color: #d9e5e6; background: rgba(5, 19, 25, .77); border: 1px solid rgba(216, 183, 115, .28); border-radius: 14px; }
+.infrastructure-portal__facts span { display: flex; align-items: baseline; gap: .5rem; padding: .65rem .9rem; background: rgba(255, 255, 255, .035); font-size: .68rem; }
+.infrastructure-portal__facts strong { color: #e1bd71; font-family: var(--font-display); font-size: 1.02rem; }
+.infrastructure-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px; }
+.infrastructure-grid a { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: .75rem; min-height: 92px; padding: 1rem; color: #eff4f2; background: linear-gradient(145deg, rgba(29, 65, 75, .9), rgba(13, 36, 47, .94)); border: 1px solid rgba(141, 180, 190, .22); border-radius: 16px; text-decoration: none; transition: transform .25s ease, border-color .25s ease, background .25s ease; }
+.infrastructure-grid a:hover { color: #fff; background: linear-gradient(145deg, rgba(41, 85, 94, .98), rgba(17, 49, 59, .98)); border-color: rgba(225, 189, 112, .6); transform: translateY(-4px); }
+.infrastructure-grid i { display: grid; width: 33px; height: 33px; place-items: center; color: #dfbd75; background: rgba(222, 188, 117, .1); border: 1px solid rgba(222, 188, 117, .18); border-radius: 9px; font-size: .86rem; }
+.infrastructure-grid span { display: grid; gap: .24rem; min-width: 0; color: #f2f1e9; font-family: var(--font-display); font-size: 1.14rem; line-height: 1.06; }
+.infrastructure-grid small { color: #abc2c7; font-family: var(--font-body); font-size: .54rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.infrastructure-grid b { color: #e2bd71; font-size: .85rem; font-weight: 500; }
+.infrastructure-portal__note { display: flex; align-items: flex-start; gap: .8rem; margin-top: 15px; padding: 1rem 1.15rem; color: #c5d5d6; background: rgba(45, 84, 91, .22); border-left: 3px solid #dfbb70; border-radius: 0 12px 12px 0; font-size: .82rem; line-height: 1.6; }
+.infrastructure-portal__note i { margin-top: .18rem; color: #e0bd72; }
+.infrastructure-portal__note p { margin: 0; }
+#infrastructura > .container > .section-content { gap: clamp(2.5rem, 5vw, 5rem); }
+#infrastructura .split-layout { border-color: rgba(128, 169, 181, .23); background: linear-gradient(135deg, rgba(19, 52, 62, .66), rgba(8, 27, 38, .9)); }
+#infrastructura .split-layout:hover { border-color: rgba(222, 187, 112, .48); }
+#infrastructura .section-block__title { color: #f2ede2; }
+#infrastructura .section-block__text { color: #c1d0d2; }
+#infrastructura .education-feature__media-label { color: #e3c175; background: rgba(8, 29, 38, .82); border-color: rgba(222, 188, 116, .36); }
+
+@media (max-width: 800px) { .infrastructure-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) {
+  #infrastructura > .container > .section-header { text-align: left; }
+  #infrastructura > .container > .section-header .section-title,
+  #infrastructura > .container > .section-header .section-description { margin-inline: 0; }
+  .infrastructure-portal { margin: 1.8rem auto 3.25rem; }
+  .infrastructure-portal__hero { min-height: 520px; border-radius: 21px; }
+  .infrastructure-portal__overlay { background: linear-gradient(0deg, rgba(5, 18, 25, .98) 18%, rgba(8, 31, 40, .5) 76%, rgba(7, 20, 29, .18)); }
+  .infrastructure-portal__copy { position: absolute; bottom: 106px; padding: 1.4rem; }
+  .infrastructure-portal__copy h3 { font-size: clamp(2.25rem, 11vw, 3.25rem); }
+  .infrastructure-portal__copy p { font-size: .92rem; line-height: 1.62; }
+  .infrastructure-portal__facts { right: 1rem; bottom: 1rem; left: 1rem; grid-template-columns: repeat(3, 1fr); min-width: 0; border-radius: 12px; }
+  .infrastructure-portal__facts span { display: block; min-width: 0; padding: .55rem .6rem; font-size: .54rem; line-height: 1.35; }
+  .infrastructure-portal__facts strong { display: block; font-size: .88rem; }
+  .infrastructure-grid { display: flex; gap: .75rem; padding: .15rem 1px .85rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .infrastructure-grid::-webkit-scrollbar { display: none; }
+  .infrastructure-grid a { flex: 0 0 min(80vw, 300px); min-height: 84px; scroll-snap-align: start; }
+  .infrastructure-portal__note { margin-top: .5rem; padding: .9rem; font-size: .77rem; }
+}
+
 /* Ultimul strat mobil: păstrează textul în panoul său, fără grile moștenite. */
 @media (max-width: 900px) {
   .section--events .event-card.split-layout,
