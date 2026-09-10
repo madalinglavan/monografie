@@ -740,6 +740,53 @@
     padding: 0.85rem 0.5rem;
   }
 }
+@media (max-width: 900px) {
+  .population-admin-chapter__facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .demography-register__notes {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .population-admin-chapter,
+  .demography-register {
+    margin-block: 1.75rem;
+    padding: 1.1rem;
+    border-radius: 20px;
+  }
+  .population-admin-chapter__heading {
+    margin-bottom: 1.25rem;
+    text-align: left;
+  }
+  .population-admin-chapter__heading h3,
+  .demography-register__header h3 {
+    font-size: clamp(1.8rem, 9vw, 2.4rem);
+  }
+  .population-admin-chapter__facts {
+    gap: 0.5rem;
+  }
+  .population-admin-chapter__facts article {
+    padding: 0.85rem;
+  }
+  .population-admin-chapter__facts strong {
+    font-size: 1.55rem;
+  }
+  .population-admin-chapter__facts p {
+    font-size: 0.76rem;
+  }
+  .demography-register__scroll {
+    margin-inline: -0.25rem;
+    border-radius: 14px;
+  }
+  .demography-register th,
+  .demography-register td {
+    padding: 0.72rem 0.68rem;
+  }
+  .demography-register__notes {
+    margin-top: 1rem;
+  }
+}
 /* Ascunde textul logo-ului când spațiul începe să scadă */
 @media (max-width: 1580px) and (min-width: 769px) {
   .logo span {

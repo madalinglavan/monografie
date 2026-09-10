@@ -3313,6 +3313,21 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    if (block.matches(".culture-person, .culture-living, .culture-publication, .event-card")) {
+      const culturalParagraphs = Array.from(content.children).filter((element) =>
+        element.matches("p.section-block__text")
+      );
+
+      if (culturalParagraphs.length > 2 && !content.querySelector(":scope > .culture-story")) {
+        const culturalStory = document.createElement("div");
+        culturalStory.className = "culture-story";
+        culturalParagraphs[0].insertAdjacentElement("beforebegin", culturalStory);
+        culturalParagraphs.forEach((paragraph) => culturalStory.appendChild(paragraph));
+      }
+
+      return;
+    }
+
     const paragraphs = Array.from(content.children).filter((element) =>
       element.matches("p.section-block__text")
     );

@@ -112,6 +112,28 @@
     margin-bottom: 0;
   }
 }
+/* Păstrează cardurile editoriale ale patrimoniului cultural compacte pe mobil. */
+@media (max-width: 768px) {
+  .cultural-archive .culture-person > .section-block__content,
+  .cultural-archive .culture-living > .section-block__content,
+  .cultural-archive .culture-publication > .section-block__content {
+    display: block;
+    order: 1;
+    padding: 1.5rem;
+  }
+  .cultural-archive .culture-person > .section-block__media,
+  .cultural-archive .culture-living > .section-block__media,
+  .cultural-archive .culture-living > .village__media,
+  .cultural-archive .culture-publication > .section-block__media {
+    order: 2 !important;
+    min-height: 280px;
+    margin: 0;
+  }
+  .cultural-archive .culture-person__meta {
+    display: flex;
+    order: initial;
+  }
+}
 
 /* =========================================================
    SURSELE MONOGRAFIEI ȘI REALIZAREA EDIȚIEI DIGITALE
@@ -742,6 +764,47 @@
     font-size: 1.4rem;
   }
 }
+
+/* Patrimoniu cultural: scene și atlas adaptate ecranelor mici. */
+@media (max-width: 900px) {
+  .cultural-archive .culture-living { display: flex; }
+  .cultural-archive .culture-living > :is(.section-block__media, .village__media) {
+    order: 1 !important;
+    aspect-ratio: 16 / 10;
+    min-height: 0;
+  }
+  .cultural-archive .culture-living > .section-block__content {
+    order: 2;
+    width: calc(100% - 1.5rem);
+    margin-top: -2.4rem;
+    padding: 1.35rem 1.2rem 1.7rem;
+  }
+  .cultural-archive .culture-living .section-block__title { font-size: clamp(1.8rem, 8vw, 2.55rem); }
+  .toponimie__header { grid-template-columns: 1fr; gap: 0.9rem; }
+  .cultural-archive .toponimie > .subsection,
+  .cultural-archive .toponimie > .toponimie__card--intro,
+  .cultural-archive .toponimie > .subsection:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) {
+  .cultural-archive .culture-living { border-radius: 1.15rem; }
+  .cultural-archive .culture-living > :is(.section-block__media, .village__media) { aspect-ratio: 4 / 3; }
+  .cultural-archive .culture-living > .section-block__content { width: calc(100% - 1rem); border-radius: 1rem 1rem 0 0; }
+  .cultural-archive .culture-living__eyebrow { font-size: 0.62rem; letter-spacing: 0.12em; }
+  .cultural-archive .toponimie { display: grid; gap: 0.8rem; padding: 0; }
+  .toponimie__header { padding-bottom: 1.2rem; }
+  .toponimie__header h3 { font-size: clamp(2rem, 11vw, 3rem); }
+  .toponimie__header p { font-size: 0.92rem; line-height: 1.65; }
+  .cultural-archive .toponimie > .subsection {
+    display: grid;
+    grid-template-columns: 2.2rem minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 1.25rem 1.05rem;
+    border-radius: 1rem;
+  }
+  .cultural-archive .toponimie > .subsection::before { position: static; font-size: 0.9rem; }
+  .cultural-archive .toponimie .section-block__title { width: 100%; margin: -0.2rem 0 0.85rem; padding: 0; font-size: clamp(1.45rem, 7.5vw, 1.95rem); }
+  .cultural-archive .toponimie .section-block__text { font-size: 0.92rem; line-height: 1.68; }
+}
 /* =========================================================
    CRONOLOGII EDUCAȚIONALE — STIL EDITORIAL UNITAR
 ========================================================= */
@@ -1280,6 +1343,43 @@
     top: 38px;
     height: 82px;
   }
+}
+
+/* Calendarul evenimentelor pe tabletă și mobil. */
+@media (max-width: 900px) {
+  .section--events > .container { width: min(100% - 1.2rem, 1500px); }
+  .events-hero { grid-template-columns: 1fr; gap: 2rem; padding: clamp(2rem, 8vw, 3.5rem); border-radius: 1.4rem; }
+  .events-hero h2 { font-size: clamp(2.8rem, 10vw, 5rem); }
+  .section--events .event-card,
+  .section--events .event-card:nth-child(even) { display: flex; flex-direction: column; min-height: 0; }
+  .section--events .event-card > .section-block__content,
+  .section--events .event-card:nth-child(even) > .section-block__content { display: block; order: 2; padding: clamp(1.6rem, 6vw, 3rem); }
+  .section--events .event-card > .video-preview,
+  .section--events .event-card:nth-child(even) > .video-preview { order: 1; min-height: 0; height: auto; aspect-ratio: 16 / 10; }
+  .section--events .event-card > .video-preview::after,
+  .section--events .event-card:nth-child(even) > .video-preview::after { background: linear-gradient(0deg, rgba(8, 25, 38, 0.62), transparent 45%); }
+}
+@media (max-width: 600px) {
+  .events-hero { margin-bottom: 2.5rem; padding: 1.65rem 1.2rem; border-radius: 1.15rem; }
+  .events-hero::before { inset: 0.55rem; border-radius: 0.8rem; }
+  .events-hero h2 { margin: 0.85rem 0 1rem; font-size: clamp(2.55rem, 13vw, 3.8rem); line-height: 0.94; }
+  .events-hero__copy > p { font-size: 0.94rem; line-height: 1.65; }
+  .events-hero__calendar { gap: 0.45rem; }
+  .events-hero__calendar a { grid-template-columns: 2.4rem 5.2rem minmax(0, 1fr); gap: 0.55rem; min-height: 3.7rem; padding: 0.6rem 0.7rem; }
+  .events-hero__calendar strong { font-size: 1.15rem; }
+  .events-hero__calendar span { font-size: 0.68rem; }
+  .events-hero__calendar small { font-size: 0.72rem; }
+  .section--events .section-content { gap: 1.25rem; }
+  .section--events .event-card { border-radius: 1.1rem; }
+  .section--events .event-card > .video-preview,
+  .section--events .event-card:nth-child(even) > .video-preview { aspect-ratio: 4 / 3; }
+  .section--events .event-card > .section-block__content,
+  .section--events .event-card:nth-child(even) > .section-block__content { padding: 1.35rem 1.1rem 1.6rem; }
+  .events-hero__eyebrow,
+  .event-card__eyebrow { font-size: 0.62rem; letter-spacing: 0.11em; }
+  .section--events .event-card .section-block__title { margin-bottom: 1.1rem; font-size: clamp(2rem, 10vw, 2.8rem); }
+  .section--events .event-card .section-block__text { font-size: 0.94rem; line-height: 1.7; }
+  .event-card__facts { grid-template-columns: 1fr; }
 }
 @media (max-width: 900px) {
   .split-layout--longform .longform__text {
@@ -4461,4 +4561,81 @@ body.search-open { overflow: hidden; }
     min-height: 488px;
     touch-action: pan-y;
   }
+}
+@media (max-width: 900px) {
+  .cultural-archive .culture-person,
+  .cultural-archive .culture-publication {
+    display: flex !important;
+    flex-direction: column;
+  }
+  .cultural-archive .culture-person > .section-block__content,
+  .cultural-archive .culture-publication > .section-block__content {
+    display: block;
+    order: 2;
+  }
+  .cultural-archive .culture-person > .section-block__media,
+  .cultural-archive .culture-publication > .section-block__media {
+    position: relative;
+    inset: auto;
+    order: 1 !important;
+    width: 100%;
+    margin: 0;
+  }
+}
+
+/* Compoziția finală a scenelor culturale pe desktop. */
+@media (min-width: 901px) {
+  .cultural-archive .culture-living {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .cultural-archive .culture-living:nth-of-type(even) { display: flex; }
+  .cultural-archive .culture-living > :is(.section-block__media, .village__media) {
+    order: 1;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    aspect-ratio: 16 / 8;
+  }
+  .cultural-archive .culture-living:nth-of-type(even) > :is(.section-block__media, .village__media) { order: 1; }
+  .cultural-archive .culture-living > .section-block__content,
+  .cultural-archive .culture-living:nth-of-type(even) > .section-block__content {
+    order: 2;
+    width: min(100% - 3rem, 980px);
+    margin: clamp(-5.25rem, -6vw, -3.5rem) auto 0;
+    padding: clamp(1.5rem, 3.2vw, 3rem) clamp(1.4rem, 3.6vw, 3.6rem) clamp(2rem, 4vw, 3.5rem);
+  }
+}
+
+/* Prioritate finală pentru ordinea și proporțiile evenimentelor. */
+@media (max-width: 900px) {
+  .section--events > .container { width: min(100% - 1.2rem, 1500px); }
+  .events-hero { grid-template-columns: 1fr; gap: 2rem; padding: clamp(2rem, 8vw, 3.5rem); border-radius: 1.4rem; }
+  .events-hero h2 { font-size: clamp(2.8rem, 10vw, 5rem); }
+  .section--events .event-card,
+  .section--events .event-card:nth-child(even) { display: flex; flex-direction: column; min-height: 0; }
+  .section--events .event-card > .section-block__content,
+  .section--events .event-card:nth-child(even) > .section-block__content { display: block; order: 2; padding: clamp(1.6rem, 6vw, 3rem); }
+  .section--events .event-card > .video-preview,
+  .section--events .event-card:nth-child(even) > .video-preview,
+  .section--events .event-card > .event-card__poster,
+  .section--events .event-card:nth-child(even) > .event-card__poster { order: 1; min-height: 0; height: auto; margin: 0; aspect-ratio: 16 / 10; }
+}
+@media (max-width: 600px) {
+  .events-hero { margin-bottom: 2.5rem; padding: 1.65rem 1.2rem; border-radius: 1.15rem; }
+  .events-hero h2 { font-size: clamp(2.55rem, 13vw, 3.8rem); }
+  .events-hero__copy > p { font-size: 0.94rem; line-height: 1.65; }
+  .events-hero__calendar a { grid-template-columns: 2.4rem 5.2rem minmax(0, 1fr); gap: 0.55rem; min-height: 3.7rem; padding: 0.6rem 0.7rem; }
+  .section--events .event-card { border-radius: 1.1rem; }
+  .section--events .event-card > .video-preview,
+  .section--events .event-card:nth-child(even) > .video-preview { aspect-ratio: 4 / 3; }
+  .section--events .event-card > .event-card__poster,
+  .section--events .event-card:nth-child(even) > .event-card__poster { aspect-ratio: 4 / 5; }
+  .section--events .event-card > .section-block__content,
+  .section--events .event-card:nth-child(even) > .section-block__content { padding: 1.35rem 1.1rem 1.6rem; }
+  .section--events .event-card .section-block__title { font-size: clamp(2rem, 10vw, 2.8rem); }
+  .section--events .event-card .section-block__text { font-size: 0.94rem; line-height: 1.7; }
+  .event-card__facts { grid-template-columns: 1fr; }
 }
