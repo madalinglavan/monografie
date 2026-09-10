@@ -3986,12 +3986,68 @@ document.addEventListener("DOMContentLoaded", () => {
       "Fiecare sat are o poveste proprie în cadrul aceleiași comunități",
       "Traseele locale leagă patrimoniul cultural de peisajul natural",
       "Fotografiile de altădată păstrează memoria locurilor și a familiilor",
-      "Descoperă patrimoniul, oamenii și natura Bustuchinului"
+      "Descoperă patrimoniul, oamenii și natura Bustuchinului",
+      "Comuna Bustuchin face parte din județul Gorj, iar așezările sale urmează cursul superior al Amaradiei",
+      "Cele opt sate ale comunei păstrează legături de vecinătate, familie, muncă și tradiție, dincolo de hotarele administrative",
+      "Harta locală ajută vizitatorii să localizeze sate, școli, biserici, infrastructură și obiective de interes comunitar",
+      "Biserica de lemn din Strâmba–Valea Pojarului păstrează un reper valoros al arhitecturii religioase tradiționale din zonă",
+      "Pădurile, livezile, cursurile de apă și dealurile completează cadrul natural al așezărilor comunei",
+      "Agricultura, pomicultura și creșterea animalelor au rămas activități legate de ritmul anotimpurilor și al gospodăriei",
+      "Rețeaua de drumuri leagă satele de centrul administrativ și susține deplasarea către localitățile din jur",
+      "DJ 675C și DN 67B sunt repere importante pentru accesul rutier al comunei către restul județului",
+      "Apa, energia, gazele, comunicațiile și serviciile publice fac parte din infrastructura care susține viața de zi cu zi",
+      "Spațiile de joacă, terenurile sportive și activitățile pentru copii creează contexte de mișcare și întâlnire în comunitate",
+      "Casele de cultură pot găzdui repetiții, spectacole, întâlniri și proiecte care pun în valoare viața locală",
+      "Școala, biblioteca și inițiativele culturale aduc împreună memoria locului și educația noilor generații",
+      "Liceul Tehnologic Bustuchin continuă tradiția educației locale prin pregătire școlară și practică",
+      "Festivalurile locale oferă un cadru pentru muzică populară, dans, port tradițional și întâlnirea dintre generații",
+      "Zilele Comunei Bustuchin reunesc program cultural, invitați, activități recreative și momente dedicate comunității",
+      "Maratonul pentru Sănătate a adus în 2026 o inițiativă dedicată mișcării, sănătății și implicării comunitare",
+      "Cupa Bustuchin la fotbal juniori pune accent pe prietenie, fair-play, respect și susținerea tinerilor",
+      "Fotografiile, filmările și mărturiile locale pot păstra detalii care nu apar întotdeauna în documentele oficiale",
+      "Comparațiile dintre imagini vechi și actuale arată cum s-au schimbat centrul comunei, gospodăriile și peisajul local",
+      "Portul popular, cântecul și jocul rămân forme vii prin care comunitatea își exprimă identitatea",
+      "Fântânile, cișmelele, prispele și curțile gospodăriilor vorbesc despre felul în care era organizată viața de odinioară",
+      "Numele dealurilor, văilor și pâraielor păstrează urme ale peisajului, ale familiilor și ale ocupațiilor locale",
+      "Biblioteca și arhiva digitală pot deveni locuri de întâlnire între document, fotografie, memorie și cercetare locală",
+      "Harta interactivă permite filtrarea locurilor după categorie, pentru o explorare mai clară a comunei",
+      "Fiecare obiectiv de pe hartă poate fi o poartă către o poveste: o școală, o biserică, un sat, un parc sau un loc de întâlnire",
+      "Monografia digitală continuă să adune informații, imagini și materiale video care promovează comuna Bustuchin",
+      "Respectarea patrimoniului înseamnă păstrarea clădirilor, a documentelor, a tradițiilor și a poveștilor oamenilor",
+      "Informațiile locale devin mai utile atunci când pot fi descoperite ușor, comparate și transmise mai departe",
+      "Bustuchinul se poate explora ca spațiu al naturii, al memoriei, al educației și al vieții comunitare"
     ];
+
+    /* Ordine nouă la fiecare vizită: toate reperele apar înainte ca un mesaj să se repete. */
+    const shuffleTickerItems = items => {
+      const shuffled = [...items];
+      for (let index = shuffled.length - 1; index > 0; index -= 1) {
+        const randomIndex = Math.floor(Math.random() * (index + 1));
+        [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
+      }
+      return shuffled;
+    };
+    const tickerKey = "bustuchin-last-ticker-reper";
+    const tickerItemsShuffled = shuffleTickerItems(tickerItems);
+    let lastTickerItem = "";
+    try {
+      lastTickerItem = sessionStorage.getItem(tickerKey) || "";
+    } catch (error) {
+      /* Stocarea este opțională. */
+    }
+    if (tickerItemsShuffled.length > 1 && tickerItemsShuffled[0] === lastTickerItem) {
+      [tickerItemsShuffled[0], tickerItemsShuffled[1]] = [tickerItemsShuffled[1], tickerItemsShuffled[0]];
+    }
+    try {
+      sessionStorage.setItem(tickerKey, tickerItemsShuffled[tickerItemsShuffled.length - 1]);
+    } catch (error) {
+      /* Stocarea este opțională. */
+    }
+
     const tickerStories = [];
-    for (let index = 0; index < tickerItems.length; index += 2) {
-      const first = tickerItems[index];
-      const second = tickerItems[index + 1] || tickerItems[0];
+    for (let index = 0; index < tickerItemsShuffled.length; index += 2) {
+      const first = tickerItemsShuffled[index];
+      const second = tickerItemsShuffled[index + 1] || tickerItemsShuffled[0];
       tickerStories.push(`${first}. ${second}.`);
     }
     const tickerMarkup = [...tickerStories, ...tickerStories]
