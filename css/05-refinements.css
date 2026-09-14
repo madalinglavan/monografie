@@ -805,6 +805,161 @@
   .cultural-archive .toponimie .section-block__title { width: 100%; margin: -0.2rem 0 0.85rem; padding: 0; font-size: clamp(1.45rem, 7.5vw, 1.95rem); }
   .cultural-archive .toponimie .section-block__text { font-size: 0.92rem; line-height: 1.68; }
 }
+
+/* Selectorul de ambianță: alegerea rămâne întotdeauna a vizitatorului. */
+.ambient-picker[hidden] { display: none !important; }
+.ambient-picker {
+  position: fixed;
+  z-index: 1160;
+  right: 22px;
+  bottom: 62px;
+  width: min(342px, calc(100vw - 32px));
+  padding: 15px;
+  color: #edf1f2;
+  background: linear-gradient(145deg, rgba(11, 30, 47, .98), rgba(7, 20, 34, .98));
+  border: 1px solid rgba(217, 189, 137, .36);
+  border-radius: 17px;
+  box-shadow: 0 20px 46px rgba(0, 0, 0, .42);
+  backdrop-filter: blur(14px);
+}
+.ambient-picker__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(217, 189, 137, .17);
+  color: #e5c583;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.ambient-picker__heading span { display: inline-flex; align-items: center; gap: 8px; }
+.ambient-picker__close {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  place-items: center;
+  color: #e5c583;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(217, 189, 137, .22);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.ambient-picker__intro {
+  margin: 11px 0 12px;
+  color: #afbccb;
+  font-size: .76rem;
+  line-height: 1.45;
+}
+.ambient-picker__choices { display: grid; gap: 7px; }
+.ambient-picker__local {
+  margin-top: 11px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(217, 189, 137, .16);
+}
+.ambient-picker__local > p {
+  margin: 0 0 7px;
+  color: #d9bd89;
+  font-size: .67rem;
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.ambient-picker__local > p i { margin-right: 6px; }
+.ambient-picker__local-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+.ambient-choice {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) 18px;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 56px;
+  padding: 9px 10px;
+  color: #edf1f2;
+  text-align: left;
+  text-decoration: none;
+  background: rgba(255,255,255,.035);
+  border: 1px solid rgba(196, 214, 226, .14);
+  border-radius: 11px;
+  cursor: pointer;
+  transition: border-color .2s ease, background .2s ease, transform .2s ease;
+}
+.ambient-choice > i:first-child {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  color: #e5c583;
+  background: rgba(217, 189, 137, .1);
+  border-radius: 8px;
+  font-size: .78rem;
+}
+.ambient-choice span { min-width: 0; }
+.ambient-choice strong, .ambient-choice small { display: block; }
+.ambient-choice strong { font-size: .79rem; font-weight: 750; }
+.ambient-choice small { margin-top: 2px; color: #9cabbc; font-size: .68rem; line-height: 1.25; }
+.ambient-choice__action { color: #bdc8d4; font-size: .68rem; }
+.ambient-choice:hover, .ambient-choice:focus-visible, .ambient-choice.is-selected {
+  border-color: rgba(229, 197, 131, .58);
+  background: rgba(217, 189, 137, .1);
+  transform: translateY(-1px);
+  outline: none;
+}
+.ambient-choice.is-selected { box-shadow: inset 3px 0 0 #77cda8; }
+.ambient-choice.is-selected .ambient-choice__action { color: #77cda8; }
+.ambient-choice--local {
+  grid-template-columns: 24px minmax(0, 1fr);
+  min-height: 48px;
+  gap: 7px;
+  padding: 8px;
+}
+.ambient-choice--local > i:first-child { width: 24px; height: 24px; font-size: .68rem; }
+.ambient-choice--local .ambient-choice__action { display: none; }
+.ambient-choice--local strong { font-size: .71rem; line-height: 1.1; }
+.ambient-choice--local small { font-size: .61rem; }
+.ambient-picker__status {
+  min-height: 1.15em;
+  margin: 10px 2px 8px;
+  color: #9eafc0;
+  font-size: .69rem;
+}
+.ambient-picker__stop {
+  width: 100%;
+  min-height: 34px;
+  padding: 7px 10px;
+  color: #e4c282;
+  background: transparent;
+  border: 1px solid rgba(217, 189, 137, .27);
+  border-radius: 9px;
+  font-size: .72rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+.ambient-picker__stop:disabled { opacity: .42; cursor: default; }
+.ambient-picker__stop:not(:disabled):hover { background: rgba(217, 189, 137, .1); }
+
+@media (max-width: 768px) {
+  .ambient-picker {
+    right: 10px;
+    bottom: 84px;
+    width: calc(100vw - 20px);
+    max-width: none;
+    padding: 12px;
+    border-radius: 14px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .34);
+    backdrop-filter: none;
+  }
+  .ambient-picker__intro { margin: 8px 0 10px; }
+  .ambient-choice { min-height: 51px; }
+  .ambient-choice--local { min-height: 47px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-choice { transition: none; }
+}
 /* =========================================================
    CRONOLOGII EDUCAȚIONALE — STIL EDITORIAL UNITAR
 ========================================================= */

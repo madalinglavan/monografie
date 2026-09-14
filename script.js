@@ -206,44 +206,89 @@ dropdowns.forEach(dropdown => {
 
 
   /* =========================================================
-     SMOOTH SCROLL
+     NAVIGARE INTERNĂ UNIFICATĂ
+     Toate linkurile cu #id se opresc exact sub navbar și
+     folosesc tranziția editorială „Descoperă Bustuchin”.
   ========================================================= */
 
-  document
-    .querySelectorAll('a[href^="#"]')
-    .forEach(anchor => {
-
-      anchor.addEventListener("click", function(e){
-
-        const targetId =
-          this.getAttribute("href");
-
-        if(
-          !targetId ||
-          targetId === "#"
-        ) return;
-
-
-
-        const target =
-          document.querySelector(targetId);
-
-
-
-        if(target){
-
-          e.preventDefault();
-
-          target.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-          });
-
-        }
-
-      });
-
+  const closeNavigationMenu = () => {
+    navLinks?.classList.remove("active");
+    menuToggle?.classList.remove("active");
+    document.body.classList.remove("menu-open");
+    menuToggle?.setAttribute("aria-expanded", "false");
+    menuToggle?.setAttribute("aria-label", "Deschide meniul");
+    dropdowns.forEach(dropdown => {
+      dropdown.classList.remove("active");
+      dropdown.querySelector(".dropdown-trigger")?.setAttribute("aria-expanded", "false");
     });
+  };
+
+  const getFixedNavigationOffset = () => {
+    if (!navbar) return 18;
+    const navbarStyle = getComputedStyle(navbar);
+    const navbarHeight = navbar.getBoundingClientRect().height || 62;
+    const navbarTop = Number.parseFloat(navbarStyle.top) || 0;
+    return Math.ceil(navbarHeight + navbarTop + 16);
+  };
+
+  const navigateBustuchinToHash = (hash, options = {}) => {
+    if (!hash || hash === "#") return false;
+    const id = decodeURIComponent(hash.replace(/^#/, ""));
+    const target = document.getElementById(id);
+    if (!target) return false;
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const transition = document.getElementById("pageTransition");
+    const shouldTransition = options.transition !== false;
+    const transitionDuration = reducedMotion ? 320 : 700;
+
+    closeNavigationMenu();
+    if (window.location.hash !== hash) history.pushState(null, "", hash);
+
+    if (shouldTransition) {
+      transition?.classList.add("active");
+      transition?.setAttribute("aria-hidden", "false");
+    }
+
+    const placeTargetExactly = () => {
+      const destination = Math.max(
+        0,
+        target.getBoundingClientRect().top + window.scrollY - getFixedNavigationOffset()
+      );
+      window.scrollTo({ top: destination, behavior: "auto" });
+      window.dispatchEvent(new Event("scroll"));
+    };
+
+    /* Scrollul are loc sub tranziție, nu în fața vizitatorului. */
+    window.setTimeout(placeTargetExactly, shouldTransition ? 150 : 0);
+
+    /* Corecție pentru navbarul fix și barele dinamice ale browserelor mobile. */
+    window.setTimeout(() => {
+      const expectedTop = getFixedNavigationOffset();
+      const error = target.getBoundingClientRect().top - expectedTop;
+      if (Math.abs(error) > 2) window.scrollBy({ top: error, behavior: "auto" });
+      window.dispatchEvent(new Event("scroll"));
+    }, shouldTransition ? 250 : 80);
+
+    if (shouldTransition) {
+      window.setTimeout(() => {
+        transition?.classList.remove("active");
+        transition?.setAttribute("aria-hidden", "true");
+      }, transitionDuration);
+    }
+    return true;
+  };
+
+  window.navigateBustuchinToHash = navigateBustuchinToHash;
+
+  document.addEventListener("click", event => {
+    const link = event.target.closest('a[href^="#"]');
+    if (!link || link.hasAttribute("data-native-anchor")) return;
+    const hash = link.getAttribute("href");
+    if (!hash || hash === "#" || !navigateBustuchinToHash(hash)) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+  }, true);
 
 
   /* =========================================================
@@ -2308,17 +2353,14 @@ async function loadBustuchinBoundary() {
       setTimeout(
         () => {
 
-          target.scrollIntoView(
-            {
-
-              behavior:
-                "smooth",
-
-              block:
-                "start"
-
-            }
+          const navbar = document.getElementById("navbar");
+          const navbarHeight = navbar?.getBoundingClientRect().height || 62;
+          const navbarTop = Number.parseFloat(getComputedStyle(navbar).top) || 0;
+          const destination = Math.max(
+            0,
+            target.getBoundingClientRect().top + window.scrollY - navbarHeight - navbarTop - 16
           );
+          window.scrollTo({ top: destination, behavior: "auto" });
 
         },
 
@@ -3865,30 +3907,8 @@ document.addEventListener("DOMContentLoaded", () => {
     button.className = "context-map-link";
     button.innerHTML = '<i class="fas fa-location-dot" aria-hidden="true"></i><span>Vezi acest loc pe hartă</span>';
     button.addEventListener("click", () => {
-      const mapSection = document.getElementById("harta-comunei");
-      const transition = document.getElementById("pageTransition");
-      if (!mapSection) return;
-
-      transition?.classList.add("active");
-      transition?.setAttribute("aria-hidden", "false");
-      history.pushState(null, "", "#harta-comunei");
-
-      window.setTimeout(() => {
-        const navbar = document.getElementById("navbar");
-        const navbarHeight = navbar?.getBoundingClientRect().height || 62;
-        const navbarTop = Number.parseFloat(getComputedStyle(navbar).top) || 10;
-        const destination = Math.max(
-          0,
-          mapSection.getBoundingClientRect().top + scrollY - navbarHeight - navbarTop - 14
-        );
-        scrollTo({ top: destination, behavior: "auto" });
-        window.focusBustuchinMapLocation?.(id);
-      }, 190);
-
-      window.setTimeout(() => {
-        transition?.classList.remove("active");
-        transition?.setAttribute("aria-hidden", "true");
-      }, matchMedia("(prefers-reduced-motion: reduce)").matches ? 380 : 780);
+      if (!window.navigateBustuchinToHash?.("#harta-comunei")) return;
+      window.setTimeout(() => window.focusBustuchinMapLocation?.(id), 180);
     });
     place.prepend(button);
   });
@@ -3897,9 +3917,41 @@ document.addEventListener("DOMContentLoaded", () => {
   soundButton.type = "button";
   soundButton.className = "ambient-toggle";
   soundButton.setAttribute("aria-pressed", "false");
-  soundButton.setAttribute("aria-label", "Pornește ambianța sonoră");
+  soundButton.setAttribute("aria-label", "Alege ambianța sonoră");
   soundButton.innerHTML = '<i class="fas fa-volume-xmark" aria-hidden="true"></i><span>Ambianță</span>';
   document.body.append(soundButton);
+
+  const ambientPicker = document.createElement("aside");
+  ambientPicker.className = "ambient-picker";
+  ambientPicker.hidden = true;
+  ambientPicker.setAttribute("aria-label", "Alege ambianța sonoră");
+  ambientPicker.innerHTML = `
+    <div class="ambient-picker__heading">
+      <span><i class="fas fa-headphones" aria-hidden="true"></i> Sunetul monografiei</span>
+      <button type="button" class="ambient-picker__close" data-ambient-close aria-label="Închide selectorul de sunet"><i class="fas fa-xmark" aria-hidden="true"></i></button>
+    </div>
+    <p class="ambient-picker__intro">Alege fundalul care îți însoțește explorarea. Redarea pornește numai la alegerea ta.</p>
+    <div class="ambient-picker__choices" role="group" aria-label="Opțiuni de sunet">
+      <button type="button" class="ambient-choice" data-sound-mode="nature" aria-pressed="false">
+        <i class="fas fa-tree" aria-hidden="true"></i><span><strong>Natura Bustuchinului</strong><small>Păsări, apă și foșnet de pădure</small></span><i class="fas fa-play ambient-choice__action" aria-hidden="true"></i>
+      </button>
+      <button type="button" class="ambient-choice" data-sound-mode="relax" aria-pressed="false">
+        <i class="fas fa-radio" aria-hidden="true"></i><span><strong>Radio relaxare</strong><small>Muzică liniștită, redată live</small></span><i class="fas fa-play ambient-choice__action" aria-hidden="true"></i>
+      </button>
+      <div class="ambient-picker__local" aria-label="Radiouri locale din Gorj">
+        <p><i class="fas fa-tower-broadcast" aria-hidden="true"></i> Radiouri din Gorj</p>
+        <div class="ambient-picker__local-grid">
+          <button type="button" class="ambient-choice ambient-choice--local" data-sound-mode="gorj-accent" aria-pressed="false"><i class="fas fa-radio" aria-hidden="true"></i><span><strong>Radio Accent</strong><small>96,2 FM · Târgu Jiu</small></span><i class="fas fa-play ambient-choice__action" aria-hidden="true"></i></button>
+          <button type="button" class="ambient-choice ambient-choice--local" data-sound-mode="gorj-targujiu" aria-pressed="false"><i class="fas fa-radio" aria-hidden="true"></i><span><strong>Radio Târgu Jiu</strong><small>97,8 FM · știri și muzică</small></span><i class="fas fa-play ambient-choice__action" aria-hidden="true"></i></button>
+          <button type="button" class="ambient-choice ambient-choice--local" data-sound-mode="gorj-infinit" aria-pressed="false"><i class="fas fa-radio" aria-hidden="true"></i><span><strong>Radio Infinit</strong><small>87,8 FM · actualitate locală</small></span><i class="fas fa-play ambient-choice__action" aria-hidden="true"></i></button>
+          <button type="button" class="ambient-choice ambient-choice--local" data-sound-mode="gorj-omega" aria-pressed="false"><i class="fas fa-radio" aria-hidden="true"></i><span><strong>Radio Omega</strong><small>91,8 FM · Târgu Jiu</small></span><i class="fas fa-play ambient-choice__action" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+    <p class="ambient-picker__status" aria-live="polite"></p>
+    <button type="button" class="ambient-picker__stop" data-sound-stop disabled><i class="fas fa-stop" aria-hidden="true"></i> Oprește sunetul</button>
+  `;
+  document.body.append(ambientPicker);
 
   const chapterGuide = document.querySelector(".chapter-guide");
   const mapButton = document.getElementById("floatingMapButton");
@@ -4159,6 +4211,41 @@ document.addEventListener("DOMContentLoaded", () => {
   let audioContext;
   let ambientNodes = [];
   let ambientTimers = [];
+  let radioAudio = null;
+  let activeSoundMode = null;
+  const soundModeNames = {
+    nature: "Natura Bustuchinului",
+    relax: "Radio relaxare",
+    "gorj-accent": "Radio Accent",
+    "gorj-targujiu": "Radio Târgu Jiu",
+    "gorj-infinit": "Radio Infinit",
+    "gorj-omega": "Radio Omega"
+  };
+  const gorjRadioStreams = {
+    "gorj-accent": "https://stream.rcast.net/282100",
+    "gorj-targujiu": "http://86.122.193.178:8800/;&type=mp3",
+    "gorj-infinit": "http://ilive.targujiu.net:8013/infinit.ogg",
+    "gorj-omega": "http://live.radioomega.ro/"
+  };
+  const ambientStatus = ambientPicker.querySelector(".ambient-picker__status");
+  const soundStopButton = ambientPicker.querySelector("[data-sound-stop]");
+  const updateSoundInterface = mode => {
+    activeSoundMode = mode;
+    const isPlaying = Boolean(mode);
+    soundButton.classList.toggle("is-active", isPlaying);
+    soundButton.dataset.mode = mode || "";
+    soundButton.setAttribute("aria-pressed", String(isPlaying));
+    soundButton.setAttribute("aria-label", isPlaying ? `Ambianță activă: ${soundModeNames[mode] || "radio local"}. Alege alt sunet sau oprește.` : "Alege ambianța sonoră");
+    const icon = soundButton.querySelector("i");
+    icon?.classList.toggle("fa-volume-high", isPlaying);
+    icon?.classList.toggle("fa-volume-xmark", !isPlaying);
+    ambientPicker.querySelectorAll("[data-sound-mode]").forEach(choice => {
+      const selected = choice.dataset.soundMode === mode;
+      choice.classList.toggle("is-selected", selected);
+      if (choice.tagName === "BUTTON") choice.setAttribute("aria-pressed", String(selected));
+    });
+    soundStopButton.disabled = !isPlaying;
+  };
   const stopAmbient = () => {
     ambientTimers.forEach(timer => clearTimeout(timer));
     ambientTimers = [];
@@ -4169,10 +4256,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ambientNodes = [];
     audioContext?.close();
     audioContext = null;
-    soundButton.classList.remove("is-active");
-    soundButton.setAttribute("aria-pressed", "false");
-    soundButton.setAttribute("aria-label", "Pornește ambianța sonoră");
-    soundButton.querySelector("i")?.classList.replace("fa-volume-high", "fa-volume-xmark");
   };
   const startAmbient = () => {
     const AudioEngine = window.AudioContext || window.webkitAudioContext;
@@ -4337,22 +4420,104 @@ document.addEventListener("DOMContentLoaded", () => {
       water, waterFilter, waterGain, waterLfo, waterDepth,
       leaves, leavesFilter, leavesGain, master
     );
-    soundButton.classList.add("is-active");
-    soundButton.setAttribute("aria-pressed", "true");
-    soundButton.setAttribute("aria-label", "Oprește ambianța sonoră");
-    soundButton.querySelector("i")?.classList.replace("fa-volume-xmark", "fa-volume-high");
+    updateSoundInterface("nature");
   };
-  soundButton.addEventListener("click", () => {
-    if (!audioContext) {
-      startAmbient();
-    } else if (audioContext.state === "suspended") {
-      audioContext.resume();
-    } else {
-      stopAmbient();
+  const stopRadio = () => {
+    if (!radioAudio) return;
+    radioAudio.pause();
+    radioAudio.removeAttribute("src");
+    radioAudio.load();
+    radioAudio = null;
+  };
+  const stopAllSound = () => {
+    stopAmbient();
+    stopRadio();
+    updateSoundInterface(null);
+    ambientStatus.textContent = "Sunet oprit.";
+  };
+  const startNature = () => {
+    stopRadio();
+    if (!audioContext) startAmbient();
+    else if (audioContext.state === "suspended") audioContext.resume();
+    updateSoundInterface("nature");
+    ambientStatus.textContent = "Se aude Natura Bustuchinului.";
+  };
+  const startRelaxRadio = async () => {
+    stopAmbient();
+    stopRadio();
+    radioAudio = new Audio("https://relax.stream.publicradio.org/relax.mp3");
+    radioAudio.preload = "none";
+    radioAudio.volume = .46;
+    radioAudio.addEventListener("error", () => {
+      if (activeSoundMode !== "relax") return;
+      stopRadio();
+      updateSoundInterface(null);
+      ambientStatus.textContent = "Radio-ul nu poate fi redat acum. Încearcă din nou puțin mai târziu.";
+    }, { once: true });
+    try {
+      await radioAudio.play();
+      updateSoundInterface("relax");
+      ambientStatus.textContent = "Se aude radio de relaxare.";
+    } catch (_) {
+      stopRadio();
+      updateSoundInterface(null);
+      ambientStatus.textContent = "Redarea a fost blocată. Apasă din nou pe opțiunea radio.";
     }
+  };
+  const startGorjRadio = async mode => {
+    const source = gorjRadioStreams[mode];
+    if (!source) return;
+    stopAmbient();
+    stopRadio();
+    radioAudio = new Audio(source);
+    radioAudio.preload = "none";
+    radioAudio.volume = .5;
+    radioAudio.addEventListener("error", () => {
+      if (activeSoundMode !== mode) return;
+      stopRadio();
+      updateSoundInterface(null);
+      ambientStatus.textContent = `${soundModeNames[mode]} nu poate fi redat momentan. Încearcă din nou mai târziu.`;
+    }, { once: true });
+    try {
+      await radioAudio.play();
+      updateSoundInterface(mode);
+      ambientStatus.textContent = `Se aude ${soundModeNames[mode]}.`;
+    } catch (_) {
+      stopRadio();
+      updateSoundInterface(null);
+      ambientStatus.textContent = `${soundModeNames[mode]} nu a permis redarea. Încearcă din nou puțin mai târziu.`;
+    }
+  };
+  const closeAmbientPicker = () => {
+    ambientPicker.hidden = true;
+    soundButton.setAttribute("aria-expanded", "false");
+  };
+  const openAmbientPicker = () => {
+    ambientPicker.hidden = false;
+    soundButton.setAttribute("aria-expanded", "true");
+  };
+  soundButton.setAttribute("aria-expanded", "false");
+  soundButton.addEventListener("click", () => {
+    if (ambientPicker.hidden) openAmbientPicker();
+    else closeAmbientPicker();
+  });
+  ambientPicker.addEventListener("click", event => {
+    if (event.target.closest("[data-ambient-close]")) closeAmbientPicker();
+    if (event.target.closest("[data-sound-stop]")) stopAllSound();
+    if (event.target.closest('[data-sound-mode="nature"]')) startNature();
+    if (event.target.closest('[data-sound-mode="relax"]')) startRelaxRadio();
+    ["gorj-accent", "gorj-targujiu", "gorj-infinit", "gorj-omega"].forEach(mode => {
+      if (event.target.closest(`[data-sound-mode="${mode}"]`)) startGorjRadio(mode);
+    });
+  });
+  document.addEventListener("click", event => {
+    if (!ambientPicker.hidden && !ambientPicker.contains(event.target) && !soundButton.contains(event.target)) closeAmbientPicker();
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && !ambientPicker.hidden) closeAmbientPicker();
   });
 
   document.addEventListener("visibilitychange", () => {
-    if (document.hidden && audioContext) stopAmbient();
+    if (document.hidden && (audioContext || radioAudio)) stopAllSound();
   });
 });
