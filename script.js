@@ -1456,6 +1456,22 @@ async function initBustuchinMap() {
     infrastructura: {
       label: "Infrastructura",
       icon: "fa-city"
+    },
+    community: {
+      label: "Sport și joacă",
+      icon: "fa-futbol"
+    },
+    services: {
+      label: "Servicii publice",
+      icon: "fa-hand-holding-heart"
+    },
+    housing: {
+      label: "Locuire",
+      icon: "fa-building"
+    },
+    culture: {
+      label: "Cultură",
+      icon: "fa-masks-theater"
     }
 
   };
@@ -1475,6 +1491,10 @@ async function initBustuchinMap() {
      tourism
      religion
      education
+     community
+     services
+     housing
+     culture
   ======================================================= */
 
   const mapLocations = [
@@ -1722,7 +1742,7 @@ async function initBustuchinMap() {
        {
          id: "centru-persoane-varstnice",
          name: "Centrul de zi si noapte pentru persoanele varstnice",
-         category: "infrastructura",
+         category: "services",
          lat: 45.008068,
          lng: 23.730713
 
@@ -1731,7 +1751,7 @@ async function initBustuchinMap() {
        {
          id: "infrastructura-locativa",
          name: "Bloc ANL",
-         category: "infrastructura",
+         category: "housing",
          lat: 44.973222,
          lng: 23.725497
 
@@ -1740,7 +1760,7 @@ async function initBustuchinMap() {
        {
          id: "infrastructura-locativa",
          name: "Locuinte sociale",
-         category: "infrastructura",
+         category: "housing",
          lat: 44.951237,
          lng: 23.711989
 
@@ -1749,7 +1769,7 @@ async function initBustuchinMap() {
        {
          id: "infrastructura-medicala",
          name: "Cabinet Medical",
-         category: "infrastructura",
+         category: "services",
          lat: 44.954279,
          lng: 23.714761
 
@@ -1757,13 +1777,115 @@ async function initBustuchinMap() {
        ,
        {
          id: "infrastructura-culturala",
-         name: "Stadionul Bustuchin",
+         name: "Stadionul Bustuchin · teren principal",
          category: "infrastructura",
-         lat: 44.951695,
-         lng: 23.715280
-
-
-
+         lat: 44.950537,
+         lng: 23.714770,
+         description: "Teren principal cu nocturnă, tribune și gazon natural, pregătit pentru meciuri și competiții locale."
+       },
+       {
+         id: "case-de-cultura",
+         name: "Căminul Cultural Poiana-Seciuri și spațiul de joacă",
+         category: "culture",
+         lat: 44.995047,
+         lng: 23.724695,
+         description: "Spațiu pentru întâlnirile comunității, activități culturale și joaca celor mici."
+       },
+       {
+         id: "parcuri-spatii-joaca",
+         name: "Spațiu de joacă Poiana-Seciuri",
+         category: "community",
+         lat: 45.007178,
+         lng: 23.729400,
+         description: "Loc de recreere și joacă destinat copiilor din comunitate."
+       },
+       {
+         id: "case-de-cultura",
+         name: "Căminul Cultural Pojaru",
+         category: "culture",
+         lat: 44.945005,
+         lng: 23.693614,
+         description: "Spațiu comunitar pentru activități culturale, tradiții și întâlniri locale."
+       },
+       {
+         id: "parcuri-spatii-joaca",
+         name: "Spațiu de joacă Pojaru",
+         category: "community",
+         lat: 44.945522,
+         lng: 23.693271,
+         description: "Loc de joacă pentru copii și familiile din satul Pojaru."
+       },
+       {
+         id: "parcuri-spatii-joaca",
+         name: "Spațiu de joacă Nămete",
+         category: "community",
+         lat: 44.984237,
+         lng: 23.699547,
+         description: "Loc de joacă și întâlnire pentru copiii din satul Nămete."
+       },
+       {
+         id: "parcuri-spatii-joaca",
+         name: "Spațiu de joacă Valea Pojarului",
+         category: "community",
+         lat: 44.935318,
+         lng: 23.726339,
+         description: "Spațiu de recreere pentru copii, familii și comunitatea din Valea Pojarului."
+       },
+       {
+         id: "parcuri-spatii-joaca",
+         name: "Spațiu de joacă Poienița",
+         category: "community",
+         lat: 44.992272,
+         lng: 23.680214,
+         description: "Loc de joacă destinat copiilor și timpului petrecut în aer liber."
+       },
+       {
+         id: "parcuri-spatii-joaca",
+         name: "Spațiu de joacă Bustuchin",
+         category: "community",
+         lat: 44.952302,
+         lng: 23.714000,
+         description: "Loc de joacă pentru cei mici, amplasat în zona centrală a comunei."
+       },
+       {
+         id: "parcuri-spatii-joaca",
+         name: "Teren sintetic Poiana-Seciuri",
+         category: "community",
+         lat: 45.001011,
+         lng: 23.725412,
+         description: "Teren de fotbal sintetic amenajat în curtea Școlii Gimnaziale Poiana-Seciuri."
+       },
+       {
+         id: "parcuri-spatii-joaca",
+         name: "Teren sintetic Bustuchin · Școala Nr. 2",
+         category: "community",
+         lat: 44.974448,
+         lng: 23.725590,
+         description: "Teren de fotbal sintetic amplasat în curtea Școlii Primare Nr. 2."
+       },
+       {
+         id: "parcuri-spatii-joaca",
+         name: "Teren sintetic Bustuchin · centru",
+         category: "community",
+         lat: 44.950477,
+         lng: 23.714877,
+         description: "Teren sintetic pentru mișcare, antrenament și activități sportive locale."
+       },
+       {
+         id: "infrastructura-culturala",
+         name: "Piscina Bustuchin",
+         category: "infrastructura",
+         lat: 44.950477,
+         lng: 23.714877,
+         description: "Obiectiv de agrement deschis în sezonul de vară."
+       },
+       {
+         id: "infrastructura-culturala",
+         name: "Stadionul Bustuchin · teren de antrenamente",
+         category: "community",
+         lat: 44.949466,
+         lng: 23.714141,
+         description: "Teren destinat antrenamentelor și activităților sportive ale comunității."
        }
 
   ];
@@ -2073,6 +2195,8 @@ async function loadBustuchinBoundary() {
             ${location.name}
 
           </strong>
+
+          ${location.description ? `<p class="map-popup__description">${location.description}</p>` : ""}
 
 
           <button
@@ -3495,6 +3619,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
   applyFilter("all");
 });
+
+/* Marchează începuturile blocurilor de lectură fără să modifice conținutul.
+   Astfel, monografia capătă ritmul unei ediții editoriale și rămâne ușor de
+   parcurs atât pe ecrane mari, cât și pe telefon. */
+const enhanceEditorialOpenings = () => {
+  const paragraphSelector = [
+    "main .section-block__content > p.section-block__text",
+    "main .longform__text > p.section-block__text",
+    "main .toponimie > p.section-block__text",
+    "main .event-card__content > p",
+    "main .tourism-stop__copy > p"
+  ].join(",");
+
+  const openedGroups = new Set();
+  document.querySelectorAll(paragraphSelector).forEach((paragraph) => {
+    if (paragraph.textContent.trim().length < 120) return;
+
+    const group = paragraph.parentElement;
+    if (!group || openedGroups.has(group)) return;
+    openedGroups.add(group);
+    paragraph.classList.add("is-editorial-opening");
+
+    const textNode = Array.from(paragraph.childNodes).find((node) =>
+      node.nodeType === Node.TEXT_NODE && node.nodeValue.trim()
+    );
+    if (!textNode) return;
+
+    const match = textNode.nodeValue.match(/^(\s*[„“"«(]*)([\p{L}][\p{L}'’-]*)/u);
+    if (!match) return;
+
+    const fragment = document.createDocumentFragment();
+    if (match[1]) fragment.append(document.createTextNode(match[1]));
+    const firstWord = document.createElement("span");
+    firstWord.className = "editorial-first-word";
+    firstWord.textContent = match[2];
+    fragment.append(firstWord, document.createTextNode(textNode.nodeValue.slice(match[0].length)));
+    textNode.replaceWith(fragment);
+  });
+};
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", enhanceEditorialOpenings, { once: true });
+} else {
+  enhanceEditorialOpenings();
+}
 
 
 /* Imaginile încă neadăugate nu mai lasă spații goale în cardurile de memorie. */

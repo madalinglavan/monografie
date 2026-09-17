@@ -207,6 +207,16 @@
   line-height:
   1.3;
 }
+.map-popup__description {
+  margin:
+  -4px 0 12px;
+  color:
+  #cbd5e1;
+  font-size:
+  .7rem;
+  line-height:
+  1.45;
+}
 /* =========================================================
    BUTTON
 ========================================================= */
@@ -316,9 +326,45 @@
       #a16207
     );
 }
+.community-marker--community {
+  background:
+    linear-gradient(
+      145deg,
+      #f97316,
+      #c2410c
+    );
+}
+.community-marker--services {
+  background:
+    linear-gradient(
+      145deg,
+      #0ea5a4,
+      #0f766e
+    );
+}
+.community-marker--housing {
+  background:
+    linear-gradient(
+      145deg,
+      #64748b,
+      #334155
+    );
+}
+.community-marker--culture {
+  background:
+    linear-gradient(
+      145deg,
+      #a855f7,
+      #6d28d9
+    );
+}
 .community-map__legend-item--infrastructura i {
   color: #facc15;
 }
+.community-map__legend-item--community i { color: #fb923c; }
+.community-map__legend-item--services i { color: #2dd4bf; }
+.community-map__legend-item--housing i { color: #94a3b8; }
+.community-map__legend-item--culture i { color: #d8b4fe; }
 /* TURISM */
 .community-map__legend-item--tourism i {
   color:

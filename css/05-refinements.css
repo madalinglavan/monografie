@@ -4790,6 +4790,62 @@ main div[id] {
 }
 
 /* =========================================================
+   LECTURĂ EDITORIALĂ — RITM, DESCHIDERI ȘI ACCENTE
+   Păstrează textul integral, dar oferă fiecărui bloc narativ
+   un început recognoscibil, ca într-o ediție tipărită.
+========================================================= */
+main :is(.section-block__text, .longform__text > p, .event-card__content > p) {
+  text-wrap: pretty;
+  hyphens: auto;
+}
+main .section-block__text + .section-block__text {
+  margin-top: clamp(1rem, 1.8vw, 1.45rem);
+}
+main .is-editorial-opening {
+  position: relative;
+  padding-top: .15rem;
+  font-size: clamp(1rem, 1.1vw, 1.12rem);
+  line-height: 1.82;
+}
+main .is-editorial-opening::before {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  margin: 0 .65rem .38em 0;
+  vertical-align: middle;
+  background: linear-gradient(90deg, transparent, var(--gold, #d5ad65));
+}
+main .is-editorial-opening::first-letter {
+  float: left;
+  margin: .06em .13em 0 0;
+  color: var(--gold-soft, #e1bd76);
+  font-family: "DM Serif Display", Georgia, serif;
+  font-size: 3.45em;
+  font-weight: 400;
+  line-height: .72;
+  text-shadow: 0 7px 22px color-mix(in srgb, var(--gold, #d5ad65) 18%, transparent);
+}
+main .editorial-first-word {
+  color: var(--text, currentColor);
+  font-family: "DM Serif Display", Georgia, serif;
+  font-size: 1.08em;
+  font-weight: 400;
+  letter-spacing: .005em;
+}
+main .is-editorial-opening + .section-block__text {
+  position: relative;
+}
+@media (max-width: 600px) {
+  main .is-editorial-opening {
+    font-size: 1rem;
+    line-height: 1.76;
+  }
+  main .is-editorial-opening::before { width: 20px; margin-right: .45rem; }
+  main .is-editorial-opening::first-letter { font-size: 3.1em; }
+}
+
+/* =========================================================
    CĂUTARE ÎN MONOGRAFIE
 ========================================================= */
 .chapter-guide[role="button"] { cursor: pointer; }
