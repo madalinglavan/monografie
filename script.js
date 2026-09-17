@@ -485,6 +485,53 @@ document.addEventListener("keydown", event => {
   }
 });
 
+/* =========================================================
+   ZIUA INTERNAȚIONALĂ A PERSOANELOR VÂRSTNICE — GALERIE
+========================================================= */
+const initSeniorSlideshows = () => {
+  document.querySelectorAll("[data-senior-slideshow]").forEach(slideshow => {
+    const slides = Array.from(slideshow.querySelectorAll(".senior-gallery__slide"));
+    const previous = slideshow.querySelector("[data-senior-prev]");
+    const next = slideshow.querySelector("[data-senior-next]");
+    const counter = slideshow.querySelector(".senior-gallery__controls b");
+    if (slides.length < 2 || !previous || !next || !counter) return;
+
+    let current = 0;
+    let touchStart = 0;
+    const showSlide = index => {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, slideIndex) => {
+        const active = slideIndex === current;
+        slide.hidden = !active;
+        slide.classList.toggle("is-active", active);
+        slide.setAttribute("aria-hidden", String(!active));
+      });
+      counter.textContent = String(current + 1).padStart(2, "0");
+    };
+
+    previous.addEventListener("click", () => showSlide(current - 1));
+    next.addEventListener("click", () => showSlide(current + 1));
+    slideshow.addEventListener("keydown", event => {
+      if (event.key === "ArrowLeft") showSlide(current - 1);
+      if (event.key === "ArrowRight") showSlide(current + 1);
+    });
+    slideshow.addEventListener("touchstart", event => {
+      touchStart = event.touches[0].clientX;
+    }, { passive: true });
+    slideshow.addEventListener("touchend", event => {
+      const distance = event.changedTouches[0].clientX - touchStart;
+      if (Math.abs(distance) > 42) showSlide(current + (distance < 0 ? 1 : -1));
+    }, { passive: true });
+    showSlide(0);
+  });
+};
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initSeniorSlideshows, { once: true });
+} else {
+  initSeniorSlideshows();
+}
+
 
 /* =========================================================
    AUTO STOP HERO VIDEO ON SCROLL
@@ -3938,15 +3985,6 @@ document.addEventListener("DOMContentLoaded", () => {
       <button type="button" class="ambient-choice" data-sound-mode="relax" aria-pressed="false">
         <i class="fas fa-radio" aria-hidden="true"></i><span><strong>Radio relaxare</strong><small>Muzică liniștită, redată live</small></span><i class="fas fa-play ambient-choice__action" aria-hidden="true"></i>
       </button>
-      <div class="ambient-picker__local" aria-label="Radiouri locale din Gorj">
-        <p><i class="fas fa-tower-broadcast" aria-hidden="true"></i> Radiouri din Gorj</p>
-        <div class="ambient-picker__local-grid">
-          <button type="button" class="ambient-choice ambient-choice--local" data-sound-mode="gorj-accent" aria-pressed="false"><i class="fas fa-radio" aria-hidden="true"></i><span><strong>Radio Accent</strong><small>96,2 FM · Târgu Jiu</small></span><i class="fas fa-play ambient-choice__action" aria-hidden="true"></i></button>
-          <button type="button" class="ambient-choice ambient-choice--local" data-sound-mode="gorj-targujiu" aria-pressed="false"><i class="fas fa-radio" aria-hidden="true"></i><span><strong>Radio Târgu Jiu</strong><small>97,8 FM · știri și muzică</small></span><i class="fas fa-play ambient-choice__action" aria-hidden="true"></i></button>
-          <button type="button" class="ambient-choice ambient-choice--local" data-sound-mode="gorj-infinit" aria-pressed="false"><i class="fas fa-radio" aria-hidden="true"></i><span><strong>Radio Infinit</strong><small>87,8 FM · actualitate locală</small></span><i class="fas fa-play ambient-choice__action" aria-hidden="true"></i></button>
-          <button type="button" class="ambient-choice ambient-choice--local" data-sound-mode="gorj-omega" aria-pressed="false"><i class="fas fa-radio" aria-hidden="true"></i><span><strong>Radio Omega</strong><small>91,8 FM · Târgu Jiu</small></span><i class="fas fa-play ambient-choice__action" aria-hidden="true"></i></button>
-        </div>
-      </div>
     </div>
     <p class="ambient-picker__status" aria-live="polite"></p>
     <button type="button" class="ambient-picker__stop" data-sound-stop disabled><i class="fas fa-stop" aria-hidden="true"></i> Oprește sunetul</button>
@@ -4215,17 +4253,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let activeSoundMode = null;
   const soundModeNames = {
     nature: "Natura Bustuchinului",
-    relax: "Radio relaxare",
-    "gorj-accent": "Radio Accent",
-    "gorj-targujiu": "Radio Târgu Jiu",
-    "gorj-infinit": "Radio Infinit",
-    "gorj-omega": "Radio Omega"
-  };
-  const gorjRadioStreams = {
-    "gorj-accent": "https://stream.rcast.net/282100",
-    "gorj-targujiu": "http://86.122.193.178:8800/;&type=mp3",
-    "gorj-infinit": "http://ilive.targujiu.net:8013/infinit.ogg",
-    "gorj-omega": "http://live.radioomega.ro/"
+    relax: "Radio relaxare"
   };
   const ambientStatus = ambientPicker.querySelector(".ambient-picker__status");
   const soundStopButton = ambientPicker.querySelector("[data-sound-stop]");
@@ -4235,7 +4263,7 @@ document.addEventListener("DOMContentLoaded", () => {
     soundButton.classList.toggle("is-active", isPlaying);
     soundButton.dataset.mode = mode || "";
     soundButton.setAttribute("aria-pressed", String(isPlaying));
-    soundButton.setAttribute("aria-label", isPlaying ? `Ambianță activă: ${soundModeNames[mode] || "radio local"}. Alege alt sunet sau oprește.` : "Alege ambianța sonoră");
+    soundButton.setAttribute("aria-label", isPlaying ? `Ambianță activă: ${soundModeNames[mode] || "sunet"}. Alege alt sunet sau oprește.` : "Alege ambianța sonoră");
     const icon = soundButton.querySelector("i");
     icon?.classList.toggle("fa-volume-high", isPlaying);
     icon?.classList.toggle("fa-volume-xmark", !isPlaying);
@@ -4464,30 +4492,6 @@ document.addEventListener("DOMContentLoaded", () => {
       ambientStatus.textContent = "Redarea a fost blocată. Apasă din nou pe opțiunea radio.";
     }
   };
-  const startGorjRadio = async mode => {
-    const source = gorjRadioStreams[mode];
-    if (!source) return;
-    stopAmbient();
-    stopRadio();
-    radioAudio = new Audio(source);
-    radioAudio.preload = "none";
-    radioAudio.volume = .5;
-    radioAudio.addEventListener("error", () => {
-      if (activeSoundMode !== mode) return;
-      stopRadio();
-      updateSoundInterface(null);
-      ambientStatus.textContent = `${soundModeNames[mode]} nu poate fi redat momentan. Încearcă din nou mai târziu.`;
-    }, { once: true });
-    try {
-      await radioAudio.play();
-      updateSoundInterface(mode);
-      ambientStatus.textContent = `Se aude ${soundModeNames[mode]}.`;
-    } catch (_) {
-      stopRadio();
-      updateSoundInterface(null);
-      ambientStatus.textContent = `${soundModeNames[mode]} nu a permis redarea. Încearcă din nou puțin mai târziu.`;
-    }
-  };
   const closeAmbientPicker = () => {
     ambientPicker.hidden = true;
     soundButton.setAttribute("aria-expanded", "false");
@@ -4506,9 +4510,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (event.target.closest("[data-sound-stop]")) stopAllSound();
     if (event.target.closest('[data-sound-mode="nature"]')) startNature();
     if (event.target.closest('[data-sound-mode="relax"]')) startRelaxRadio();
-    ["gorj-accent", "gorj-targujiu", "gorj-infinit", "gorj-omega"].forEach(mode => {
-      if (event.target.closest(`[data-sound-mode="${mode}"]`)) startGorjRadio(mode);
-    });
   });
   document.addEventListener("click", event => {
     if (!ambientPicker.hidden && !ambientPicker.contains(event.target) && !soundButton.contains(event.target)) closeAmbientPicker();
