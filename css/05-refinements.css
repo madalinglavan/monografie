@@ -855,21 +855,6 @@
   line-height: 1.45;
 }
 .ambient-picker__choices { display: grid; gap: 7px; }
-.ambient-picker__local {
-  margin-top: 11px;
-  padding-top: 10px;
-  border-top: 1px solid rgba(217, 189, 137, .16);
-}
-.ambient-picker__local > p {
-  margin: 0 0 7px;
-  color: #d9bd89;
-  font-size: .67rem;
-  font-weight: 800;
-  letter-spacing: .07em;
-  text-transform: uppercase;
-}
-.ambient-picker__local > p i { margin-right: 6px; }
-.ambient-picker__local-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
 .ambient-choice {
   display: grid;
   grid-template-columns: 28px minmax(0, 1fr) 18px;
@@ -910,16 +895,6 @@
 }
 .ambient-choice.is-selected { box-shadow: inset 3px 0 0 #77cda8; }
 .ambient-choice.is-selected .ambient-choice__action { color: #77cda8; }
-.ambient-choice--local {
-  grid-template-columns: 24px minmax(0, 1fr);
-  min-height: 48px;
-  gap: 7px;
-  padding: 8px;
-}
-.ambient-choice--local > i:first-child { width: 24px; height: 24px; font-size: .68rem; }
-.ambient-choice--local .ambient-choice__action { display: none; }
-.ambient-choice--local strong { font-size: .71rem; line-height: 1.1; }
-.ambient-choice--local small { font-size: .61rem; }
 .ambient-picker__status {
   min-height: 1.15em;
   margin: 10px 2px 8px;
@@ -954,7 +929,6 @@
   }
   .ambient-picker__intro { margin: 8px 0 10px; }
   .ambient-choice { min-height: 51px; }
-  .ambient-choice--local { min-height: 47px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1536,6 +1510,94 @@
   .section--events .event-card .section-block__text { font-size: 0.94rem; line-height: 1.7; }
   .event-card__facts { grid-template-columns: 1fr; }
 }
+
+/* Ziua Internațională a Persoanelor Vârstnice — ediția 2026. */
+.senior-celebration {
+  --senior-gold: #d6b46b;
+  --senior-cream: #f5edde;
+  display: grid !important;
+  grid-template-columns: minmax(0, .93fr) minmax(0, 1.07fr);
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  background: linear-gradient(135deg, #122b39, #0a1a29 56%, #172b31);
+}
+.senior-celebration::before {
+  position: absolute;
+  top: -110px;
+  right: -90px;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(214, 180, 107, .18);
+  border-radius: 50%;
+  box-shadow: 0 0 0 35px rgba(214, 180, 107, .025), 0 0 0 70px rgba(214, 180, 107, .018);
+  content: "";
+  pointer-events: none;
+}
+.senior-celebration__intro,
+.senior-celebration__details { position: relative; z-index: 1; min-width: 0; }
+.senior-celebration__intro {
+  grid-column: 2;
+  grid-row: 1;
+  padding: clamp(2rem, 4vw, 4rem) clamp(2rem, 5vw, 5rem) 1.2rem;
+}
+.senior-celebration__intro .event-card__eyebrow { color: var(--senior-gold); }
+.senior-celebration__intro .section-block__title { max-width: 670px; margin: .8rem 0 1rem; color: var(--senior-cream); }
+.senior-celebration__intro > p { max-width: 620px; margin: 0; color: #b8c6cb; font-size: clamp(.95rem, 1.25vw, 1.1rem); line-height: 1.72; }
+.senior-celebration__details { grid-column: 2; grid-row: 2; padding: .5rem clamp(2rem, 5vw, 5rem) clamp(2rem, 4vw, 4rem); }
+.senior-celebration__details .section-block__text { margin: 0 0 1rem; color: #c3cdd2; }
+.senior-celebration__note {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  margin: 1.5rem 0;
+  padding: 13px 14px;
+  border: 1px solid rgba(214, 180, 107, .24);
+  border-radius: 13px;
+  color: #d6dce0;
+  background: rgba(214, 180, 107, .07);
+}
+.senior-celebration__note > i { display: grid; width: 30px; height: 30px; place-items: center; color: var(--senior-gold); background: rgba(214, 180, 107, .12); border-radius: 50%; }
+.senior-celebration__note p { margin: 0; font-size: .81rem; line-height: 1.55; }
+.senior-celebration .event-card__facts { margin-top: 0; }
+.senior-gallery {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1 / 3;
+  min-height: 580px;
+  overflow: hidden;
+  background: radial-gradient(circle at 20% 10%, rgba(230, 202, 135, .2), transparent 33%), linear-gradient(145deg, #765d39, #243c45 48%, #0e2635);
+  outline: none;
+}
+.senior-gallery::after { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(5, 17, 28, .68), transparent 52%); content: ""; pointer-events: none; }
+.senior-gallery__slide { position: absolute; inset: 0; display: grid; margin: 0; opacity: 0; transform: scale(1.025); transition: opacity .45s ease, transform .6s ease; }
+.senior-gallery__slide.is-active { z-index: 1; opacity: 1; transform: scale(1); }
+.senior-gallery__slide > img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.senior-gallery__placeholder { display: grid; align-content: center; justify-items: center; gap: 12px; padding: 54px; color: var(--senior-cream); text-align: center; }
+.senior-gallery__placeholder i { color: var(--senior-gold); font-size: clamp(2.4rem, 4vw, 3.8rem); }
+.senior-gallery__placeholder strong { font-family: "DM Serif Display", Georgia, serif; font-size: clamp(1.7rem, 3vw, 2.55rem); font-weight: 400; }
+.senior-gallery__placeholder span { max-width: 290px; color: #d3d8d6; font-size: .88rem; line-height: 1.55; }
+.senior-gallery__slide figcaption { position: absolute; z-index: 2; right: 24px; bottom: 23px; left: 24px; display: flex; align-items: center; gap: 10px; color: #f5edde; font-size: .82rem; font-weight: 700; letter-spacing: .04em; }
+.senior-gallery__slide figcaption span { display: grid; width: 30px; height: 30px; place-items: center; color: #192834; background: var(--senior-gold); border-radius: 50%; font-size: .69rem; }
+.senior-gallery__controls { position: absolute; z-index: 4; top: 20px; right: 20px; display: flex; align-items: center; gap: 5px; padding: 4px; border: 1px solid rgba(255,255,255,.19); border-radius: 999px; color: #fff; background: rgba(7, 20, 30, .68); backdrop-filter: blur(8px); }
+.senior-gallery__controls button { display: grid; width: 33px; height: 33px; padding: 0; place-items: center; border: 0; border-radius: 50%; color: #f9f5ec; background: transparent; cursor: pointer; }
+.senior-gallery__controls button:hover, .senior-gallery__controls button:focus-visible { color: #1b2932; background: var(--senior-gold); outline: none; }
+.senior-gallery__controls span { min-width: 39px; font-size: .7rem; text-align: center; }
+
+@media (max-width: 900px) {
+  .section--events .senior-celebration { display: flex !important; flex-direction: column !important; }
+  .senior-celebration__intro { order: 1; padding: clamp(1.5rem, 6vw, 2.5rem) clamp(1.35rem, 5vw, 2rem) 1.45rem; }
+  .senior-gallery { order: 2; width: 100%; min-height: 0; aspect-ratio: 16 / 10; }
+  .senior-celebration__details { order: 3; padding: clamp(1.4rem, 5vw, 2rem) clamp(1.35rem, 5vw, 2rem) clamp(1.65rem, 6vw, 2.5rem); }
+}
+@media (max-width: 600px) {
+  .senior-celebration__intro .section-block__title { font-size: clamp(2rem, 10.5vw, 2.75rem); }
+  .senior-gallery { aspect-ratio: 4 / 3; }
+  .senior-gallery__placeholder { padding: 32px 24px; }
+  .senior-gallery__controls { top: 12px; right: 12px; backdrop-filter: none; }
+  .senior-gallery__slide figcaption { right: 16px; bottom: 16px; left: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { .senior-gallery__slide { transition: none; } }
 
 /* =========================================================
    TURISM — TRASEU EDITORIAL
