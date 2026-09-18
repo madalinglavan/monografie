@@ -25,6 +25,15 @@
 .app-install-dialog p { font-size: .9rem; line-height: 1.8; }
 .app-install-dialog .app-install-dialog__note { margin-top: 22px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.1); color: #a7b5c3; font-size: .75rem; }
 .app-install-dialog__close { position: absolute; right: 15px; top: 15px; width: 44px; height: 44px; border: 1px solid rgba(216,179,107,.25); border-radius: 12px; color: #d8b36b; background: #172839; font-size: 26px; cursor: pointer; }
+.app-install-steps { margin: 20px 0; padding-left: 26px; }
+.app-install-steps[hidden] { display: none; }
+.app-install-steps li { padding: 8px 0 8px 7px; font-size: .85rem; line-height: 1.6; }
+.app-install-steps li::marker { color: #d8b36b; font-weight: 700; }
+.app-install-steps strong { display: block; color: #f6efe2; }
+.app-install-steps span { display: block; margin-top: 4px; color: #aebdcb; font-size: .78rem; }
+.app-install-dialog__done { width: 100%; min-height: 46px; padding: 12px 16px; border: 0; border-radius: 12px; background: #d8b36b; color: #101c2a; font: 700 .85rem "Poppins", sans-serif; cursor: pointer; }
+.app-install-dialog__done:focus-visible { outline: 3px solid #79b8ec; outline-offset: 4px; }
+[data-install-app]:disabled { opacity: .6; cursor: wait; }
 @media (max-width: 600px) {
   .app-install { flex-wrap: wrap; gap: 16px; padding: 20px; }
   .app-install > img { width: 52px; height: 52px; }

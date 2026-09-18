@@ -600,7 +600,7 @@
         </div>
       </div>
     </nav>
-    <button type="button" class="nav-install" data-install-app aria-label="Instalează Monografia Bustuchin" title="Instalează monografia">
+    <button type="button" class="nav-install" data-install-app aria-label="Instalează Monografia Bustuchin" title="Instalează monografia" hidden>
       <i class="fas fa-download" aria-hidden="true"></i>
       <span>Instalează</span>
     </button>
@@ -3021,7 +3021,7 @@
                   </div>
               </article>
 </div>
-</section>
+          </section>
         </div>
       </div>
     </section>
@@ -9186,6 +9186,13 @@
           <img src="img/app-icon-192.png" alt="" width="72" height="72">
           <h3 id="install-dialog-title">Instalează Monografia Bustuchin</h3>
           <p id="installAppInstructions"></p>
+          <ol class="app-install-steps" id="installAppIOSSteps" hidden>
+            <li><strong>Deschide monografia în Safari.</strong><span>Dacă ai ajuns aici din Facebook, Instagram sau altă aplicație, copiază adresa și deschide-o în Safari.</span></li>
+            <li><strong>Apasă Partajare.</strong><span>Caută pătratul cu săgeată în sus; în unele versiuni apare în meniul „Mai multe”.</span></li>
+            <li><strong>Alege „Adaugă pe ecranul principal”.</strong><span>Dacă lipsește, verifică „Editează acțiunile”.</span></li>
+            <li><strong>Confirmă cu „Adaugă”.</strong><span>Păstrează activ „Deschide ca aplicație web”, dacă apare. Stema Bustuchinului va apărea pe ecranul telefonului.</span></li>
+          </ol>
+          <button type="button" class="app-install-dialog__done">Am înțeles <i class="fas fa-check" aria-hidden="true"></i></button>
           <p class="app-install-dialog__note">Fotografiile, videoclipurile, harta, vremea și radioul pot necesita conexiune la internet.</p>
         </dialog>
         <div class="footer-bottom">

@@ -4,40 +4,59 @@
   const dialog = document.getElementById("installAppDialog");
   if (!buttons.length || !dialog) return;
   let installPrompt = null;
+  let installing = false;
+  let wasInstalled = false;
+  let dialogTrigger = null;
+  const ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
   const standalone = window.matchMedia("(display-mode: standalone)");
+  const isInstalled = () => wasInstalled || standalone.matches || navigator.standalone === true;
+  const updateButtons = () => {
+    buttons.forEach(button => {
+      button.hidden = isInstalled() || (button.classList.contains("nav-install") && !ios && !installPrompt);
+      button.disabled = installing;
+    });
+  };
   const installed = () => {
-    buttons.forEach(button => { button.hidden = true; });
+    wasInstalled = true;
+    updateButtons();
     if (dialog.open) dialog.close();
   };
-  if (standalone.matches || navigator.standalone) installed();
-  standalone.addEventListener("change", event => { if (event.matches) installed(); });
+  updateButtons();
+  standalone.addEventListener("change", updateButtons);
   window.addEventListener("beforeinstallprompt", event => {
     event.preventDefault();
     installPrompt = event;
-    if (!standalone.matches && !navigator.standalone) buttons.forEach(button => { button.hidden = false; });
+    updateButtons();
   });
   window.addEventListener("appinstalled", () => { installPrompt = null; installed(); });
-  const requestInstall = async () => {
-    if (installPrompt) {
+  const requestInstall = async event => {
+    if (isInstalled() || installing) return;
+    if (!ios && installPrompt) {
       const prompt = installPrompt;
       installPrompt = null;
+      installing = true;
+      updateButtons();
       try {
         await prompt.prompt();
         const result = await prompt.userChoice;
         if (result.outcome === "accepted") installed();
         return;
       } catch (error) { console.warn("Instalarea nu a putut fi inițiată:", error); }
+      finally { installing = false; updateButtons(); }
     }
-    const ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    dialogTrigger = event.currentTarget;
+    document.getElementById("installAppIOSSteps").hidden = !ios || !window.isSecureContext;
     document.getElementById("installAppInstructions").textContent = !window.isSecureContext
       ? "Instalarea este disponibilă pe versiunea publică a site-ului, printr-o conexiune HTTPS."
       : ios
-        ? "Deschide monografia în Safari, apasă Partajează, apoi Adaugă pe ecranul principal. Dacă apare opțiunea Deschide ca aplicație web, păstreaz-o activată și apasă Adaugă."
+        ? "Pe iPhone și iPad, adaugi monografia din meniul Safari. Urmează acești patru pași:"
         : "Din meniul browserului, caută Instalează aplicația sau Adaugă pe ecranul principal. Dacă opțiunea nu apare încă, reîncarcă pagina și încearcă din Chrome sau Edge. Disponibilitatea instalării depinde de browser.";
     dialog.showModal();
   };
   buttons.forEach(button => button.addEventListener("click", requestInstall));
   dialog.querySelector(".app-install-dialog__close").addEventListener("click", () => dialog.close());
+  dialog.querySelector(".app-install-dialog__done").addEventListener("click", () => dialog.close());
+  dialog.addEventListener("close", () => { if (dialogTrigger && !dialogTrigger.hidden) dialogTrigger.focus(); });
   dialog.addEventListener("click", event => {
     const bounds = dialog.getBoundingClientRect();
     if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
