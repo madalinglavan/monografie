@@ -213,6 +213,27 @@
 .project-person__portrait::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,16,28,.9), transparent 42%); }
 .project-person__portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
 .project-person__portrait-caption { position: absolute; z-index: 1; right: 18px; bottom: 17px; left: 18px; color: #eee6d8; font-size: .68rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.project-person__portrait--digital {
+  width: min(100%, 390px);
+  justify-self: center;
+  aspect-ratio: 4 / 4.8;
+  border: 1px solid rgba(218,179,108,.34);
+  box-shadow: 0 24px 56px rgba(0,0,0,.3), inset 0 0 0 7px rgba(255,255,255,.035);
+  background: #0b1c2e;
+}
+.project-person__portrait--digital img { object-position: center 18%; }
+.project-person__portrait--digital::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 15px;
+  left: 15px;
+  width: 28px;
+  height: 28px;
+  border-top: 2px solid #d7b16a;
+  border-left: 2px solid #d7b16a;
+  pointer-events: none;
+}
 .project-person__monogram {
   display: grid;
   width: min(100%, 310px);
@@ -259,7 +280,7 @@
   .project-person,
   .project-person--digital { grid-template-columns: 1fr; gap: 25px; padding: 18px; border-radius: 18px; }
   .project-person__portrait { aspect-ratio: 4 / 3.45; }
-  .project-person__monogram { width: 170px; }
+  .project-person__portrait--digital { width: min(100%, 300px); aspect-ratio: 4 / 4.6; }
   .project-person__content { min-width: 0; }
   .project-person h3 { font-size: 2.2rem; }
   .project-person__role { font-size: .72rem; }
@@ -4843,6 +4864,88 @@ main .is-editorial-opening + .section-block__text {
   }
   main .is-editorial-opening::before { width: 20px; margin-right: .45rem; }
   main .is-editorial-opening::first-letter { font-size: 3.1em; }
+}
+
+/* =========================================================
+   BUSTUCHINUL ÎN TRANSFORMARE — INVESTIȚII ȘI ENERGIE
+========================================================= */
+.transformation-atlas {
+  --transform-gold: #dfbb70;
+  --transform-teal: #64b8b1;
+  --transform-green: #86c895;
+  margin: clamp(62px, 8vw, 112px) 0;
+  padding: clamp(28px, 5vw, 62px);
+  overflow: hidden;
+  color: #eaf2ef;
+  background:
+    radial-gradient(circle at 88% 0%, rgba(102, 191, 176, .16), transparent 27%),
+    radial-gradient(circle at 0% 100%, rgba(224, 187, 112, .13), transparent 32%),
+    linear-gradient(135deg, #0c2230, #102b32 55%, #0a1b27);
+  border: 1px solid rgba(171, 208, 200, .22);
+  border-radius: 30px;
+  box-shadow: 0 30px 75px rgba(0, 0, 0, .22);
+}
+.transformation-atlas__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(270px, .75fr);
+  align-items: end;
+  gap: clamp(28px, 6vw, 92px);
+}
+.transformation-atlas .section-block__badge { color: #b9e0d8; background: rgba(100, 184, 177, .1); border-color: rgba(100, 184, 177, .25); }
+.transformation-atlas h3 { max-width: 720px; margin: 15px 0 0; color: #f5f1e8; font-family: "DM Serif Display", Georgia, serif; font-size: clamp(2.5rem, 5vw, 5.3rem); font-weight: 400; line-height: .95; letter-spacing: -.03em; text-wrap: balance; }
+.transformation-atlas__header > p { max-width: 550px; margin: 0; padding-left: 22px; color: #b7c8cd; border-left: 1px solid rgba(223, 187, 112, .42); font-size: .98rem; line-height: 1.8; }
+.transformation-atlas__legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: clamp(35px, 5vw, 56px) 0 18px; padding-top: 17px; border-top: 1px solid rgba(185, 222, 216, .14); }
+.transformation-atlas__legend span { display: inline-flex; align-items: center; gap: 7px; color: #b7c3c9; font-size: .69rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.transformation-atlas__legend i { font-size: .76rem; }
+.transformation-atlas__legend .is-complete i { color: var(--transform-green); }
+.transformation-atlas__legend .is-active i { color: var(--transform-teal); }
+.transformation-atlas__legend .is-planned i { color: var(--transform-gold); }
+.transformation-atlas__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; }
+.transformation-card { position: relative; min-width: 0; min-height: 245px; padding: 22px; overflow: hidden; background: rgba(255,255,255,.04); border: 1px solid rgba(197, 224, 216, .14); border-radius: 18px; }
+.transformation-card::after { content: ""; position: absolute; right: -35px; bottom: -42px; width: 135px; aspect-ratio: 1; border: 1px solid rgba(255,255,255,.05); border-radius: 50%; box-shadow: 0 0 0 19px rgba(255,255,255,.018), 0 0 0 38px rgba(255,255,255,.012); pointer-events: none; }
+.transformation-card--complete { border-top: 2px solid rgba(134, 200, 149, .72); }
+.transformation-card--active { border-top: 2px solid rgba(100, 184, 177, .72); }
+.transformation-card--planned { border-top: 2px solid rgba(223, 187, 112, .75); }
+.transformation-card__icon { display: grid; width: 40px; height: 40px; place-items: center; margin-bottom: 24px; border-radius: 12px; color: #d8e7e4; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); }
+.transformation-card--complete .transformation-card__icon { color: var(--transform-green); }
+.transformation-card--active .transformation-card__icon { color: var(--transform-teal); }
+.transformation-card--planned .transformation-card__icon { color: var(--transform-gold); }
+.transformation-card > span { display: block; margin-bottom: 7px; color: #99aaa9; font-size: .63rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.transformation-card h4 { max-width: 245px; margin: 0 0 10px; color: #f4f1e9; font-family: "DM Serif Display", Georgia, serif; font-size: 1.42rem; font-weight: 400; line-height: 1.08; }
+.transformation-card p { position: relative; z-index: 1; margin: 0; color: #aebdc1; font-size: .78rem; line-height: 1.66; }
+.transformation-atlas__footer { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 13px; margin-top: 16px; padding: 15px 17px; color: #aebdbd; background: rgba(4, 17, 24, .34); border: 1px solid rgba(223, 187, 112, .16); border-radius: 14px; }
+.transformation-atlas__footer > i { color: var(--transform-gold); }
+.transformation-atlas__footer p { margin: 0; font-size: .72rem; line-height: 1.55; }
+.transformation-atlas__footer a { color: #f0ce85; font-size: .7rem; font-weight: 750; text-decoration: none; white-space: nowrap; }
+.transformation-atlas__footer a:hover { color: #fff0ca; }
+
+/* Tranziția economică îmbogățește capitolul „Bustuchinul de altădată”. */
+.section--memories .memory-industry__journey { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; margin-top: 25px; }
+.section--memories .memory-industry__journey article { padding: 14px; background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; }
+.section--memories .memory-industry__journey i { color: #d6ad70; font-size: .88rem; }
+.section--memories .memory-industry__journey span { display: block; margin: 14px 0 5px; color: #a89370; font-size: .58rem; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+.section--memories .memory-industry__journey h4 { margin: 0 0 8px; color: #f7f1e7; font-family: "DM Serif Display", Georgia, serif; font-size: 1.05rem; font-weight: 400; line-height: 1.1; }
+.section--memories .memory-industry__journey p { margin: 0; color: rgba(255,255,255,.6); font-size: .7rem; line-height: 1.58; }
+.section--memories .memory-industry__link { display: inline-flex; align-items: center; gap: 9px; margin-top: 21px; color: #dfbb70; font-size: .72rem; font-weight: 800; text-decoration: none; }
+.section--memories .memory-industry__link:hover { color: #fff1d3; }
+
+@media (max-width: 900px) {
+  .transformation-atlas__header { grid-template-columns: 1fr; }
+  .transformation-atlas__header > p { max-width: 720px; }
+  .transformation-atlas__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .section--memories .memory-industry__journey { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .transformation-atlas { margin: 52px 0; padding: 25px 16px 18px; border-radius: 22px; }
+  .transformation-atlas h3 { font-size: clamp(2.35rem, 12vw, 3.55rem); }
+  .transformation-atlas__header > p { padding-left: 15px; font-size: .91rem; line-height: 1.72; }
+  .transformation-atlas__legend { display: grid; gap: 10px; margin-top: 30px; }
+  .transformation-atlas__grid { display: flex; gap: 10px; overflow-x: auto; padding: 1px 1px 8px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .transformation-atlas__grid::-webkit-scrollbar { display: none; }
+  .transformation-card { flex: 0 0 min(82vw, 300px); min-height: 255px; scroll-snap-align: start; }
+  .transformation-atlas__footer { grid-template-columns: auto minmax(0, 1fr); padding: 13px; }
+  .transformation-atlas__footer a { grid-column: 1 / -1; padding-left: 27px; white-space: normal; }
+  .section--memories .memory-industry__journey { margin-top: 19px; }
 }
 
 /* =========================================================

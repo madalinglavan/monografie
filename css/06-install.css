@@ -1,0 +1,25 @@
+/* Installation invitation and platform guidance. */
+.app-install { display: flex; align-items: center; gap: 22px; margin: 30px auto; padding: 26px; width: min(100%, 1100px); border: 1px solid rgba(216,179,107,.28); border-radius: 20px; background: linear-gradient(120deg, #132738, #0c1927); }
+.app-install > img { flex-shrink: 0; border-radius: 14px; }
+.app-install > div { flex: 1; min-width: 0; }
+.app-install span { color: #d8b36b; font-size: .65rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+.app-install h3 { margin: 6px 0; color: #f6efe2; font-family: "DM Serif Display", Georgia, serif; font-weight: 400; font-size: clamp(1.3rem, 2.2vw, 2rem); line-height: 1.2; }
+.app-install p { margin: 0; color: #b4c0cb; font-size: .82rem; line-height: 1.6; }
+.app-install button { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 46px; padding: 12px 20px; border: 1px solid #d8b36b; border-radius: 12px; background: #d8b36b; color: #101c2a; font: 700 .82rem "Poppins", sans-serif; cursor: pointer; }
+.app-install button[hidden] { display: none; }
+.app-install button:hover { background: #e9c888; }
+.app-install button:focus-visible, .app-install-dialog__close:focus-visible { outline: 3px solid #79b8ec; outline-offset: 4px; }
+.app-install-dialog { position: fixed; inset: 0; margin: auto; box-sizing: border-box; width: min(450px, calc(100% - 32px)); max-height: calc(100dvh - 40px); padding: 30px; overflow-y: auto; border: 1px solid rgba(216,179,107,.4); border-radius: 24px; background: #101e2e; color: #c5d0da; box-shadow: 0 24px 80px rgba(0,0,0,.5); }
+.app-install-dialog::backdrop { background: rgba(3,10,18,.8); }
+.app-install-dialog > img { border-radius: 16px; }
+.app-install-dialog h3 { color: #f6efe2; font-family: "DM Serif Display", Georgia, serif; font-size: 1.8rem; font-weight: 400; line-height: 1.2; margin: 20px 0 14px; }
+.app-install-dialog p { font-size: .9rem; line-height: 1.8; }
+.app-install-dialog .app-install-dialog__note { margin-top: 22px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.1); color: #a7b5c3; font-size: .75rem; }
+.app-install-dialog__close { position: absolute; right: 15px; top: 15px; width: 44px; height: 44px; border: 1px solid rgba(216,179,107,.25); border-radius: 12px; color: #d8b36b; background: #172839; font-size: 26px; cursor: pointer; }
+@media (max-width: 600px) {
+  .app-install { flex-wrap: wrap; gap: 16px; padding: 20px; }
+  .app-install > img { width: 52px; height: 52px; }
+  .app-install > div { flex-basis: calc(100% - 68px); }
+  .app-install button { width: 100%; }
+  .app-install-dialog { padding: 24px; }
+}
