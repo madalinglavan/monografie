@@ -1,12 +1,12 @@
 (() => {
   "use strict";
-  const button = document.getElementById("installAppButton");
+  const buttons = Array.from(document.querySelectorAll("[data-install-app]"));
   const dialog = document.getElementById("installAppDialog");
-  if (!button || !dialog) return;
+  if (!buttons.length || !dialog) return;
   let installPrompt = null;
   const standalone = window.matchMedia("(display-mode: standalone)");
   const installed = () => {
-    button.hidden = true;
+    buttons.forEach(button => { button.hidden = true; });
     if (dialog.open) dialog.close();
   };
   if (standalone.matches || navigator.standalone) installed();
@@ -14,10 +14,10 @@
   window.addEventListener("beforeinstallprompt", event => {
     event.preventDefault();
     installPrompt = event;
-    if (!standalone.matches && !navigator.standalone) button.hidden = false;
+    if (!standalone.matches && !navigator.standalone) buttons.forEach(button => { button.hidden = false; });
   });
   window.addEventListener("appinstalled", () => { installPrompt = null; installed(); });
-  button.addEventListener("click", async () => {
+  const requestInstall = async () => {
     if (installPrompt) {
       const prompt = installPrompt;
       installPrompt = null;
@@ -35,7 +35,8 @@
         ? "Deschide monografia în Safari, apasă Partajează, apoi Adaugă pe ecranul principal. Dacă apare opțiunea Deschide ca aplicație web, păstreaz-o activată și apasă Adaugă."
         : "Din meniul browserului, caută Instalează aplicația sau Adaugă pe ecranul principal. Dacă opțiunea nu apare încă, reîncarcă pagina și încearcă din Chrome sau Edge. Disponibilitatea instalării depinde de browser.";
     dialog.showModal();
-  });
+  };
+  buttons.forEach(button => button.addEventListener("click", requestInstall));
   dialog.querySelector(".app-install-dialog__close").addEventListener("click", () => dialog.close());
   dialog.addEventListener("click", event => {
     const bounds = dialog.getBoundingClientRect();

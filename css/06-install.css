@@ -1,4 +1,13 @@
 /* Installation invitation and platform guidance. */
+.nav-install { display: none; }
+.nav-install[hidden] { display: none !important; }
+@media (max-width: 768px) {
+  .navbar .nav-install { display: inline-flex; flex: 0 0 46px; width: 46px; height: 46px; margin-left: auto; margin-right: 9px; padding: 0; flex-direction: column; align-items: center; justify-content: center; gap: 4px; border: 1px solid rgba(216,179,107,.5); border-radius: 14px; background: rgba(216,179,107,.12); color: #e7c381; font-family: "Poppins", sans-serif; cursor: pointer; }
+  .nav-install i { font-size: 16px; }
+  .nav-install span { font-size: 6.5px; font-weight: 700; line-height: 1; }
+  .nav-install:focus-visible { outline: 3px solid #79b8ec; outline-offset: 3px; }
+  .nav-install:hover { background: rgba(216,179,107,.22); }
+}
 .app-install { display: flex; align-items: center; gap: 22px; margin: 30px auto; padding: 26px; width: min(100%, 1100px); border: 1px solid rgba(216,179,107,.28); border-radius: 20px; background: linear-gradient(120deg, #132738, #0c1927); }
 .app-install > img { flex-shrink: 0; border-radius: 14px; }
 .app-install > div { flex: 1; min-width: 0; }
