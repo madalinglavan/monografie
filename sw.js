@@ -1,7 +1,7 @@
 /* Only the local reading shell is cached; maps, audio and video stay online. */
-const CACHE = "bustuchin-reading-v3";
+const CACHE = "bustuchin-reading-v5";
 const ROOT = new URL("./", self.location.href);
-const SHELL = ["index.html", "style.css", "script.js", "pwa.js", "manifest.webmanifest", "css/01-foundation-components.css", "css/02-map.css", "css/03-editorial-chapters.css", "css/04-responsive.css", "css/05-refinements.css", "css/06-install.css", "img/logo.png", "img/app-icon-180.png", "img/app-icon-192.png", "img/app-icon-512.png"].map(path => new URL(path, ROOT).href);
+const SHELL = ["index.html", "style.css", "script.js", "pwa.js", "manifest.webmanifest", "css/01-foundation-components.css", "css/02-map.css", "css/03-editorial-chapters.css", "css/04-responsive.css", "css/05-refinements.css", "css/06-install.css", "css/07-photography.css", "img/logo.png", "img/app-icon-180.png", "img/app-icon-192.png", "img/app-icon-512.png"].map(path => new URL(path, ROOT).href);
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)));
 });

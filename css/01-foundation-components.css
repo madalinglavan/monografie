@@ -237,7 +237,9 @@ body::after {
   text-decoration: none;
 }
 .logo img{
+  width:auto;
   height:65px;
+  flex-shrink:0;
 }
 .logo span{
   font-size:.9rem;
