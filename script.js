@@ -1906,13 +1906,17 @@ async function initBustuchinMap() {
           false,
 
         doubleClickZoom:
-          true,
+          false,
 
         dragging:
-          true,
+          false,
 
         touchZoom:
-          true
+          false,
+
+        keyboard: false,
+        boxZoom: false,
+        tapHold: false
 
       }
     );
@@ -2758,40 +2762,36 @@ async function loadBustuchinBoundary() {
   );
 
 
-  /* =======================================================
-     SCROLL WHEEL ZOOM — DESKTOP
-  ======================================================= */
+  /* Explicit activation keeps page scrolling available over the map. */
+  const activateButton = document.getElementById("mapActivate");
+  const deactivateButton = document.getElementById("mapDeactivate");
+  const activationCover = document.getElementById("mapActivationCover");
+  const interaction = document.getElementById("mapInteraction");
+  const interactionHandlers = ["dragging", "touchZoom", "doubleClickZoom", "scrollWheelZoom", "boxZoom", "keyboard", "tapHold"];
 
-  const desktopPointer =
-    window.matchMedia(
-      "(hover: hover) and (pointer: fine)"
-    );
+  const setMapActive = active => {
+    interactionHandlers.forEach(name => map[name]?.[active ? "enable" : "disable"]());
+    mapElement.inert = !active;
+    interaction.classList.toggle("is-active", active);
+    activationCover.hidden = active;
+    deactivateButton.hidden = !active;
+    if (active) {
+      map.invalidateSize();
+      mapElement.focus({ preventScroll: true });
+    } else {
+      map.closePopup();
+      activateButton.focus({ preventScroll: true });
+    }
+  };
 
-
-  if (
-    desktopPointer.matches
-  ) {
-
-    mapElement.addEventListener(
-      "click",
-      () => {
-
-        map.scrollWheelZoom.enable();
-
-      }
-    );
-
-
-    mapElement.addEventListener(
-      "mouseleave",
-      () => {
-
-        map.scrollWheelZoom.disable();
-
-      }
-    );
-
-  }
+  activateButton.addEventListener("click", () => setMapActive(true));
+  deactivateButton.addEventListener("click", () => setMapActive(false));
+  interaction.addEventListener("keydown", event => {
+    if (event.key === "Escape" && interaction.classList.contains("is-active")) {
+      event.preventDefault();
+      setMapActive(false);
+    }
+  });
 
 }
 

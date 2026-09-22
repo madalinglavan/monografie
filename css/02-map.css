@@ -602,3 +602,32 @@
     opacity: 0;
   }
 }
+
+/* Activation overlay is outside Leaflet so touch gestures scroll the page. */
+.map-interaction { position: relative; isolation: isolate; }
+.map-interaction:not(.is-active) .community-map__canvas { pointer-events: none; touch-action: auto; }
+.map-interaction__cover {
+  position: absolute; inset: 0; z-index: 1000;
+  display: grid; place-items: center; padding: 20px;
+  touch-action: pan-y pinch-zoom;
+  background: rgba(2, 6, 23, .16);
+}
+.map-interaction__activate {
+  display: grid; gap: 7px; max-width: 100%;
+  padding: 20px 28px; border: 1px solid rgba(232, 203, 157, .65);
+  border-radius: 18px; color: #fff; background: #122136;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .3);
+  font: inherit; text-align: center; cursor: pointer;
+  touch-action: pan-y pinch-zoom;
+}
+.map-interaction__activate span { font-size: clamp(1rem, 3vw, 1.2rem); font-weight: 600; }
+.map-interaction__activate small { font-size: .78rem; line-height: 1.5; color: #d5deea; }
+.map-interaction__activate:hover { background: #1b304a; }
+.map-interaction__deactivate {
+  position: absolute; top: 16px; right: 16px; z-index: 1000;
+  max-width: calc(100% - 80px); min-height: 44px; padding: 10px 16px;
+  border: 1px solid #c69a55; border-radius: 12px;
+  background: #122136; color: #fff; font: inherit; font-size: .8rem; cursor: pointer;
+}
+.map-interaction button:focus-visible { outline: 3px solid #efd19d; outline-offset: 4px; }
+.map-interaction__cover[hidden], .map-interaction__deactivate[hidden] { display: none !important; }

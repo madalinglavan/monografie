@@ -965,11 +965,21 @@
                     Vezi întreaga comună
                   </button>
                 </div>
+                <div class="map-interaction" id="mapInteraction">
                 <div
                   id="bustuchinMap"
                   class="community-map__canvas"
+                  inert
                   aria-label="Hartă interactivă a comunei Bustuchin"
                 >
+                </div>
+                  <div class="map-interaction__cover" id="mapActivationCover">
+                    <button class="map-interaction__activate" id="mapActivate" type="button" aria-controls="bustuchinMap">
+                      <span>Activează harta</span>
+                      <small>Apoi poți explora locurile din comună</small>
+                    </button>
+                  </div>
+                  <button class="map-interaction__deactivate" id="mapDeactivate" type="button" aria-controls="bustuchinMap" hidden>Încheie explorarea</button>
                 </div>
                 <!-- LEGENDĂ -->
                 <div
